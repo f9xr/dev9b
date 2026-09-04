@@ -1,7 +1,7 @@
 # Change baseurl before deploy
-baseurl = "https://starter.stack.cai.im/"
+baseurl = "https://f9xr.github.io/dev9b/"
 locale  = "en-us"
-title   = "Hugo Theme Stack Starter"
+title   = "F9XR's Dev9b"
 
 # Theme i18n support
 # See all available values at https://github.com/CaiJimmy/hugo-theme-stack/tree/master/i18n
