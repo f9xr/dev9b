@@ -1,0 +1,29 @@
+# Humans.txt
+
+# Dev9b
+# https://f9xr.github.io/dev9b/
+
+## Site
+Dev9b - Open-source developer blog by F9XR Team
+
+## Team
+F9XR Team
+
+## Contact
+GitHub: https://github.com/f9xr
+Issues: https://github.com/f9xr/dev9b/issues
+
+## Tools
+- Hugo (https://gohugo.io/)
+- Hugo Theme Stack (https://github.com/CaiJimmy/hugo-theme-stack)
+- GitHub Pages (https://pages.github.com/)
+- GitHub Actions (https://github.com/features/actions)
+
+## License
+- Source code: MIT License
+- Content: CC BY-NC-SA 4.0
+
+## Thanks
+- Hugo community
+- Hugo Theme Stack by Jimmy Cai
+- All contributors to Dev9b

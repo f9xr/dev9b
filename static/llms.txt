@@ -1,0 +1,31 @@
+# Dev9b
+
+> Dev9b is an open-source blog article publishing platform by F9XR Team. We share latest articles, tutorials, coding videos, and developer guides for the open developer community.
+
+Dev9b is a free, open-source online community where software developers share knowledge, write technical articles, and help each other grow. Made by developers, for developers.
+
+## Site
+
+- Website: https://f9xr.github.io/dev9b/
+- GitHub: https://github.com/f9xr/dev9b
+- License: MIT (source), CC BY-NC-SA 4.0 (content)
+
+## About
+
+- About Dev9b: https://f9xr.github.io/dev9b/about/
+- Contributor Guide: https://f9xr.github.io/dev9b/contribute/
+
+## Articles
+
+- Welcome to Dev9b: https://f9xr.github.io/dev9b/p/hello-world/
+
+## Pages
+
+- Archives: https://f9xr.github.io/dev9b/archives/
+- Search: https://f9xr.github.io/dev9b/search/
+- Links: https://f9xr.github.io/dev9b/links/
+
+## Contact
+
+- F9XR Team: https://github.com/f9xr
+- Issues: https://github.com/f9xr/dev9b/issues

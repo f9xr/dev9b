@@ -1,47 +1,79 @@
-<img align="right" width="150" alt="logo" src="https://user-images.githubusercontent.com/5889006/190859553-5b229b4f-c476-4cbd-928f-890f5265ca4c.png">
+<img align="right" width="150" alt="logo" src="assets/img/f9x-logo.webp">
 
-# Hugo Theme Stack Starter Template
+# F9XR's Dev9b
 
-This is a quick start template for [Hugo theme Stack](https://github.com/CaiJimmy/hugo-theme-stack). It uses [Hugo modules](https://gohugo.io/hugo-modules/) feature to load the theme.
+**Dev9b** is an open-source blog article publishing platform by the **F9XR Team**. We share the latest articles, tutorials, coding videos, and developer guides for the open developer community.
 
-It comes with a basic theme structure and configuration. GitHub action has been set up to deploy the theme to a public GitHub page automatically. Also, there's a cron job to update the theme automatically everyday.
+Dev9b is a free, open-source online community where software developers share knowledge, write technical articles, and help each other grow. Made by developers, for developers.
 
-## Video Tutorial
+**Live site:** https://f9xr.github.io/dev9b/
 
-In case you got lost during the setup process, here's a video tutorial that setups a new Hugo site using this template, and deploys it to GitHub Pages: https://www.youtube.com/watch?v=8qDdQQ6Ifxo
+## Features
 
-## Get started
+- 📄 Latest developer articles & tutorials
+- 🎥 Coding videos and guides
+- 🚀 Free, open-source, community-driven
+- ⚙️ Built with Hugo + Hugo Theme Stack
+- 🌐 Auto-deployed to GitHub Pages
+- 🔍 SEO-optimized (meta tags, OG tags, JSON-LD structured data, sitemap, robots.txt)
 
-1. Click *Use this template*, and create your repository as `<username>.github.io` on GitHub. (You can also use a different repository name, but then the resulting website will be available at `https://<username>.github.io/<repository-name>`. )
-![Step 1](https://user-images.githubusercontent.com/5889006/156916624-20b2a784-f3a9-4718-aa5f-ce2a436b241f.png)
+## Local Development
 
-2. Once the repository is created, create a GitHub codespace associated with it.
-![Create codespace](https://user-images.githubusercontent.com/5889006/156916672-43b7b6e9-4ffb-4704-b4ba-d5ca40ffcae7.png)
-
-3. While waiting for the codespace to be created, go to `Settings` -> `Pages` of your newly created repository, and set `Build and deployment` -> `Source` to `GitHub Actions`.
-![Change build and deployment source](https://github.com/user-attachments/assets/192459bf-25d8-441e-8029-c108d789e449)
-
-4. After the codespace is created, you can test that the site is built successfully by running `hugo server` in the terminal and see your new site in action. 
-
-5. Check `config` folder for the configuration files. You can edit them to suit your needs. Make sure to update the `baseurl` property in `config/_default/config.toml` to your site's URL. For example, if your new repository is named `my-blog`, then the `baseurl` should be `https://<username>.github.io/my-blog/`.
-
-6. Once you're done editing the site, just commit it and push it. GitHub action will deploy the site automatically to GitHub page asociated with the repository.
-
----
-
-In case you don't want to use GitHub codespace, you can also run this template in your local machine. **You need to install Git, Go and Hugo extended locally.** For more information, check official Hugo documentation: https://gohugo.io/installation/
-
-## Update theme manually
-
-Run:
+You need **Git**, **Go**, and **Hugo Extended** installed.
 
 ```bash
-hugo mod get -u github.com/CaiJimmy/hugo-theme-stack/v4
-hugo mod tidy
+# Install the theme module
+hugo mod get
+
+# Run the development server
+hugo server -D
 ```
 
-> This starter template has been configured with `v4` version of theme. Due to the limitation of Go module, once the `v4` or up version of theme is released, you need to update the theme manually. (Modifying `config/module.toml` file)
+Visit http://localhost:1313/
 
-## Deploy to another static page hostings
+## Contribute an Article
 
-Check official Hugo documentation: https://gohugo.io/host-and-deploy/
+Dev9b welcomes contributions! All articles are reviewed by the **F9XR Review Board** before publishing.
+
+1. Fork [the repository](https://github.com/f9xr/dev9b)
+2. Create your article under `content/post/your-slug/index.md`
+3. Add a cover image and proper front matter
+4. Submit a Pull Request
+
+For the full guide, see the live [Contributor Guide](https://f9xr.github.io/dev9b/contribute/).
+
+## Site Structure
+
+```
+content/
+├── _index.md            # Homepage
+├── page/
+│   ├── about/           # About Dev9b
+│   ├── archives/        # Archive listing
+│   ├── contribute/      # Contributor guide
+│   ├── links/           # Links page
+│   └── search/          # Search page
+└── post/                # Articles
+```
+
+## SEO & Standards Files
+
+Located in `static/`:
+- `llms.txt` / `llms-full.txt` — LLM-readable site summaries
+- `humans.txt` — Team & tools credits
+- `robots.txt` — Crawler rules
+- `articles-urls.txt` — Article URL index
+
+## Theme
+
+- [hugo-theme-stack v4](https://github.com/CaiJimmy/hugo-theme-stack) loaded via Hugo modules
+- Theme auto-updates daily via GitHub Actions cron
+
+## License
+
+- Source code: [MIT](LICENSE)
+- Content: CC BY-NC-SA 4.0
+
+## Team
+
+F9XR Team — [github.com/f9xr](https://github.com/f9xr)

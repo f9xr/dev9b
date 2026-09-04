@@ -1,0 +1,81 @@
+{{- $siteName := "F9XR's Dev9b" -}}
+{{- $siteURL := .Site.BaseURL | safeHTML -}}
+{{- $defaultOGImage := (printf "%simg/f9x-logo.webp" .Site.BaseURL) -}}
+{{- $hasOGImage := false -}}
+{{- with .Params.image -}}{{- $hasOGImage = true -}}{{- end -}}
+
+{{- if not $hasOGImage -}}
+<meta property='og:image' content='{{ $defaultOGImage }}'>
+<meta name='twitter:card' content='summary_large_image'>
+<meta name='twitter:image' content='{{ $defaultOGImage }}'>
+{{- end -}}
+
+{{/* Organization JSON-LD: authoritativeness & trust. Output once on every page. */}}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://f9xr.github.io/#organization",
+    "name": "F9XR Team",
+    "url": "https://f9xr.github.io/",
+    "logo": {
+        "@type": "ImageObject",
+        "url": {{ (printf "%simg/f9x-logo.webp" .Site.BaseURL) | jsonify }}
+    },
+    "sameAs": [
+        "https://github.com/f9xr",
+        "https://github.com/f9xr/dev9b"
+    ]
+}
+</script>
+
+{{- if .IsHome -}}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": {{ (printf "%s#website" .Site.BaseURL) | jsonify }},
+    "name": {{ $siteName | jsonify }},
+    "url": {{ $siteURL | jsonify }},
+    "description": {{ .Site.Params.description | default (printf "%s" $siteName) | jsonify }},
+    "publisher": { "@id": "https://f9xr.github.io/#organization" },
+    "inLanguage": "en-US"
+}
+</script>
+{{- else if .IsPage -}}
+
+{{/* Author: use the explicit author param when set, else default to F9XR Team Organization.
+     Treat posts as real authored content to satisfy E-E-A-T Expertise signals. */}}
+{{- $authorName := "F9XR Team" -}}
+{{- with .Params.author }}{{ $authorName = . }}{{ end -}}
+{{- $authorType := "Person" -}}
+{{- if (eq $authorName "F9XR Team") }}{{ $authorType = "Organization" }}{{ end -}}
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": {{ .Params.schemaType | default "TechArticle" | jsonify }},
+    "headline": {{ .Title | jsonify }},
+    "description": {{ partial "data/description" . | jsonify }},
+    "image": {{ with .Params.image }}{{ (printf "%s%s" $.Permalink .) | jsonify }}{{ else }}{{ $defaultOGImage | jsonify }}{{ end }},
+    "datePublished": {{ .Date.Format "2006-01-02T15:04:05-07:00" | jsonify }},
+    "dateModified": {{ .Lastmod.Format "2006-01-02T15:04:05-07:00" | jsonify }},
+    "author": {
+        "@type": {{ $authorType | jsonify }},
+        "name": {{ $authorName | jsonify }},
+        "sameAs": "https://github.com/f9xr"
+    },
+    "publisher": { "@id": "https://f9xr.github.io/#organization" },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": {{ .Permalink | jsonify }}
+    },
+    "inLanguage": "en-US",
+    {{- with .Params.keywords }}
+    "keywords": {{ . | jsonify }},
+    {{- end }}
+    "isAccessibleForFree": true,
+    "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+}
+</script>
+{{- end -}}

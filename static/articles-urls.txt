@@ -1,0 +1,19 @@
+# Dev9b Articles
+# https://f9xr.github.io/dev9b/
+# All article URLs on Dev9b
+
+# Home
+https://f9xr.github.io/dev9b/
+
+# Articles
+https://f9xr.github.io/dev9b/p/hello-world/
+
+# Pages
+https://f9xr.github.io/dev9b/about/
+https://f9xr.github.io/dev9b/contribute/
+https://f9xr.github.io/dev9b/archives/
+https://f9xr.github.io/dev9b/search/
+https://f9xr.github.io/dev9b/links/
+
+# RSS
+https://f9xr.github.io/dev9b/index.xml
