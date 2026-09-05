@@ -1,0 +1,13 @@
+{{- $description := .Site.Params.sidebar.subtitle -}}
+
+{{- if .Description -}}
+    {{- $description = .Description -}}
+{{- else if eq .Kind "term" -}}
+    {{- $description = (printf "Dev9b articles tagged %s — open-source developer blog with tutorials, skills, and coding guides by F9XR Team." .Data.Term) -}}
+{{- else if eq .Kind "section" -}}
+    {{- $description = (printf "%s - %s" .Title .Site.Title) -}}
+{{- else if .IsPage -}}
+    {{- $description = .Summary -}}
+{{- end -}}
+
+{{ return (replaceRE "\n" " " $description | plainify) }}

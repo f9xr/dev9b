@@ -1,4 +1,6 @@
 # Configure main menu and social menu
+# Social links are also output as rel="me" in the sidebar and as sameAs in the Organization JSON-LD.
+
 [[social]]
     identifier = "github"
     name       = "GitHub"
@@ -8,9 +10,57 @@
         icon = "brand-github"
 
 [[social]]
-    identifier = "twitter"
-    name       = "Twitter"
-    url        = "https://twitter.com/f9xr"
+    identifier = "linkedin"
+    name       = "LinkedIn"
+    url        = "https://linkedin.com/company/f9xrteam"
 
     [social.params]
-        icon = "brand-twitter"
+        icon = "brand-linkedin"
+
+[[social]]
+    identifier = "pinterest"
+    name       = "Pinterest"
+    url        = "https://pinterest.com/f9xr"
+
+    [social.params]
+        icon = "brand-pinterest"
+
+[[social]]
+    identifier = "facebook"
+    name       = "Facebook"
+    url        = "https://facebook.com/profile.php?id=61586225441401"
+
+    [social.params]
+        icon = "brand-facebook"
+
+[[social]]
+    identifier = "youtube"
+    name       = "YouTube"
+    url        = "https://youtube.com/@QuarterlyLIV"
+
+    [social.params]
+        icon = "brand-youtube"
+
+[[social]]
+    identifier = "instagram"
+    name       = "Instagram"
+    url        = "https://instagram.com/f9xrteam"
+
+    [social.params]
+        icon = "brand-instagram"
+
+[[social]]
+    identifier = "tumblr"
+    name       = "Tumblr"
+    url        = "https://www.tumblr.com/f9xr"
+
+    [social.params]
+        icon = "brand-tumblr"
+
+[[social]]
+    identifier = "threads"
+    name       = "Threads"
+    url        = "https://www.threads.com/@f9xrteam"
+
+    [social.params]
+        icon = "brand-threads"

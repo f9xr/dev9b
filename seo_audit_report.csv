@@ -1,0 +1,15 @@
+﻿#,Pillar,Detected Issue,Severity,Target File(s),Effort,Est. Traffic Impact,Est. Revenue Impact,Time to Impact,Business Value
+1,On-Page,Article titles rendered as <h2>; only H1 is the site brand — keyword never appears in an H1,Medium,layouts/_partials/article/components/details.html,S (<4hr),+5-10% organic CTR/rank lift on target posts,Low,1-4 weeks,Traffic
+2,Technical,15 indexable meta-refresh /page/N/ pagination alias pages inflate crawl target set,Medium,config/_default/config.toml,S (<4hr),+2-5% crawl efficiency / index quality,Low,Immediate,Traffic / Risk
+3,On-Page,11 section/tag pages share one identical meta description (sidebar subtitle),Medium,layouts/_partials/data/description.html + 5 content front matter files,S (<4hr),+3-8% SERP CTR on listing pages,Low,1-4 weeks,Traffic
+4,Performance,LCP cover image lazy-loaded — delays Largest Contentful Paint,Medium,layouts/_partials/article/components/header.html,S (<4hr),CWV LCP improvement (Discover eligibility signal),Low,1-4 weeks,Traffic
+5,CI/CD,Hugo build drift: workflow uses 'latest' instead of pinned HUGO_VERSION; no clean destination,Medium,.github/workflows/deploy.yml,S (<4hr),Reproducible builds (prevent regressions / stale duplicate pages),n/a,Immediate,Risk
+6,Content,Placeholder https://example.com links ("Link 1"/"Link 2") live in published Contributor Guide,Medium,content/page/contribute/index.md:164-165,S (<4hr),n/a (trust); protects existing value,Low,Immediate,Brand / Trust
+7,Technical,enableGitInfo off — no lastmod / article:modified_time freshness signals,Medium,config/_default/config.toml,S (<4hr),Freshness ranking signal (Discover relevance),Low,1-4 weeks,Traffic
+8,Schema / Social,og:type=article on non-post pages (About/Team/Contribute/Editorial-Policy/Links/Search/Archives),Low,layouts/_partials/head/opengraph/provider/base.html,S (<4hr),Correct social preview semantics,Low,Immediate,Brand
+9,Social,og:image:width / og:image:height never emitted (OpenGraph protocol),Low,layouts/_partials/head/custom.html,S (<4hr),Social share rendering quality,Low,Immediate,Brand
+10,AI / IndexNow,No sitemap ping / IndexNow submission on deploy — slower indexation of new posts,Low,.github/workflows/deploy.yml,S (<4hr),Faster indexation for Discover/library,Low,Immediate,Traffic
+11,On-Page,Taxonomy titles are raw slugs (Vscode / Opencode / Ai-Tools),Low,layouts/_partials/data/title.html + optional _index.md files,M (1-3d),Utility-page CTR,Low,1-4 weeks,Traffic
+12,Rich Results,FAQPage opportunity: troubleshooting Q&As in posts are unmarked,Low,layouts/_partials/seo/jsonld.html (extend),M (1-3d),FAQ rich-result eligibility on 2 posts,Low,1-4 weeks,Traffic
+13,Third-Party,Disqus loaded on every article (perf + GDPR/privacy weight),Low,config/_default/params.toml,S (<4hr),Minor LCP/INP reduction,Low,Immediate,Risk
+14,AdSense,Verification metas present but empty; ads.txt missing (blocked on publisher ID),Blocked,config/_default/params.toml + static/ads.txt,S (<4hr) once IDs exist,n/a until traffic scales,High (AdSense),When approved,Revenue

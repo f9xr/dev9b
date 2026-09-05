@@ -13,6 +13,16 @@ F9XR Team
 GitHub: https://github.com/f9xr
 Issues: https://github.com/f9xr/dev9b/issues
 
+## Social
+- GitHub: https://github.com/f9xr
+- LinkedIn: https://linkedin.com/company/f9xrteam
+- Pinterest: https://pinterest.com/f9xr
+- Facebook: https://facebook.com/profile.php?id=61586225441401
+- YouTube: https://youtube.com/@QuarterlyLIV
+- Instagram: https://instagram.com/f9xrteam
+- Tumblr: https://www.tumblr.com/f9xr
+- Threads: https://www.threads.com/@f9xrteam
+
 ## Tools
 - Hugo (https://gohugo.io/)
 - Hugo Theme Stack (https://github.com/CaiJimmy/hugo-theme-stack)

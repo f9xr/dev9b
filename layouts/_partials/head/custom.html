@@ -1,1 +1,62 @@
+{{- /* Structured data */ -}}
 {{- partial "seo/jsonld" . -}}
+
+{{- /* Crawler directives (per-page robots param can override) */ -}}
+<meta name="robots" content="{{ .Params.robots | default "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" }}">
+
+{{- /* Author (E-E-A-T) */ -}}
+{{- with .Site.Params.meta.author }}
+<meta name="author" content="{{ . }}">
+{{- end }}
+
+{{- /* Open Graph locale (theme emits site_name, title, description, url, image) */ -}}
+<meta property="og:locale" content="{{ .Site.Params.meta.oglocale | default "en_US" }}">
+
+{{- /* Default social image: use the site logo when a page has no featured image.
+        The theme already emits og:image / twitter:image when .Params.image exists. */ -}}
+{{- $image := partial "helper/image" (dict "Image" .Params.image "Resources" .Resources "Context" .) -}}
+{{- if not $image -}}
+    {{- $defaultOGImage := (printf "%simg/f9x-logo.webp" .Site.BaseURL) }}
+<meta property="og:image" content="{{ $defaultOGImage }}">
+<meta property="og:image:width" content="512">
+<meta property="og:image:height" content="512">
+<meta property="og:image:alt" content="{{ .Site.Title }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="{{ $defaultOGImage }}">
+{{- else -}}
+{{- with $image.Width }}<meta property="og:image:width" content="{{ . }}">{{- end }}
+{{- with $image.Height }}<meta property="og:image:height" content="{{ . }}">{{- end }}
+<meta property="og:image:alt" content="{{ .Title }}">
+{{- end }}
+
+{{- /* Theme color (browser UI) */ -}}
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1e1f24" media="(prefers-color-scheme: dark)">
+
+{{- /* Geo metadata */ -}}
+{{- with .Site.Params.meta.geoRegion }}
+<meta name="geo.region" content="{{ . }}">
+{{- end }}
+{{- with .Site.Params.meta.geoPlacename }}
+<meta name="geo.placename" content="{{ . }}">
+{{- end }}
+{{- with .Site.Params.meta.geoPosition }}
+<meta name="geo.position" content="{{ . }}">
+{{- end }}
+
+{{- /* Search engine verification (empty by default; fill in params.toml after registering) */ -}}
+{{- with .Site.Params.verification.google }}
+<meta name="google-site-verification" content="{{ . }}">
+{{- end }}
+{{- with .Site.Params.verification.bing }}
+<meta name="msvalidate.01" content="{{ . }}">
+{{- end }}
+{{- with .Site.Params.verification.yandex }}
+<meta name="yandex-verification" content="{{ . }}">
+{{- end }}
+{{- with .Site.Params.verification.pinterest }}
+<meta name="p:domain_verify" content="{{ . }}">
+{{- end }}
+{{- with .Site.Params.verification.facebook }}
+<meta property="fb:admins" content="{{ . }}">
+{{- end }}

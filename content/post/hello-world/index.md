@@ -11,7 +11,13 @@ tags:
     - introduction
     - welcome
     - f9xr
-keywords: "Dev9b, F9XR, open source, developer blog, tutorials, coding"
+keywords:
+    - Dev9b
+    - F9XR
+    - open source
+    - developer blog
+    - tutorials
+    - coding
 weight: 0
 ---
 

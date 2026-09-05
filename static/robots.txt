@@ -7,6 +7,11 @@ Allow: /
 # Sitemap
 Sitemap: https://f9xr.github.io/dev9b/sitemap.xml
 
+# Feeds
+# RSS:  https://f9xr.github.io/dev9b/index.xml
+# RSS:  https://f9xr.github.io/dev9b/feed.xml
+# Atom: https://f9xr.github.io/dev9b/atom.xml
+
 # Disallow build artifacts
 Disallow: /resources/
 Disallow: /public/

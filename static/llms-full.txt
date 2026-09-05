@@ -9,13 +9,30 @@ Dev9b is a free, open-source online community where software developers share kn
 - Website: https://f9xr.github.io/dev9b/
 - GitHub: https://github.com/f9xr/dev9b
 - License: MIT (source), CC BY-NC-SA 4.0 (content)
+- Feeds: RSS (https://f9xr.github.io/dev9b/index.xml), RSS (https://f9xr.github.io/dev9b/feed.xml), Atom (https://f9xr.github.io/dev9b/atom.xml)
 
 ## About
 
 - About Dev9b: https://f9xr.github.io/dev9b/about/
 - Contributor Guide: https://f9xr.github.io/dev9b/contribute/
+- Editorial Policy: https://f9xr.github.io/dev9b/editorial-policy/
+- The F9XR Team: https://f9xr.github.io/dev9b/team/
 
 ## Articles
+
+### How to Add OpenCode to Your VS Code
+- URL: https://f9xr.github.io/dev9b/p/opencode-vscode-setup/
+- Description: Step-by-step guide to install and configure OpenCode AI coding agent in VS Code, Cursor, and other VS Code forks for agentic AI-assisted development.
+- Categories: Tutorials
+- Tags: opencode, vscode, ai-tools, developer-setup
+- Date: 2026-09-04
+
+### How to Add New Skills to Your OpenCode
+- URL: https://f9xr.github.io/dev9b/p/opencode-skills-guide/
+- Description: Learn how to create, install, and configure custom agent skills in OpenCode — from writing SKILL.md files to managing permissions and discovering community skill repos.
+- Categories: Tutorials
+- Tags: opencode, ai-tools, developer-setup, skills
+- Date: 2026-09-04
 
 ### Welcome to Dev9b
 - URL: https://f9xr.github.io/dev9b/p/hello-world/
@@ -23,6 +40,8 @@ Dev9b is a free, open-source online community where software developers share kn
 - Categories: Dev9b
 - Tags: introduction, welcome, f9xr
 - Date: 2024-01-01
+
+## Pages
 
 ### About Dev9b
 - URL: https://f9xr.github.io/dev9b/about/
@@ -34,11 +53,39 @@ Dev9b is a free, open-source online community where software developers share kn
 - Description: How to contribute articles to Dev9b. A step-by-step guide for developers.
 - Date: 2024-01-01
 
-## Pages
+### Editorial Policy
+- URL: https://f9xr.github.io/dev9b/editorial-policy/
+- Description: Editorial standards and review process for articles published on Dev9b.
+- Date: 2024-01-01
 
-- Archives: https://f9xr.github.io/dev9b/archives/
-- Search: https://f9xr.github.io/dev9b/search/
-- Links: https://f9xr.github.io/dev9b/links/
+### The F9XR Team
+- URL: https://f9xr.github.io/dev9b/team/
+- Description: Meet the developers behind Dev9b. Credentials, experience, and open-source contributions of the F9XR Team.
+- Date: 2024-01-01
+
+### Dev9b Links
+- URL: https://f9xr.github.io/dev9b/links/
+- Description: Useful developer resources and tools recommended by the Dev9b community.
+- Date: 2024-01-01
+
+### Archives
+- URL: https://f9xr.github.io/dev9b/archives/
+- Description: Chronological listing of all articles published on Dev9b.
+
+### Search
+- URL: https://f9xr.github.io/dev9b/search/
+- Description: Search articles on Dev9b. Find tutorials, guides, and developer resources.
+
+## Social
+
+- GitHub: https://github.com/f9xr
+- LinkedIn: https://linkedin.com/company/f9xrteam
+- Pinterest: https://pinterest.com/f9xr
+- Facebook: https://facebook.com/profile.php?id=61586225441401
+- YouTube: https://youtube.com/@QuarterlyLIV
+- Instagram: https://instagram.com/f9xrteam
+- Tumblr: https://www.tumblr.com/f9xr
+- Threads: https://www.threads.com/@f9xrteam
 
 ## Contact
 

@@ -1,81 +1,152 @@
+{{- /* Structured data (JSON-LD) for Dev9b.
+     NOTE: Every jsonify expression is piped through safeJS. Hugo's jsonify returns a plain
+     string; inside a <script> block the html/template JS context would otherwise escape
+     quotes, producing invalid JSON-LD. */ -}}
 {{- $siteName := "F9XR's Dev9b" -}}
-{{- $siteURL := .Site.BaseURL | safeHTML -}}
-{{- $defaultOGImage := (printf "%simg/f9x-logo.webp" .Site.BaseURL) -}}
-{{- $hasOGImage := false -}}
-{{- with .Params.image -}}{{- $hasOGImage = true -}}{{- end -}}
+{{- $siteURL  := string .Site.BaseURL -}}
+{{- $orgURL   := "https://f9xr.github.io/" -}}
+{{- $logoURL  := (printf "%simg/f9xr-logo.webp" $siteURL) -}}
+{{- $locale   := "en-US" -}}
 
-{{- if not $hasOGImage -}}
-<meta property='og:image' content='{{ $defaultOGImage }}'>
-<meta name='twitter:card' content='summary_large_image'>
-<meta name='twitter:image' content='{{ $defaultOGImage }}'>
+{{- $sameAs := slice
+    "https://github.com/f9xr"
+    "https://github.com/f9xr/dev9b"
+    "https://linkedin.com/company/f9xrteam"
+    "https://pinterest.com/f9xr"
+    "https://facebook.com/profile.php?id=61586225441401"
+    "https://youtube.com/@QuarterlyLIV"
+    "https://instagram.com/f9xrteam"
+    "https://www.tumblr.com/f9xr"
+    "https://www.threads.com/@f9xrteam" -}}
+
+{{/* Organization: authoritativeness & trust (E-E-A-T). Output on every page. */}}
+{{- $organization := dict
+    "@context" "https://schema.org"
+    "@type" "Organization"
+    "@id" (printf "%s#organization" $orgURL)
+    "name" "F9XR Team"
+    "alternateName" "Dev9b"
+    "url" $orgURL
+    "logo" (dict "@type" "ImageObject" "url" $logoURL "caption" "F9XR Team logo")
+    "foundingDate" "2024"
+    "description" "F9XR Team is an open-source developer community publishing tutorials, articles, and coding guides on Dev9b."
+    "knowsAbout" (slice "Software Development" "Open Source" "Developer Tutorials" "Hugo" "Static Sites" "Web Development")
+    "sameAs" $sameAs
+    "contactPoint" (dict
+        "@type" "ContactPoint"
+        "contactType" "customer support"
+        "url" $orgURL
+        "areaServed" "Worldwide"
+        "availableLanguage" (slice "English"))
+-}}
+<script type="application/ld+json">
+{{- $organization | jsonify | safeJS -}}
+</script>
+
+{{- if .IsHome }}
+{{/* WebSite + SearchAction on the homepage only. */}}
+{{- $searchURL := (printf "%ssearch/?keyword={search_term_string}" $siteURL) -}}
+{{- $website := dict
+    "@context" "https://schema.org"
+    "@type" "WebSite"
+    "@id" (printf "%s#website" $siteURL)
+    "name" $siteName
+    "url" $siteURL
+    "description" (.Site.Params.description | default $siteName)
+    "publisher" (dict "@id" (printf "%s#organization" $orgURL))
+    "inLanguage" $locale
+    "potentialAction" (dict
+        "@type" "SearchAction"
+        "target" (dict "@type" "EntryPoint" "urlTemplate" $searchURL)
+        "query-input" (dict "@type" "PropertyValueSpecification" "valueRequired" true "valueName" "search_term_string"))
+-}}
+<script type="application/ld+json">
+{{- $website | jsonify | safeJS -}}
+</script>
 {{- end -}}
 
-{{/* Organization JSON-LD: authoritativeness & trust. Output once on every page. */}}
+{{- if not .IsHome }}
+{{/* BreadcrumbList for every non-home page & post. */}}
+{{- $crumbs := slice (dict "@type" "ListItem" "position" 1 "name" "Home" "item" $siteURL) -}}
+{{- $crumbs = $crumbs | append (dict "@type" "ListItem" "position" 2 "name" .Title "item" .Permalink) -}}
+{{- $breadcrumb := dict
+    "@context" "https://schema.org"
+    "@type" "BreadcrumbList"
+    "itemListElement" $crumbs
+-}}
 <script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "@id": "https://f9xr.github.io/#organization",
-    "name": "F9XR Team",
-    "url": "https://f9xr.github.io/",
-    "logo": {
-        "@type": "ImageObject",
-        "url": {{ (printf "%simg/f9x-logo.webp" .Site.BaseURL) | jsonify }}
-    },
-    "sameAs": [
-        "https://github.com/f9xr",
-        "https://github.com/f9xr/dev9b"
-    ]
-}
+{{- $breadcrumb | jsonify | safeJS -}}
 </script>
+{{- end -}}
 
-{{- if .IsHome -}}
+{{- if and .IsPage (eq .Type "post") }}
+{{- /* Article / TechArticle for blog posts. */ -}}
+{{- $authorName := .Params.author | default "F9XR Team" -}}
+{{- $author := dict -}}
+{{- if eq $authorName "F9XR Team" -}}
+    {{- $author = dict
+        "@type" "Organization"
+        "name" "F9XR Team"
+        "url" $orgURL
+        "sameAs" $sameAs
+    -}}
+{{- else -}}
+    {{- $author = dict "@type" "Person" "name" $authorName -}}
+{{- end -}}
+
+{{- $articleImage := $logoURL -}}
+{{- with .Params.image -}}
+    {{- $articleImage = (printf "%s%s" $.Permalink .) -}}
+{{- end -}}
+
+{{- $keywords := .Params.keywords | default slice -}}
+{{- $categories := .Params.categories | default slice -}}
+{{- $articleDict := dict
+    "@context" "https://schema.org"
+    "@type" (.Params.schemaType | default "TechArticle")
+    "headline" .Title
+    "description" (partial "data/description" .)
+    "image" $articleImage
+    "datePublished" (.Date.Format "2006-01-02T15:04:05-07:00")
+    "dateModified" (.Lastmod.Format "2006-01-02T15:04:05-07:00")
+    "author" $author
+    "publisher" (dict "@id" (printf "%s#organization" $orgURL))
+    "mainEntityOfPage" (dict "@type" "WebPage" "@id" .Permalink)
+    "inLanguage" $locale
+    "wordCount" .WordCount
+    "isAccessibleForFree" true
+    "license" "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+-}}
+{{- if gt (len $keywords) 0 }}
+    {{- $articleDict = merge $articleDict (dict "keywords" $keywords) -}}
+{{- end -}}
+{{- if gt (len $categories) 0 }}
+    {{- $articleDict = merge $articleDict (dict "articleSection" $categories) -}}
+{{- end -}}
 <script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "@id": {{ (printf "%s#website" .Site.BaseURL) | jsonify }},
-    "name": {{ $siteName | jsonify }},
-    "url": {{ $siteURL | jsonify }},
-    "description": {{ .Site.Params.description | default (printf "%s" $siteName) | jsonify }},
-    "publisher": { "@id": "https://f9xr.github.io/#organization" },
-    "inLanguage": "en-US"
-}
+{{- $articleDict | jsonify | safeJS -}}
 </script>
-{{- else if .IsPage -}}
+{{- end -}}
 
-{{/* Author: use the explicit author param when set, else default to F9XR Team Organization.
-     Treat posts as real authored content to satisfy E-E-A-T Expertise signals. */}}
-{{- $authorName := "F9XR Team" -}}
-{{- with .Params.author }}{{ $authorName = . }}{{ end -}}
-{{- $authorType := "Person" -}}
-{{- if (eq $authorName "F9XR Team") }}{{ $authorType = "Organization" }}{{ end -}}
-
+{{- if and .IsPage (eq .Type "post") }}
+{{- $faq := (.Params.faq | default slice) }}
+{{- if gt (len $faq) 0 }}
+{{- /* FAQPage for posts with front-matter `faq` (list of question/answer pairs mirroring on-page text). */ -}}
+{{- $faqList := slice -}}
+{{- range $faq -}}
+    {{- $faqList = $faqList | append (dict
+        "@type" "Question"
+        "name" .question
+        "acceptedAnswer" (dict "@type" "Answer" "text" .answer)
+    ) -}}
+{{- end -}}
+{{- $faq := dict
+    "@context" "https://schema.org"
+    "@type" "FAQPage"
+    "mainEntity" $faqList
+-}}
 <script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": {{ .Params.schemaType | default "TechArticle" | jsonify }},
-    "headline": {{ .Title | jsonify }},
-    "description": {{ partial "data/description" . | jsonify }},
-    "image": {{ with .Params.image }}{{ (printf "%s%s" $.Permalink .) | jsonify }}{{ else }}{{ $defaultOGImage | jsonify }}{{ end }},
-    "datePublished": {{ .Date.Format "2006-01-02T15:04:05-07:00" | jsonify }},
-    "dateModified": {{ .Lastmod.Format "2006-01-02T15:04:05-07:00" | jsonify }},
-    "author": {
-        "@type": {{ $authorType | jsonify }},
-        "name": {{ $authorName | jsonify }},
-        "sameAs": "https://github.com/f9xr"
-    },
-    "publisher": { "@id": "https://f9xr.github.io/#organization" },
-    "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": {{ .Permalink | jsonify }}
-    },
-    "inLanguage": "en-US",
-    {{- with .Params.keywords }}
-    "keywords": {{ . | jsonify }},
-    {{- end }}
-    "isAccessibleForFree": true,
-    "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
-}
+{{- $faq | jsonify | safeJS -}}
 </script>
+{{- end -}}
 {{- end -}}

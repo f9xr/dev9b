@@ -1,0 +1,29 @@
+{{- /* Custom sitemap for Dev9b.
+     - Includes: home, blog posts, standalone pages, and taxonomy term pages.
+     - Excludes: auto-generated list/section pages, taxonomy index pages, and the search page. */ -}}
+{{- printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{{- range .Site.Pages -}}
+    {{- $page := . -}}
+    {{- $skip := false -}}
+    {{- if not $page.Permalink -}}{{- $skip = true -}}{{- end -}}
+    {{- if eq $page.Params.sitemap false -}}{{- $skip = true -}}{{- end -}}
+    {{- if eq $page.Layout "search" -}}{{- $skip = true -}}{{- end -}}
+    {{- if eq $page.Kind "taxonomy" -}}{{- $skip = true -}}{{- end -}}
+    {{- if eq $page.Kind "section" -}}{{- $skip = true -}}{{- end -}}
+    {{- if not $skip -}}
+        {{- $freq := "monthly" -}}
+        {{- $prio := "0.7" -}}
+        {{- if eq $page.Kind "home" -}}
+            {{- $freq = "weekly" -}}{{- $prio = "1.0" -}}
+        {{- else if eq $page.Type "post" -}}
+            {{- $freq = "monthly" -}}{{- $prio = "0.9" -}}
+        {{- else if eq $page.Kind "term" -}}
+            {{- $freq = "weekly" -}}{{- $prio = "0.5" -}}
+        {{- end -}}
+<url>
+    <loc>{{ $page.Permalink }}</loc>{{- if not $page.Lastmod.IsZero }}<lastmod>{{ $page.Lastmod.Format "2006-01-02" }}</lastmod>{{- end }}<changefreq>{{ $freq }}</changefreq><priority>{{ $prio }}</priority>
+</url>
+    {{- end -}}
+{{- end -}}
+</urlset>

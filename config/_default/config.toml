@@ -3,6 +3,7 @@ baseurl = "https://f9xr.github.io/dev9b/"
 locale  = "en-us"
 title   = "F9XR's Dev9b"
 description = "F9XR's Dev9b is an open-source blog article publishing platform by F9XR Team. We share latest articles, tutorials, coding videos, and developer guides for the open developer community."
+enableGitInfo = true
 
 # Theme i18n support
 # See all available values at https://github.com/CaiJimmy/hugo-theme-stack/tree/master/i18n
@@ -17,3 +18,22 @@ disqusShortname = "dev9b"
 
 [pagination]
     pagerSize = 10
+    disableAliases = true
+
+# Additional syndication feeds: feed.xml (RSS 2.0) and atom.xml (Atom 1.0)
+# alongside the default RSS index.xml.
+[mediaTypes]
+    [mediaTypes."application/atom+xml"]
+        suffixes = ["xml"]
+
+[outputFormats.feed]
+    mediaType = "application/rss+xml"
+    baseName  = "feed"
+    notAlternative = true                # index.xml stays the advertised RSS alternate
+
+[outputFormats.atom]
+    mediaType = "application/atom+xml"
+    baseName  = "atom"
+
+[outputs]
+    home = ["HTML", "RSS", "feed", "atom"]

@@ -5,7 +5,13 @@ slug: opencode-vscode-setup
 date: 2026-09-04
 image: cover.png
 author: F9XR Team
-keywords: "OpenCode, VS Code, AI coding agent, VS Code extension, opencode CLI, agentic coding"
+keywords:
+    - OpenCode
+    - VS Code
+    - AI coding agent
+    - VS Code extension
+    - opencode CLI
+    - agentic coding
 categories:
     - Tutorials
 tags:
@@ -15,6 +21,13 @@ tags:
     - developer-setup
 draft: false
 math: false
+faq:
+    - question: "Why does the OpenCode extension not install automatically?"
+      answer: "OpenCode must run inside VS Code's integrated terminal (not an external one). Verify the CLI is available with where opencode (Windows) or which opencode (macOS/Linux), and confirm VS Code has permission to install extensions."
+    - question: "OpenCode works in my terminal but VS Code says the CLI is not found - why?"
+      answer: "VS Code can use a different PATH than your interactive shell. Find the full path with Get-Command opencode, then set it manually in the opencodeVisual.opencodePath VS Code setting."
+    - question: "What should I check when OpenCode gives no response from the agent?"
+      answer: "Verify your API key is set correctly, confirm your internet connection when using cloud providers, and open the Output panel (View > Output) selecting OpenCode from the dropdown to inspect the logs."
 ---
 
 OpenCode is an open-source, terminal-based AI coding agent that supports over 75 models and runs entirely locally. It integrates natively into VS Code through its official extension — bringing agentic AI workflows directly into your editor without leaving the terminal environment you already work in.

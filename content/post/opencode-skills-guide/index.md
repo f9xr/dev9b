@@ -5,7 +5,13 @@ slug: opencode-skills-guide
 date: 2026-09-04
 image: cover.webp
 author: F9XR Team
-keywords: "OpenCode, agent skills, SKILL.md, custom skills, AI coding agent, OpenCode configuration"
+keywords:
+    - OpenCode
+    - agent skills
+    - SKILL.md
+    - custom skills
+    - AI coding agent
+    - OpenCode configuration
 categories:
     - Tutorials
 tags:
@@ -15,6 +21,11 @@ tags:
     - skills
 draft: false
 math: false
+faq:
+    - question: "Why is my OpenCode skill not showing up in the agent's available tools?"
+      answer: "Check that the filename is exactly SKILL.md (all caps), that both name and description exist in the frontmatter, that the name matches the directory name, that no deny permission hides the skill, and that the name is unique across all skill search locations."
+    - question: "Where does OpenCode look for SKILL.md files?"
+      answer: "OpenCode searches locations such as .opencode/skills/ in your project and ~/.config/opencode/skills/ in your home directory. Skills are discovered automatically - no registration step is required."
 ---
 
 OpenCode skills are reusable instruction files that teach your AI agent how to handle specific tasks — from generating git releases to running TDD workflows. They sit in your repo or home directory as plain `SKILL.md` files and load on-demand when the agent needs them.

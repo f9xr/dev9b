@@ -161,8 +161,8 @@ Summarize what was covered and suggest next steps.
 
 ## References
 
-- [Link 1](https://example.com)
-- [Link 2](https://example.com)
+- [Dev9b repository](https://github.com/f9xr/dev9b)
+- [Open an issue](https://github.com/f9xr/dev9b/issues)
 ```
 
 ### Need Help?

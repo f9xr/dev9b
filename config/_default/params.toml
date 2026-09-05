@@ -41,9 +41,26 @@ SortBy              = "default"
     page = [{ type = "toc" }]
 
 [opengraph]
-    [opengraph.twitter]
-        site = "f9xr"
-        card = "summary_large_image"
+[opengraph.twitter]
+    # No Twitter/X account exists for F9XR - leave site empty so no fake handle is emitted
+    site = ""
+    card = "summary_large_image"
+
+## SEO metadata (read by layouts/_partials/head/custom.html)
+[meta]
+    author = "F9XR Team"
+    oglocale = "en_US"
+    geoRegion = "NO"
+    geoPlacename = "Norway"
+    geoPosition = ""
+
+## Search engine verification codes (fill in after registering in the respective consoles)
+[verification]
+    google = ""
+    bing = ""
+    yandex = ""
+    pinterest = ""
+    facebook = ""
 
 [colorScheme]
     toggle  = true

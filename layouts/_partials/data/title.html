@@ -1,0 +1,18 @@
+{{- $pageTitle := .Title -}}
+{{- $siteTitle := .Site.Title -}}
+{{- $paginator := partial "helper/paginator.html" . -}}
+
+{{- $title := slice -}}
+
+{{- if and $paginator $paginator.HasPrev -}}
+    <!-- Add page number-->
+    {{ $title = $title | append (printf "Page %d" $paginator.PageNumber) }}
+{{- end -}}
+
+{{- if and .IsNode (ne .Kind "home") -}}
+    {{ $title = $title | append (printf "%s - %s" $pageTitle $siteTitle) }}
+{{- else -}}
+    {{ $title = $title | append (default $siteTitle $pageTitle) }}
+{{- end -}}
+
+{{ return delimit $title " - " }}
