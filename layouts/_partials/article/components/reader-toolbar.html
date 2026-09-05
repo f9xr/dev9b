@@ -59,7 +59,7 @@
     <div class="reader-toolbar-group" aria-label="Article actions">
         {{- with .File }}
         {{- $editPath := (.Path | replaceRE "\\\\" "/") }}
-        <a class="reader-toolbar-btn" href="{{ $repo }}/edit/main/{{ $editPath }}" target="_blank" rel="noopener nofollow" title="Open a suggestion for this article on GitHub">
+        <a class="reader-toolbar-btn" href="{{ $repo }}/edit/master/{{ $editPath }}" target="_blank" rel="noopener nofollow" title="Open a suggestion for this article on GitHub">
             {{ partial "helper/icon" "pencil" }}
             <span>Suggest changes</span>
         </a>
