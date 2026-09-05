@@ -91,7 +91,12 @@
         "sameAs" $sameAs
     -}}
 {{- else -}}
+    {{- /* Individual author: enrich with front-matter links when provided (authorUrl / authorGitHub). */ -}}
     {{- $author = dict "@type" "Person" "name" $authorName -}}
+    {{- with .Params.authorUrl }}{{ $author = merge $author (dict "url" .) }}{{ end -}}
+    {{- with .Params.authorGitHub }}
+        {{- $author = merge $author (dict "sameAs" (slice (printf "https://github.com/%s" .))) }}
+    {{- end -}}
 {{- end -}}
 
 {{- $articleImage := $logoURL -}}
@@ -114,8 +119,13 @@
     "mainEntityOfPage" (dict "@type" "WebPage" "@id" .Permalink)
     "inLanguage" $locale
     "wordCount" .WordCount
+    "timeRequired" (printf "PT%dM" .ReadingTime)
     "isAccessibleForFree" true
     "license" "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+    "speakable" (dict
+        "@type" "SpeakableSpecification"
+        "cssSelector" (slice ".article-content h2" ".article-content h3" ".article-content p")
+    )
 -}}
 {{- if gt (len $keywords) 0 }}
     {{- $articleDict = merge $articleDict (dict "keywords" $keywords) -}}

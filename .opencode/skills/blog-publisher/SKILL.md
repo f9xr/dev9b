@@ -85,6 +85,69 @@ If ever a page needs a manually-embedded thread (not handled by the theme), the 
 
 ---
 
+## Article Enhancement Features
+
+Everything below is **native to Dev9b** — no author-side configuration needed unless noted. Use them freely in post bodies.
+
+### Mermaid diagrams
+
+The theme renders ```` ```mermaid ```` code fences into live diagrams (flowcharts, sequence diagrams, mind maps, etc.). Diagrams auto-switch between light/dark theme. See the **mindmap** skill for the mind-map format.
+
+````markdown
+```mermaid
+mindmap
+  root((Dev9b))
+    Hugo
+    Open Source
+    Tutorials
+```
+````
+
+### Markdown alerts (callouts)
+
+GitHub-style alert blockquotes render as styled callouts. Types: `NOTE`, `TIP`, `IMPORTANT`, `WARNING`, `CAUTION`. A custom title can follow the marker.
+
+```markdown
+> [!TIP]
+> Use alerts to highlight key takeaways.
+
+> [!WARNING] Deployment safety
+> Set `draft: true` until the post is ready to publish.
+```
+
+### Media embeds
+
+Theme shortcodes — place inline in the body:
+
+- `{{< youtube id="VIDEO_ID" >}}` (privacy-enhanced embeds)
+- `{{< video src="/path/to/video.mp4" >}}` (local/remote video)
+- Also available: `bilibili`, `gitlab`, `tencent`
+
+### Code blocks
+
+Code fences automatically get a **copy-to-clipboard** button. Use language identifiers; `lineNos` and table line numbers are on site-wide via `config/_default/markup.toml`.
+
+### Reader toolbar
+
+Every published post automatically shows a toolbar above the article body with:
+
+- **Listen** — browser text-to-speech (no external service) reads the article aloud
+- **Text size** A− / A / A+ — reader-local font scaling, persisted per browser
+- **Share** — native OS share + X, Facebook, LinkedIn, Telegram, email, copy-link
+- **Suggest changes** — opens the post's source file in the GitHub editor
+- **Report article** — opens a pre-filled GitHub issue
+
+You do **not** write any markup for this. To hide it for one post, set `disableReaderTool: true` in front matter.
+
+### Optional front matter for structured data
+
+- `faq:` (list of `question`/`answer` maps matching on-page Q&As) — emits an FAQPage JSON-LD block.
+- `schemaType:` (default `TechArticle`) — override the JSON-LD `@type` per post.
+- `authorUrl:` / `authorGitHub:` — when an individual author is named, these enrich the JSON-LD Person schema.
+- `draft: true` default while drafting.
+
+---
+
 ## Workflow
 
 ### 1. Understand the Topic
@@ -115,6 +178,11 @@ tags:
     - tag3
 draft: false
 math: false
+# Optional structured-data / reader-tool fields:
+# schemaType: "TechArticle"        # override the JSON-LD @type
+# authorUrl: "https://..."         # link for the Person schema
+# authorGitHub: "username"         # GitHub profile for the Person schema
+# disableReaderTool: false         # true hides the reader toolbar on this post
 ---
 
 Write your article body here using Markdown.

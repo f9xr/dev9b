@@ -31,6 +31,23 @@ SortBy              = "default"
         enabled = true
         default = "Licensed under CC BY-NC-SA 4.0"
 
+    # Mermaid diagrams are enabled automatically when a post contains a ```mermaid code block.
+    # See the mindmap skill or https://mermaid.js.org for diagram syntax.
+    [article.mermaid]
+        look       = "classic"
+        lightTheme = "default"
+        darkTheme  = "dark"
+        # Charts track the site light/dark toggle automatically.
+
+    # GitHub-style markdown alerts:  > [!NOTE|TIP|IMPORTANT|WARNING|CAUTION]
+    # Icons fall back to the theme defaults; override per type if desired.
+    # [article.alertIcon]
+    #     note      = "📝"
+    #     tip       = "💡"
+    #     important = "❗"
+    #     warning   = "⚠️"
+    #     caution   = "⛔"
+
 [widgets]
     homepage = [
         { type = "search" },

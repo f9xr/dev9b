@@ -1,3 +1,109 @@
+/* ==========================================================================
+   Dev9b custom styles
+   ========================================================================== */
+
 /*
-    You can add your own custom styles here.
+    Article reading tools
+    --------------------
+    The .reader-toolbar is injected above the article body by
+    layouts/_partials/article/components/reader-toolbar.html and driven by
+    assets/ts/reader-tools.ts.
+
+    All colours are theme CSS variables, so this adapts to light/dark mode.
 */
+
+/* Font-size control: JS overrides --reader-font-scale on .article-content */
+.article-content {
+    --reader-font-scale: 1;
+    font-size: calc(var(--article-font-size) * var(--reader-font-scale));
+    transition: font-size 0.15s ease;
+}
+
+.reader-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.25rem 0.75rem;
+    padding: 0.6rem var(--card-padding);
+    margin: 0 0 1.25rem;
+    border-block-end: 1px solid var(--card-separator-color);
+    color: var(--card-text-color-secondary);
+    font-size: 0.875rem;
+
+    /* Hide controls the current browser cannot use (no TTS / no Web Share). */
+    .reading-hidden {
+        display: none;
+    }
+
+    .reader-toolbar-group {
+        display: flex;
+        align-items: center;
+        gap: 0.15rem;
+
+        & + .reader-toolbar-group {
+            margin-inline-start: auto;
+        }
+    }
+
+    .reader-toolbar-sep {
+        width: 1px;
+        height: 1.4em;
+        margin-inline: 0.35rem;
+        background: var(--card-separator-color);
+    }
+
+    .reader-toolbar-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.35rem 0.55rem;
+        border: none;
+        border-radius: 6px;
+        background: transparent;
+        color: var(--card-text-color-secondary);
+        font: inherit;
+        line-height: 1;
+        cursor: pointer;
+        text-decoration: none;
+        white-space: nowrap;
+
+        .icon {
+            width: 17px;
+            height: 17px;
+        }
+
+        &:hover {
+            background: var(--body-background);
+            color: var(--card-text-color-main);
+        }
+
+        &:focus-visible {
+            outline: 2px solid var(--accent-color);
+            outline-offset: 1px;
+        }
+
+        &.is-active {
+            color: var(--accent-color);
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .reader-toolbar {
+        gap: 0.35rem 0.5rem;
+
+        .reader-toolbar-group {
+            width: 100%;
+            justify-content: center;
+
+            & + .reader-toolbar-group {
+                margin-inline-start: 0;
+            }
+        }
+
+        .reader-toolbar-btn[data-share-copy] span,
+        .reader-toolbar-group[aria-label="Article actions"] span {
+            display: none;
+        }
+    }
+}
