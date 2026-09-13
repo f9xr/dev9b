@@ -70,8 +70,14 @@ let ttsIndex = 0;
 let ttsState: TtsState = 'idle';
 let ttsPlayBtn: HTMLElement | null = null;
 let ttsLabel: HTMLElement | null = null;
-let ttsStopBtn: HTMLElement | null = null;
+let ttsIconWrap: HTMLElement | null = null;
 let ttsVoiceLang = '';
+
+const TTS_ICONS: Record<TtsState, () => string> = {
+    idle: () => `<svg fill="none" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 8a5 5 0 0 1 0 8"/><path d="M17.7 5a9 9 0 0 1 0 14"/><path d="M6 15h-2a1 1 0 0 1 -1 -1v-4a1 1 0 0 1 1 -1h2l3.5 -4.5a.8 .8 0 0 1 1.5 .5v14a.8 .8 0 0 1 -1.5 .5z"/></svg>`,
+    playing: () => `<svg fill="none" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 5v14"/><path d="M17 5v14"/></svg>`,
+    paused: () => `<svg fill="none" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 5v14l11 -7z"/></svg>`,
+};
 
 function splitSentences(text: string): string[] {
     return text
@@ -132,15 +138,23 @@ function updateTtsUi(): void {
     if (!ttsPlayBtn || !ttsLabel) return;
     ttsPlayBtn.setAttribute('aria-pressed', ttsState !== 'idle' ? 'true' : 'false');
     ttsPlayBtn.classList.toggle('is-active', ttsState !== 'idle');
-    if (ttsState === 'playing') ttsLabel.textContent = 'Pause';
-    else if (ttsState === 'paused') ttsLabel.textContent = 'Resume';
-    else ttsLabel.textContent = 'Listen';
+    if (ttsState === 'playing') {
+        ttsLabel.textContent = 'Pause';
+        ttsPlayBtn.title = 'Pause reading';
+    } else if (ttsState === 'paused') {
+        ttsLabel.textContent = 'Resume';
+        ttsPlayBtn.title = 'Resume reading';
+    } else {
+        ttsLabel.textContent = 'Listen';
+        ttsPlayBtn.title = 'Read this article aloud';
+    }
+    if (ttsIconWrap) ttsIconWrap.innerHTML = TTS_ICONS[ttsState]();
 }
 
 function initTts(): void {
     ttsPlayBtn = document.querySelector('[data-tts-play]');
     ttsLabel = document.querySelector('[data-tts-label]');
-    ttsStopBtn = document.querySelector('[data-tts-stop]');
+    ttsIconWrap = document.querySelector('[data-tts-icon]');
 
     const unsupported = typeof speechSynthesis === 'undefined';
     if (!ttsPlayBtn || unsupported) {
@@ -151,9 +165,6 @@ function initTts(): void {
     ttsVoiceLang = document.documentElement.lang || 'en-US';
 
     ttsPlayBtn.addEventListener('click', ttsToggle);
-    if (ttsStopBtn) {
-        ttsStopBtn.addEventListener('click', ttsReset);
-    }
 
     window.addEventListener('beforeunload', () => speechSynthesis.cancel());
     document.addEventListener('visibilitychange', () => {

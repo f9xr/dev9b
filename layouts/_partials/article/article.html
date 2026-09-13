@@ -19,7 +19,9 @@
     </aside>
     {{ end }}
 
-    {{ partial "article/components/content" . }}
+    <div data-article-content-wrap>
+        {{ partial "article/components/content" . }}
+    </div>
 
     {{ partial "article/components/footer" . }}
 
@@ -27,3 +29,16 @@
         {{ partialCached "article/components/math.html" . }}
     {{ end }}
 </article>
+
+{{- if and (not .Params.disableReaderTool) (eq .Type "post") -}}
+<div class="read-progress" aria-hidden="true"><div class="read-progress-bar"></div></div>
+<button type="button" class="back-to-top" data-back-to-top hidden aria-label="Back to top" title="Back to top">
+    {{ partial "helper/icon" "chevron-up" }}
+</button>
+{{- $opts := dict "minify" hugo.IsProduction "format" "esm" "target" "es2018" -}}
+{{- $script := resources.Get "ts/reader-ui.ts" | js.Build $opts -}}
+<script type="module">
+import { initReaderUi } from '{{ $script.RelPermalink }}';
+initReaderUi();
+</script>
+{{- end -}}

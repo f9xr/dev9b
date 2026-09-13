@@ -11,12 +11,9 @@
 
 <div class="reader-toolbar" data-share-url="{{ $url }}" data-share-text="{{ $title }}">
     <div class="reader-toolbar-group" aria-label="Reading helpers">
-        <button type="button" class="reader-toolbar-btn" data-tts data-tts-play aria-pressed="false" title="Read this article aloud">
-            {{ partial "helper/icon" "volume" }}
+        <button type="button" class="reader-toolbar-btn reader-tts-toggle" data-tts data-tts-play aria-pressed="false" title="Read this article aloud">
+            <span data-tts-icon class="reader-tts-icon">{{ partial "helper/icon" "volume" }}</span>
             <span data-tts-label>Listen</span>
-        </button>
-        <button type="button" class="reader-toolbar-btn" data-tts data-tts-stop title="Stop reading" aria-label="Stop reading">
-            {{ partial "helper/icon" "player-stop" }}
         </button>
         <span class="reader-toolbar-sep" aria-hidden="true"></span>
         <button type="button" class="reader-toolbar-btn" data-font-scale="-1" title="Decrease text size" aria-label="Decrease text size">
@@ -58,7 +55,7 @@
 
     <div class="reader-toolbar-group" aria-label="Article actions">
         {{- with .File }}
-        {{- $editPath := (.Path | replaceRE "\\\\" "/") }}
+        {{- $editPath := (printf "content/%s" (.Path | replaceRE "\\\\" "/")) }}
         <a class="reader-toolbar-btn" href="{{ $repo }}/edit/master/{{ $editPath }}" target="_blank" rel="noopener nofollow" title="Open a suggestion for this article on GitHub">
             {{ partial "helper/icon" "pencil" }}
             <span>Suggest changes</span>

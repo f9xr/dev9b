@@ -26,14 +26,6 @@
         icon = "brand-pinterest"
 
 [[social]]
-    identifier = "facebook"
-    name       = "Facebook"
-    url        = "https://facebook.com/profile.php?id=61586225441401"
-
-    [social.params]
-        icon = "brand-facebook"
-
-[[social]]
     identifier = "youtube"
     name       = "YouTube"
     url        = "https://youtube.com/@QuarterlyLIV"
@@ -49,18 +41,3 @@
     [social.params]
         icon = "brand-instagram"
 
-[[social]]
-    identifier = "tumblr"
-    name       = "Tumblr"
-    url        = "https://www.tumblr.com/f9xr"
-
-    [social.params]
-        icon = "brand-tumblr"
-
-[[social]]
-    identifier = "threads"
-    name       = "Threads"
-    url        = "https://www.threads.com/@f9xrteam"
-
-    [social.params]
-        icon = "brand-threads"

@@ -56,9 +56,9 @@
         display: inline-flex;
         align-items: center;
         gap: 0.4rem;
-        padding: 0.35rem 0.55rem;
-        border: none;
-        border-radius: 6px;
+        padding: 0.45rem 0.75rem;
+        border: 1px solid transparent;
+        border-radius: 999px;
         background: transparent;
         color: var(--card-text-color-secondary);
         font: inherit;
@@ -66,25 +66,43 @@
         cursor: pointer;
         text-decoration: none;
         white-space: nowrap;
+        transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease, transform 0.12s ease;
 
-        .icon {
+        .icon,
+        .reader-tts-icon svg {
             width: 17px;
             height: 17px;
+            display: block;
         }
 
         &:hover {
             background: var(--body-background);
             color: var(--card-text-color-main);
+            border-color: var(--card-separator-color);
+        }
+
+        &:active {
+            transform: translateY(1px);
         }
 
         &:focus-visible {
             outline: 2px solid var(--accent-color);
-            outline-offset: 1px;
+            outline-offset: 2px;
         }
 
         &.is-active {
             color: var(--accent-color);
+            border-color: color-mix(in srgb, var(--accent-color) 40%, transparent);
+            background: color-mix(in srgb, var(--accent-color) 10%, transparent);
+            box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-color) 15%, transparent);
         }
+    }
+
+    /* Pill-style visual grouping for the toolbar as a whole */
+    .reader-toolbar-group {
+        padding: 0.15rem;
+        border-radius: 999px;
+        background: color-mix(in srgb, var(--body-background) 55%, transparent);
     }
 }
 
@@ -105,5 +123,134 @@
         .reader-toolbar-group[aria-label="Article actions"] span {
             display: none;
         }
+    }
+}
+
+/* ==========================================================================
+   Reading progress bar (fixed top of viewport while reading articles)
+   ========================================================================== */
+.read-progress {
+    position: fixed;
+    inset-inline: 0;
+    top: 0;
+    height: 3px;
+    z-index: 1000;
+    background: transparent;
+    pointer-events: none;
+
+    .read-progress-bar {
+        display: block;
+        height: 100%;
+        width: 100%;
+        transform-origin: 0 50%;
+        transform: scaleX(0);
+        background: linear-gradient(90deg, var(--accent-color), color-mix(in srgb, var(--accent-color) 60%, #60a5fa));
+        box-shadow: 0 0 8px color-mix(in srgb, var(--accent-color) 50%, transparent);
+    }
+}
+
+/* ==========================================================================
+   Back-to-top floating button
+   ========================================================================== */
+.back-to-top {
+    position: fixed;
+    bottom: 1.5rem;
+    inset-inline-end: 1.5rem;
+    z-index: 900;
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--card-separator-color);
+    border-radius: 12px;
+    background: var(--card-background);
+    color: var(--card-text-color-secondary);
+    cursor: pointer;
+    box-shadow: 0 6px 20px color-mix(in srgb, #000 12%, transparent);
+    transition: opacity 0.2s ease, transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+
+    .icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    &:hover {
+        background: var(--accent-color);
+        color: #fff;
+        transform: translateY(-2px);
+    }
+
+    &[hidden] {
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(10px);
+    }
+
+    @media (max-width: 767px) {
+        bottom: 1rem;
+        inset-inline-end: 1rem;
+    }
+}
+
+/* ==========================================================================
+   Custom horizontal rules — a styled divider between sections.
+   Emitted when content authors write a standalone "---" line.
+   ========================================================================== */
+.article-content hr {
+    position: relative;
+    height: 1px;
+    margin: 2.25rem auto;
+    width: 100%;
+    border: none;
+    background: linear-gradient(90deg, transparent, var(--card-separator-color) 20%, var(--card-separator-color) 80%, transparent);
+    overflow: visible;
+
+    &::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--accent-color);
+        transform: translate(-50%, -50%);
+        box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-color) 20%, transparent);
+    }
+}
+
+/* ==========================================================================
+   Article typography & post polish
+   ========================================================================== */
+.article-content {
+    /* Slightly larger, breathier paragraphs */
+    > p {
+        line-height: 1.75;
+    }
+
+    /* Drop cap on the first paragraph after the article header for a book-like feel */
+    > p:first-of-type::first-letter {
+        float: left;
+        font-size: 3.1em;
+        line-height: 0.85;
+        padding-inline-end: 0.12em;
+        font-weight: 700;
+        color: var(--accent-color);
+    }
+
+    /* Friendly blockquote */
+    blockquote {
+        border-inline-start: 3px solid var(--accent-color);
+        border-radius: 0 0.5rem 0.5rem 0;
+        background: color-mix(in srgb, var(--accent-color) 6%, transparent);
+        padding: 0.75rem 1.25rem;
+    }
+
+    /* Softer code tag chips */
+    code:not(pre code) {
+        border: 1px solid var(--card-separator-color);
+        border-radius: 0.375rem;
+        padding: 0.1em 0.35em;
+        background: color-mix(in srgb, var(--body-background) 60%, transparent);
     }
 }
