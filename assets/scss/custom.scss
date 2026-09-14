@@ -220,6 +220,88 @@
 }
 
 /* ==========================================================================
+   HighRevenueFormat ad placements (temporary until AdSense approval)
+   ========================================================================== */
+.hrf-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1.5rem 0;
+    overflow: hidden;
+}
+
+/* Leaderboard */
+.hrf-728x90 {
+    min-height: 90px;
+    margin: 1rem 0;
+
+    @media (max-width: 767px) {
+        display: none;
+    }
+}
+
+.hrf-468x60 {
+    min-height: 60px;
+}
+
+.hrf-320x50 {
+    min-height: 50px;
+}
+
+.hrf-300x250 {
+    margin: 0.5rem;
+}
+
+.hrf-160x300,
+.hrf-160x600 {
+    min-height: 300px;
+}
+
+/* Sidebar ad widget spacing */
+.sidebar-widget--ads {
+    padding: 0;
+    background: none;
+    box-shadow: none;
+
+    .hrf-wrapper {
+        margin: 0;
+    }
+}
+
+/* Inline ads shown below the article body */
+.article-inline-ads {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+/* Fixed bottom mobile banner (320x50) */
+.hrf-mobile-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 950;
+    width: 100%;
+    display: none;
+    justify-content: center;
+    padding: 4px;
+    background: var(--body-background);
+
+    @media (max-width: 767px) {
+        display: flex;
+    }
+}
+
+body {
+    @media (max-width: 767px) {
+        padding-bottom: 58px;
+    }
+}
+
+/* ==========================================================================
    Article typography & post polish
    ========================================================================== */
 .article-content {

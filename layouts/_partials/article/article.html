@@ -23,6 +23,13 @@
         {{ partial "article/components/content" . }}
     </div>
 
+    {{ if eq .Type "post" }}
+    <div class="article-inline-ads">
+        {{ partial "ads/hrf" (dict "size" "native") }}
+        {{ partial "ads/hrf" (dict "size" "300x250") }}
+    </div>
+    {{ end }}
+
     {{ partial "article/components/footer" . }}
 
     {{ if or .Params.math .Site.Params.article.math }}

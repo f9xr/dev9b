@@ -1,0 +1,46 @@
+{{- /*
+    HighRevenueFormat ad unit partial.
+    Usage: {{ partial "ads/hrf" (dict "size" "300x250") }}
+
+    Supported sizes: native, 300x250, 468x60, 160x300, 160x600, 320x50, 728x90
+*/ -}}
+{{- $size := .size -}}
+{{- if eq $size "native" -}}
+<script async="async" data-cfasync="false" src="https://pl31337382.profitableratecpmnetwork.com/a1428e0145a751d1afeef46551bd8659/invoke.js"></script>
+<div id="container-a1428e0145a751d1afeef46551bd8659"></div>
+{{- else -}}
+<div class="hrf-wrapper hrf-{{ $size }}">
+<script>
+  atOptions = {
+    {{- if eq $size "300x250" }}
+    'key' : 'e58fca3a70b7f6440770fea6a6a69f63',
+    'height' : 250,
+    'width' : 300,
+    {{- else if eq $size "468x60" }}
+    'key' : '9ce62f49850e881a324389bebe164f21',
+    'height' : 60,
+    'width' : 468,
+    {{- else if eq $size "160x300" }}
+    'key' : 'ac3309be794e1178ae237439dc60bc92',
+    'height' : 300,
+    'width' : 160,
+    {{- else if eq $size "160x600" }}
+    'key' : '1c569984e7a0764bbf8b9723c425c0a2',
+    'height' : 600,
+    'width' : 160,
+    {{- else if eq $size "320x50" }}
+    'key' : '0f0b8e84550094fe90b04478fd4e4bd2',
+    'height' : 50,
+    'width' : 320,
+    {{- else if eq $size "728x90" }}
+    'key' : '691095927c5cc31c826edaffd3f5a717',
+    'height' : 90,
+    'width' : 728,
+    {{- end }}
+    'format' : 'iframe',
+    'params' : {}
+  };
+</script>
+<script src="https://www.highrevenueformat.com/{{- if eq $size "300x250" }}e58fca3a70b7f6440770fea6a6a69f63{{- else if eq $size "468x60" }}9ce62f49850e881a324389bebe164f21{{- else if eq $size "160x300" }}ac3309be794e1178ae237439dc60bc92{{- else if eq $size "160x600" }}1c569984e7a0764bbf8b9723c425c0a2{{- else if eq $size "320x50" }}0f0b8e84550094fe90b04478fd4e4bd2{{- else if eq $size "728x90" }}691095927c5cc31c826edaffd3f5a717{{- end }}/invoke.js"></script>
+</div>
+{{- end -}}

@@ -1,0 +1,8 @@
+{{- /*
+    HighRevenueFormat sidebar widget.
+    Add to params.toml widgets: { type = "hrf", params = { size = "300x250" } }
+*/ -}}
+{{- $size := .Params.size | default "300x250" -}}
+<div class="sidebar-widget sidebar-widget--ads">
+    {{ partial "ads/hrf" (dict "size" $size) }}
+</div>
