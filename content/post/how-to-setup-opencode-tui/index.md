@@ -64,7 +64,7 @@ It helps to separate the two ways you can use OpenCode:
 | CLI (one-shot) | `opencode run "explain this function"` | Quick, scriptable, non-interactive tasks |
 | TUI (interactive) | `opencode` | Ongoing sessions, multi-turn conversations, code edits |
 
-Most day-to-day work happens in the TUI, since that's where session history, undo/redo, and file context management actually live. If you're still deciding whether OpenCode is the right agent for you, our [AI Coding Agents Explained](https://f9xr.github.io/dev9b/p/ai-coding-agents-explained/) piece and the [OpenCode vs Cursor](https://f9xr.github.io/dev9b/p/opencode-vs-cursor/) comparison cover the trade-offs in detail.
+Most day-to-day work happens in the TUI, since that's where session history, undo/redo, and file context management actually live. If you're still deciding whether OpenCode is the right agent for you, our [AI Coding Agents Explained](https://f9xr.org/p/ai-coding-agents-explained/) piece and the [OpenCode vs Cursor](https://f9xr.org/p/opencode-vs-cursor/) comparison cover the trade-offs in detail.
 
 ## Prerequisites Before You Start
 
@@ -238,7 +238,7 @@ Run `/init` from inside the TUI to generate an `AGENTS.md` file at your project 
 
 If your project already has strong conventions (a specific commit message format, a preferred testing library, strict linting rules), spelling those out in `AGENTS.md` cuts down significantly on back-and-forth corrections later.
 
-Once the TUI basics are comfortable, the natural next step is teaching OpenCode your project's reusable workflows — check out our [OpenCode Skills Guide](https://f9xr.github.io/dev9b/p/opencode-skills-guide/) for that.
+Once the TUI basics are comfortable, the natural next step is teaching OpenCode your project's reusable workflows — check out our [OpenCode Skills Guide](https://f9xr.org/p/opencode-skills-guide/) for that.
 
 ## Customizing the TUI
 

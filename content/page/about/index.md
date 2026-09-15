@@ -22,8 +22,9 @@ Dev9b exists to make developer knowledge accessible to everyone. We believe that
 
 Dev9b is built and maintained by the **F9XR Team** — a group of developers passionate about open-source and knowledge sharing.
 
-- **Website:** [f9xr.github.io](https://f9xr.github.io)
+- **Website:** [f9xr.org](https://f9xr.org)
 - **GitHub:** [github.com/f9xr](https://github.com/f9xr)
+- **Email:** [hello@f9xr.org](mailto:hello@f9xr.org)
 - **Contact:** Open an issue on our [GitHub repository](https://github.com/f9xr/dev9b)
 - **Editorial standards:** See our [Editorial Policy](/editorial-policy/)
 

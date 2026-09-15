@@ -6,74 +6,81 @@ Dev9b is a free, open-source online community where software developers share kn
 
 ## Site
 
-- Website: https://f9xr.github.io/dev9b/
+- Website: https://f9xr.org/
 - GitHub: https://github.com/f9xr/dev9b
 - License: MIT (source), CC BY-NC-SA 4.0 (content)
-- Feeds: RSS (https://f9xr.github.io/dev9b/index.xml), RSS (https://f9xr.github.io/dev9b/feed.xml), Atom (https://f9xr.github.io/dev9b/atom.xml)
+- Feeds: RSS (https://f9xr.org/index.xml), RSS (https://f9xr.org/feed.xml), Atom (https://f9xr.org/atom.xml)
 
 ## About
 
-- About Dev9b: https://f9xr.github.io/dev9b/about/
-- Contributor Guide: https://f9xr.github.io/dev9b/contribute/
-- Editorial Policy: https://f9xr.github.io/dev9b/editorial-policy/
-- The F9XR Team: https://f9xr.github.io/dev9b/team/
+- About Dev9b: https://f9xr.org/about/
+- Contributor Guide: https://f9xr.org/contribute/
+- Editorial Policy: https://f9xr.org/editorial-policy/
+- The F9XR Team: https://f9xr.org/team/
 
 ## Articles
 
 ### How to Add OpenCode to Your VS Code
-- URL: https://f9xr.github.io/dev9b/p/opencode-vscode-setup/
+- URL: https://f9xr.org/p/opencode-vscode-setup/
 - Description: Step-by-step guide to install and configure OpenCode AI coding agent in VS Code, Cursor, and other VS Code forks for agentic AI-assisted development.
 - Categories: Tutorials
 - Tags: opencode, vscode, ai-tools, developer-setup
 - Date: 2026-09-04
 
 ### How to Add New Skills to Your OpenCode
-- URL: https://f9xr.github.io/dev9b/p/opencode-skills-guide/
+- URL: https://f9xr.org/p/opencode-skills-guide/
 - Description: Learn how to create, install, and configure custom agent skills in OpenCode — from writing SKILL.md files to managing permissions and discovering community skill repos.
 - Categories: Tutorials
 - Tags: opencode, ai-tools, developer-setup, skills
 - Date: 2026-09-04
 
 ### Welcome to Dev9b
-- URL: https://f9xr.github.io/dev9b/p/hello-world/
+- URL: https://f9xr.org/p/hello-world/
 - Description: Dev9b is an open-source developer blog by F9XR Team. Start here to explore articles, tutorials, and coding guides for developers.
 - Categories: Dev9b
 - Tags: introduction, welcome, f9xr
-- Date: 2024-01-01
+- Date: 2026-09-01
+
+### Skelementor Guide: Build Elementor Sites Faster
+- URL: https://f9xr.org/p/how-to-use-skelementor/
+- Description: Learn how to use Skelementor's component library to build Elementor websites faster. Setup, workflow, tips, and FAQs for developers.
+- Categories: Tutorials
+- Tags: skelementor, elementor, wordpress, web-design, page-builder
+- Date: 2026-09-15
 
 ## Pages
 
 ### About Dev9b
-- URL: https://f9xr.github.io/dev9b/about/
+- URL: https://f9xr.org/about/
 - Description: Learn about Dev9b, an open-source developer blog platform by F9XR Team.
 - Date: 2024-01-01
 
 ### Contributor Guide
-- URL: https://f9xr.github.io/dev9b/contribute/
+- URL: https://f9xr.org/contribute/
 - Description: How to contribute articles to Dev9b. A step-by-step guide for developers.
 - Date: 2024-01-01
 
 ### Editorial Policy
-- URL: https://f9xr.github.io/dev9b/editorial-policy/
+- URL: https://f9xr.org/editorial-policy/
 - Description: Editorial standards and review process for articles published on Dev9b.
 - Date: 2024-01-01
 
 ### The F9XR Team
-- URL: https://f9xr.github.io/dev9b/team/
+- URL: https://f9xr.org/team/
 - Description: Meet the developers behind Dev9b. Credentials, experience, and open-source contributions of the F9XR Team.
 - Date: 2024-01-01
 
 ### Dev9b Links
-- URL: https://f9xr.github.io/dev9b/links/
+- URL: https://f9xr.org/links/
 - Description: Useful developer resources and tools recommended by the Dev9b community.
 - Date: 2024-01-01
 
 ### Archives
-- URL: https://f9xr.github.io/dev9b/archives/
+- URL: https://f9xr.org/archives/
 - Description: Chronological listing of all articles published on Dev9b.
 
 ### Search
-- URL: https://f9xr.github.io/dev9b/search/
+- URL: https://f9xr.org/search/
 - Description: Search articles on Dev9b. Find tutorials, guides, and developer resources.
 
 ## Social
@@ -89,5 +96,6 @@ Dev9b is a free, open-source online community where software developers share kn
 
 ## Contact
 
+- Email: hello@f9xr.org
 - F9XR Team: https://github.com/f9xr
 - Issues: https://github.com/f9xr/dev9b/issues

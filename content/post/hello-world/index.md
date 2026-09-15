@@ -2,7 +2,7 @@
 title: Welcome to Dev9b
 description: "Dev9b is an open-source developer blog by F9XR Team. Start here to explore articles, tutorials, and coding guides for developers."
 slug: hello-world
-date: 2024-01-01 00:00:00+0000
+date: 2026-09-01T00:00:00+05:30
 image: cover.jpg
 author: F9XR Team
 categories:
@@ -54,8 +54,9 @@ Trust is important to us. Read our [Editorial Policy](/editorial-policy/) to und
 
 Dev9b is built and maintained by the F9XR Team — a group of developers passionate about open-source and knowledge sharing.
 
-- **Website:** [f9xr.github.io](https://f9xr.github.io)
+- **Website:** [f9xr.org](https://f9xr.org)
 - **GitHub:** [github.com/f9xr](https://github.com/f9xr)
+- **Email:** [hello@f9xr.org](mailto:hello@f9xr.org)
 
 ## Open Source
 

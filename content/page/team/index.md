@@ -32,6 +32,7 @@ Dev9b is written and maintained by the **F9XR Team** — developers who build re
 You can verify our work directly:
 
 - **F9XR GitHub:** [github.com/f9xr](https://github.com/f9xr)
+- **Email:** [hello@f9xr.org](mailto:hello@f9xr.org)
 - **Dev9b source:** [github.com/f9xr/dev9b](https://github.com/f9xr/dev9b)
 - **Issue tracker:** [github.com/f9xr/dev9b/issues](https://github.com/f9xr/dev9b/issues)
 

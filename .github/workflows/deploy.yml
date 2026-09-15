@@ -110,5 +110,5 @@ jobs:
             "https://www.google.com/ping?sitemap=${{ steps.deployment.outputs.page_url }}sitemap.xml"
           curl -s -o /dev/null -w "IndexNow: %{http_code}\n" -X POST \
             -H "Content-Type: application/json; charset=utf-8" \
-            -d '{"host":"f9xr.github.io","key":"3FFE8AD1224F6498C1B5162A3A4A4907","keyLocation":"https://f9xr.github.io/dev9b/3FFE8AD1224F6498C1B5162A3A4A4907.txt","urlList":["https://f9xr.github.io/dev9b/","https://f9xr.github.io/dev9b/post/opencode-vscode-setup/","https://f9xr.github.io/dev9b/post/opencode-skills-guide/","https://f9xr.github.io/dev9b/post/hello-world/"]}' \
+            -d '{"host":"f9xr.org","key":"3FFE8AD1224F6498C1B5162A3A4A4907","keyLocation":"https://f9xr.org/3FFE8AD1224F6498C1B5162A3A4A4907.txt","urlList":["https://f9xr.org/","https://f9xr.org/post/opencode-vscode-setup/","https://f9xr.org/post/opencode-skills-guide/","https://f9xr.org/post/hello-world/"]}' \
             "https://api.indexnow.org/indexnow"

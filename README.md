@@ -6,7 +6,7 @@
 
 Dev9b is a free, open-source online community where software developers share knowledge, write technical articles, and help each other grow. Made by developers, for developers.
 
-**Live site:** https://f9xr.github.io/dev9b/
+**Live site:** https://f9xr.org/
 
 ## Features
 
@@ -40,7 +40,7 @@ Dev9b welcomes contributions! All articles are reviewed by the **F9XR Review Boa
 3. Add a cover image and proper front matter
 4. Submit a Pull Request
 
-For the full guide, see the live [Contributor Guide](https://f9xr.github.io/dev9b/contribute/).
+For the full guide, see the live [Contributor Guide](https://f9xr.org/contribute/).
 
 ## Site Structure
 
@@ -76,4 +76,4 @@ Located in `static/`:
 
 ## Team
 
-F9XR Team — [github.com/f9xr](https://github.com/f9xr)
+F9XR Team — [github.com/f9xr](https://github.com/f9xr) · [hello@f9xr.org](mailto:hello@f9xr.org)

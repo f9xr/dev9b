@@ -68,5 +68,6 @@ Dev9b is open about its production methods:
 
 To report an error or raise a concern about any article:
 
+- Email us at [hello@f9xr.org](mailto:hello@f9xr.org)
 - Open an issue on our [GitHub repository](https://github.com/f9xr/dev9b/issues)
 - Or follow the [Contributor Guide](/contribute/) to submit corrections

@@ -1,7 +1,7 @@
 # Humans.txt
 
 # Dev9b
-# https://f9xr.github.io/dev9b/
+# https://f9xr.org/
 
 ## Site
 Dev9b - Open-source developer blog by F9XR Team
@@ -10,6 +10,7 @@ Dev9b - Open-source developer blog by F9XR Team
 F9XR Team
 
 ## Contact
+Email: hello@f9xr.org
 GitHub: https://github.com/f9xr
 Issues: https://github.com/f9xr/dev9b/issues
 

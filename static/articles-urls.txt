@@ -1,25 +1,26 @@
 # Dev9b Articles
-# https://f9xr.github.io/dev9b/
+# https://f9xr.org/
 # All article URLs on Dev9b
 
 # Home
-https://f9xr.github.io/dev9b/
+https://f9xr.org/
 
 # Articles
-https://f9xr.github.io/dev9b/p/opencode-vscode-setup/
-https://f9xr.github.io/dev9b/p/opencode-skills-guide/
-https://f9xr.github.io/dev9b/p/hello-world/
+https://f9xr.org/p/opencode-vscode-setup/
+https://f9xr.org/p/opencode-skills-guide/
+https://f9xr.org/p/hello-world/
+https://f9xr.org/p/how-to-use-skelementor/
 
 # Pages
-https://f9xr.github.io/dev9b/about/
-https://f9xr.github.io/dev9b/contribute/
-https://f9xr.github.io/dev9b/editorial-policy/
-https://f9xr.github.io/dev9b/team/
-https://f9xr.github.io/dev9b/links/
-https://f9xr.github.io/dev9b/archives/
-https://f9xr.github.io/dev9b/search/
+https://f9xr.org/about/
+https://f9xr.org/contribute/
+https://f9xr.org/editorial-policy/
+https://f9xr.org/team/
+https://f9xr.org/links/
+https://f9xr.org/archives/
+https://f9xr.org/search/
 
 # Feeds
-https://f9xr.github.io/dev9b/index.xml
-https://f9xr.github.io/dev9b/feed.xml
-https://f9xr.github.io/dev9b/atom.xml
+https://f9xr.org/index.xml
+https://f9xr.org/feed.xml
+https://f9xr.org/atom.xml

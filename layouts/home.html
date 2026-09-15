@@ -1,6 +1,8 @@
 {{ define "main" }}
     {{- $paginator := partial "helper/paginator.html" . -}}
 
+    {{ partial "featured-on" . }}
+
     <section class="article-list">
         {{ range $index, $element := $paginator.Pages }}
             {{ partial "article-list/default" . }}

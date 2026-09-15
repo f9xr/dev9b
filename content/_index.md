@@ -13,7 +13,7 @@ menu:
 
 **Dev9b** is a free, open-source online community where software developers share knowledge, write technical articles, and help each other grow.
 
-Built by the **F9XR Team** ([f9xr.github.io](https://f9xr.github.io)), Dev9b is made by developers, for developers.
+Built by the **F9XR Team** ([f9xr.org](https://f9xr.org)), Dev9b is made by developers, for developers.
 
 ### What We Share
 

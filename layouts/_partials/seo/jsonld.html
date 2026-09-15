@@ -4,7 +4,7 @@
      quotes, producing invalid JSON-LD. */ -}}
 {{- $siteName := "F9XR's Dev9b" -}}
 {{- $siteURL  := string .Site.BaseURL -}}
-{{- $orgURL   := "https://f9xr.github.io/" -}}
+{{- $orgURL   := "https://f9xr.org/" -}}
 {{- $logoURL  := (printf "%simg/f9xr-logo.webp" $siteURL) -}}
 {{- $locale   := "en-US" -}}
 
@@ -32,6 +32,7 @@
     "contactPoint" (dict
         "@type" "ContactPoint"
         "contactType" "customer support"
+        "email" "hello@f9xr.org"
         "url" $orgURL
         "areaServed" "Worldwide"
         "availableLanguage" (slice "English"))
