@@ -39,7 +39,7 @@ Run through these before you spend time on anything else. They cover 80% of the 
 
 - [ ] **One H1 per page, holding the keyword.** On posts, the title should render as the page's H1. If your theme prints the article title as an H2, override it — this was the single biggest finding in our audit.
 - [ ] **Unique meta description per page.** `description` in front matter. Keep it under 160 characters and include the target keyword.
-- [ ] **Canonical tags on.** Hugo emits canonicals automatically from `.Permalink`.
+- [ ] **Canonical tags on.** Hugo emits canonicals automatically from `.Permalink` — but they only match reality when `baseURL` matches the domain you actually serve. That pairing of `baseURL` and the live domain is exactly what we wire together in the [Cloudflare custom-domain setup](/p/github-pages-custom-domain-cloudflare/).
 - [ ] **Sitemap present.** Hugo's built-in `sitemap.xml` needs no configuration. Confirm it lists every indexable URL.
 - [ ] **RSS feeds present.** `index.xml` ships by default; extra feeds are just output formats in `config.toml`.
 - [ ] **robots.txt correct.** Respect the `baseURL` path — a sitemap reference that includes the full path is what allows the sitemap to actually be found.
@@ -83,6 +83,32 @@ Static sites are fast by default, then themes quietly undo it.
 - **`enableGitInfo = true`.** Hugo pulls commit dates into `Date`/`Lastmod`, which keeps `dateModified` honest without manual edits.
 - **Turn off pagination aliases.** `[pagination] disableAliases = true` removes a dozen duplicate `/page/1/` URLs that dilute your crawl.
 - **Unique taxonomy titles.** Raw slugs become titles like "Vscode" or "Ai-Tools". Give tags `_index.md` files with real titles, or override the title partial.
+
+## Extra Checks From the Five-Pass Audit
+
+A few items we added on top of the minimums:
+
+- **Schema-validate every `ld+json` block.** Run each block through a validator once after setup, then spot-check a sample each quarter. Broken JSON-LD is worse than none — search engines treat malformed reviews and FAQs as spam.
+- **Check article and breadcrumb blocks separately.** They come from different partials and fail independently.
+- **No H2s before the H1.** Some themes print aliases or breadcrumbs above the article header. Ensure the first true H1 is the post title.
+- **Alt-text discipline.** Every body image gets a descriptive alt; decorative SVGs get `alt=""`. We verified 100% coverage on this site.
+- **Pin the OG image dimensions.** Missing `width`/`height` on `og:image` makes scrapers crop or resize on their own.
+
+## The Post-Launch Loop
+
+SEO on a static site is a loop, not a one-time fix. After the audit ships:
+
+- **Resubmit the sitemap** in Google Search Console after major content changes — and fire an IndexNow ping afterward if your host supports it; it is one HTTP request.
+- **Re-verify after every theme or config change.** Themes silently override H1 behavior, canonical output, and `og:image`.
+- **Watch for taxonomy bloat.** Tag pages multiply faster than posts. Keep tags few per post, give `_index.md` files real titles, and let thin tag pages die instead of feeding them.
+- **Re-run Lighthouse and a JSON-LD validator on every release.** Automate the checks you can; the rest is a five-minute quarterly pass.
+
+## Tools That Verify the Work
+
+- **Lighthouse / PageSpeed Insights** — Core Web Vitals, LCP, and CLS, with hints about which third-party script is leaking.
+- **Google Rich Results Test and schema.org validator** — JSON-LD types and required fields.
+- **Google Search Console** — sitemap submission, IndexNow coverage, and crawl errors.
+- **A simple crawler** (Screaming Frog, or grep over your sitemap) — dead internal links, empty descriptions, and missing alts.
 
 ## Key Takeaways
 

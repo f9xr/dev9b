@@ -5,10 +5,11 @@ description: >
   Use when asked to "write a blog post", "publish an article", "create
   content", "write a guide", "plan content", "auto-publish", "draft a
   post", "new article", "add a blog entry". Generates Hugo front-matter
-  (TOML or YAML), writes Markdown body with SEO metadata and keywords,
+  (always YAML), writes Markdown body with SEO metadata and keywords,
   and the F9XR branding. Keep content educational (not promotional),
   reviewed by the F9XR Review Board before publishing. All posts live in
-  content/post/<slug>/index.md with a cover image in the same bundle.
+  content/post/<slug>/index.md with a cover image in the same bundle. Run
+  the publish-gate.ps1 quality gate before any post ships.
 ---
 
 # F9XR Dev9b Blog Publisher
@@ -159,17 +160,17 @@ You do **not** write any markup for this. To hide it for one post, set `disableR
 
 ### 2. Generate Front-Matter
 
-Create front-matter for `content/post/<slug>/index.md`. You may use **TOML** (matches the site's config style) or YAML. Hugo-compatible example (TOML):
+Create front-matter for `content/post/<slug>/index.md`. **Use YAML only** — every post on Dev9b uses YAML (TOML is not used on this site):
 
-```toml
+```yaml
 ---
 title: "Your Article Title"
 description: "2-3 sentence summary for SEO meta, feeds, cards, and search engines"
 slug: your-article-slug
-date: 2024-01-15
+date: 2026-09-20
 image: cover.jpg
-author: "Your Name or F9XR Team"
-keywords: "primary keyword, secondary keyword, related term"
+author: F9XR Team
+keywords: primary keyword, secondary keyword, related term
 categories:
     - Tutorials
 tags:
@@ -179,31 +180,33 @@ tags:
 draft: false
 math: false
 # Optional structured-data / reader-tool fields:
+# faq: [{ question: "...", answer: "..." }]   # MUST match on-page Q&As (tutorials)
 # schemaType: "TechArticle"        # override the JSON-LD @type
-# authorUrl: "https://..."         # link for the Person schema
-# authorGitHub: "username"         # GitHub profile for the Person schema
+# authorUrl: "https://..."         # add only when a named author is used
+# authorGitHub: "username"         # add only when a named author is used
 # disableReaderTool: false         # true hides the reader toolbar on this post
 ---
-
-Write your article body here using Markdown.
 ```
 
-**Rules:**
-- `title`: under 60 characters, catchy, includes target keyword.
-- `description`: under 160 characters, includes target keyword. This powers the SEO meta description, OG/twitter description, and feeds.
-- `slug`: short, keyword-rich, hyphenated, lowercase.
-- `date`: today unless specified.
-- `author`: name the individual author when possible (a `Person`); default to `F9XR Team` only when no individual is credited. This feeds the JSON-LD `author` and strengthens E-E-A-T **Expertise**.
+**Rules (enforced by `publish-gate.ps1` — a post FAILS if these are wrong):**
+- `title`: **under 60 characters**, catchy, includes target keyword.
+- `description`: **under 160 characters**, includes target keyword. This powers the SEO meta description, OG/twitter description, and feeds.
+- `slug`: short, keyword-rich, hyphenated, lowercase. Written by you and must match a directory `content/post/<slug>/`.
+- `date`: today unless specified, format `YYYY-MM-DD`.
+- `author`: **always `F9XR Team`** unless an individual is genuinely credited; if a named author is used you MUST also set `authorUrl` + `authorGitHub` so the JSON-LD Person schema stays valid.
 - `keywords`: comma-separated string for JSON-LD structured data.
-- `categories` / `tags`: 2-5 tags. Use existing category names where possible (the default post uses category `Tutorials`). You can create new categories by adding `content/categories/<category>/_index.md`.
+- `categories` / `tags`: **1 category, 2-4 tags max**. **Reuse existing tag slugs exactly** (see `content/post/` front matter and `public/tags/`); each semantic value = one kebab-case tag. Never invent `CamelCase` or spaced variants of an existing tag. Prefer the existing tag `opencode`, `hugo`, `developer-setup`, `ai-tools`, `vscode`, `github-actions`, `web-design`, `wordpress`, etc.
 - `image: cover.jpg` — the cover image inside the page bundle. Always provide one.
-- `draft: false` to publish (use `draft: true` while drafting).
-- Use `<!--more-->` in the body to set the summary break for article-list excerpts.
+- `draft: false` to publish (use `draft: true` while drafting). Always include both `draft:` and `math:` keys.
+- Tutorials need an `faq:` block with 3-6 on-page Q&As (emits FAQPage JSON-LD). Welcome/about pages are exempt.
+- Use `<!--more-->` in the body (after the intro) to set the summary break for article-list excerpts — **required on every post**.
 
 ### 2b. Create the Featured Image
 
 Place a cover image at `content/post/<slug>/cover.jpg` (recommended 1200x630). Rules:
 - The cover MUST live in the same directory as `index.md` (page bundle).
+- Referenced as `image: cover.jpg`. Use **PNG or WebP source images converted to `cover.jpg`** so the bundle never mixes formats.
+- **File size: compress to under 300 KB (target ~50-100 KB)** — the publish gate FAILs larger covers. Optimize with Pillow (Python) at 1200px width, JPEG `quality=82, optimize=True, progressive=True`, or equivalent.
 - For UI/branding consistency, prefer the F9XR charcoal + electric blue palette.
 - Never publish with a missing cover image.
 - If a user supplies a licensed image, always include attribution in the body.
@@ -264,13 +267,18 @@ Concrete checklist before finishing:
 - Keep technical depth high.
 
 **Content rules:**
-- One `<h1>` total (the theme auto-generates it from the title if using the default single layout; when writing a standalone page bundle, start body with `##`).
-- Use `##` and `###` headings.
+- One `<h1>` total (the theme auto-generates it from the title when using the default single layout; when writing a standalone page bundle, start body with `##`).
+- Use `##` and `###` headings. The first body heading must be `## ...` (never `#`), and `##` must not appear inside code fences.
 - Use code blocks with language identifiers (```` ```language ````).
 - Use tables, bullet lists, blockquotes, bold/italic appropriately.
-- Weave internal links inline into the body where helpful (e.g., `/contribute`, `/about`, `/archives`).
-- Article length: 800-1500 words recommended.
-- Reference the [Contributor Guide](/contribute/) for how readers can submit their own articles when relevant.
+- **Internal links**: weave **at least 3 relative `/p/<slug>/` links** inline into the body (publish gate warns below 3, FAILs below 2). Use **relative URLs only** — never `https://f9xr.org/p/...` absolute form. Every newly published post needs an inbound link from an existing post too (readers must be able to reach it).
+- **External links**: always descriptive anchors (never bare URLs or "here"/"learn more").
+- **No "Recommended Reading"/"Related Reading"/related-link-list sections.** All related links are woven inline into the prose. The publish gate and the consistency audit FAIL on these sections.
+- **Affiliate links**: if a post contains affiliate URLs (e.g. `?via=`, `ref=`, `partner=` query params), add the disclosure callout blockquote directly after the intro: `> [!NOTE] Disclosure` stating links are affiliate links. The publish gate FAILs affiliate links without disclosure.
+- **Alt text on every inline image**, and inline images must be local page-bundle files (never remote/`?via=`-style image URLs).
+- Article length: **at least 1000 words; target 1200-2500** (prose after removing code fences). Welcome/intro pages are exempt.
+- Reference the [Contributor Guide](/contribute/) and the [Editorial Policy](/editorial-policy/) in the conclusion.
+- **Footers**: every post ends with `## Key Takeaways` (3-5 bullets) then `## Conclusion`.
 
 ---
 
@@ -286,19 +294,36 @@ Before finishing, run these quality gates:
 #### Step 4b: SEO Audit
 - Title ≤ 60 chars.
 - Meta description present and ≤ 160 chars.
-- Heading hierarchy correct (H2 → H3, single H1).
+- Heading hierarchy correct (H2 → H3, single H1, first body heading `##`).
 - Keyword placed in title, first 100 words, ≥2 H2s, description.
-- Cover image present and referenced.
+- Cover image present, referenced, and under 300 KB.
 - Front-matter valid (no syntax errors).
+
+#### Step 4c: Run the Publish Gate (REQUIRED)
+
+Before any post ships, run the quality gate and fix every FAIL:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File ".opencode/skills/blog-publisher/publish-gate.ps1" -Slug <your-slug>
+```
+
+The gate checks: title/description length, tag count (≤4) + duplicate-slug re-use, local compressed cover, generic anchors, H1/heading hierarchy (skips code fences), word count, internal `/p/` link count, image alt text + local images, and affiliate-link disclosure. Exit line `RESULT: FAIL` means fix the FAIL items first.
+
+**Deploy-file sync — publishing is not done yet until these match:**
+- Add the post to `static/llms.txt` (one line: `https://f9xr.org/p/<slug>/` with a short description) and to `static/articles-urls.txt` (the `.URL` line format).
+- Add it to the `urlList` in `.github/workflows/deploy.yml` (the IndexNow block) — the site's IndexNow pings that exact list.
+- Confirm an existing post now links inbound to the new post (edit the closest related post if needed).
+- After all edits: `hugo --gc --minify --cleanDestinationDir`, then verify the built output has **no broken `/p/` links** and **all JSON-LD blocks parse** (see the consistency-audit script used previously). Leave the site build green.
 
 ### 5. Verify Final File
 
 Confirm the file is at `content/post/<slug>/index.md` with:
-- Valid front-matter.
-- Cover image at `content/post/<slug>/cover.jpg` referenced as `image: cover.jpg`.
+- Valid YAML front-matter.
+- Cover image at `content/post/<slug>/cover.jpg` referenced as `image: cover.jpg`, under 300 KB.
 - Title and description within SEO limits.
 - Body reads naturally, educational, no AI-isms.
 - `draft: false` when ready to publish.
+- Publish gate passes (`publish-gate.ps1`) and deploy files (`llms.txt`, `articles-urls.txt`, `deploy.yml` IndexNow `urlList`) list the post.
 
 ### 6. Build & Preview (recommended)
 

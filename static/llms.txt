@@ -20,16 +20,25 @@ Dev9b is a free, open-source online community where software developers share kn
 
 ## Articles
 
-- How to Add OpenCode to Your VS Code: https://f9xr.org/p/opencode-vscode-setup/
-- How to Add New Skills to Your OpenCode: https://f9xr.org/p/opencode-skills-guide/
-- Welcome to Dev9b: https://f9xr.org/p/hello-world/
+- Install n8n Locally on PC: Docker & npm Guide: https://f9xr.org/p/how-to-install-n8n-locally-on-pc/
+- Vibe Coder vs Vibe Engineer: Ship Real Code with AI: https://f9xr.org/p/vibe-coder-vs-vibe-engineer/
+- Point a Cloudflare Domain to GitHub Pages in 15 Min: https://f9xr.org/p/github-pages-custom-domain-cloudflare/
 - Skelementor Guide: Build Elementor Sites Faster: https://f9xr.org/p/how-to-use-skelementor/
+- Grok Bot Setup Guide for Devs 2026: https://f9xr.org/p/how-to-setup-grokbot/
+- OpenCode TUI Setup: Full Terminal Guide for Devs: https://f9xr.org/p/how-to-setup-opencode-tui/
+- How to Add MCP Servers to OpenCode: https://f9xr.org/p/opencode-mcp-servers/
+- AI Coding Agents Explained: How They Work: https://f9xr.org/p/ai-coding-agents-explained/
+- Hugo on GitHub Pages: Complete Setup Guide: https://f9xr.org/p/hugo-github-pages-setup/
+- OpenCode vs Cursor vs Continue: Which AI Coding Agent?: https://f9xr.org/p/opencode-vs-cursor/
+- The Hugo SEO Checklist (From a Real Site Audit): https://f9xr.org/p/hugo-seo-guide/
+- How to Add New Skills to Your OpenCode: https://f9xr.org/p/opencode-skills-guide/
+- How to Add OpenCode to Your VS Code: https://f9xr.org/p/opencode-vscode-setup/
+- Welcome to Dev9b: https://f9xr.org/p/hello-world/
 
 ## Pages
 
 - Archives: https://f9xr.org/archives/
 - Search: https://f9xr.org/search/
-- Links: https://f9xr.org/links/
 
 ## Social
 

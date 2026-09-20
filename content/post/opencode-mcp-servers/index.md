@@ -3,7 +3,7 @@ title: "How to Add MCP Servers to OpenCode"
 description: "Add local and remote MCP servers to OpenCode — extend your agent with Sentry, Context7, Grep, and custom tools via the Model Context Protocol."
 slug: opencode-mcp-servers
 date: 2026-09-06
-image: cover.png
+image: cover.jpg
 author: F9XR Team
 keywords:
     - OpenCode
@@ -359,6 +359,16 @@ Organizations can provide default MCP servers through `.well-known/opencode`. Th
 ```
 
 Your local config overrides the remote defaults. See the [config precedence order](https://opencode.ai/docs/config/#precedence-order) for the full chain.
+
+## Security Considerations for MCP Servers
+
+Adding an MCP server is like granting the agent a new permission, so treat it that way. A remote server can pass your prompts through a third-party endpoint, and a local server runs as a child process on your machine. Before you trust one, check three things:
+
+- **Who runs the endpoint?** For remote servers, prefer first-party endpoints from the tool vendor (Sentry, GitHub, Context7). A community-hosted server is effectively a proxy into your prompts and your data.
+- **What secrets can the server reach?** Never put long-lived credentials in `opencode.json`. Use `{env:VAR}` or the OAuth flow so tokens never land in the repository.
+- **What can the tools do?** Read each tool's description. A single server can expose read, write, and destructive actions behind one name — disable the ones you don't need.
+
+MCP servers only add attack surface when you enable ones you don't need. The discipline is the same one that keeps agents safe in general, covered in our explainer on [AI coding agents](/p/ai-coding-agents-explained/): trust comes from being able to see what runs, when, and with which credentials.
 
 ## Key Takeaways
 

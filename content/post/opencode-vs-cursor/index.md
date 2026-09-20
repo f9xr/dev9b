@@ -51,6 +51,7 @@ This comparison breaks them down by the dimensions that actually matter — cost
 | Model choice | 75+ models, local or cloud | Hosted models, limited custom | Any compatible model |
 | Local models | Yes (Ollama) | Limited | Yes (Ollama) |
 | Privacy stance | Code stays with your provider | Cloud processing by Cursor | Code stays local |
+| Custom rules | `opencode.json` + skills | `.cursorrules` | `.continuerc.json` |
 | Works without an editor | Yes | No | No |
 
 ## When OpenCode Fits Best
@@ -69,6 +70,36 @@ The trade-off is control. The editor is closed source, and its headline features
 
 Continue is the keep-your-tools option. If you are happy with VS Code or JetBrains and simply want AI inside it with your own providers, Continue adds the capability without moving you anywhere. It is also a good on-ramp to try providers before committing to a standalone agent.
 
+## Pricing in Plain Numbers
+
+Pricing is where the three split most cleanly. None of them hide the numbers, but the type of cost is very different:
+
+| Tool | Upfront cost | Ongoing cost | What you actually pay for |
+|---|---|---|---|
+| OpenCode | Free | Model usage (API keys or local) | Tokens you burn |
+| Cursor | Free tier | Per-seat subscription (Pro and Max plans) | Hosted models + editor features |
+| Continue | Free | Model usage via your own keys | Provider tokens |
+
+OpenCode and Continue are open-source software; your only bill is the model behind them. Run a local model through Ollama and that bill rounds down to the electricity. Cursor bundles model access into a flat monthly fee — predictable, but it scales linearly with every seat and the headline plans get expensive fast.
+
+For a small team that already manages API keys, the terminal-first option usually wins on cost alone. For a team that wants zero infrastructure decisions, a per-seat subscription is the simpler budget line.
+
+## Rules, Skills, and Extensibility
+
+All three tools let you encode project rules, but where those rules live changes how portable they are:
+
+- **OpenCode** keeps rules in `opencode.json` and reusable `SKILL.md` files inside the repo. The same skill set follows you into VS Code, Windsurf, or CI — the full pattern is in our [OpenCode skills guide](/p/opencode-skills-guide/).
+- **Cursor** reads `.cursorrules` through the editor UI. Powerful, but the rules stay inside the editor.
+- **Continue** uses a config file (`.continuerc.json`) and providers you configure in your IDE.
+
+The portability difference decides it for most teams: OpenCode rules come along even when the editor changes, which is exactly why F9XR runs it as the primary agent.
+
+## Vendor Lock-in, Honestly
+
+OpenCode and Cursor are opposite answers to lock-in. OpenCode stores everything in open files — config, rules, model choice — so leaving it means deleting a binary you can reinstall anywhere in minutes. Cursor wraps its best features around proprietary infrastructure; if product direction or pricing changes, the migration is a rewrite of habits, not a config swap.
+
+Neither approach is wrong. If you optimize for optionality, the open-source options are the lower-risk default. If you optimize for a finished-feeling experience today, Cursor's polish is the value you are paying for.
+
 ## How We Use All Three
 
 At F9XR we run OpenCode as the primary agent because the same `opencode.json` follows us across projects and CI. Continue stays handy for a quick in-editor chat that reuses our existing provider keys, and we test Cursor in channels where our reviewers are already in that editor. The pattern that matters: one config, multiple agents, no vendor lock.
@@ -78,6 +109,7 @@ At F9XR we run OpenCode as the primary agent because the same `opencode.json` fo
 - OpenCode is free, open source, and terminal-first with 75+ models — the most portable option.
 - Cursor is the best out-of-the-box editor experience but is closed and subscription-based.
 - Continue slots AI into the IDE you already use without moving your codebase.
+- Rules and skill files decide how portable your setup is — prefer ones that live in the repo.
 - You are not limited to one; each tool fills a different slot in the same workflow.
 
 ## Conclusion

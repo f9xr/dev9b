@@ -120,6 +120,38 @@ The final piece reads the outcomes. Did the command succeed? Does the test pass?
 
 In practice a session looks like: you ask OpenCode to add a feature across two files. It lists the files it wants to read, reads them, writes a sketch, runs the build, notices a broken import it introduced, fixes it, replaces a hardcoded value with a config lookup, and hands you a diff. Every step was visible, every command was approved, and the agent corrected its own mistake without being asked.
 
+## Why Context Is the Real Constraint
+
+The myth is that agents fail because the model is weak. In practice the bottleneck is context. An LLM reasons over whatever fits in its context window, so an agent's quality tracks how well it feeds the model the right information at the right time. Three techniques separate good agents from average ones:
+
+- **Selective reads.** The agent reads only the files relevant to the current step instead of dumping the whole repository into the window.
+- **Search before read.** Codebase search finds the relevant symbols first, then the agent opens a handful of files rather than dozens.
+- **Summarization.** Long outputs are compressed before they feed back in, keeping useful signal inside a shrinking window.
+
+This is why the tool layer matters as much as the model: a search tool that understands your framework produces better decisions than a larger model with a blind toolset.
+
+## When Agents Get It Wrong
+
+Agents fail in predictable ways, and knowing them makes you a better operator:
+
+- **Stale context.** The agent reasons from an earlier file version and edits code that has moved. The fix is a fresh read — most agents re-read on their own if you tell them what changed.
+- **Missing feedback.** An agent that skips parsing its own output "succeeds" on wrong results. Verify it actually inspects output before you trust it in production.
+- **Permission clutter.** Over-permissioned agents run more, break more, and are harder to audit. Start deny-by-default and add commands only as the work demands.
+
+Each failure is a clue about the tool, not the technology. A mature agent makes these failures visible and rare; a sloppy one hides them behind a confident summary.
+
+## Evaluating an Agent for Your Team
+
+Before you standardize on any agent, run the same five-question test:
+
+1. Can it read and edit files, run commands, and search the codebase?
+2. Does every dangerous action go through a permission prompt or a deny rule?
+3. Does it inspect the output of what it ran, or only report what it intended?
+4. Can your conventions be encoded (skills or rules) and versioned in the repository?
+5. What happens when the model you use today gets worse, pricier, or discontinued?
+
+This site has a recommended path for every part of the stack: the [OpenCode TUI setup](/p/how-to-setup-opencode-tui/), the [VS Code setup](/p/opencode-vscode-setup/), and the [skills guide](/p/opencode-skills-guide/) for encoding your conventions.
+
 ## Key Takeaways
 
 - An agent is a plan-act-check loop, not a chat box.

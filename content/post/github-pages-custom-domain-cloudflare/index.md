@@ -4,7 +4,7 @@ description: "Connect your Cloudflare domain to GitHub Pages the right way: A re
 slug: github-pages-custom-domain-cloudflare
 date: 2026-09-16
 image: cover.jpg
-author: dev9b
+author: F9XR Team
 keywords:
     - github pages custom domain
     - cloudflare dns
@@ -17,12 +17,6 @@ tags:
     - github-pages
     - cloudflare
     - custom-domain
-    - dns
-    - devops
-    - hugo
-    - ssl-certificate
-    - static-site-hosting
-    - developer-setup
     - github-actions
 draft: false
 math: false

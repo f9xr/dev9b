@@ -3,7 +3,7 @@ title: "Skelementor Guide: Build Elementor Sites Faster"
 description: "Learn how to use Skelementor's component library to build Elementor websites faster. Setup, workflow, tips, and FAQs for developers."
 slug: how-to-use-skelementor
 date: 2026-09-15T00:00:00+05:30
-image: https://skelementor.com/og-image.png
+image: cover.jpg
 author: F9XR Team
 categories:
     - Tutorials
@@ -12,7 +12,6 @@ tags:
     - elementor
     - wordpress
     - web-design
-    - page-builder
 keywords:
     - Skelementor
     - Elementor
@@ -40,9 +39,11 @@ Every Elementor developer has been there: staring at a blank canvas, rebuilding 
 
 This guide covers what Skelementor actually is, how the copy-paste workflow works inside the Elementor editor, what to expect from the free versus paid tiers, and the practical habits that'll get you the most out of it as a working developer or designer. If you build websites on WordPress with Elementor, this is the kind of tool that quietly saves you hours every single week.
 
+> **Disclosure:** Some links in this guide are affiliate links. If you buy through them, F9XR may earn a commission at no extra cost to you. We only recommend tools we actually use and test.
+
 <!--more-->
 
-![Skelementor component library preview](https://skelementor.com/_next/image?url=%2Fmarketing%2Ffeatures%2Fprinciples.jpg&w=3840&q=75&dpl=dpl_HB5UbVR4SPBkkkzfmDY7vc5fQ1tv&via=f9xr)
+![Skelementor component library preview](principles.jpg)
 
 ## What Is Skelementor?
 
@@ -60,7 +61,7 @@ The library covers a wide range of categories including:
 
 New components are added on a regular cadence, so the library keeps growing rather than sitting static after you sign up.
 
-![Skelementor CTA app preview](https://skelementor.com/_next/image?url=%2Fmarketing%2Fcta-app-preview.jpg&w=3840&q=75&dpl=dpl_A2AjjAgU4RZxPJPK6QnFLmNz8vvA&via=f9xr)
+![Skelementor CTA app preview](cta-app-preview.jpg)
 
 ### Who Skelementor Is Built For
 
@@ -76,7 +77,7 @@ Skelementor targets a fairly broad slice of the WordPress ecosystem:
 
 If your job involves building Elementor pages repeatedly, whether for clients or your own projects, there's a good chance a chunk of your workflow can be shortened here.
 
-![Customize before using Skelementor](https://skelementor.com/_next/image?url=%2Fmarketing%2Ffeatures%2Fcustomize-before.jpg&w=3840&q=75&dpl=dpl_HB5UbVR4SPBkkkzfmDY7vc5fQ1tv&via=f9xr)
+![Customize before using Skelementor](customize-before.jpg)
 
 ## How Skelementor Works: The Copy-Paste Workflow
 
@@ -139,7 +140,7 @@ Before you rely on Skelementor for a live project, a few compatibility points ar
 * **Browser choice.** Cross-domain clipboard copying is most reliable in Chrome. Safari in particular has known issues with this kind of cross-site paste, so switch browsers if you hit a wall.
 * **Elementor Pro.** Some component categories and interactions (dynamic content, certain widgets) may depend on Elementor Pro rather than the free version, so double-check a component's requirements if you're running a free Elementor install.
 
-![Customize after using Skelementor](https://skelementor.com/_next/image?url=%2Fmarketing%2Ffeatures%2Fcustomize-after.jpg&w=3840&q=75&dpl=dpl_HB5UbVR4SPBkkkzfmDY7vc5fQ1tv&via=f9xr)
+![Customize after using Skelementor](customize-after.jpg)
 
 ## Free vs Paid: What to Expect
 
@@ -204,5 +205,7 @@ The most common causes are using a browser other than Chrome, an outdated versio
 Yes, this is a common use case for the tool, but license terms can vary by plan. Review [Skelementor's license page](https://skelementor.com/?via=f9xr) for specifics on commercial and agency use before deploying components across multiple client sites.
 
 ---
+
+Looking for a faster way to ship content sites, too? See how we deploy this blog automatically with [Hugo on GitHub Pages](/p/hugo-github-pages-setup/) and how we keep it [Google-friendly](/p/hugo-seo-guide/) with a verified checklist.
 
 *This guide was researched and drafted with the assistance of an AI coding assistant, then reviewed by the F9XR Review Board before publishing. Have feedback or want to contribute your own article? See our [Contributor Guide](/contribute/) and [Editorial Policy](/editorial-policy/).*

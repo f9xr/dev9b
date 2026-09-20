@@ -6,17 +6,26 @@
 https://f9xr.org/
 
 # Articles
-https://f9xr.org/p/opencode-vscode-setup/
-https://f9xr.org/p/opencode-skills-guide/
-https://f9xr.org/p/hello-world/
+https://f9xr.org/p/how-to-install-n8n-locally-on-pc/
+https://f9xr.org/p/vibe-coder-vs-vibe-engineer/
+https://f9xr.org/p/github-pages-custom-domain-cloudflare/
 https://f9xr.org/p/how-to-use-skelementor/
+https://f9xr.org/p/how-to-setup-grokbot/
+https://f9xr.org/p/how-to-setup-opencode-tui/
+https://f9xr.org/p/opencode-mcp-servers/
+https://f9xr.org/p/ai-coding-agents-explained/
+https://f9xr.org/p/hugo-github-pages-setup/
+https://f9xr.org/p/opencode-vs-cursor/
+https://f9xr.org/p/hugo-seo-guide/
+https://f9xr.org/p/opencode-skills-guide/
+https://f9xr.org/p/opencode-vscode-setup/
+https://f9xr.org/p/hello-world/
 
 # Pages
 https://f9xr.org/about/
 https://f9xr.org/contribute/
 https://f9xr.org/editorial-policy/
 https://f9xr.org/team/
-https://f9xr.org/links/
 https://f9xr.org/archives/
 https://f9xr.org/search/
 

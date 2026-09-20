@@ -19,13 +19,7 @@ tags:
     - grok-bot
     - xai
     - ai-agents
-    - cursor
-    - developer-tools
-    - ai-coding-agent
     - automation
-    - setup-guide
-    - cloud-agents
-    - devops
 draft: false
 math: false
 faq:
@@ -56,7 +50,7 @@ This guide walks through the full setup the way a working developer would do it:
 ## Key Takeaways
 
 - Grok Bot requires an eligible Cursor or SuperGrok plan. There is no free or standalone tier.
-- Install the official desktop app from x.ai/bot for macOS, Windows, or Linux.
+- Install the official desktop app from the [x.ai downloads page](https://x.ai/bot) for macOS, Windows, or Linux.
 - Create one focused bot first. Broad "do everything" agents drift fast.
 - Write a clear profile that covers job, tools, output format, and hard limits.
 - Connect core plugins early (GitHub, Slack, Gmail, Notion, etc.) so every bot can use them.
@@ -154,11 +148,11 @@ You also need:
 - A Cursor account (required even for SuperGrok users)
 - At least one tool or website where the bot can do useful work on day one
 
-Official docs live at [docs.x.ai/grok-bot/get-started](https://docs.x.ai/grok-bot/get-started). Always download from [x.ai/bot](https://x.ai/bot) to avoid unofficial builds.
+Official docs live at the [Grok Bot getting-started guide](https://docs.x.ai/grok-bot/get-started). Always download from the [official x.ai downloads page](https://x.ai/bot) to avoid unofficial builds.
 
 ## Step 1: Install the Desktop App
 
-Open the downloads page at [x.ai/bot](https://x.ai/bot) and pick the build that matches your machine.
+Open the [official x.ai downloads page](https://x.ai/bot) and pick the build that matches your machine.
 
 ### macOS
 
@@ -309,7 +303,7 @@ Yes. Sign-in always goes through a Cursor account.
 
 ### Can I use Grok Bot on mobile?
 
-Yes. There is a mobile path documented at [docs.x.ai/grok-bot/mobile](https://docs.x.ai/grok-bot/mobile). Desktop remains the primary setup surface.
+Yes. There is a mobile path documented in the [official Grok Bot mobile guide](https://docs.x.ai/grok-bot/mobile). Desktop remains the primary setup surface.
 
 ### How do I make bots work together?
 

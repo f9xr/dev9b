@@ -200,7 +200,7 @@ The global configuration lives at `~/.config/opencode/opencode.json` and applies
 
 ## Works With Other VS Code Forks
 
-OpenCode works identically in Cursor, Windsurf, and VSCodium. The installation process is the same — just make sure the CLI command for your IDE is available:
+OpenCode works identically in [Cursor](/p/opencode-vs-cursor/), Windsurf, and VSCodium. The installation process is the same — just make sure the CLI command for your IDE is available:
 
 - **Cursor:** `cursor` command
 - **Windsurf:** `windsurf` command
@@ -244,4 +244,6 @@ Then set it in VS Code settings under `opencodeVisual.opencodePath`.
 
 Adding OpenCode to your VS Code setup takes less than five minutes. Once configured, you get an agentic AI assistant that reads your code, writes changes, runs commands, and explains its reasoning — all from within the terminal you already use. Teams like F9XR use this kind of setup to speed up code review and prototyping without introducing new tools into the workflow.
 
-Ready to contribute? Check the [Contributor Guide](/contribute/) to submit your own article to Dev9b.
+When you are ready to go further, teach the agent your conventions with the [OpenCode skills guide](/p/opencode-skills-guide/) or extend it with [MCP servers](/p/opencode-mcp-servers/). Prefer to stay out of the editor? See the full [OpenCode TUI setup guide](/p/how-to-setup-opencode-tui/).
+
+Ready to contribute? Check the [Contributor Guide](/contribute/) to submit your own article to Dev9b. All articles are reviewed against the standards in our [Editorial Policy](/editorial-policy/).

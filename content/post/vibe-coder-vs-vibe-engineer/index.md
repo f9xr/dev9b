@@ -15,16 +15,10 @@ keywords:
 categories:
     - Tutorials
 tags:
-    - vibe coding
-    - vibe engineering
-    - ai coding agents
-    - software engineering best practices
-    - prompt engineering
-    - code review
-    - developer tools
-    - ai pair programming
-    - software development
-    - secure coding practices
+    - vibe-coding
+    - vibe-engineering
+    - ai-coding-agents
+    - prompt-engineering
 draft: false
 math: false
 faq:
@@ -168,7 +162,7 @@ Vibe Engineering
 
 ## Why This Shift Matters Right Now
 
-AI coding agents have gotten remarkably capable. Tools like Claude Code, Cursor, GitHub Copilot, and terminal-based agents such as OpenCode can scaffold entire features, refactor modules, and even write test suites in minutes. That capability is exactly why the vibe coder approach is becoming riskier, not safer.
+AI coding agents have gotten remarkably capable — if the internals still feel like a black box, our explainer on [how AI coding agents work](/p/ai-coding-agents-explained/) walks through the plan-act-check loop and the parts that decide capability and safety. Tools like Claude Code, Cursor, GitHub Copilot, and terminal-based agents such as OpenCode can scaffold entire features, refactor modules, and even write test suites in minutes. That capability is exactly why the vibe coder approach is becoming riskier, not safer.
 
 A few reasons this matters more today than it did a year ago:
 
@@ -184,11 +178,11 @@ In our own work at F9XR, the teams that get the most out of OpenCode and similar
 
 ## How to Become a Vibe Engineer: Practical Habits
 
-Switching from vibe coding to vibe engineering isn't about slowing down to a crawl. It's about adding a handful of disciplined habits around the AI-assisted workflow you already have.
+Switching from vibe coding to vibe engineering isn't about slowing down to a crawl. It's about adding a handful of disciplined habits around the AI-assisted workflow you already have — the same habits engineers have sworn by since [The Pragmatic Programmer](https://en.wikipedia.org/wiki/The_Pragmatic_Programmer), updated for an AI world.
 
 ### 1. Write Better Prompts, Not Just Faster Ones
 
-A vague prompt gets you a vague answer. Instead of "build me a login system," give the AI real constraints: the framework, the database, the auth method, rate limiting requirements, and how errors should be handled. Treat prompting like writing a technical spec, because that's essentially what it is.
+A vague prompt gets you a vague answer. Instead of "build me a login system," give the AI real constraints: the framework, the database, the auth method, rate limiting requirements, and how errors should be handled. Treat prompting like writing a technical spec — for the techniques, [Anthropic's prompt engineering guide](https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview) is a practical reference.
 
 Good prompt engineering habits:
 
@@ -199,7 +193,7 @@ Good prompt engineering habits:
 
 ### 2. Always Read Before You Merge
 
-This sounds obvious, but it's the single most skipped step in vibe coding. Before accepting AI-generated code, read it the same way you'd review a pull request from a colleague. Ask yourself:
+This sounds obvious, but it's the single most skipped step in vibe coding. Before accepting AI-generated code, read it the same way you'd review a pull request from a colleague — [Google's engineering practices documentation](https://google.github.io/eng-practices/) is a solid review standard to borrow from. Ask yourself:
 
 * Do I understand what every function does?
 * Are there hidden dependencies or side effects?
@@ -218,7 +212,7 @@ AI-generated code often "works" for the happy path and quietly breaks everywhere
 
 ### 5. Treat Security as Non-Negotiable
 
-Never accept AI-suggested code involving authentication, payments, file uploads, or database queries without a security pass. Check for hardcoded credentials, missing input sanitization, and overly permissive defaults. A five-minute review can prevent a very expensive incident later.
+Never accept AI-suggested code involving authentication, payments, file uploads, or database queries without a security pass. Check for hardcoded credentials, missing input sanitization, and overly permissive defaults against the [OWASP Top 10](https://owasp.org/www-project-top-ten/). A five-minute review can prevent a very expensive incident later.
 
 ### 6. Keep a Debugging Mindset, Not a Retry Mindset
 
@@ -232,9 +226,9 @@ Future you (and your teammates) won't have access to your AI chat history. Write
 
 The good news is that the same tools associated with vibe coding can absolutely be used the vibe engineer way. It really comes down to how you use them.
 
-* **AI coding agents** (Claude Code, Cursor, GitHub Copilot) work best when given context files, style guides, and clear instructions rather than one-line prompts.
-* **Terminal-based coding agents** like OpenCode let you stay closer to your actual dev environment, git history, and file system, which naturally encourages more review than a black-box chat window.
-* **MCP (Model Context Protocol) servers** let AI agents pull real project context, like your issue tracker or documentation, instead of guessing, which reduces hallucinated assumptions.
+* **AI coding agents** (Claude Code, Cursor, GitHub Copilot) work best when given context files, style guides, and clear instructions rather than one-line prompts. Weighing up the options? Our [OpenCode vs Cursor vs Continue](/p/opencode-vs-cursor/) comparison covers pricing, privacy, and lock-in.
+* **Terminal-based coding agents** like OpenCode let you stay closer to your actual dev environment, git history, and file system, which naturally encourages more review than a black-box chat window. See the [OpenCode TUI setup guide](/p/how-to-setup-opencode-tui/) to get started, and encode your review standards as reusable [OpenCode skills](/p/opencode-skills-guide/).
+* **MCP (Model Context Protocol) servers** let AI agents pull real project context, like your issue tracker or documentation, instead of guessing, which reduces hallucinated assumptions. Here's how to [wire MCP servers into OpenCode](/p/opencode-mcp-servers/), with the [protocol documentation](https://modelcontextprotocol.io/) as background.
 * **CI/CD pipelines and automated testing** catch what manual review misses, especially useful as a safety net when AI is generating a large volume of code quickly.
 * **Linters, type checkers, and static analysis tools** give you an automated second opinion on AI output before it ever reaches a human reviewer.
 
@@ -274,24 +268,6 @@ Not significantly. Most vibe engineering habits, like better prompting and quick
 ### Can AI coding tools be trusted for production code?
 
 AI coding tools can absolutely be used in production when paired with human review, automated testing, and clear architectural boundaries. The tools themselves aren't the risk; using them without oversight is.
-
-## Recommended Reading
-
-### From Dev9b
-
-* [AI Coding Agents Explained](/p/ai-coding-agents-explained/) — how AI coding agents work under the hood.
-* [OpenCode vs Cursor: Which AI Coding Agent Wins](/p/opencode-vs-cursor/) — a head-to-head comparison of two popular coding agents.
-* [How to Set Up OpenCode MCP Servers](/p/opencode-mcp-servers/) — wiring real project context into your agent.
-* [OpenCode Skills Guide](/p/opencode-skills-guide/) — encoding your team's conventions as reusable agent skills.
-* [How to Set Up OpenCode TUI](/p/how-to-setup-opencode-tui/) — running OpenCode directly in your terminal.
-
-### External Resources
-
-* [The Pragmatic Programmer](https://en.wikipedia.org/wiki/The_Pragmatic_Programmer) — a foundational resource on engineering discipline that predates AI but still applies directly.
-* [OWASP Top 10](https://owasp.org/www-project-top-ten/) — essential reading for reviewing AI-generated code for common security vulnerabilities.
-* [Google's Engineering Practices Documentation](https://google.github.io/eng-practices/) — real-world code review standards worth adapting to AI-assisted workflows.
-* [Model Context Protocol Documentation](https://modelcontextprotocol.io/) — for understanding how AI agents can pull real project context instead of guessing.
-* [Anthropic's Prompt Engineering Guide](https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview) — practical techniques for writing more precise, effective prompts.
 
 ## About This Post
 

@@ -19,11 +19,15 @@ keywords:
     - tutorials
     - coding
 weight: 0
+draft: false
+math: false
 ---
 
 Welcome to **Dev9b** — an open-source blog article publishing platform by the **F9XR Team**.
 
 Dev9b is a free, open-source online community where software developers share knowledge, write technical articles, and help each other grow.
+
+<!--more-->
 
 ## What is Dev9b?
 
@@ -46,6 +50,15 @@ Our articles come from actual engineering experience, not recycled marketing. Ev
 2. Read the [Contributor Guide](/contribute) to submit your own article
 3. Join the community by commenting and sharing
 
+## Start With These
+
+If you are new to the site, these are the guides our readers come back to most:
+
+- [AI Coding Agents Explained](/p/ai-coding-agents-explained/) — how agents actually work, without the hype
+- [OpenCode vs Cursor vs Continue](/p/opencode-vs-cursor/) — which AI coding tool fits your workflow
+- [How to Add Skills to OpenCode](/p/opencode-skills-guide/) — encode team conventions your agent will follow
+- [Hugo on GitHub Pages](/p/hugo-github-pages-setup/) — the exact pipeline that runs this site
+
 ## Our Editorial Standards
 
 Trust is important to us. Read our [Editorial Policy](/editorial-policy/) to understand how every article is reviewed by the F9XR Review Board before publishing — checking accuracy, originality, and proper sources.
@@ -54,7 +67,7 @@ Trust is important to us. Read our [Editorial Policy](/editorial-policy/) to und
 
 Dev9b is built and maintained by the F9XR Team — a group of developers passionate about open-source and knowledge sharing.
 
-- **Website:** [f9xr.org](https://f9xr.org)
+- **Website:** [f9xr.org](/)
 - **GitHub:** [github.com/f9xr](https://github.com/f9xr)
 - **Email:** [hello@f9xr.org](mailto:hello@f9xr.org)
 

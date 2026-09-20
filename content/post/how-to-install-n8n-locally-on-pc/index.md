@@ -17,15 +17,9 @@ categories:
     - Tutorials
 tags:
     - n8n
-    - n8n local install
-    - self-hosted n8n
-    - install n8n docker
-    - n8n npm
-    - workflow automation
-    - local development
-    - docker n8n
-    - n8n windows
-    - n8n macos
+    - self-hosted-n8n
+    - workflow-automation
+    - local-development
 draft: false
 math: false
 faq:
@@ -399,24 +393,6 @@ Yes. You get almost all core features without a license key. Business and Enterp
 ### How do I expose local webhooks for testing?
 
 Use n8n's built-in tunnel options (requires Docker) or an external tool such as Cloudflare Tunnel or ngrok, then set the `WEBHOOK_URL` environment variable.
-
-## Recommended Reading
-
-### On Dev9b
-
-- [AI Coding Agents Explained](/p/ai-coding-agents-explained/) — how AI-powered nodes and agents work under the hood.
-- [How to Set Up OpenCode TUI](/p/how-to-setup-opencode-tui/) — developer tooling and terminal workflows.
-- [OpenCode MCP Servers](/p/opencode-mcp-servers/) — MCP and automation integrations.
-- [Automation](/tags/automation/) — the broader automation category on Dev9b.
-- [Developer Tools](/tags/developer-tools/) — related developer tooling content.
-
-### Official and External Resources
-
-- [n8n Docker install docs](https://docs.n8n.io/deploy/host-n8n/install-options/install-with-docker) — primary reference for the Docker method.
-- [n8n Host overview](https://docs.n8n.io/deploy/host-n8n/) — install options and self-hosting guidance.
-- [Docker Desktop](https://www.docker.com/products/docker-desktop/) — required on Windows and macOS for Method 1.
-- [Node.js downloads](https://nodejs.org/) — LTS installers for the npm method.
-- [n8n Community forum](https://community.n8n.io/) — help with setup, nodes, and workflows.
 
 ## About This Post
 

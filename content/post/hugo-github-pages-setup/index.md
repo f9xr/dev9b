@@ -210,12 +210,48 @@ Two things slow fresh Hugo builds down: downloading theme modules and compiling 
 
 Point Hugo at a `--cacheDir` inside the cached folder and restore it before every build.
 
+## Debugging a Broken Deploy
+
+Most "deploy failed" reports on this stack share four causes:
+
+- **Source not set to GitHub Actions.** The workflow runs and publishes nothing until Settings → Pages → Source is set to "GitHub Actions".
+- **Wrong baseURL.** On a subpath site, a missing trailing slash or a root `baseURL` produces a page full of broken links. Check the rendered HTML's first `<link>` and the canonical.
+- **Empty artifact.** If `upload-pages-artifact` points at a missing folder, the deploy shows a blank site. Confirm the build actually emitted files into `public/`.
+- **Module or theme errors.** A typo in `hugo.toml` module imports fails the build with a clear error — but only if you read the full log, not the last line.
+
+When in doubt, reproduce the CI steps locally:
+
+```bash
+rm -rf public
+hugo --gc --minify --cleanDestinationDir --baseURL "https://yourname.github.io/site-name/"
+```
+
+Then open `public/index.html` in a browser. If it renders and the links resolve, Pages will serve the same thing.
+
+## Adding a Custom Domain
+
+A plain Pages URL is fine for side projects, but production sites usually want their own domain. The complete walkthrough — A records, CNAME flattening, SSL settings, and the redirect loop fix — is in our [Cloudflare domain guide](/p/github-pages-custom-domain-cloudflare/).
+
+The short version: add a `CNAME` file to your static output (or set it under Pages settings), point DNS at GitHub's Pages addresses, and switch your provider's SSL/TLS mode to Full (strict). Keep the `baseURL` in Hugo pointing at the custom domain this time, or the canonical tags will still claim the `.github.io` URL.
+
+## Keeping the Deploy Healthy
+
+The workflow is the contract between your content and the live site. A few habits keep it green:
+
+- **Pin versions you can reproduce.** Set `HUGO_VERSION` explicitly in the environment block instead of tracking "latest". A Hugo minor bump has quietly changed rendered output on this very site — pinning means your deploys only change when you change them, never because upstream did.
+- **Lint the built site, not just the source.** Run `hugo --gc --minify --cleanDestinationDir` locally and check the `public/` output before pushing: no leaked drafts, no dead internal links, no missing images. Our [SEO checklist](/p/hugo-seo-guide/) turns that pass into a proper crawl of the published folder.
+- **Treat the workflow file as code.** Every edit to `deploy.yml` gets the same review as a content change. A broken environment override won't error loudly — it deploys a stale or wrong site and calls it success.
+- **Watch the "Pages build and deployment" run after each push.** It is ground truth. A green Actions run is only half the story; the Pages run carries the actual publish.
+
+Rolling back is a redeploy away: check out the last known-good commit, push, and GitHub Pages rewrites the live site on the next successful run. A bad deploy on this setup is never more than minutes old. Content publishing on this pipeline follows the same review standards we apply across the site via the [editorial policy](/editorial-policy/).
+
 ## Key Takeaways
 
 - Hugo and GitHub Pages combine into a free, fully automated static site setup.
 - The `actions/deploy-pages` path is the modern way to publish Pages sites from CI.
 - With a subpath site, `baseURL` must match the full Pages URL or links break.
 - Caching Hugo modules and Dart Sass keeps deploy times in the single digits.
+- When a deploy "fails", check the Pages source, baseURL, artifact, and full build log first.
 
 ## Conclusion
 

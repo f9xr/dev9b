@@ -1,9 +1,9 @@
 ---
 title: "How to Add New Skills to Your OpenCode"
-description: "Learn how to create, install, and configure custom agent skills in OpenCode — from writing SKILL.md files to managing permissions and discovering community skill repos."
+description: "Create, install, and configure OpenCode agent skills: writing SKILL.md files, managing permissions, and finding community skill repos."
 slug: opencode-skills-guide
 date: 2026-09-04
-image: cover.webp
+image: cover.jpg
 author: F9XR Team
 keywords:
     - OpenCode
@@ -244,6 +244,17 @@ If an agent should never load skills:
 
 When disabled, the available skills section is omitted entirely from that agent's context.
 
+## Maintaining Your Skill Library
+
+Skills grow faster than you expect. Here is the routine that keeps a library healthy:
+
+- **Run a quarterly audit.** Open `~/.config/opencode/skills/` and check each `SKILL.md` description still matches what the skill actually does. Descriptions that drift lead agents to load the wrong skill for a task.
+- **Scrap or merge overlaps.** Two skills that both grep for TODO conventions will conflict. Merge them into one, then delete the loser — the name must stay unique across all search locations.
+- **Keep project skills in the repo.** Project-level `.opencode/skills/` travel with the code and stay versioned. Global skills are for habits every project shares; anything project-specific belongs next to that project.
+- **Review permissions with the library.** Every time you grant a skill new tools or raise its permission level, re-read the checklist in Configuring Permissions above. A stale skill with write access is the most common source of surprising edits.
+
+A small, well-maintained library is worth more than a sprawling one. Agents are more likely to load the right skill when they have a short, accurate list to search — and every skill you keep means one more convention the agent follows without you repeating it.
+
 ## Mind Map: OpenCode Skills at a Glance
 
 ```mermaid
@@ -319,7 +330,7 @@ If a skill does not appear in the agent's available list:
 4. **Check permissions.** Skills with `deny` are hidden from agents entirely.
 5. **Ensure uniqueness.** Skill names must be unique across all search locations.
 
-To debug, run OpenCode with verbose logging or check the output panel in VS Code if you are using the extension.
+To debug, run OpenCode with verbose logging or check the output panel in VS Code if you are using the [VS Code extension](/p/opencode-vscode-setup/).
 
 ## Key Takeaways
 
@@ -333,4 +344,6 @@ To debug, run OpenCode with verbose logging or check the output panel in VS Code
 
 Skills are the simplest way to make OpenCode work the way your team works. Write your conventions once, drop the file in the right directory, and the agent picks it up from there. Teams like F9xr use skills to enforce code review standards and deployment checklists without repeating instructions in every session.
 
-Have a skill to share? Check the [Contributor Guide](/contribute/) to submit your article to Dev9b.
+New to the OpenCode stack? Start with the [OpenCode TUI setup guide](/p/how-to-setup-opencode-tui/), wire live tools in with [MCP servers](/p/opencode-mcp-servers/), or stick to your editor with the [VS Code extension guide](/p/opencode-vscode-setup/).
+
+Have a skill to share? Check the [Contributor Guide](/contribute/) to submit your article to Dev9b. Every article we publish is reviewed against the standards in our [Editorial Policy](/editorial-policy/).
