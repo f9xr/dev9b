@@ -9,6 +9,7 @@ https://f9xr.org/
 https://f9xr.org/p/how-to-install-n8n-locally-on-pc/
 https://f9xr.org/p/vibe-coder-vs-vibe-engineer/
 https://f9xr.org/p/github-pages-custom-domain-cloudflare/
+https://f9xr.org/p/how-to-create-cloudflare-subdomain-github-pages/
 https://f9xr.org/p/how-to-use-skelementor/
 https://f9xr.org/p/how-to-setup-grokbot/
 https://f9xr.org/p/how-to-setup-opencode-tui/

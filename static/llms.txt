@@ -23,6 +23,7 @@ Dev9b is a free, open-source online community where software developers share kn
 - Install n8n Locally on PC: Docker & npm Guide: https://f9xr.org/p/how-to-install-n8n-locally-on-pc/
 - Vibe Coder vs Vibe Engineer: Ship Real Code with AI: https://f9xr.org/p/vibe-coder-vs-vibe-engineer/
 - Point a Cloudflare Domain to GitHub Pages in 15 Min: https://f9xr.org/p/github-pages-custom-domain-cloudflare/
+- How to Create Cloudflare Subdomain for GitHub Pages: https://f9xr.org/p/how-to-create-cloudflare-subdomain-github-pages/
 - Skelementor Guide: Build Elementor Sites Faster: https://f9xr.org/p/how-to-use-skelementor/
 - Grok Bot Setup Guide for Devs 2026: https://f9xr.org/p/how-to-setup-grokbot/
 - OpenCode TUI Setup: Full Terminal Guide for Devs: https://f9xr.org/p/how-to-setup-opencode-tui/
