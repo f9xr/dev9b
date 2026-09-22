@@ -20,6 +20,7 @@ Dev9b is a free, open-source online community where software developers share kn
 
 ## Articles
 
+- Setup TypeSafe AI Jev in Your App Fast: https://f9xr.org/p/how-to-setup-typesafe-ai-jev/
 - Install n8n Locally on PC: Docker & npm Guide: https://f9xr.org/p/how-to-install-n8n-locally-on-pc/
 - Vibe Coder vs Vibe Engineer: Ship Real Code with AI: https://f9xr.org/p/vibe-coder-vs-vibe-engineer/
 - Point a Cloudflare Domain to GitHub Pages in 15 Min: https://f9xr.org/p/github-pages-custom-domain-cloudflare/

@@ -45,7 +45,7 @@ If you are new to the whole category, our guide on [AI Coding Agents Explained](
 
 <!--more-->
 
-This guide walks through the full setup the way a working developer would do it: eligibility check, clean install, first focused bot, plugins in the right order, and the habits that keep agents useful instead of noisy. No fluff, just the steps that get you from zero to a reliable agent in under thirty minutes. If you prefer a terminal-based agent over a desktop platform, our [OpenCode TUI setup guide](/p/how-to-setup-opencode-tui/) covers that path too.
+This guide walks through the full setup the way a working developer would do it: eligibility check, clean install, first focused bot, plugins in the right order, and the habits that keep agents useful instead of noisy. No fluff, just the steps that get you from zero to a reliable agent in under thirty minutes. If you prefer a terminal-based agent over a desktop platform, our [OpenCode TUI setup guide](/p/how-to-setup-opencode-tui/) covers that path too. And when your agents need clean, typed decisions instead of open-ended prose, our [TypeSafe AI Jev setup guide](/p/how-to-setup-typesafe-ai-jev/) shows how to wire a System One decision model into the same kind of workflow.
 
 ## Key Takeaways
 
