@@ -6,6 +6,7 @@
 https://f9xr.org/
 
 # Articles
+https://f9xr.org/p/setup-threejs-models-landing-page/
 https://f9xr.org/p/how-to-setup-typesafe-ai-jev/
 https://f9xr.org/p/how-to-install-n8n-locally-on-pc/
 https://f9xr.org/p/vibe-coder-vs-vibe-engineer/

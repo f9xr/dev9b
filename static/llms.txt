@@ -20,6 +20,7 @@ Dev9b is a free, open-source online community where software developers share kn
 
 ## Articles
 
+- Add Three.js 3D Models to Your Landing Page: https://f9xr.org/p/setup-threejs-models-landing-page/
 - Setup TypeSafe AI Jev in Your App Fast: https://f9xr.org/p/how-to-setup-typesafe-ai-jev/
 - Install n8n Locally on PC: Docker & npm Guide: https://f9xr.org/p/how-to-install-n8n-locally-on-pc/
 - Vibe Coder vs Vibe Engineer: Ship Real Code with AI: https://f9xr.org/p/vibe-coder-vs-vibe-engineer/

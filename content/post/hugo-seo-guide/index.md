@@ -76,6 +76,7 @@ Static sites are fast by default, then themes quietly undo it.
 - **Self-hosted fonts.** Two `<link rel="preconnect">` tags before the stylesheet cost almost nothing and cut font latency.
 - **No render-blocking analytics.** Third-party scripts (comment widgets, chat, ad providers) are the main votal leak on an otherwise-light page.
 - **Image dimensions always.** Missing `width`/`height` on images causes layout shift and hurts CLS.
+- **Weight budget for interactive heroes.** A 3D hero is a LCP risk in disguise, not just a JavaScript one. If the hero renders a real-time scene, the fix is asset discipline and a poster image to paint first — see how to [add Three.js 3D models to a landing page](/p/setup-threejs-models-landing-page/) without wrecking the budget.
 
 ## Site-Health Checks That Compound
 
