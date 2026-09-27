@@ -130,6 +130,8 @@ The myth is that agents fail because the model is weak. In practice the bottlene
 
 This is why the tool layer matters as much as the model: a search tool that understands your framework produces better decisions than a larger model with a blind toolset.
 
+Context applies to design too. An agent that has never seen your colors or type scale will invent them every time, which is why agent-built pages all look alike. A `DESIGN.md` file at your project root is the visual equivalent of a good convention, and [what DESIGN.md does for AI agents](/p/what-is-getdesign-md-ai-agents-design-system/) covers the format and the tooling around it.
+
 ## When Agents Get It Wrong
 
 Agents fail in predictable ways, and knowing them makes you a better operator:
