@@ -152,7 +152,7 @@ Before you standardize on any agent, run the same five-question test:
 4. Can your conventions be encoded (skills or rules) and versioned in the repository?
 5. What happens when the model you use today gets worse, pricier, or discontinued?
 
-This site has a recommended path for every part of the stack: the [OpenCode TUI setup](/p/how-to-setup-opencode-tui/), the [VS Code setup](/p/opencode-vscode-setup/), and the [skills guide](/p/opencode-skills-guide/) for encoding your conventions.
+This site has a recommended path for every part of the stack: the [OpenCode TUI setup](/p/how-to-setup-opencode-tui/), the [VS Code setup](/p/opencode-vscode-setup/), and the [skills guide](/p/opencode-skills-guide/) for encoding your conventions. And when a single answer is not good enough, you can stop rephrasing the prompt and put sub-agents in a bracket against each other instead — [the Arena skill tournament for Claude Code](/p/what-is-arena-skill-install-use-ai-agents/) covers that.
 
 ## Key Takeaways
 
