@@ -171,6 +171,10 @@ Some skill repos include an `install-skill-repo` skill that automates the proces
 
 The [SkillsMP marketplace](https://skillsmp.com) catalogs community skills. Browse by category — software development, writing, project management — and copy the `SKILL.md` content into your own skill directory.
 
+### A Domain Skill Done Properly
+
+Worth reading a non-coding skill if you want to see the pattern pushed further than a developer workflow. [trade-skills, a Claude Code skill for options trading research](/p/himself65-trade-skills-setup-guide/), splits its knowledge into three tiers by ownership: public rules that ship to every installer, your own private synthesis that gets scanned on every run, and bulk raw evidence that is only ever queried by script. It also packages the knowledge as an Open Knowledge Format graph so the files stay portable instead of trapped in one tool, and ships behavioural eval cases that prove the rules actually fire.
+
 ## Configuring Permissions
 
 Control which skills agents can access through `opencode.json`:

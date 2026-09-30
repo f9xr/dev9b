@@ -20,6 +20,8 @@ Dev9b is a free, open-source online community where software developers share kn
 
 ## Articles
 
+- Claude Code trade-skills: Setup and Use Guide: https://f9xr.org/p/himself65-trade-skills-setup-guide/
+- jCode: Install and Use the RAM-Efficient Coding Agent: https://f9xr.org/p/what-is-jcode-install-use-guide/
 - Arena Skill: 100 Claude Agents Fight for Best Answer: https://f9xr.org/p/what-is-arena-skill-install-use-ai-agents/
 - Advanced Movie Seat Booking in Pure HTML & JS: https://f9xr.org/p/advanced-movie-seat-booking-html-js/
 - getdesign.md: What DESIGN.md Does for AI Agents: https://f9xr.org/p/what-is-getdesign-md-ai-agents-design-system/

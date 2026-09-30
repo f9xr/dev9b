@@ -331,6 +331,10 @@ Search through code snippets across open-source repositories:
 What's the right way to set a custom domain in an SST Astro component? use the gh_grep tool
 ```
 
+### A Tiered Fallback Pattern
+
+Some skills are built around the idea that one data source is not enough, and they degrade in a defined order rather than failing. The options trading skill [trade-skills](/p/himself65-trade-skills-setup-guide/) is a clean example: a paid first-party source when you supply a key, then progressively cheaper fallbacks for quotes, chains, and fundamentals, with instructions to name which proxy produced a number rather than presenting a degraded read as a full one. That is worth copying for any domain where a confident wrong number is worse than a thin one.
+
 ## Context Budget Warning
 
 MCP servers add to your context window. Each tool's description and schema consume tokens, and those tokens are available for every turn. A single well-designed server usually adds a few hundred tokens. A server with dozens of tools can add thousands.
