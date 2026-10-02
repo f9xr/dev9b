@@ -257,7 +257,7 @@ MCP server tools are registered with the server name as prefix. To disable all t
 
 ## Real-World Examples
 
-Here are three MCP servers that pair well with OpenCode in practice.
+Here are four MCP servers that pair well with OpenCode in practice.
 
 ### Sentry — Error Monitoring
 
@@ -330,6 +330,28 @@ Search through code snippets across open-source repositories:
 ```
 What's the right way to set a custom domain in an SST Astro component? use the gh_grep tool
 ```
+
+### Scrapling — Web Scraping and Crawling
+
+Give the agent a real fetcher instead of asking it to guess what a page contains. Scrapling ships an MCP server with tools for plain HTTP requests, browser fetches, and stealth fetches that get past Cloudflare:
+
+```json
+{
+  "mcp": {
+    "scrapling": {
+      "type": "local",
+      "command": ["scrapling-mcp"],
+      "enabled": true
+    }
+  }
+}
+```
+
+```
+Get the current price and stock for SKU 4482 on shop.example.com. use the scrapling stealthy_fetch tool
+```
+
+The useful part is that you can pass a CSS selector, so the agent receives only the matched elements instead of a whole page. That is a meaningful token saving compared with servers that hand over everything. Our [Scrapling setup and use guide](/p/scrapling-web-scraping-setup-guide/) covers the install, the three fetchers, and the crawler framework behind it.
 
 ### A Tiered Fallback Pattern
 

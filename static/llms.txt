@@ -20,6 +20,7 @@ Dev9b is a free, open-source online community where software developers share kn
 
 ## Articles
 
+- Scrapling: Adaptive Web Scraping Setup and Use: https://f9xr.org/p/scrapling-web-scraping-setup-guide/
 - Claude Code trade-skills: Setup and Use Guide: https://f9xr.org/p/himself65-trade-skills-setup-guide/
 - jCode: Install and Use the RAM-Efficient Coding Agent: https://f9xr.org/p/what-is-jcode-install-use-guide/
 - Arena Skill: 100 Claude Agents Fight for Best Answer: https://f9xr.org/p/what-is-arena-skill-install-use-ai-agents/
