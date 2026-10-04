@@ -77,6 +77,10 @@ SortBy              = "default"
     geoPlacename = "Norway"
     geoPosition = ""
 
+## Google Analytics 4 (gtag.js) - emitted by layouts/_partials/head/custom.html
+[analytics]
+    google = "G-4VE5TQ7693"
+
 ## Search engine verification codes (fill in after registering in the respective consoles)
 [verification]
     google = ""
