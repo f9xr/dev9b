@@ -10,8 +10,7 @@ favicon        = "img/f9x-logo.webp"
 SortBy              = "default"
 
 [footer]
-    since      = 2024
-    customText = "Built by F9XR Team. Open-source under MIT License."
+    since = 2024
 
 [dateFormat]
     published   = ":date_full"

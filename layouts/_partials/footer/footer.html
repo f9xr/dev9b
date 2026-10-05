@@ -2,11 +2,10 @@
     Footer override.
 
     Adds:
-      - "Made by F9XR Team" credit linked to f9xr.org
+      - "Build by F9XR Team" credit linked to f9xr.org
       - the F9XR Team network links (data/f9xr_links.toml)
       - a link to the HTML sitemap page
-      - a spacer element that powers the footer-reveal effect (see
-        assets/scss/custom.scss -> .site-footer + .footer-reveal-spacer)
+      - a single-line build credit row (F9XR, GitHub source, Hugo + theme)
 
     The theme renders <footer class="site-footer"> at the end of each layout's
     main block, so it sits inside .main. The reveal effect pins it to the
@@ -58,20 +57,21 @@
         </nav>
 
         <section class="powerby">
-            {{ with .Site.Params.footer.customText }}
-                {{ . | safeHTML }} <br/>
-            {{ end }}
-
-            {{- $Generator := `<a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>` -}}
-            {{- $Theme := printf `<a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="%s">Stack</a>` $ThemeVersion -}}
-            {{- $Lucide := `<a href="https://lucide.dev/" target="_blank" rel="noopener">Lucide</a>` -}}
-
-            {{ T "footer.builtWith" (dict "Generator" $Generator) | safeHTML }}<br />
-            Theme by {{ $Theme }} | Icons by {{ $Lucide }}<br />
-            <a class="site-footer-credit" href="https://f9xr.org/" target="_blank" rel="noopener">
-                {{ partial "helper/lucide" (dict "name" "heart" "size" 13) }}
-                <span>Made by F9XR Team</span>
+            {{- $F9XRSite := `https://f9xr.org/` -}}
+            {{- $Repo := `https://github.com/f9xr/dev9b` -}}
+            {{- $Hugo := `https://gohugo.io/` -}}
+            {{- $Stack := `https://github.com/CaiJimmy/hugo-theme-stack` -}}
+            <a href="{{ $F9XRSite }}" target="_blank" rel="noopener">Build by F9XR Team</a>
+            <span class="site-footer-sep">|</span>
+            <a class="site-footer-source" href="{{ $Repo }}" target="_blank" rel="noopener">
+                {{ partial "helper/icon" "brand-github" }}
+                <span>Open Source on GitHub</span>
             </a>
+            <span class="site-footer-sep">|</span>
+            <span>
+                Build with <a href="{{ $Hugo }}" target="_blank" rel="noopener">Hugo</a> - Theme:
+                <a href="{{ $Stack }}" target="_blank" rel="noopener" data-version="{{ $ThemeVersion }}">Hugo Theme Stack</a>
+            </span>
         </section>
     </div>
 </footer>

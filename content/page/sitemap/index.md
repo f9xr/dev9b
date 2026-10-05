@@ -3,11 +3,6 @@ title: HTML Sitemap
 description: "A plain HTML sitemap listing every page, tutorial, category, and tag on Dev9b so readers and crawlers can reach any URL directly."
 slug: sitemap
 date: 2024-01-01
-menu:
-    main:
-        weight: 1
-        params:
-            icon: link
 comments: false
 ---
 

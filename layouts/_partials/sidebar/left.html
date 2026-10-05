@@ -1,12 +1,8 @@
 {{- /*
     Sidebar override.
 
-    Adds the F9XR Team dropdown (driven by data/f9xr_links.toml) to the theme's
-    left sidebar, keeps the social row and the main menu intact, and keeps the
-    bottom section (dark mode toggle, language switcher) working.
-
-    The dropdown is a plain <details> element so it works with zero JavaScript,
-    is keyboard accessible, and keeps its state in the DOM.
+    Keeps the theme's left sidebar structure: social row, main menu, and the
+    bottom section (dark mode toggle, language switcher).
 */ -}}
 <aside class="sidebar left-sidebar sticky {{ if .Site.Params.sidebar.compact }}compact{{ end }}">
     <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="{{ T `toggleMenu` }}">
@@ -72,35 +68,6 @@
             </a>
         </li>
         {{ end }}
-
-        {{- /* F9XR Team: links out to the rest of the F9XR network. */ -}}
-        {{- with hugo.Data.f9xr_links.links }}
-        <li class="f9xr-team-menu">
-            <details class="f9xr-team-dropdown" name="f9xr-team" open>
-                <summary>
-                    <span class="f9xr-team-summary-icon">{{ partial "helper/lucide" (dict "name" "globe" "size" 20) }}</span>
-                    <span class="f9xr-team-summary-label">F9XR Team</span>
-                    <span class="f9xr-team-summary-chevron" aria-hidden="true">{{ partial "helper/lucide" (dict "name" "chevron-down" "size" 18) }}</span>
-                </summary>
-                <ol class="f9xr-team-submenu">
-                    {{ range . }}
-                    <li>
-                        <a href="{{ .url }}" target="_blank" rel="noopener">
-                            {{ partial "helper/lucide" (dict "name" "external-link" "size" 16) }}
-                            <span>{{ .name }}</span>
-                        </a>
-                    </li>
-                    {{ end }}
-                    <li>
-                        <a href="{{ "sitemap/" | absURL }}" data-preview-card>
-                            {{ partial "helper/lucide" (dict "name" "network" "size" 16) }}
-                            <span>HTML Sitemap</span>
-                        </a>
-                    </li>
-                </ol>
-            </details>
-        </li>
-        {{- end }}
 
         <li class="menu-bottom-section">
             <ol class="menu">

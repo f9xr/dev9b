@@ -11,11 +11,6 @@ links:
     description: The team behind Dev9b. Open-source developers building tools for the community.
     website: https://github.com/f9xr
     image: https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png
-menu:
-    main: 
-        weight: 4
-        params:
-            icon: link
 
 comments: false
 ---

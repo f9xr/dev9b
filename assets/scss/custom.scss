@@ -420,130 +420,6 @@ body {
 }
 
 /* ==========================================================================
-   Sidebar: F9XR Team dropdown
-   A <details> element, so it works without JavaScript and stays keyboard
-   accessible. open is set in the template so the links are always crawlable
-   and reachable by keyboard even before the user expands it.
-   ========================================================================== */
-.f9xr-team-menu {
-    width: 100%;
-
-    @include respond(md) {
-        width: auto;
-    }
-}
-
-.f9xr-team-dropdown {
-    width: 100%;
-
-    summary {
-        display: flex;
-        align-items: center;
-        gap: var(--menu-icon-separation);
-        height: 100%;
-        padding: 0.35rem 0;
-        color: var(--body-text-color);
-        cursor: pointer;
-        list-style: none;
-        transition: color 0.15s ease;
-
-        &::-webkit-details-marker {
-            display: none;
-        }
-
-        &:hover {
-            color: var(--accent-color);
-        }
-
-        &:focus-visible {
-            outline: 2px solid var(--accent-color);
-            outline-offset: 3px;
-            border-radius: 4px;
-        }
-    }
-
-    .f9xr-team-summary-icon {
-        display: inline-flex;
-        align-items: center;
-        line-height: 0;
-    }
-
-    .f9xr-team-summary-label {
-        flex: 1;
-    }
-
-    /* Rotates the chevron to signal the open state */
-    .f9xr-team-summary-chevron {
-        display: inline-flex;
-        align-items: center;
-        line-height: 0;
-        transition: transform 0.2s ease;
-
-        svg {
-            stroke: currentColor;
-            stroke-width: 1.75;
-        }
-    }
-
-    &[open] .f9xr-team-summary-chevron {
-        transform: rotate(180deg);
-    }
-
-    /* Tint the whole block when open so the current state is obvious */
-    &[open] summary {
-        color: var(--accent-color);
-    }
-}
-
-.f9xr-team-submenu {
-    list-style: none;
-    padding: 0;
-    margin: 0.35rem 0 0;
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-xs);
-
-    /* Indent under the parent label, aligned with the icon gutter */
-    padding-inline-start: calc(20px + var(--menu-icon-separation));
-
-    li {
-        position: relative;
-    }
-
-    a {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.4rem;
-        padding: 0.2rem 0.5rem;
-        border-radius: 6px;
-        color: var(--body-text-color);
-        font-size: 0.95em;
-        line-height: 1.4;
-        text-decoration: none;
-        transition: color 0.15s ease, background-color 0.15s ease;
-
-        svg {
-            opacity: 0.55;
-            transition: opacity 0.15s ease;
-        }
-
-        &:hover {
-            color: var(--accent-color);
-            background: color-mix(in srgb, var(--accent-color) 10%, transparent);
-
-            svg {
-                opacity: 1;
-            }
-        }
-
-        &:focus-visible {
-            outline: 2px solid var(--accent-color);
-            outline-offset: 1px;
-        }
-    }
-}
-
-/* ==========================================================================
    Footer
    Replaces the theme's stacked footer with a multi-column layout, and adds
    the "Made by F9XR Team" credit plus sitemap links.
@@ -633,24 +509,24 @@ footer.site-footer {
         a {
             color: var(--body-text-color);
         }
-    }
 
-    /* The "Made by F9XR Team" credit gets a bit more presence */
-    .site-footer-credit {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.35rem;
-        margin-top: 0.35rem;
-        font-weight: 600;
-        color: var(--accent-color);
-
-        svg {
-            opacity: 1;
-            fill: currentColor;
+        .site-footer-sep {
+            margin: 0 0.4rem;
+            opacity: 0.5;
         }
 
-        &:hover {
-            text-decoration: underline;
+        /* The GitHub mark ships at 24px, so scale it down to match the text */
+        .site-footer-source {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+
+            .icon {
+                width: 1.1rem;
+                height: 1.1rem;
+                fill: currentColor;
+                stroke: none;
+            }
         }
     }
 }

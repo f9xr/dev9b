@@ -43,7 +43,7 @@ This guide walks through what Affonso actually does, how setup works for develop
 
 ## What Is Affonso?
 
-Affonso is an affiliate and partner growth platform built specifically for software companies. Instead of being a generic affiliate network bolted onto an e-commerce cart, it is designed around how SaaS businesses actually make money: recurring subscriptions, trials that convert later, upgrades, downgrades, and refunds that all need to flow correctly into commission calculations.
+Affonso is an <a href="https://affonso.io/?via=dc637a" target="_blank" rel="sponsored noopener">affiliate and partner growth platform</a> built specifically for software companies. Instead of being a generic affiliate network bolted onto an e-commerce cart, it is designed around how SaaS businesses actually make money: recurring subscriptions, trials that convert later, upgrades, downgrades, and refunds that all need to flow correctly into commission calculations.
 
 The platform handles the full lifecycle of a partner program: finding relevant affiliates, giving them a branded portal to promote from, tracking clicks and conversions against your real billing data, calculating commissions under whatever rules you set, and paying partners out automatically.
 
@@ -108,7 +108,7 @@ Affonso flags self-referrals, suspicious email patterns, paid traffic abuse, and
 
 ### Step 1: Connect Your Billing Provider
 
-Sign up and link Stripe, Paddle, Polar, Creem, or Dodo Payments through the one-click integration. This is what lets Affonso track actual revenue events rather than relying only on link clicks, which matters for getting commission calculations right on renewals and refunds.
+<a href="https://affonso.io/?via=dc637a" target="_blank" rel="sponsored noopener">Sign up on Affonso</a> and link Stripe, Paddle, Polar, Creem, or Dodo Payments through the one-click integration. This is what lets Affonso track actual revenue events rather than relying only on link clicks, which matters for getting commission calculations right on renewals and refunds.
 
 ### Step 2: Configure Your Commission Rules
 
@@ -196,6 +196,6 @@ No. While the Stripe integration is native and one-click, Affonso also natively 
 
 Affiliate infrastructure is one of those problems that looks small right up until you have fifty partners, three billing edge cases, and a chargeback on a recurring commission. Affonso is a credible way to skip the first two versions of that problem and spend the engineering time on the product instead.
 
-Before you commit, check the [Affonso integrations page](https://affonso.io/integrations) against your billing stack and read the developer docs for anything custom. If the billing side works for you, the rest is configuration. For the organic side of your growth mix, our [Hugo SEO guide](/p/hugo-seo-guide/) covers the fundamentals, and [AI coding agents explained](/p/ai-coding-agents-explained/) is useful background if the discovery agent is part of your decision.
+Before you commit, check the <a href="https://affonso.io/integrations?via=dc637a" target="_blank" rel="sponsored noopener">Affonso integrations page</a> against your billing stack and read the developer docs for anything custom. If the billing side works for you, the rest is configuration. When you are ready, you can <a href="https://affonso.io/?via=dc637a" target="_blank" rel="sponsored noopener">start your affiliate program on Affonso</a> and see the same integrations on your own billing account. For the organic side of your growth mix, our [Hugo SEO guide](/p/hugo-seo-guide/) covers the fundamentals, and [AI coding agents explained](/p/ai-coding-agents-explained/) is useful background if the discovery agent is part of your decision.
 
 Want to share what you build? The [contributor guide](/contribute/) explains how the F9XR Team reviews posts, and the [editorial policy](/editorial-policy/) covers how we verify vendor claims before publishing.
