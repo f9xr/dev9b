@@ -1,6 +1,6 @@
 ---
 title: "AI Coding Agents Explained: How They Work"
-description: "AI coding agents explained: how they plan, use tools, and learn from your codebase — with real examples from OpenCode."
+description: "AI coding agents explained: how they plan, use tools, and learn from your codebase - with real examples from OpenCode."
 slug: ai-coding-agents-explained
 date: 2026-09-05
 image: cover.png
@@ -21,15 +21,15 @@ draft: false
 math: false
 faq:
     - question: "What is the difference between a chatbot and an AI coding agent?"
-      answer: "A chatbot answers questions. An agent also acts — it reads files, runs commands, edits code, and checks its own results, using the terminal and your workspace as its hands."
+      answer: "A chatbot answers questions. An agent also acts - it reads files, runs commands, edits code, and checks its own results, using the terminal and your workspace as its hands."
     - question: "Are AI coding agents safe to grant file and command access?"
       answer: "Most agents gate every action behind permission prompts and deny rules. You stay in control of what is read, written, and executed on your machine."
     - question: "Do AI coding agents learn from your code over time?"
       answer: "Agents do not persist learning between sessions by default. Instead they re-read your files each session, and tools like OpenCode skills store conventions you define for them to follow."
 ---
-Every few months someone packages the same idea under a new name — autocomplete became pair-programmers, became agents. But an AI coding agent is a genuinely different thing from the chat window you are used to: it does not just answer, it does.
+Every few months someone packages the same idea under a new name - autocomplete became pair-programmers, became agents. But an AI coding agent is a genuinely different thing from the chat window you are used to: it does not just answer, it does.
 
-Understanding how these agents are built changes how you use them, how you prompt them, and how much you can safely trust them. This guide breaks down the anatomy of an agent — no marketing, no hype.
+Understanding how these agents are built changes how you use them, how you prompt them, and how much you can safely trust them. This guide breaks down the anatomy of an agent - no marketing, no hype.
 
 <!--more-->
 
@@ -37,11 +37,11 @@ Understanding how these agents are built changes how you use them, how you promp
 
 Strip away the branding and an AI coding agent is a loop with three repeating phases:
 
-1. **Plan** — the model asks what it needs to do, in what order, and what it does not know yet.
-2. **Act** — it calls tools: reading a file, running a search, executing a terminal command, writing an edit.
-3. **Check** — it inspects output, errors, and diffs, then decides whether the goal is met or the plan needs another pass.
+1. **Plan** - the model asks what it needs to do, in what order, and what it does not know yet.
+2. **Act** - it calls tools: reading a file, running a search, executing a terminal command, writing an edit.
+3. **Check** - it inspects output, errors, and diffs, then decides whether the goal is met or the plan needs another pass.
 
-Each iteration feeds back into the next. The agent never leaves the terminal in the way the plan expects, so it notices — that is what makes it an agent instead of a script.
+Each iteration feeds back into the next. The agent never leaves the terminal in the way the plan expects, so it notices - that is what makes it an agent instead of a script.
 
 ## The Five Parts of Any Agent
 
@@ -98,15 +98,15 @@ AI coding agent
 
 ### 1. The Model Core
 
-Every agent is an LLM at heart, wrapped in scaffolding. The same model can behave completely differently depending on how much of your codebase fits in its context and how the agent formats its thinking. This is why OpenCode supports 75+ models — the scaffolding is stable, and you choose the brain.
+Every agent is an LLM at heart, wrapped in scaffolding. The same model can behave completely differently depending on how much of your codebase fits in its context and how the agent formats its thinking. This is why OpenCode supports 75+ models - the scaffolding is stable, and you choose the brain.
 
 ### 2. Memory
 
-Agents have no lifelong memory. Each session re-reads what it needs. Three things do persist: your project files, the session's own edits, and **skills** — reusable instruction files you write once so the agent keeps following your conventions. That is the trick behind the [OpenCode skills guide](/p/opencode-skills-guide/): you encode memory, the agent applies it.
+Agents have no lifelong memory. Each session re-reads what it needs. Three things do persist: your project files, the session's own edits, and **skills** - reusable instruction files you write once so the agent keeps following your conventions. That is the trick behind the [OpenCode skills guide](/p/opencode-skills-guide/): you encode memory, the agent applies it.
 
 ### 3. Tools
 
-Tools are how an agent touches the real world. The standard set: file reads and edits, terminal commands, codebase search, and sometimes web fetches or issue lookups. Tools are where most of the practical difference between agents lives — a tool layer that understands git and package managers behaves like a developer, not a typist.
+Tools are how an agent touches the real world. The standard set: file reads and edits, terminal commands, codebase search, and sometimes web fetches or issue lookups. Tools are where most of the practical difference between agents lives - a tool layer that understands git and package managers behaves like a developer, not a typist.
 
 ### 4. The Permission Layer
 
@@ -136,7 +136,7 @@ Context applies to design too. An agent that has never seen your colors or type 
 
 Agents fail in predictable ways, and knowing them makes you a better operator:
 
-- **Stale context.** The agent reasons from an earlier file version and edits code that has moved. The fix is a fresh read — most agents re-read on their own if you tell them what changed.
+- **Stale context.** The agent reasons from an earlier file version and edits code that has moved. The fix is a fresh read - most agents re-read on their own if you tell them what changed.
 - **Missing feedback.** An agent that skips parsing its own output "succeeds" on wrong results. Verify it actually inspects output before you trust it in production.
 - **Permission clutter.** Over-permissioned agents run more, break more, and are harder to audit. Start deny-by-default and add commands only as the work demands.
 
@@ -154,15 +154,15 @@ Before you standardize on any agent, run the same five-question test:
 
 A sixth question shows up the moment you stop working alone: how much memory does an extra session cost? Most terminal agents run one process per session, so running four in parallel means paying that cost four times, and that is usually what forces teams back to one agent at a time. [jCode, a Rust-built coding agent harness](/p/what-is-jcode-install-use-guide/), publishes per-session memory figures in the ~10 MB range by sharing a single daemon, which is worth measuring on your own machine before you standardise on anything.
 
-This site has a recommended path for every part of the stack: the [OpenCode TUI setup](/p/how-to-setup-opencode-tui/), the [VS Code setup](/p/opencode-vscode-setup/), and the [skills guide](/p/opencode-skills-guide/) for encoding your conventions. And when a single answer is not good enough, you can stop rephrasing the prompt and put sub-agents in a bracket against each other instead — [the Arena skill tournament for Claude Code](/p/what-is-arena-skill-install-use-ai-agents/) covers that.
+This site has a recommended path for every part of the stack: the [OpenCode TUI setup](/p/how-to-setup-opencode-tui/), the [VS Code setup](/p/opencode-vscode-setup/), and the [skills guide](/p/opencode-skills-guide/) for encoding your conventions. And when a single answer is not good enough, you can stop rephrasing the prompt and put sub-agents in a bracket against each other instead - [the Arena skill tournament for Claude Code](/p/what-is-arena-skill-install-use-ai-agents/) covers that.
 
 ## Key Takeaways
 
 - An agent is a plan-act-check loop, not a chat box.
 - Five components decide capability and safety: model, memory, tools, permissions, feedback.
-- Agents re-read your codebase each session — skills are how you give them lasting conventions.
+- Agents re-read your codebase each session - skills are how you give them lasting conventions.
 - Permission gating is a feature, not a nuisance; check it before trusting any agent.
 
 ## Conclusion
 
-Agents are young, but the mental model is stable: a reasoning model wrapped in tools, bounded by permissions, that checks its own work. Try it on a small project first — install [OpenCode in VS Code](/p/opencode-vscode-setup/), watch it work, and keep our [contributor guide](/contribute/) in mind if you want to write up what you learn. Guides like this one are reviewed against the standards in our [editorial policy](/editorial-policy/).
+Agents are young, but the mental model is stable: a reasoning model wrapped in tools, bounded by permissions, that checks its own work. Try it on a small project first - install [OpenCode in VS Code](/p/opencode-vscode-setup/), watch it work, and keep our [contributor guide](/contribute/) in mind if you want to write up what you learn. Guides like this one are reviewed against the standards in our [editorial policy](/editorial-policy/).

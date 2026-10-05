@@ -1,0 +1,9 @@
+{{- /* Lists every tag with its post count. */ -}}
+<ul class="sitemap-list sitemap-list--inline">
+    {{ range site.Taxonomies.tags.Alphabetical }}
+    <li>
+        <a href="{{ .Page.RelPermalink }}" data-preview-card>{{ partial "helper/lucide" (dict "name" "hash" "size" 15) }}<span>{{ .Page.Title }}</span></a>
+        <span class="sitemap-list-count">{{ len .Pages }}</span>
+    </li>
+    {{ end }}
+</ul>

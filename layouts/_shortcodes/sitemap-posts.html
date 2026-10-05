@@ -1,0 +1,9 @@
+{{- /* Lists every published post, newest first. */ -}}
+<ul class="sitemap-list sitemap-list--posts">
+    {{ range where site.RegularPages.ByDate.Reverse "Section" "post" }}
+    <li>
+        <a href="{{ .RelPermalink }}" data-preview-card>{{ partial "helper/lucide" (dict "name" "graduation-cap" "size" 15) }}<span>{{ .Title }}</span></a>
+        <span class="sitemap-list-count">{{ .Date.Format "2006-01-02" }}</span>
+    </li>
+    {{ end }}
+</ul>

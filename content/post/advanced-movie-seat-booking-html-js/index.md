@@ -50,7 +50,7 @@ This is the pattern we reach for when a seat map needs to feel real but the cons
 
 ## What Pure HTML and JavaScript Actually Buys You Here
 
-A seat map has no state that outlives a click, no server data to normalise, and no component reused in a second place. The entire meaningful state is "which seat IDs are currently chosen" — a `Set` of strings. That is a data problem, not an architecture problem, and vanilla JavaScript expresses it directly.
+A seat map has no state that outlives a click, no server data to normalise, and no component reused in a second place. The entire meaningful state is "which seat IDs are currently chosen" - a `Set` of strings. That is a data problem, not an architecture problem, and vanilla JavaScript expresses it directly.
 
 What you get by the end of this guide:
 
@@ -71,8 +71,8 @@ Pricing is a configuration decision, not a rendering decision. Keep the tiers in
 | Regular | 150 | Green | Back and middle rows |
 | Premium | 250 | Blue | Middle rows, closer to the screen |
 | VIP | 400 | Gold | Front rows, centre block |
-| Occupied | — | Grey | Already booked, not selectable |
-| Selected | — | Red | The user's current selection |
+| Occupied | - | Grey | Already booked, not selectable |
+| Selected | - | Red | The user's current selection |
 
 Two separate objects drive this. `ROW_TYPES` maps a row letter to a tier name, and `PRICES` maps a tier name to a number. The renderer reads the first, the total calculator reads the second, and neither knows the other exists. Swapping a whole auditorium layout is a matter of editing the first object.
 
@@ -562,13 +562,13 @@ Rows, columns, row-to-tier mapping, prices, and the occupied list are all declar
 
 ### The seat map is generated, not hand-written
 
-`createSeatMap()` loops rows, then columns, and builds one `<button>` per seat. A seat's appearance comes entirely from its classes — `regular`, `premium`, or `vip` from the row type, plus `occupied` or `selected` when applicable. There is no inline colour anywhere in the script.
+`createSeatMap()` loops rows, then columns, and builds one `<button>` per seat. A seat's appearance comes entirely from its classes - `regular`, `premium`, or `vip` from the row type, plus `occupied` or `selected` when applicable. There is no inline colour anywhere in the script.
 
 The choice of `<button>` over a `<div>` is deliberate. You get keyboard focus, Enter and Space activation, a disabled state for occupied seats, and a focusable element in the accessibility tree, all for free. The reference on what these elements give you is the MDN page for [`<button>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button).
 
 ### Selection is a Set, not an array
 
-Clicking a seat adds or removes its ID in a `Set`. A `Set` gives you three things an array does not: duplicates are impossible, `has()` is effectively constant time, and iteration order is insertion order, so the summary reflects click order. At 96 seats the performance difference is irrelevant, but duplicate-safety is not — with an array, a double-fired click can push the same ID twice and quietly double the total. `selectedSeats.has(id)` and `selectedSeats.delete(id)` are the entire interaction model, and everything else in the file reads from that one source of truth.
+Clicking a seat adds or removes its ID in a `Set`. A `Set` gives you three things an array does not: duplicates are impossible, `has()` is effectively constant time, and iteration order is insertion order, so the summary reflects click order. At 96 seats the performance difference is irrelevant, but duplicate-safety is not - with an array, a double-fired click can push the same ID twice and quietly double the total. `selectedSeats.has(id)` and `selectedSeats.delete(id)` are the entire interaction model, and everything else in the file reads from that one source of truth.
 
 ### The total is derived, never accumulated
 
@@ -746,11 +746,11 @@ if (selectedSeats.size >= MAX_SEATS) {
 }
 ```
 
-A `warn` variant on the message element is a small addition, and it is worth having a warning state at all — a booking form that can only say "yes" or "nothing" feels broken.
+A `warn` variant on the message element is a small addition, and it is worth having a warning state at all - a booking form that can only say "yes" or "nothing" feels broken.
 
 ### 5. Reset the confirmation state through the class, not inline style
 
-`clearBtn` hides the message with `element.style.display = "none"`, while the confirm handler shows it by setting `className`. Two mechanisms for one piece of state is the kind of thing that survives until a third button appears. Move both to classes — `.message.success`, `.message.warn` — and let CSS own visibility.
+`clearBtn` hides the message with `element.style.display = "none"`, while the confirm handler shows it by setting `className`. Two mechanisms for one piece of state is the kind of thing that survives until a third button appears. Move both to classes - `.message.success`, `.message.warn` - and let CSS own visibility.
 
 While you are there, push the booked seats into `OCCUPIED` before the redraw. It is still front-end-only fiction, but it makes the demo behave the way a real confirmation does:
 
@@ -773,7 +773,7 @@ window.addEventListener("storage", (event) => {
 
 The [MDN documentation for the storage event](https://developer.mozilla.org/en-US/docs/Web/API/Window/storage_event) spells out the same-tab exclusion, which is why this handler only needs to worry about the other tabs.
 
-Once you add a movie and showtime picker, also fold those into the storage key — `dev9b:seats:avengers-new-era-1930` — so two different shows never share one selection. The [`Storage` interface reference on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Storage) covers the quota behaviour worth knowing about before you rely on it.
+Once you add a movie and showtime picker, also fold those into the storage key - `dev9b:seats:avengers-new-era-1930` - so two different shows never share one selection. The [`Storage` interface reference on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Storage) covers the quota behaviour worth knowing about before you rely on it.
 
 ## Wiring It to a Real Backend Later
 
@@ -837,7 +837,7 @@ Yes. Replace the confirmation setTimeout with a fetch call that posts the select
 
 ## Key Takeaways
 
-- Keep every tunable value — rows, columns, tiers, prices, occupied seats — in a configuration block above the logic.
+- Keep every tunable value - rows, columns, tiers, prices, occupied seats - in a configuration block above the logic.
 - A `Set` of seat IDs is the entire state model. Derived totals beat accumulated ones, and buttons beat clickable divs.
 - Write to localStorage on every change and read it back before the first paint, so a refresh is invisible to the user.
 - `try/catch` the storage write, not just the read. That is where privacy modes actually fail.
@@ -849,10 +849,10 @@ A seat booking interface is a configuration problem with a rendering loop attach
 
 What makes it feel real is not visual polish. It is that the total is derived rather than accumulated, the selection is restored before the first paint, and occupied seats are genuinely unclickable rather than just grey. Those three details are the difference between a demo and something you would put in front of a person.
 
-In practice teams like F9XR treat this as a small, budgeted front-end piece — one file, no build step, hosted statically, with the price authority kept server-side from day one. If you want it in front of real traffic, the [Hugo on GitHub Pages guide](/p/hugo-github-pages-setup/) covers deployment and the [Hugo SEO checklist](/p/hugo-seo-guide/) covers the page itself.
+In practice teams like F9XR treat this as a small, budgeted front-end piece - one file, no build step, hosted statically, with the price authority kept server-side from day one. If you want it in front of real traffic, the [Hugo on GitHub Pages guide](/p/hugo-github-pages-setup/) covers deployment and the [Hugo SEO checklist](/p/hugo-seo-guide/) covers the page itself.
 
 Ready to contribute? The [Contributor Guide](/contribute/) explains how to submit an article to Dev9b, and everything we publish is reviewed against the standards in our [Editorial Policy](/editorial-policy/).
 
 ---
 
-*This guide was researched and drafted with the assistance of an AI coding assistant, then reviewed by the F9XR Review Board before publishing. The sample script was executed and its behaviour checked — 96 seats rendered, 12 occupied seats disabled, tier pricing, deselection, the localStorage round trip, and restore-on-load all verified. Behaviour in specific browser privacy modes was reasoned about rather than tested, and the localStorage guards above are the mitigation. Have feedback or want to contribute your own article? See our [Contributor Guide](/contribute/) and [Editorial Policy](/editorial-policy/).*
+*This guide was researched and drafted with the assistance of an AI coding assistant, then reviewed by the F9XR Review Board before publishing. The sample script was executed and its behaviour checked - 96 seats rendered, 12 occupied seats disabled, tier pricing, deselection, the localStorage round trip, and restore-on-load all verified. Behaviour in specific browser privacy modes was reasoned about rather than tested, and the localStorage guards above are the mitigation. Have feedback or want to contribute your own article? See our [Contributor Guide](/contribute/) and [Editorial Policy](/editorial-policy/).*

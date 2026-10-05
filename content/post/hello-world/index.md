@@ -23,7 +23,7 @@ draft: false
 math: false
 ---
 
-Welcome to **Dev9b** — an open-source blog article publishing platform by the **F9XR Team**.
+Welcome to **Dev9b** - an open-source blog article publishing platform by the **F9XR Team**.
 
 Dev9b is a free, open-source online community where software developers share knowledge, write technical articles, and help each other grow.
 
@@ -33,14 +33,14 @@ Dev9b is a free, open-source online community where software developers share kn
 
 Dev9b is made by developers, for developers. Here we share:
 
-- **Latest Articles** — Trending topics in software development
-- **Tutorials** — Step-by-step guides for all skill levels
-- **Coding Videos** — Visual learning for complex concepts
-- **Developer Guides** — Best practices, tools, and workflows
+- **Latest Articles** - Trending topics in software development
+- **Tutorials** - Step-by-step guides for all skill levels
+- **Coding Videos** - Visual learning for complex concepts
+- **Developer Guides** - Best practices, tools, and workflows
 
 ## Why We Built Dev9b (First-Hand)
 
-We are a team of developers who spent years solving real problems — debugging builds, deploying to GitHub Pages, documenting tricky APIs, and learning from the open-source community. Dev9b is our way of giving that knowledge back.
+We are a team of developers who spent years solving real problems - debugging builds, deploying to GitHub Pages, documenting tricky APIs, and learning from the open-source community. Dev9b is our way of giving that knowledge back.
 
 Our articles come from actual engineering experience, not recycled marketing. Every tutorial is something we have used or built ourselves. That is why we can write detailed, step-by-step guides with real code and real consequences.
 
@@ -54,18 +54,18 @@ Our articles come from actual engineering experience, not recycled marketing. Ev
 
 If you are new to the site, these are the guides our readers come back to most:
 
-- [AI Coding Agents Explained](/p/ai-coding-agents-explained/) — how agents actually work, without the hype
-- [OpenCode vs Cursor vs Continue](/p/opencode-vs-cursor/) — which AI coding tool fits your workflow
-- [How to Add Skills to OpenCode](/p/opencode-skills-guide/) — encode team conventions your agent will follow
-- [Hugo on GitHub Pages](/p/hugo-github-pages-setup/) — the exact pipeline that runs this site
+- [AI Coding Agents Explained](/p/ai-coding-agents-explained/) - how agents actually work, without the hype
+- [OpenCode vs Cursor vs Continue](/p/opencode-vs-cursor/) - which AI coding tool fits your workflow
+- [How to Add Skills to OpenCode](/p/opencode-skills-guide/) - encode team conventions your agent will follow
+- [Hugo on GitHub Pages](/p/hugo-github-pages-setup/) - the exact pipeline that runs this site
 
 ## Our Editorial Standards
 
-Trust is important to us. Read our [Editorial Policy](/editorial-policy/) to understand how every article is reviewed by the F9XR Review Board before publishing — checking accuracy, originality, and proper sources.
+Trust is important to us. Read our [Editorial Policy](/editorial-policy/) to understand how every article is reviewed by the F9XR Review Board before publishing - checking accuracy, originality, and proper sources.
 
 ## About F9XR Team
 
-Dev9b is built and maintained by the F9XR Team — a group of developers passionate about open-source and knowledge sharing.
+Dev9b is built and maintained by the F9XR Team - a group of developers passionate about open-source and knowledge sharing.
 
 - **Website:** [f9xr.org](/)
 - **GitHub:** [github.com/f9xr](https://github.com/f9xr)

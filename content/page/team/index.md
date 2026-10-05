@@ -12,20 +12,20 @@ menu:
 
 ## The F9XR Team
 
-Dev9b is written and maintained by the **F9XR Team** — developers who build real software, maintain open-source projects, and document what they learn.
+Dev9b is written and maintained by the **F9XR Team** - developers who build real software, maintain open-source projects, and document what they learn.
 
 ### What We're About
 
-- **Open source** — We build and publish code publicly. You can inspect everything we do on GitHub.
-- **Practical engineering** — Our articles come from shipped projects, not theory.
-- **Teaching** — We believe the best way to grow the developer community is to share working, tested knowledge.
+- **Open source** - We build and publish code publicly. You can inspect everything we do on GitHub.
+- **Practical engineering** - Our articles come from shipped projects, not theory.
+- **Teaching** - We believe the best way to grow the developer community is to share working, tested knowledge.
 
 ### Our Credentials & Experience
 
-- **Software development** — Frontend, backend, and full-stack experience.
-- **Static sites & Jamstack** — Deep experience with Hugo, GitHub Pages, and CI/CD.
-- **Open-source maintenance** — Running public repositories, accepting contributions, and reviewing pull requests.
-- **Technical writing** — Writing clear documentation and tutorials that developers can actually follow.
+- **Software development** - Frontend, backend, and full-stack experience.
+- **Static sites & Jamstack** - Deep experience with Hugo, GitHub Pages, and CI/CD.
+- **Open-source maintenance** - Running public repositories, accepting contributions, and reviewing pull requests.
+- **Technical writing** - Writing clear documentation and tutorials that developers can actually follow.
 
 ### Open-Source Work
 
@@ -36,7 +36,7 @@ You can verify our work directly:
 - **Dev9b source:** [github.com/f9xr/dev9b](https://github.com/f9xr/dev9b)
 - **Issue tracker:** [github.com/f9xr/dev9b/issues](https://github.com/f9xr/dev9b/issues)
 
-Because our work is open source, anyone can audit our code, our content, and our review process — which is how we build trust.
+Because our work is open source, anyone can audit our code, our content, and our review process - which is how we build trust.
 
 ### Editorial Accountability
 

@@ -193,7 +193,7 @@
 }
 
 /* ==========================================================================
-   Custom horizontal rules — a styled divider between sections.
+   Custom horizontal rules - a styled divider between sections.
    Emitted when content authors write a standalone "---" line.
    ========================================================================== */
 .article-content hr {
@@ -403,4 +403,422 @@ body {
         padding: 0.1em 0.35em;
         background: color-mix(in srgb, var(--body-background) 60%, transparent);
     }
+}
+
+/* ==========================================================================
+   Lucide icons
+   All Lucide SVGs are stroke-based and inherit currentColor, so they only
+   need sizing rules here. .lucide is the class Lucide puts on every icon.
+   ========================================================================== */
+.lucide {
+    display: inline-block;
+    vertical-align: middle;
+    flex: none;
+    stroke-width: 1.75;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* ==========================================================================
+   Sidebar: F9XR Team dropdown
+   A <details> element, so it works without JavaScript and stays keyboard
+   accessible. open is set in the template so the links are always crawlable
+   and reachable by keyboard even before the user expands it.
+   ========================================================================== */
+.f9xr-team-menu {
+    width: 100%;
+
+    @include respond(md) {
+        width: auto;
+    }
+}
+
+.f9xr-team-dropdown {
+    width: 100%;
+
+    summary {
+        display: flex;
+        align-items: center;
+        gap: var(--menu-icon-separation);
+        height: 100%;
+        padding: 0.35rem 0;
+        color: var(--body-text-color);
+        cursor: pointer;
+        list-style: none;
+        transition: color 0.15s ease;
+
+        &::-webkit-details-marker {
+            display: none;
+        }
+
+        &:hover {
+            color: var(--accent-color);
+        }
+
+        &:focus-visible {
+            outline: 2px solid var(--accent-color);
+            outline-offset: 3px;
+            border-radius: 4px;
+        }
+    }
+
+    .f9xr-team-summary-icon {
+        display: inline-flex;
+        align-items: center;
+        line-height: 0;
+    }
+
+    .f9xr-team-summary-label {
+        flex: 1;
+    }
+
+    /* Rotates the chevron to signal the open state */
+    .f9xr-team-summary-chevron {
+        display: inline-flex;
+        align-items: center;
+        line-height: 0;
+        transition: transform 0.2s ease;
+
+        svg {
+            stroke: currentColor;
+            stroke-width: 1.75;
+        }
+    }
+
+    &[open] .f9xr-team-summary-chevron {
+        transform: rotate(180deg);
+    }
+
+    /* Tint the whole block when open so the current state is obvious */
+    &[open] summary {
+        color: var(--accent-color);
+    }
+}
+
+.f9xr-team-submenu {
+    list-style: none;
+    padding: 0;
+    margin: 0.35rem 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+
+    /* Indent under the parent label, aligned with the icon gutter */
+    padding-inline-start: calc(20px + var(--menu-icon-separation));
+
+    li {
+        position: relative;
+    }
+
+    a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.2rem 0.5rem;
+        border-radius: 6px;
+        color: var(--body-text-color);
+        font-size: 0.95em;
+        line-height: 1.4;
+        text-decoration: none;
+        transition: color 0.15s ease, background-color 0.15s ease;
+
+        svg {
+            opacity: 0.55;
+            transition: opacity 0.15s ease;
+        }
+
+        &:hover {
+            color: var(--accent-color);
+            background: color-mix(in srgb, var(--accent-color) 10%, transparent);
+
+            svg {
+                opacity: 1;
+            }
+        }
+
+        &:focus-visible {
+            outline: 2px solid var(--accent-color);
+            outline-offset: 1px;
+        }
+    }
+}
+
+/* ==========================================================================
+   Footer
+   Replaces the theme's stacked footer with a multi-column layout, and adds
+   the "Made by F9XR Team" credit plus sitemap links.
+   ========================================================================== */
+footer.site-footer {
+    padding: var(--spacing-3xl) 0 var(--spacing-2xl) 0;
+    font-size: 1.4rem;
+    line-height: 1.7;
+
+    .site-footer-inner {
+        display: grid;
+        gap: var(--spacing-xl) var(--spacing-2xl);
+        grid-template-columns: 1fr;
+
+        @include respond(md) {
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            align-items: start;
+        }
+    }
+
+    .site-footer-heading {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        margin: 0 0 var(--spacing-sm);
+        font-size: 1.1rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: var(--card-text-color-secondary);
+
+        svg {
+            opacity: 0.8;
+        }
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.35rem;
+    }
+
+    .site-footer-f9xr a,
+    .site-footer-sitemap-links a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        color: var(--body-text-color);
+        text-decoration: none;
+        transition: color 0.15s ease;
+
+        svg {
+            opacity: 0.55;
+            transition: opacity 0.15s ease;
+        }
+
+        &:hover {
+            color: var(--accent-color);
+
+            svg {
+                opacity: 1;
+            }
+        }
+
+        &:focus-visible {
+            outline: 2px solid var(--accent-color);
+            outline-offset: 2px;
+            border-radius: 3px;
+        }
+    }
+
+    .copyright {
+        color: var(--accent-color);
+        font-weight: bold;
+        margin-bottom: 0;
+    }
+
+    .powerby {
+        grid-column: 1 / -1;
+        color: var(--body-text-color);
+        font-weight: normal;
+        font-size: 1.2rem;
+
+        a {
+            color: var(--body-text-color);
+        }
+    }
+
+    /* The "Made by F9XR Team" credit gets a bit more presence */
+    .site-footer-credit {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        margin-top: 0.35rem;
+        font-weight: 600;
+        color: var(--accent-color);
+
+        svg {
+            opacity: 1;
+            fill: currentColor;
+        }
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+/* ==========================================================================
+   Footer reveal effect
+   The footer stays pinned to the bottom of the viewport while page content
+   scrolls up over it, so it is gradually uncovered as the reader approaches
+   the end of the page.
+
+   Implementation notes:
+   - The theme renders <footer> as the last child of <main class="main">,
+     which is a flex column, so position: sticky works against the normal
+     scroll position with no extra spacer element.
+   - .main sits above the pinned footer (z-index), which is what produces the
+     "content slides up to uncover it" effect.
+   ========================================================================== */
+.main {
+    position: relative;
+    z-index: 1;
+}
+
+.main > .site-footer {
+    position: sticky;
+    bottom: 0;
+    z-index: 0;
+    margin-top: auto;
+    background: var(--body-background);
+    border-top: 1px solid var(--card-separator-color);
+
+    /* Turn the theme's 50px rule into a full-width divider so the footer
+       reads as a surface sliding in from below. */
+    &:before {
+        width: 100%;
+        max-width: 100%;
+        background: var(--card-separator-color);
+    }
+
+    /* Never let the pinned footer overlap the last line of article text
+       while it is still being revealed. */
+    .site-footer-inner {
+        position: relative;
+        z-index: 1;
+    }
+}
+
+/* On small screens the ad banner is fixed to the bottom of the viewport, so a
+   pinned footer would sit underneath it. Fall back to an in-flow footer there. */
+@media (max-width: 767px) {
+    .main > .site-footer {
+        position: static;
+    }
+}
+
+/* ==========================================================================
+   CSS View Transitions
+   Progressive enhancement: browsers without support (or with reduced motion
+   requested) never see any of this.
+   ========================================================================== */
+@media (prefers-reduced-motion: no-preference) {
+    ::view-transition-old(root) {
+        animation: none;
+        mix-blend-mode: normal;
+    }
+
+    ::view-transition-new(root) {
+        animation: dev9b-fade-in 0.22s ease both;
+    }
+}
+
+/* Forward navigation: the new page settles in with a short fade. */
+@keyframes dev9b-fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Cross-document view transitions need a matching rule for the navigation
+   itself; without it the default fade still applies, so this only adds the
+   scroll reset behaviour we want. */
+@view-transition {
+    navigation: auto;
+}
+
+/* Respect users who ask for less motion: disable the transition entirely. */
+@media (prefers-reduced-motion: reduce) {
+    ::view-transition-group(*),
+    ::view-transition-old(*),
+    ::view-transition-new(*) {
+        animation: none !important;
+    }
+}
+
+/* ==========================================================================
+   HTML sitemap page
+   ========================================================================== */
+.sitemap-intro {
+    margin-bottom: var(--spacing-lg);
+}
+
+.sitemap-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--spacing-2xl);
+    display: grid;
+    gap: var(--spacing-sm);
+    grid-template-columns: 1fr;
+
+    @include respond(md) {
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    }
+
+    li {
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+        padding: 0.7rem 0.9rem;
+        border: 1px solid var(--card-separator-color);
+        border-radius: var(--card-border-radius);
+        background: color-mix(in srgb, var(--card-background) 70%, transparent);
+        transition: border-color 0.18s ease, transform 0.18s ease;
+    }
+
+    a {
+        display: inline-flex;
+        align-items: baseline;
+        gap: 0.45rem;
+        color: var(--card-text-color-main);
+        font-weight: 600;
+        text-decoration: none;
+
+        svg {
+            align-self: center;
+            opacity: 0.65;
+        }
+
+        &:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+
+        &:focus-visible {
+            outline: 2px solid var(--accent-color);
+            outline-offset: 2px;
+            border-radius: 3px;
+        }
+    }
+}
+
+.sitemap-list--posts,
+.sitemap-list--inline {
+    @include respond(md) {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    }
+}
+
+.sitemap-list-count {
+    font-size: 0.8rem;
+    color: var(--card-text-color-secondary);
+}
+
+.sitemap-list-desc {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--card-text-color-secondary);
+    line-height: 1.55;
 }

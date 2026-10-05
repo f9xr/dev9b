@@ -114,11 +114,11 @@ The review typically takes **1-3 business days**. You may receive feedback reque
 
 Choose from existing categories or suggest a new one:
 
-- **Tutorials** — Step-by-step guides
-- **How-To** — Quick solutions to specific problems
-- **Deep Dives** — In-depth technical articles
-- **Opinion** — Developer perspectives and experiences
-- **News** — Latest trends and updates
+- **Tutorials** - Step-by-step guides
+- **How-To** - Quick solutions to specific problems
+- **Deep Dives** - In-depth technical articles
+- **Opinion** - Developer perspectives and experiences
+- **News** - Latest trends and updates
 
 ### Article Structure Template
 

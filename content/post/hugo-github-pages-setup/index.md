@@ -35,7 +35,7 @@ This guide walks through the same setup that runs this site. You will leave with
 
 ## How Hugo and GitHub Pages Fit Together
 
-Hugo is a static site generator. It turns Markdown and templates into plain HTML files. GitHub Pages is a static host with a build-and-deploy pipeline built in. The two mix well because there is no server to bolt together — Hugo produces files, Pages serves them.
+Hugo is a static site generator. It turns Markdown and templates into plain HTML files. GitHub Pages is a static host with a build-and-deploy pipeline built in. The two mix well because there is no server to bolt together - Hugo produces files, Pages serves them.
 
 GitHub Actions is the glue. A workflow runs on every push, installs the exact Hugo version that built the site locally, generates the HTML, and hands it to Pages.
 
@@ -139,7 +139,7 @@ Then in the repository settings, set Pages to "GitHub Actions" as the source. On
 
 ## Step 4: Serving From a Project Subpath
 
-If your site lives at `https://yourname.github.io/site-name/` — not the account root — set the baseURL in your Hugo config to the full URL. Hugo then prefixes all internal links with that path. This is the part people forget, and it produces broken assets, misdirected canonicals, and feeds that point to nothing.
+If your site lives at `https://yourname.github.io/site-name/` - not the account root - set the baseURL in your Hugo config to the full URL. Hugo then prefixes all internal links with that path. This is the part people forget, and it produces broken assets, misdirected canonicals, and feeds that point to nothing.
 
 ```toml
 baseURL = "https://yourname.github.io/site-name/"
@@ -217,7 +217,7 @@ Most "deploy failed" reports on this stack share four causes:
 - **Source not set to GitHub Actions.** The workflow runs and publishes nothing until Settings → Pages → Source is set to "GitHub Actions".
 - **Wrong baseURL.** On a subpath site, a missing trailing slash or a root `baseURL` produces a page full of broken links. Check the rendered HTML's first `<link>` and the canonical.
 - **Empty artifact.** If `upload-pages-artifact` points at a missing folder, the deploy shows a blank site. Confirm the build actually emitted files into `public/`.
-- **Module or theme errors.** A typo in `hugo.toml` module imports fails the build with a clear error — but only if you read the full log, not the last line.
+- **Module or theme errors.** A typo in `hugo.toml` module imports fails the build with a clear error - but only if you read the full log, not the last line.
 
 When in doubt, reproduce the CI steps locally:
 
@@ -230,7 +230,7 @@ Then open `public/index.html` in a browser. If it renders and the links resolve,
 
 ## Adding a Custom Domain
 
-A plain Pages URL is fine for side projects, but production sites usually want their own domain. The complete walkthrough — A records, CNAME flattening, SSL settings, and the redirect loop fix — is in our [Cloudflare domain guide](/p/github-pages-custom-domain-cloudflare/).
+A plain Pages URL is fine for side projects, but production sites usually want their own domain. The complete walkthrough - A records, CNAME flattening, SSL settings, and the redirect loop fix - is in our [Cloudflare domain guide](/p/github-pages-custom-domain-cloudflare/).
 
 The short version: add a `CNAME` file to your static output (or set it under Pages settings), point DNS at GitHub's Pages addresses, and switch your provider's SSL/TLS mode to Full (strict). Keep the `baseURL` in Hugo pointing at the custom domain this time, or the canonical tags will still claim the `.github.io` URL.
 
@@ -238,9 +238,9 @@ The short version: add a `CNAME` file to your static output (or set it under Pag
 
 The workflow is the contract between your content and the live site. A few habits keep it green:
 
-- **Pin versions you can reproduce.** Set `HUGO_VERSION` explicitly in the environment block instead of tracking "latest". A Hugo minor bump has quietly changed rendered output on this very site — pinning means your deploys only change when you change them, never because upstream did.
+- **Pin versions you can reproduce.** Set `HUGO_VERSION` explicitly in the environment block instead of tracking "latest". A Hugo minor bump has quietly changed rendered output on this very site - pinning means your deploys only change when you change them, never because upstream did.
 - **Lint the built site, not just the source.** Run `hugo --gc --minify --cleanDestinationDir` locally and check the `public/` output before pushing: no leaked drafts, no dead internal links, no missing images. Our [SEO checklist](/p/hugo-seo-guide/) turns that pass into a proper crawl of the published folder.
-- **Treat the workflow file as code.** Every edit to `deploy.yml` gets the same review as a content change. A broken environment override won't error loudly — it deploys a stale or wrong site and calls it success.
+- **Treat the workflow file as code.** Every edit to `deploy.yml` gets the same review as a content change. A broken environment override won't error loudly - it deploys a stale or wrong site and calls it success.
 - **Watch the "Pages build and deployment" run after each push.** It is ground truth. A green Actions run is only half the story; the Pages run carries the actual publish.
 
 Rolling back is a redeploy away: check out the last known-good commit, push, and GitHub Pages rewrites the live site on the next successful run. A bad deploy on this setup is never more than minutes old. Content publishing on this pipeline follows the same review standards we apply across the site via the [editorial policy](/editorial-policy/).
@@ -255,4 +255,4 @@ Rolling back is a redeploy away: check out the last known-good commit, push, and
 
 ## Conclusion
 
-A static site that deploys itself frees you to write. This very site runs the pipeline above — the workflow file in this article is a trimmed copy of ours. When you are ready to move past Hugo for this site, check the [contributor guide](/contribute/) or see how we turn the whole process into a [Google-friendly checklist](/p/hugo-seo-guide/). Every change we publish is reviewed against the standards in our [editorial policy](/editorial-policy/).
+A static site that deploys itself frees you to write. This very site runs the pipeline above - the workflow file in this article is a trimmed copy of ours. When you are ready to move past Hugo for this site, check the [contributor guide](/contribute/) or see how we turn the whole process into a [Google-friendly checklist](/p/hugo-seo-guide/). Every change we publish is reviewed against the standards in our [editorial policy](/editorial-policy/).

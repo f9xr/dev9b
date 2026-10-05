@@ -30,7 +30,7 @@ faq:
       answer: "Verify your API key is set correctly, confirm your internet connection when using cloud providers, and open the Output panel (View > Output) selecting OpenCode from the dropdown to inspect the logs."
 ---
 
-OpenCode is an open-source, terminal-based AI coding agent that supports over 75 models and runs entirely locally. It integrates natively into VS Code through its official extension — bringing agentic AI workflows directly into your editor without leaving the terminal environment you already work in.
+OpenCode is an open-source, terminal-based AI coding agent that supports over 75 models and runs entirely locally. It integrates natively into VS Code through its official extension - bringing agentic AI workflows directly into your editor without leaving the terminal environment you already work in.
 
 In this guide, we will walk through installing the OpenCode CLI, enabling the VS Code extension, and configuring your environment so OpenCode can work with your preferred AI provider.
 
@@ -41,10 +41,10 @@ In this guide, we will walk through installing the OpenCode CLI, enabling the VS
 Before installing OpenCode, make sure you have the following:
 
 1. **VS Code** (any recent stable version). OpenCode runs in the integrated terminal, so no special extension is required for basic functionality.
-2. **Terminal access.** OpenCode installs through your terminal — PowerShell, Command Prompt, or Windows Terminal all work.
+2. **Terminal access.** OpenCode installs through your terminal - PowerShell, Command Prompt, or Windows Terminal all work.
 3. **At least one AI provider.** You need access to a model. This can be a free local model through Ollama, or a cloud provider like OpenAI, Anthropic, or Google.
 
-If you plan to use cloud providers only, you do not need to install Ollama or Go — just the pre-built binary and your API key.
+If you plan to use cloud providers only, you do not need to install Ollama or Go - just the pre-built binary and your API key.
 
 ## Step 1: Install the OpenCode CLI
 
@@ -139,7 +139,7 @@ The OpenCode VS Code extension integrates the full agent experience into your ed
 2. Open the integrated terminal (`Ctrl+Backtick`)
 3. Run `opencode`
 
-The extension installs automatically on first run. That is it — no manual steps needed.
+The extension installs automatically on first run. That is it - no manual steps needed.
 
 ### Manual Install
 
@@ -170,7 +170,7 @@ You can also click the **OpenCode button** in the terminal toolbar to launch it.
 
 ### How It Works in Practice
 
-OpenCode runs as a terminal agent inside your editor. When you ask it to modify a file, it reads the file, generates the change, and applies it — all through the terminal. The extension adds context awareness, so your current file or selection is automatically shared with the agent.
+OpenCode runs as a terminal agent inside your editor. When you ask it to modify a file, it reads the file, generates the change, and applies it - all through the terminal. The extension adds context awareness, so your current file or selection is automatically shared with the agent.
 
 For example, you can ask OpenCode to:
 
@@ -200,7 +200,7 @@ The global configuration lives at `~/.config/opencode/opencode.json` and applies
 
 ## Works With Other VS Code Forks
 
-OpenCode works identically in [Cursor](/p/opencode-vs-cursor/), Windsurf, and VSCodium. The installation process is the same — just make sure the CLI command for your IDE is available:
+OpenCode works identically in [Cursor](/p/opencode-vs-cursor/), Windsurf, and VSCodium. The installation process is the same - just make sure the CLI command for your IDE is available:
 
 - **Cursor:** `cursor` command
 - **Windsurf:** `windsurf` command
@@ -242,7 +242,7 @@ Then set it in VS Code settings under `opencodeVisual.opencodePath`.
 
 ## Conclusion
 
-Adding OpenCode to your VS Code setup takes less than five minutes. Once configured, you get an agentic AI assistant that reads your code, writes changes, runs commands, and explains its reasoning — all from within the terminal you already use. Teams like F9XR use this kind of setup to speed up code review and prototyping without introducing new tools into the workflow.
+Adding OpenCode to your VS Code setup takes less than five minutes. Once configured, you get an agentic AI assistant that reads your code, writes changes, runs commands, and explains its reasoning - all from within the terminal you already use. Teams like F9XR use this kind of setup to speed up code review and prototyping without introducing new tools into the workflow.
 
 When you are ready to go further, teach the agent your conventions with the [OpenCode skills guide](/p/opencode-skills-guide/) or extend it with [MCP servers](/p/opencode-mcp-servers/). Prefer to stay out of the editor? See the full [OpenCode TUI setup guide](/p/how-to-setup-opencode-tui/).
 

@@ -1,6 +1,6 @@
 ---
 title: "The Hugo SEO Checklist (From a Real Site Audit)"
-description: "A working Hugo SEO checklist: metadata, JSON-LD, sitemaps, and Core Web Vitals — every item verified on a live Hugo site."
+description: "A working Hugo SEO checklist: metadata, JSON-LD, sitemaps, and Core Web Vitals - every item verified on a live Hugo site."
 slug: hugo-seo-guide
 date: 2026-09-05
 image: cover.png
@@ -21,15 +21,15 @@ draft: false
 math: false
 faq:
     - question: "Does Hugo need an SEO plugin?"
-      answer: "No. Hugo ships everything needed — metadata templates, sitemap, RSS feeds, robots.txt support — and structured data is a small template partial. A plugin adds convenience, not capability."
+      answer: "No. Hugo ships everything needed - metadata templates, sitemap, RSS feeds, robots.txt support - and structured data is a small template partial. A plugin adds convenience, not capability."
     - question: "What is the most impactful single Hugo SEO fix?"
       answer: "A correct title hierarchy. Keep one H1 per page (the page title) and ensure that title contains your target keyword before touching anything else."
     - question: "Are duplicate title and description tags harmful?"
-      answer: "Duplicate descriptions across similar pages waste crawl and lower click-through. Generate a unique description per page — terms, sections, and posts should each have their own."
+      answer: "Duplicate descriptions across similar pages waste crawl and lower click-through. Generate a unique description per page - terms, sections, and posts should each have their own."
 ---
 Most SEO advice for static sites is recycled from 2010 and wrong for Hugo. Tell someone "install a plugin" and they will spend an hour looking for something that does not exist. The truth is better: Hugo generates most of your technical SEO for free, and the rest fits in a handful of template partials.
 
-This checklist comes straight from a five-pass audit of a live Hugo site — the one you are reading. Every item below is something we verified then fixed, with the exact change that worked.
+This checklist comes straight from a five-pass audit of a live Hugo site - the one you are reading. Every item below is something we verified then fixed, with the exact change that worked.
 
 <!--more-->
 
@@ -37,12 +37,12 @@ This checklist comes straight from a five-pass audit of a live Hugo site — the
 
 Run through these before you spend time on anything else. They cover 80% of the outcome.
 
-- [ ] **One H1 per page, holding the keyword.** On posts, the title should render as the page's H1. If your theme prints the article title as an H2, override it — this was the single biggest finding in our audit.
+- [ ] **One H1 per page, holding the keyword.** On posts, the title should render as the page's H1. If your theme prints the article title as an H2, override it - this was the single biggest finding in our audit.
 - [ ] **Unique meta description per page.** `description` in front matter. Keep it under 160 characters and include the target keyword.
-- [ ] **Canonical tags on.** Hugo emits canonicals automatically from `.Permalink` — but they only match reality when `baseURL` matches the domain you actually serve. That pairing of `baseURL` and the live domain is exactly what we wire together in the [Cloudflare custom-domain setup](/p/github-pages-custom-domain-cloudflare/).
+- [ ] **Canonical tags on.** Hugo emits canonicals automatically from `.Permalink` - but they only match reality when `baseURL` matches the domain you actually serve. That pairing of `baseURL` and the live domain is exactly what we wire together in the [Cloudflare custom-domain setup](/p/github-pages-custom-domain-cloudflare/).
 - [ ] **Sitemap present.** Hugo's built-in `sitemap.xml` needs no configuration. Confirm it lists every indexable URL.
 - [ ] **RSS feeds present.** `index.xml` ships by default; extra feeds are just output formats in `config.toml`.
-- [ ] **robots.txt correct.** Respect the `baseURL` path — a sitemap reference that includes the full path is what allows the sitemap to actually be found.
+- [ ] **robots.txt correct.** Respect the `baseURL` path - a sitemap reference that includes the full path is what allows the sitemap to actually be found.
 
 ## Metadata That Google Actually Reads
 
@@ -55,16 +55,16 @@ Run through these before you spend time on anything else. They cover 80% of the 
 | Twitter card | summary / summary_large_image | theme partials |
 | Author | named person or organization | `author` front matter |
 
-Two gotchas from our run: `og:type` defaults to `article` on every page in many themes — restrict it to actual posts. And `og:image` needs explicit `width`/`height` or social scrapers resize the image on their own.
+Two gotchas from our run: `og:type` defaults to `article` on every page in many themes - restrict it to actual posts. And `og:image` needs explicit `width`/`height` or social scrapers resize the image on their own.
 
 ## Structured Data Without a Plugin
 
 Search engines reward explicit structure. On Hugo you write it once in a partial and it applies to every page:
 
-- **Organization** — name, logo, social `sameAs` links. Every page should emit it.
-- **BreadcrumbList** — itemListElement with position + URL. Cheap to emit on every page.
-- **TechArticle / Article** — headline, description, image, dates, author, publisher.
-- **FAQPage** — only when the questions are visible on the page, or Google flags it as spam. Wire it to front matter so only posts with a real FAQ section emit it.
+- **Organization** - name, logo, social `sameAs` links. Every page should emit it.
+- **BreadcrumbList** - itemListElement with position + URL. Cheap to emit on every page.
+- **TechArticle / Article** - headline, description, image, dates, author, publisher.
+- **FAQPage** - only when the questions are visible on the page, or Google flags it as spam. Wire it to front matter so only posts with a real FAQ section emit it.
 
 We verified every `ld+json` block on this site as valid JSON-LD. Hugo's `jsonify` outputs JSON directly; pipe it through `safeJS` when embedding inside a `<script>` tag so the HTML template engine does not escape your quotes.
 
@@ -72,11 +72,11 @@ We verified every `ld+json` block on this site as valid JSON-LD. Hugo's `jsonify
 
 Static sites are fast by default, then themes quietly undo it.
 
-- **LCP image.** If your hero image uses `loading="lazy"`, the largest element on the page waits to load. Set `loading="eager"` and `fetchpriority="high"` on the article hero only — keep lazy loading for everything below the fold.
+- **LCP image.** If your hero image uses `loading="lazy"`, the largest element on the page waits to load. Set `loading="eager"` and `fetchpriority="high"` on the article hero only - keep lazy loading for everything below the fold.
 - **Self-hosted fonts.** Two `<link rel="preconnect">` tags before the stylesheet cost almost nothing and cut font latency.
 - **No render-blocking analytics.** Third-party scripts (comment widgets, chat, ad providers) are the main votal leak on an otherwise-light page.
 - **Image dimensions always.** Missing `width`/`height` on images causes layout shift and hurts CLS.
-- **Weight budget for interactive heroes.** A 3D hero is a LCP risk in disguise, not just a JavaScript one. If the hero renders a real-time scene, the fix is asset discipline and a poster image to paint first — see how to [add Three.js 3D models to a landing page](/p/setup-threejs-models-landing-page/) without wrecking the budget.
+- **Weight budget for interactive heroes.** A 3D hero is a LCP risk in disguise, not just a JavaScript one. If the hero renders a real-time scene, the fix is asset discipline and a poster image to paint first - see how to [add Three.js 3D models to a landing page](/p/setup-threejs-models-landing-page/) without wrecking the budget.
 
 ## Site-Health Checks That Compound
 
@@ -89,7 +89,7 @@ Static sites are fast by default, then themes quietly undo it.
 
 A few items we added on top of the minimums:
 
-- **Schema-validate every `ld+json` block.** Run each block through a validator once after setup, then spot-check a sample each quarter. Broken JSON-LD is worse than none — search engines treat malformed reviews and FAQs as spam.
+- **Schema-validate every `ld+json` block.** Run each block through a validator once after setup, then spot-check a sample each quarter. Broken JSON-LD is worse than none - search engines treat malformed reviews and FAQs as spam.
 - **Check article and breadcrumb blocks separately.** They come from different partials and fail independently.
 - **No H2s before the H1.** Some themes print aliases or breadcrumbs above the article header. Ensure the first true H1 is the post title.
 - **Alt-text discipline.** Every body image gets a descriptive alt; decorative SVGs get `alt=""`. We verified 100% coverage on this site.
@@ -99,25 +99,25 @@ A few items we added on top of the minimums:
 
 SEO on a static site is a loop, not a one-time fix. After the audit ships:
 
-- **Resubmit the sitemap** in Google Search Console after major content changes — and fire an IndexNow ping afterward if your host supports it; it is one HTTP request.
+- **Resubmit the sitemap** in Google Search Console after major content changes - and fire an IndexNow ping afterward if your host supports it; it is one HTTP request.
 - **Re-verify after every theme or config change.** Themes silently override H1 behavior, canonical output, and `og:image`.
 - **Watch for taxonomy bloat.** Tag pages multiply faster than posts. Keep tags few per post, give `_index.md` files real titles, and let thin tag pages die instead of feeding them.
 - **Re-run Lighthouse and a JSON-LD validator on every release.** Automate the checks you can; the rest is a five-minute quarterly pass.
 
 ## Tools That Verify the Work
 
-- **Lighthouse / PageSpeed Insights** — Core Web Vitals, LCP, and CLS, with hints about which third-party script is leaking.
-- **Google Rich Results Test and schema.org validator** — JSON-LD types and required fields.
-- **Google Search Console** — sitemap submission, IndexNow coverage, and crawl errors.
-- **A simple crawler** (Screaming Frog, or grep over your sitemap) — dead internal links, empty descriptions, and missing alts.
+- **Lighthouse / PageSpeed Insights** - Core Web Vitals, LCP, and CLS, with hints about which third-party script is leaking.
+- **Google Rich Results Test and schema.org validator** - JSON-LD types and required fields.
+- **Google Search Console** - sitemap submission, IndexNow coverage, and crawl errors.
+- **A simple crawler** (Screaming Frog, or grep over your sitemap) - dead internal links, empty descriptions, and missing alts.
 
 ## Key Takeaways
 
 - Hugo needs no SEO plugin; templates and front matter cover everything.
 - Fix the H1 hierarchy before adding any other SEO feature.
-- Structured data is a handful of `ld+json` partials — keep FAQPage honest or leave it out.
+- Structured data is a handful of `ld+json` partials - keep FAQPage honest or leave it out.
 - LCP, fonts, and dimensions matter more on a static site than most guides admit.
 
 ## Conclusion
 
-Technical SEO on Hugo is not a plugin — it is a short checklist, verified. The audit that produced this list is the reason this site ships the exact patterns above, from H1 behavior to `fetchpriority`. To stand up your own Hugo site first, start with our [GitHub Pages setup guide](/p/hugo-github-pages-setup/), then reuse this checklist on it. If you find a pattern we should cover next, the [contributor guide](/contribute/) is open, and everything here is reviewed against the [editorial policy](/editorial-policy/).
+Technical SEO on Hugo is not a plugin - it is a short checklist, verified. The audit that produced this list is the reason this site ships the exact patterns above, from H1 behavior to `fetchpriority`. To stand up your own Hugo site first, start with our [GitHub Pages setup guide](/p/hugo-github-pages-setup/), then reuse this checklist on it. If you find a pattern we should cover next, the [contributor guide](/contribute/) is open, and everything here is reviewed against the [editorial policy](/editorial-policy/).

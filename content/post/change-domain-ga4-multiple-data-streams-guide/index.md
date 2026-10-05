@@ -50,9 +50,9 @@ This is the developer path through the fix: editing the Website URL on an existi
 
 Before clicking anything, get the hierarchy right. Most GA4 mistakes are not configuration mistakes, they are modeling mistakes made three levels too high.
 
-- **Account** — the ownership and billing container. One company or agency normally has one, more only when you need separate billing boundaries.
-- **Property** — one logical product or brand. Every report, audience, and conversion lives here.
-- **Data stream** — the actual collection point. A website, an iOS app, an Android app.
+- **Account** - the ownership and billing container. One company or agency normally has one, more only when you need separate billing boundaries.
+- **Property** - one logical product or brand. Every report, audience, and conversion lives here.
+- **Data stream** - the actual collection point. A website, an iOS app, an Android app.
 
 All streams inside a single property roll up into the same reports. That is exactly what you want when a marketing site and a checkout live on different root domains, because you get one continuous funnel instead of two disconnected ones. It is also precisely why unrelated properties must stay apart: drop a developer blog and a SaaS dashboard into the same property and no report will ever separate them cleanly again.
 

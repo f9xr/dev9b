@@ -20,7 +20,7 @@ Dev9b exists to make developer knowledge accessible to everyone. We believe that
 
 ### Who We Are
 
-Dev9b is built and maintained by the **F9XR Team** — a group of developers passionate about open-source and knowledge sharing.
+Dev9b is built and maintained by the **F9XR Team** - a group of developers passionate about open-source and knowledge sharing.
 
 - **Website:** [f9xr.org](https://f9xr.org)
 - **GitHub:** [github.com/f9xr](https://github.com/f9xr)
@@ -32,13 +32,13 @@ Dev9b is built and maintained by the **F9XR Team** — a group of developers pas
 
 The F9XR Team brings hands-on experience across modern software development:
 
-- **Web development** — HTML, CSS, JavaScript, and modern frameworks
-- **Static site & Jamstack** — Hugo, static generators, GitHub Pages
-- **Open source** — building and maintaining public repositories
-- **Developer tooling** — CI/CD, automation, and best practices
-- **Technical writing** — documenting code and teaching developers
+- **Web development** - HTML, CSS, JavaScript, and modern frameworks
+- **Static site & Jamstack** - Hugo, static generators, GitHub Pages
+- **Open source** - building and maintaining public repositories
+- **Developer tooling** - CI/CD, automation, and best practices
+- **Technical writing** - documenting code and teaching developers
 
-Every article reflects real, first-hand engineering experience — not recycled marketing content. Read our [Editorial Policy](/editorial-policy/) to understand how we verify what we publish.
+Every article reflects real, first-hand engineering experience - not recycled marketing content. Read our [Editorial Policy](/editorial-policy/) to understand how we verify what we publish.
 
 ### What Makes Dev9b Different
 
@@ -54,10 +54,10 @@ Every article reflects real, first-hand engineering experience — not recycled 
 
 Dev9b is built with:
 
-- [Hugo](https://gohugo.io/) — Static site generator
-- [Hugo Theme Stack](https://github.com/CaiJimmy/hugo-theme-stack) — Clean, modern theme
-- [GitHub Pages](https://pages.github.com/) — Free hosting
-- [GitHub Actions](https://github.com/features/actions) — CI/CD automation
+- [Hugo](https://gohugo.io/) - Static site generator
+- [Hugo Theme Stack](https://github.com/CaiJimmy/hugo-theme-stack) - Clean, modern theme
+- [GitHub Pages](https://pages.github.com/) - Free hosting
+- [GitHub Actions](https://github.com/features/actions) - CI/CD automation
 
 ### License
 

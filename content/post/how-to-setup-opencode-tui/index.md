@@ -178,7 +178,7 @@ Everything inside the TUI is accessible through slash commands, and most of them
 
 | Command | What it does | Default keybind |
 |---|---|---|
-| `/connect` | Add or switch an LLM provider | — |
+| `/connect` | Add or switch an LLM provider | - |
 | `/models` | List and switch available models | `ctrl+x m` |
 | `/new` | Start a fresh session (alias `/clear`) | `ctrl+x n` |
 | `/sessions` | List and switch between saved sessions | `ctrl+x l` |
@@ -188,9 +188,9 @@ Everything inside the TUI is accessible through slash commands, and most of them
 | `/themes` | Switch the TUI color theme | `ctrl+x t` |
 | `/editor` | Open your `$EDITOR` for composing a longer message | `ctrl+x e` |
 | `/export` | Export the conversation to Markdown | `ctrl+x x` |
-| `/init` | Generate or update an `AGENTS.md` file for your project | — |
-| `/details` | Toggle tool execution details on or off | — |
-| `/help` | Open the full command list | — |
+| `/init` | Generate or update an `AGENTS.md` file for your project | - |
+| `/details` | Toggle tool execution details on or off | - |
+| `/help` | Open the full command list | - |
 | `/exit` | Quit OpenCode (alias `/quit`, `/q`) | `ctrl+x q` |
 
 A quick tip: `/undo` and `/redo` both rely on Git under the hood, so they only work correctly inside an initialized Git repository. If you're testing OpenCode in a throwaway folder, run `git init` first or you'll lose that safety net.
@@ -232,7 +232,7 @@ Run `/init` from inside the TUI to generate an `AGENTS.md` file at your project 
 
 If your project already has strong conventions (a specific commit message format, a preferred testing library, strict linting rules), spelling those out in `AGENTS.md` cuts down significantly on back-and-forth corrections later.
 
-Once the TUI basics are comfortable, the natural next step is teaching OpenCode your project's reusable workflows — check out our [OpenCode Skills Guide](/p/opencode-skills-guide/) for that.
+Once the TUI basics are comfortable, the natural next step is teaching OpenCode your project's reusable workflows - check out our [OpenCode Skills Guide](/p/opencode-skills-guide/) for that.
 
 ## Customizing the TUI
 

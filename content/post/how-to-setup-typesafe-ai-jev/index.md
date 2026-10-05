@@ -27,14 +27,14 @@ faq:
     - question: "How is Jev different from JSON mode or structured outputs on LLMs?"
       answer: "JSON mode still generates text that must be parsed and can contain invalid or out-of-schema values. Jev never generates free text; its answers are constrained to the exact options or levels you declare and include calibrated probabilities."
     - question: "How fast and cheap is Jev in practice?"
-      answer: "End-to-end latency is typically 70–500 ms. Input pricing is $0.042 per million tokens with free output, which is substantially lower than frontier LLMs for the same class of decision tasks."
+      answer: "End-to-end latency is typically 70-500 ms. Input pricing is $0.042 per million tokens with free output, which is substantially lower than frontier LLMs for the same class of decision tasks."
 ---
 
 If you have ever tried to force a large language model into making a clean, reliable decision inside your code, you know the pain. You craft a careful prompt, demand JSON, then write a parser that still breaks when the model decides to add a polite sentence or change the key names. TypeSafe AI's Jev was built to end that cycle.
 
 Jev is not another chat model. It is the first public System One model: a frontier-intelligence function that takes unstructured state and typed questions, then returns calibrated choices, scores, or yes/no probabilities your application can branch on directly. No text generation. No parsing. Response times land between 70 ms and 500 ms, and input tokens cost $0.042 per million with free output.
 
-If you are newer to the agent category, our guide to [AI Coding Agents Explained](/p/ai-coding-agents-explained/) covers how such models differ from plain chatbots — and why a decision function like Jev fits inside a larger agent workflow rather than replacing it.
+If you are newer to the agent category, our guide to [AI Coding Agents Explained](/p/ai-coding-agents-explained/) covers how such models differ from plain chatbots - and why a decision function like Jev fits inside a larger agent workflow rather than replacing it.
 
 <!--more-->
 
@@ -112,8 +112,8 @@ Three primitives cover almost every decision you need:
 | Primitive | Question shape | What comes back |
 |-----------|----------------|-----------------|
 | Choice    | Pick one option from a fixed list (up to 255) | Selected option, full probability distribution, confidence |
-| Score     | Rate against ordered levels you describe (2–10) | Numeric score (can fall between levels), probabilities, confidence |
-| Noul      | Yes/no statement | Probability the answer is yes (0–1) |
+| Score     | Rate against ordered levels you describe (2-10) | Numeric score (can fall between levels), probabilities, confidence |
+| Noul      | Yes/no statement | Probability the answer is yes (0-1) |
 
 You can mix any number of these questions in a single request. Every question is evaluated in parallel against the same state, so adding more questions barely increases latency or cost.
 
@@ -371,7 +371,7 @@ JSON mode still generates text that must be parsed and can contain invalid or ou
 
 ### How fast and cheap is Jev in practice?
 
-End-to-end latency is typically 70–500 ms. Input pricing is $0.042 per million tokens with free output, which is substantially lower than frontier LLMs for the same class of decision tasks. The full details are in the [TypeSafe AI quickstart](https://docs.typesafe.ai/introduction/quickstart).
+End-to-end latency is typically 70-500 ms. Input pricing is $0.042 per million tokens with free output, which is substantially lower than frontier LLMs for the same class of decision tasks. The full details are in the [TypeSafe AI quickstart](https://docs.typesafe.ai/introduction/quickstart).
 
 ## Key Takeaways
 
@@ -383,6 +383,6 @@ End-to-end latency is typically 70–500 ms. Input pricing is $0.042 per million
 
 ## Conclusion
 
-Jev collapses the messy middle of LLM decision-making: no prose, no parsing, just typed answers your code can branch on. For teams like F9XR, patterns such as confidence gating and speculative fan-out make it a dependable building block inside larger agent workflows — the same way a quality gate keeps a blog's publishing pipeline honest.
+Jev collapses the messy middle of LLM decision-making: no prose, no parsing, just typed answers your code can branch on. For teams like F9XR, patterns such as confidence gating and speculative fan-out make it a dependable building block inside larger agent workflows - the same way a quality gate keeps a blog's publishing pipeline honest.
 
 Every article on Dev9b follows a [transparent editorial policy](/editorial-policy/), and if you have a Jev integration pattern worth sharing, the [contributor guide](/contribute/) explains how to submit your own post. You can also read the [System One announcement](https://typesafe.ai/blog/introducing-system-one-models-and-jev) for the full background on the model.

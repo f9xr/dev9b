@@ -1,0 +1,38 @@
+# F9XR Team network links.
+# Rendered in the sidebar dropdown, the footer, and the HTML sitemap so the
+# list is defined once and every surface stays in sync.
+
+[[links]]
+    name = "Articles"
+    url = "https://f9xr.org/articles/"
+    description = "Long-form articles and guides from the F9XR Team."
+
+[[links]]
+    name = "Troolify"
+    url = "https://f9xr.org/troolify/"
+    description = "AI-powered content and research tooling."
+
+[[links]]
+    name = "Directories"
+    url = "https://f9xr.org/directories/"
+    description = "Curated directories for finding tools, jobs, and resources."
+
+[[links]]
+    name = "SEO Audit Report Skill"
+    url = "https://f9xr.org/seo-audit-report-skill/"
+    description = "Agent skill that generates a full SEO audit report for any site."
+
+[[links]]
+    name = "Boredpup"
+    url = "https://f9xr.org/boredpup/"
+    description = "An open-source project for when you are stuck and need a side quest."
+
+[[links]]
+    name = "Dev9b"
+    url = "https://f9xr.org/dev9b/"
+    description = "This site: an open-source developer blog and publishing platform."
+
+[[links]]
+    name = "Resumio"
+    url = "https://f9xr.org/resumio/"
+    description = "Resume and career tooling built by the F9XR Team."

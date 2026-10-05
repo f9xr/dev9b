@@ -1,0 +1,13 @@
+{{- /* Lists the F9XR Team network sites from data/f9xr_links.toml. */ -}}
+<ul class="sitemap-list">
+    {{ range hugo.Data.f9xr_links.links }}
+    <li>
+        <a href="{{ .url }}" target="_blank" rel="noopener">{{ partial "helper/lucide" (dict "name" "globe" "size" 15) }}<span>{{ .name }}</span></a>
+        <p class="sitemap-list-desc">{{ .description }}</p>
+    </li>
+    {{ end }}
+    <li>
+        <a href="https://f9xr.org/" target="_blank" rel="noopener">{{ partial "helper/lucide" (dict "name" "home" "size" 15) }}<span>F9XR Team home</span></a>
+        <p class="sitemap-list-desc">The main F9XR Team site that links back to every project.</p>
+    </li>
+</ul>

@@ -1,6 +1,6 @@
 ---
 title: "How to Add MCP Servers to OpenCode"
-description: "Add local and remote MCP servers to OpenCode — extend your agent with Sentry, Context7, Grep, and custom tools via the Model Context Protocol."
+description: "Add local and remote MCP servers to OpenCode - extend your agent with Sentry, Context7, Grep, and custom tools via the Model Context Protocol."
 slug: opencode-mcp-servers
 date: 2026-09-06
 image: cover.jpg
@@ -30,7 +30,7 @@ faq:
       answer: "Yes. OpenCode supports automatic OAuth flows for remote MCP servers. It detects 401 responses, handles Dynamic Client Registration (RFC 7591), and stores tokens securely in ~/.local/share/opencode/mcp-auth.json."
 ---
 
-OpenCode ships with strong built-in tools — file read/write, bash, search, grep — but real development work touches external systems: issue trackers, documentation search, error monitoring. The Model Context Protocol (MCP) is how you bridge that gap. Once you configure an MCP server, its tools appear alongside OpenCode's native tools, and the agent can call them without any extra prompting.
+OpenCode ships with strong built-in tools - file read/write, bash, search, grep - but real development work touches external systems: issue trackers, documentation search, error monitoring. The Model Context Protocol (MCP) is how you bridge that gap. Once you configure an MCP server, its tools appear alongside OpenCode's native tools, and the agent can call them without any extra prompting.
 
 This guide walks through adding local and remote MCP servers, managing OAuth, and controlling which agents can use which tools.
 
@@ -44,8 +44,8 @@ Think of it as a plugin system: instead of reimplementing functionality inside O
 
 There are two types:
 
-- **Local servers** — run as a child process on your machine. The command starts when OpenCode starts and stops when it stops.
-- **Remote servers** — hosted HTTP endpoints. OpenCode connects over the network and can authenticate via API keys or OAuth.
+- **Local servers** - run as a child process on your machine. The command starts when OpenCode starts and stops when it stops.
+- **Remote servers** - hosted HTTP endpoints. OpenCode connects over the network and can authenticate via API keys or OAuth.
 
 ## Adding a Local MCP Server
 
@@ -66,7 +66,7 @@ Add this to your `opencode.json`:
 }
 ```
 
-The `command` field takes an array — the executable followed by its arguments. OpenCode spawns this process and communicates with it over stdin/stdout.
+The `command` field takes an array - the executable followed by its arguments. OpenCode spawns this process and communicates with it over stdin/stdout.
 
 ### Environment Variables
 
@@ -154,7 +154,7 @@ For servers that use API keys, pass them in `headers`:
 }
 ```
 
-The `{env:CONTEXT7_API_KEY}` syntax reads from an environment variable at runtime — the key never appears in your config file.
+The `{env:CONTEXT7_API_KEY}` syntax reads from an environment variable at runtime - the key never appears in your config file.
 
 ### OAuth Authentication
 
@@ -228,7 +228,7 @@ The glob pattern `my-mcp*` disables all tools whose names start with `my-mcp`.
 
 ### Enable Per Agent
 
-Disable globally, then enable for specific agents. This keeps context lean — only the agents that need a server get its tools:
+Disable globally, then enable for specific agents. This keeps context lean - only the agents that need a server get its tools:
 
 ```json
 {
@@ -259,7 +259,7 @@ MCP server tools are registered with the server name as prefix. To disable all t
 
 Here are four MCP servers that pair well with OpenCode in practice.
 
-### Sentry — Error Monitoring
+### Sentry - Error Monitoring
 
 Query issues, projects, and error data directly from your agent:
 
@@ -287,7 +287,7 @@ Then in your prompts:
 Show me the latest unresolved issues in my project. use sentry
 ```
 
-### Context7 — Documentation Search
+### Context7 - Documentation Search
 
 Search through library and framework documentation:
 
@@ -312,7 +312,7 @@ You can also add this to your `AGENTS.md` rules file:
 When you need to search docs, use context7 tools.
 ```
 
-### Grep by Vercel — Code Search on GitHub
+### Grep by Vercel - Code Search on GitHub
 
 Search through code snippets across open-source repositories:
 
@@ -331,7 +331,7 @@ Search through code snippets across open-source repositories:
 What's the right way to set a custom domain in an SST Astro component? use the gh_grep tool
 ```
 
-### Scrapling — Web Scraping and Crawling
+### Scrapling - Web Scraping and Crawling
 
 Give the agent a real fetcher instead of asking it to guess what a page contains. Scrapling ships an MCP server with tools for plain HTTP requests, browser fetches, and stealth fetches that get past Cloudflare:
 
@@ -363,7 +363,7 @@ MCP servers add to your context window. Each tool's description and schema consu
 
 The practical impact: if you enable too many servers, you hit context limits faster, compaction kicks in more aggressively, and the agent has less room for your actual code.
 
-A good rule of thumb — enable the servers you need for the current task. Disable them globally and enable per-agent when the same server isn't relevant to every workflow.
+A good rule of thumb - enable the servers you need for the current task. Disable them globally and enable per-agent when the same server isn't relevant to every workflow.
 
 > [!TIP]
 > Use `"tools": { "my-mcp*": false }` globally and enable per-agent with `"tools": { "my-mcp*": true }` in your agent config. This keeps context lean while giving specific agents the tools they need.
@@ -392,13 +392,13 @@ Adding an MCP server is like granting the agent a new permission, so treat it th
 
 - **Who runs the endpoint?** For remote servers, prefer first-party endpoints from the tool vendor (Sentry, GitHub, Context7). A community-hosted server is effectively a proxy into your prompts and your data.
 - **What secrets can the server reach?** Never put long-lived credentials in `opencode.json`. Use `{env:VAR}` or the OAuth flow so tokens never land in the repository.
-- **What can the tools do?** Read each tool's description. A single server can expose read, write, and destructive actions behind one name — disable the ones you don't need.
+- **What can the tools do?** Read each tool's description. A single server can expose read, write, and destructive actions behind one name - disable the ones you don't need.
 
 MCP servers only add attack surface when you enable ones you don't need. The discipline is the same one that keeps agents safe in general, covered in our explainer on [AI coding agents](/p/ai-coding-agents-explained/): trust comes from being able to see what runs, when, and with which credentials.
 
 ## Key Takeaways
 
-- MCP servers extend OpenCode with external tools via the Model Context Protocol — local (child process) or remote (HTTP endpoint).
+- MCP servers extend OpenCode with external tools via the Model Context Protocol - local (child process) or remote (HTTP endpoint).
 - Use `environment` and `{env:VAR}` to keep secrets out of config files.
 - OAuth is handled automatically for remote servers; manage credentials with `opencode mcp auth` and `opencode mcp list`.
 - Disable servers globally with `"tools": { "servername*": false }` and enable per-agent to control context usage.
@@ -406,6 +406,6 @@ MCP servers only add attack surface when you enable ones you don't need. The dis
 
 ## Conclusion
 
-MCP is the bridge between OpenCode's agent and the rest of your toolchain. Start with one integration — Context7 for docs search or Sentry for error monitoring — and expand from there. The key constraint is context: each server you enable costs tokens, so be intentional about which agents get which tools.
+MCP is the bridge between OpenCode's agent and the rest of your toolchain. Start with one integration - Context7 for docs search or Sentry for error monitoring - and expand from there. The key constraint is context: each server you enable costs tokens, so be intentional about which agents get which tools.
 
-Teams like F9XR use MCP to connect documentation search and error tracking without leaving the terminal, keeping context focused on the code that matters. To learn more about OpenCode's extensibility, see our [skills guide](/p/opencode-skills-guide/) and the [VS Code setup](/p/opencode-vscode-setup/). Every article we publish goes through the review standards in our [editorial policy](/editorial-policy/) — and if you have a tooling question of your own, the [contributor guide](/contribute/) is open.
+Teams like F9XR use MCP to connect documentation search and error tracking without leaving the terminal, keeping context focused on the code that matters. To learn more about OpenCode's extensibility, see our [skills guide](/p/opencode-skills-guide/) and the [VS Code setup](/p/opencode-vscode-setup/). Every article we publish goes through the review standards in our [editorial policy](/editorial-policy/) - and if you have a tooling question of your own, the [contributor guide](/contribute/) is open.

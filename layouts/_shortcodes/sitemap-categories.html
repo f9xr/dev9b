@@ -1,0 +1,15 @@
+{{- /*
+    Lists every category term page with its post count.
+
+    Iterates the term pages (.Page), not the member posts (.Pages), so each
+    category appears exactly once instead of once per post in it.
+*/ -}}
+<ul class="sitemap-list">
+    {{ range site.Taxonomies.categories.Alphabetical }}
+    {{ $term := .Page }}
+    <li>
+        <a href="{{ $term.RelPermalink }}" data-preview-card>{{ partial "helper/lucide" (dict "name" "layers" "size" 15) }}<span>{{ $term.Title }}</span></a>
+        <span class="sitemap-list-count">{{ len .Pages }} {{ cond (eq (len .Pages) 1) "post" "posts" }}</span>
+    </li>
+    {{ end }}
+</ul>

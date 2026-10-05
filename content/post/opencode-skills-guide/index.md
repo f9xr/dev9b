@@ -28,7 +28,7 @@ faq:
       answer: "OpenCode searches locations such as .opencode/skills/ in your project and ~/.config/opencode/skills/ in your home directory. Skills are discovered automatically - no registration step is required."
 ---
 
-OpenCode skills are reusable instruction files that teach your AI agent how to handle specific tasks — from generating git releases to running TDD workflows. They sit in your repo or home directory as plain `SKILL.md` files and load on-demand when the agent needs them.
+OpenCode skills are reusable instruction files that teach your AI agent how to handle specific tasks - from generating git releases to running TDD workflows. They sit in your repo or home directory as plain `SKILL.md` files and load on-demand when the agent needs them.
 
 If you have ever wished your coding agent knew your team's conventions, deployment process, or documentation style, skills are how you encode that knowledge. In this guide, we will cover exactly how to create, install, and manage them.
 
@@ -169,7 +169,7 @@ Some skill repos include an `install-skill-repo` skill that automates the proces
 
 ### From SkillsMP
 
-The [SkillsMP marketplace](https://skillsmp.com) catalogs community skills. Browse by category — software development, writing, project management — and copy the `SKILL.md` content into your own skill directory.
+The [SkillsMP marketplace](https://skillsmp.com) catalogs community skills. Browse by category - software development, writing, project management - and copy the `SKILL.md` content into your own skill directory.
 
 ### A Domain Skill Done Properly
 
@@ -253,11 +253,11 @@ When disabled, the available skills section is omitted entirely from that agent'
 Skills grow faster than you expect. Here is the routine that keeps a library healthy:
 
 - **Run a quarterly audit.** Open `~/.config/opencode/skills/` and check each `SKILL.md` description still matches what the skill actually does. Descriptions that drift lead agents to load the wrong skill for a task.
-- **Scrap or merge overlaps.** Two skills that both grep for TODO conventions will conflict. Merge them into one, then delete the loser — the name must stay unique across all search locations.
+- **Scrap or merge overlaps.** Two skills that both grep for TODO conventions will conflict. Merge them into one, then delete the loser - the name must stay unique across all search locations.
 - **Keep project skills in the repo.** Project-level `.opencode/skills/` travel with the code and stay versioned. Global skills are for habits every project shares; anything project-specific belongs next to that project.
 - **Review permissions with the library.** Every time you grant a skill new tools or raise its permission level, re-read the checklist in Configuring Permissions above. A stale skill with write access is the most common source of surprising edits.
 
-A small, well-maintained library is worth more than a sprawling one. Agents are more likely to load the right skill when they have a short, accurate list to search — and every skill you keep means one more convention the agent follows without you repeating it.
+A small, well-maintained library is worth more than a sprawling one. Agents are more likely to load the right skill when they have a short, accurate list to search - and every skill you keep means one more convention the agent follows without you repeating it.
 
 ## Mind Map: OpenCode Skills at a Glance
 
@@ -328,7 +328,7 @@ OpenCode Skills
 
 If a skill does not appear in the agent's available list:
 
-1. **Check the filename.** It must be `SKILL.md` — all caps, exact spelling.
+1. **Check the filename.** It must be `SKILL.md` - all caps, exact spelling.
 2. **Verify frontmatter.** Both `name` and `description` are required.
 3. **Confirm the name matches the directory.** If the folder is `my-skill`, the frontmatter name must be `my-skill`.
 4. **Check permissions.** Skills with `deny` are hidden from agents entirely.
@@ -340,7 +340,7 @@ To debug, run OpenCode with verbose logging or check the output panel in VS Code
 
 - Skills are `SKILL.md` files with YAML frontmatter placed in `.opencode/skills/` or `~/.config/opencode/skills/`.
 - The `name` field must match the directory name and follow lowercase-hyphen naming rules.
-- Skills are discovered automatically — no registration step required.
+- Skills are discovered automatically - no registration step required.
 - Permissions in `opencode.json` control which skills agents can load.
 - The community maintains reusable skill collections on GitHub and SkillsMP.
 

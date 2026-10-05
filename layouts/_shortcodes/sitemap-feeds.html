@@ -1,0 +1,9 @@
+{{- /* Links to the machine-readable feeds and crawler files. */ -}}
+<ul class="sitemap-list sitemap-list--inline">
+    <li><a href="{{ "sitemap.xml" | relURL }}">{{ partial "helper/lucide" (dict "name" "network" "size" 15) }}<span>XML sitemap</span></a></li>
+    <li><a href="{{ "index.xml" | relURL }}">{{ partial "helper/lucide" (dict "name" "rss" "size" 15) }}<span>RSS 2.0 feed</span></a></li>
+    <li><a href="{{ "atom.xml" | relURL }}">{{ partial "helper/lucide" (dict "name" "rss" "size" 15) }}<span>Atom 1.0 feed</span></a></li>
+    <li><a href="{{ "llms.txt" | relURL }}">{{ partial "helper/lucide" (dict "name" "file-text" "size" 15) }}<span>llms.txt</span></a></li>
+    <li><a href="{{ "llms-full.txt" | relURL }}">{{ partial "helper/lucide" (dict "name" "file-text" "size" 15) }}<span>llms-full.txt</span></a></li>
+    <li><a href="{{ "robots.txt" | relURL }}">{{ partial "helper/lucide" (dict "name" "shield-check" "size" 15) }}<span>robots.txt</span></a></li>
+</ul>

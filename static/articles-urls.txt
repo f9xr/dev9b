@@ -1,11 +1,14 @@
 # Dev9b Articles
 # https://f9xr.org/
-# All article URLs on Dev9b
+# All indexable article URLs on Dev9b.
+# Generated from the Hugo build on 2026-10-05. Do not edit by hand.
 
 # Home
 https://f9xr.org/
 
 # Articles
+https://f9xr.org/p/affonso-affiliate-software-saas-guide/
+https://f9xr.org/p/diataxis-documentation-framework-guide/
 https://f9xr.org/p/change-domain-ga4-multiple-data-streams-guide/
 https://f9xr.org/p/scrapling-web-scraping-setup-guide/
 https://f9xr.org/p/himself65-trade-skills-setup-guide/
@@ -15,10 +18,10 @@ https://f9xr.org/p/advanced-movie-seat-booking-html-js/
 https://f9xr.org/p/what-is-getdesign-md-ai-agents-design-system/
 https://f9xr.org/p/setup-threejs-models-landing-page/
 https://f9xr.org/p/how-to-setup-typesafe-ai-jev/
+https://f9xr.org/p/how-to-create-cloudflare-subdomain-github-pages/
 https://f9xr.org/p/how-to-install-n8n-locally-on-pc/
 https://f9xr.org/p/vibe-coder-vs-vibe-engineer/
 https://f9xr.org/p/github-pages-custom-domain-cloudflare/
-https://f9xr.org/p/how-to-create-cloudflare-subdomain-github-pages/
 https://f9xr.org/p/how-to-use-skelementor/
 https://f9xr.org/p/how-to-setup-grokbot/
 https://f9xr.org/p/how-to-setup-opencode-tui/
@@ -30,12 +33,18 @@ https://f9xr.org/p/hugo-seo-guide/
 https://f9xr.org/p/opencode-skills-guide/
 https://f9xr.org/p/opencode-vscode-setup/
 https://f9xr.org/p/hello-world/
+https://f9xr.org/p/image-gallery-in-dev9b-articles/
+https://f9xr.org/p/useful-shortcodes-for-dev9b-articles/
+https://f9xr.org/p/math-typesetting-on-dev9b/
+https://f9xr.org/p/markdown-syntax-guide-for-dev9b/
 
 # Pages
 https://f9xr.org/about/
 https://f9xr.org/contribute/
 https://f9xr.org/editorial-policy/
 https://f9xr.org/team/
+https://f9xr.org/links/
+https://f9xr.org/sitemap/
 https://f9xr.org/archives/
 https://f9xr.org/search/
 

@@ -59,10 +59,10 @@ content/
 ## SEO & Standards Files
 
 Located in `static/`:
-- `llms.txt` / `llms-full.txt` — LLM-readable site summaries
-- `humans.txt` — Team & tools credits
-- `robots.txt` — Crawler rules
-- `articles-urls.txt` — Article URL index
+- `llms.txt` / `llms-full.txt` - LLM-readable site summaries
+- `humans.txt` - Team & tools credits
+- `robots.txt` - Crawler rules
+- `articles-urls.txt` - Article URL index
 
 ## Theme
 
@@ -76,4 +76,4 @@ Located in `static/`:
 
 ## Team
 
-F9XR Team — [github.com/f9xr](https://github.com/f9xr) · [hello@f9xr.org](mailto:hello@f9xr.org)
+F9XR Team - [github.com/f9xr](https://github.com/f9xr) · [hello@f9xr.org](mailto:hello@f9xr.org)

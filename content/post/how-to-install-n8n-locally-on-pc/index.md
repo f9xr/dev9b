@@ -68,7 +68,7 @@ Before you begin, confirm these basics.
 
 | Requirement       | Minimum                  | Recommended                  |
 |-------------------|--------------------------|------------------------------|
-| RAM               | 2–4 GB                   | 8 GB+                        |
+| RAM               | 2-4 GB                   | 8 GB+                        |
 | Disk space        | 1 GB free                | 5 GB+ (for Docker images)    |
 | OS                | Windows 10/11, macOS 12+, modern Linux | Same with WSL2 on Windows |
 | Internet          | Required for first download | Needed for nodes that call external APIs |
@@ -77,9 +77,9 @@ Before you begin, confirm these basics.
 
 You will choose one of these paths:
 
-1. **Docker** (strongly recommended) – Docker Desktop on Windows/macOS or Docker Engine + Compose on Linux.
-2. **Node.js + npm** – Supported Node.js version (check current n8n docs; commonly 20.19 through recent 22/24 LTS). Use nvm if you manage multiple Node versions.
-3. **One-line installer** – Requires Docker and works on Linux, macOS, and Windows via WSL.
+1. **Docker** (strongly recommended) - Docker Desktop on Windows/macOS or Docker Engine + Compose on Linux.
+2. **Node.js + npm** - Supported Node.js version (check current n8n docs; commonly 20.19 through recent 22/24 LTS). Use nvm if you manage multiple Node versions.
+3. **One-line installer** - Requires Docker and works on Linux, macOS, and Windows via WSL.
 
 Also useful: a modern browser, and optionally Git if you plan to version-control workflows or custom nodes.
 

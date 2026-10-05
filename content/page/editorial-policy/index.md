@@ -18,10 +18,10 @@ Dev9b is committed to publishing accurate, useful, and trustworthy technical con
 
 Google's helpful content and E-E-A-T principles guide everything we publish:
 
-- **Experience** — We share first-hand knowledge from developers who have actually built, debugged, and shipped real software.
-- **Expertise** — Articles are written by developers with technical skill in their topic, and structured step-by-step so readers can follow along.
-- **Authoritativeness** — We cite official documentation, standards bodies, and the original source material. We link to the primary sources we rely on.
-- **Trustworthiness** — Every article names its author and is transparent about how it was produced. We are open-source and our full review process is public on GitHub.
+- **Experience** - We share first-hand knowledge from developers who have actually built, debugged, and shipped real software.
+- **Expertise** - Articles are written by developers with technical skill in their topic, and structured step-by-step so readers can follow along.
+- **Authoritativeness** - We cite official documentation, standards bodies, and the original source material. We link to the primary sources we rely on.
+- **Trustworthiness** - Every article names its author and is transparent about how it was produced. We are open-source and our full review process is public on GitHub.
 
 ### Who Writes for Dev9b
 
@@ -31,12 +31,12 @@ Articles come from **individual developers** (community contributors and the F9X
 
 All submissions pass through the **F9XR Review Board** before publishing:
 
-1. **Content Quality** — Clear, accurate, and well-structured writing.
-2. **Technical Accuracy** — Code examples are tested; claims are checked against primary sources.
-3. **Relevance** — The article serves the developer community and is not spammy or self-promotional.
-4. **Originality** — Content is original and not duplicated from another source.
-5. **Formatting** — Proper Markdown, working links, and correctly attributed images.
-6. **Transparency** — AI-assisted work is disclosed at the end of the article.
+1. **Content Quality** - Clear, accurate, and well-structured writing.
+2. **Technical Accuracy** - Code examples are tested; claims are checked against primary sources.
+3. **Relevance** - The article serves the developer community and is not spammy or self-promotional.
+4. **Originality** - Content is original and not duplicated from another source.
+5. **Formatting** - Proper Markdown, working links, and correctly attributed images.
+6. **Transparency** - AI-assisted work is disclosed at the end of the article.
 
 ### Fact-Checking & Sources
 
@@ -48,7 +48,7 @@ All submissions pass through the **F9XR Review Board** before publishing:
 
 - **Minor errors** are corrected in place promptly.
 - **Significant errors** are corrected with an updated article and a note explaining the change.
-- **Unfixable or misleading content** is retracted — removed from the archive and noted in the repository history.
+- **Unfixable or misleading content** is retracted - removed from the archive and noted in the repository history.
 
 ### Transparency & AI Disclosure
 

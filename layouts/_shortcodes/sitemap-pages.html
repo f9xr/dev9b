@@ -1,0 +1,15 @@
+{{- /*
+    Renders the non-post pages of the site as a link list.
+
+    Lives in a shortcode rather than inline in the Markdown body because
+    Goldmark treats a raw <ul> line as the start of an HTML block and stops
+    rendering the Hugo template tags that follow it.
+*/ -}}
+<ul class="sitemap-list">
+    {{ range where site.RegularPages.ByWeight "Section" "ne" "post" }}
+    <li>
+        <a href="{{ .RelPermalink }}" data-preview-card>{{ partial "helper/lucide" (dict "name" "file-text" "size" 15) }}<span>{{ .Title }}</span></a>
+        {{ with .Description }}<p class="sitemap-list-desc">{{ . }}</p>{{ end }}
+    </li>
+    {{ end }}
+</ul>

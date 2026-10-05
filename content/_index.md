@@ -17,10 +17,10 @@ Built by the **F9XR Team** ([f9xr.org](https://f9xr.org)), Dev9b is made by deve
 
 ### What We Share
 
-- **Latest Articles** — Trending topics in software development
-- **Tutorials** — Step-by-step guides for beginners and experts
-- **Coding Videos** — Visual learning for complex concepts
-- **Developer Guides** — Best practices, tools, and workflows
+- **Latest Articles** - Trending topics in software development
+- **Tutorials** - Step-by-step guides for beginners and experts
+- **Coding Videos** - Visual learning for complex concepts
+- **Developer Guides** - Best practices, tools, and workflows
 
 ### Contribute
 

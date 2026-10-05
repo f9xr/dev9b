@@ -68,7 +68,7 @@ This guide walks through the whole path: buying or transferring the domain, wiri
 
 Nothing exotic, but skipping any of these will cost you time later.
 
-* A GitHub repository with GitHub Pages already enabled and deploying successfully. If you are still setting that part up — including the GitHub Actions workflow and `baseURL` — our [Hugo on GitHub Pages setup guide](/p/hugo-github-pages-setup/) covers it end to end.
+* A GitHub repository with GitHub Pages already enabled and deploying successfully. If you are still setting that part up - including the GitHub Actions workflow and `baseURL` - our [Hugo on GitHub Pages setup guide](/p/hugo-github-pages-setup/) covers it end to end.
 * A registered domain name. Any registrar works: Cloudflare Registrar, Namecheap, Porkbun, Squarespace, Hostinger. The registrar just has to let you change nameservers.
 * A free Cloudflare account.
 * Admin permission on the repository. Repository settings for Pages are admin only.
@@ -83,7 +83,7 @@ If your DNS already lives at Cloudflare, skip ahead.
 
 1. Log in to Cloudflare and click **Add a domain**.
 2. Type the apex domain, without `www` and without `https://`. So `example.com`, not `www.example.com`.
-3. Choose the **Free** plan. It includes unlimited DNS queries, universal SSL, and CNAME flattening — the feature that makes this whole setup pleasant.
+3. Choose the **Free** plan. It includes unlimited DNS queries, universal SSL, and CNAME flattening - the feature that makes this whole setup pleasant.
 4. Cloudflare scans your existing records and shows you two assigned nameservers, something like `arnold.ns.cloudflare.com` and `pola.ns.cloudflare.com`. These are unique per account, so use the pair Cloudflare gives you.
 5. Go to your registrar's control panel, find the nameserver section, delete the existing entries, and paste in the Cloudflare pair. Leave any third and fourth nameserver fields empty.
 6. Wait. Registrar nameserver changes usually propagate in 5 to 30 minutes, occasionally up to 24 hours. Cloudflare emails you when the zone goes active.
@@ -251,7 +251,7 @@ echo "example.com" > public/CNAME
 
 **Using the official Pages deployment action?** `actions/deploy-pages` reads the domain from repository settings rather than the file, so you are generally safe there, but adding the static file costs nothing and removes any ambiguity.
 
-One rule to remember: the `CNAME` file contains exactly one line — the bare hostname, no protocol, no trailing slash, no stray blank second line.
+One rule to remember: the `CNAME` file contains exactly one line - the bare hostname, no protocol, no trailing slash, no stray blank second line.
 
 ## Step 7: Turn On the Cloudflare Proxy Safely
 
@@ -314,7 +314,7 @@ Finally, set the canonical tag in your site's `<head>` so crawlers have no doubt
 <link rel="canonical" href="https://example.com/your-page/" />
 ```
 
-If you are on Hugo, update `baseURL` in `hugo.toml` to the new domain and rebuild. Forgetting this leaves absolute links, your sitemap, and your RSS feed all pointing at `github.io` — the same class of problem we cover in our [Hugo SEO configuration guide](/p/hugo-seo-guide/).
+If you are on Hugo, update `baseURL` in `hugo.toml` to the new domain and rebuild. Forgetting this leaves absolute links, your sitemap, and your RSS feed all pointing at `github.io` - the same class of problem we cover in our [Hugo SEO configuration guide](/p/hugo-seo-guide/).
 
 ```toml
 baseURL = "https://example.com/"
@@ -402,6 +402,6 @@ The whole process comes down to five things done in the right order: claim the d
 
 Get those right and you have a free, globally distributed, HTTPS-enabled static site on a domain you own, deployed by a `git push`.
 
-Every article on this site goes through the F9XR review board against the standards in our [editorial policy](/editorial-policy/). Spot something off or think a DNS edge case is missing? Open the post from the toolbar above and file a change — suggest a fix on [GitHub](https://github.com/) by hitting the **Suggest changes** button on this page, or read about [contributing](/contribute/). This draft was drafted with AI assistance and verified against the Cloudflare and GitHub documentation linked throughout.
+Every article on this site goes through the F9XR review board against the standards in our [editorial policy](/editorial-policy/). Spot something off or think a DNS edge case is missing? Open the post from the toolbar above and file a change - suggest a fix on [GitHub](https://github.com/) by hitting the **Suggest changes** button on this page, or read about [contributing](/contribute/). This draft was drafted with AI assistance and verified against the Cloudflare and GitHub documentation linked throughout.
 
 DNS is only half a domain migration. The other half is analytics: once the new hostname serves traffic, your GA4 property still remembers the old one, and the numbers split in ways nobody notices until a report is wrong. [Change domain in GA4: multiple data streams and cross-domain tracking](/p/change-domain-ga4-multiple-data-streams-guide/) covers that side, including how to keep one Measurement ID across a marketing site and a checkout on separate root domains.

@@ -8,6 +8,7 @@ Dev9b is a free, open-source online community where software developers share kn
 
 - Website: https://f9xr.org/
 - GitHub: https://github.com/f9xr/dev9b
+- HTML Sitemap: https://f9xr.org/sitemap/
 - License: MIT (source), CC BY-NC-SA 4.0 (content)
 - Feeds: RSS (https://f9xr.org/index.xml), RSS (https://f9xr.org/feed.xml), Atom (https://f9xr.org/atom.xml)
 
@@ -20,6 +21,8 @@ Dev9b is a free, open-source online community where software developers share kn
 
 ## Articles
 
+- Affonso Review: SaaS Affiliate Program Setup: https://f9xr.org/p/affonso-affiliate-software-saas-guide/
+- Diátaxis Framework: Fix Your Docs With 4 Types: https://f9xr.org/p/diataxis-documentation-framework-guide/
 - Change Domain in GA4: Multi Stream Tracking Guide: https://f9xr.org/p/change-domain-ga4-multiple-data-streams-guide/
 - Scrapling: Adaptive Web Scraping Setup and Use: https://f9xr.org/p/scrapling-web-scraping-setup-guide/
 - Claude Code trade-skills: Setup and Use Guide: https://f9xr.org/p/himself65-trade-skills-setup-guide/
@@ -29,10 +32,10 @@ Dev9b is a free, open-source online community where software developers share kn
 - getdesign.md: What DESIGN.md Does for AI Agents: https://f9xr.org/p/what-is-getdesign-md-ai-agents-design-system/
 - Add Three.js 3D Models to Your Landing Page: https://f9xr.org/p/setup-threejs-models-landing-page/
 - Setup TypeSafe AI Jev in Your App Fast: https://f9xr.org/p/how-to-setup-typesafe-ai-jev/
+- How to Create Cloudflare Subdomain for GitHub Pages: https://f9xr.org/p/how-to-create-cloudflare-subdomain-github-pages/
 - Install n8n Locally on PC: Docker & npm Guide: https://f9xr.org/p/how-to-install-n8n-locally-on-pc/
 - Vibe Coder vs Vibe Engineer: Ship Real Code with AI: https://f9xr.org/p/vibe-coder-vs-vibe-engineer/
 - Point a Cloudflare Domain to GitHub Pages in 15 Min: https://f9xr.org/p/github-pages-custom-domain-cloudflare/
-- How to Create Cloudflare Subdomain for GitHub Pages: https://f9xr.org/p/how-to-create-cloudflare-subdomain-github-pages/
 - Skelementor Guide: Build Elementor Sites Faster: https://f9xr.org/p/how-to-use-skelementor/
 - Grok Bot Setup Guide for Devs 2026: https://f9xr.org/p/how-to-setup-grokbot/
 - OpenCode TUI Setup: Full Terminal Guide for Devs: https://f9xr.org/p/how-to-setup-opencode-tui/
@@ -44,22 +47,30 @@ Dev9b is a free, open-source online community where software developers share kn
 - How to Add New Skills to Your OpenCode: https://f9xr.org/p/opencode-skills-guide/
 - How to Add OpenCode to Your VS Code: https://f9xr.org/p/opencode-vscode-setup/
 - Welcome to Dev9b: https://f9xr.org/p/hello-world/
+- Image Gallery in Dev9b Articles: https://f9xr.org/p/image-gallery-in-dev9b-articles/
+- Useful Shortcodes for Dev9b Articles: https://f9xr.org/p/useful-shortcodes-for-dev9b-articles/
+- Math Typesetting on Dev9b: https://f9xr.org/p/math-typesetting-on-dev9b/
+- Markdown Syntax Guide for Dev9b: https://f9xr.org/p/markdown-syntax-guide-for-dev9b/
 
 ## Pages
 
+- About Dev9b: https://f9xr.org/about/
+- Contributor Guide: https://f9xr.org/contribute/
+- Editorial Policy: https://f9xr.org/editorial-policy/
+- The F9XR Team: https://f9xr.org/team/
+- Dev9b Links: https://f9xr.org/links/
+- HTML Sitemap: https://f9xr.org/sitemap/
 - Archives: https://f9xr.org/archives/
 - Search: https://f9xr.org/search/
 
 ## Social
 
 - GitHub: https://github.com/f9xr
+- GitHub repository: https://github.com/f9xr/dev9b
 - LinkedIn: https://linkedin.com/company/f9xrteam
 - Pinterest: https://pinterest.com/f9xr
-- Facebook: https://facebook.com/profile.php?id=61586225441401
 - YouTube: https://youtube.com/@QuarterlyLIV
 - Instagram: https://instagram.com/f9xrteam
-- Tumblr: https://www.tumblr.com/f9xr
-- Threads: https://www.threads.com/@f9xrteam
 
 ## Contact
 

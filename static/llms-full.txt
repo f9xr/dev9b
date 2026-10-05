@@ -8,6 +8,7 @@ Dev9b is a free, open-source online community where software developers share kn
 
 - Website: https://f9xr.org/
 - GitHub: https://github.com/f9xr/dev9b
+- HTML Sitemap: https://f9xr.org/sitemap/
 - License: MIT (source), CC BY-NC-SA 4.0 (content)
 - Feeds: RSS (https://f9xr.org/index.xml), RSS (https://f9xr.org/feed.xml), Atom (https://f9xr.org/atom.xml)
 
@@ -20,18 +21,179 @@ Dev9b is a free, open-source online community where software developers share kn
 
 ## Articles
 
+### Affonso Review: SaaS Affiliate Program Setup
+- URL: https://f9xr.org/p/affonso-affiliate-software-saas-guide/
+- Description: See how Affonso helps SaaS teams launch affiliate programs fast, with Stripe billing sync, automated payouts, and built-in fraud protection.
+- Categories: Tutorials
+- Tags: saas-tools, indie-hackers, ai-tools, developer-setup
+- Date: 2026-10-05
+
+### Diátaxis Framework: Fix Your Docs With 4 Types
+- URL: https://f9xr.org/p/diataxis-documentation-framework-guide/
+- Description: Learn the Diátaxis documentation framework: tutorials, how-to guides, reference, and explanation, plus how to apply it to a real repository.
+- Categories: Tutorials
+- Tags: developer-setup, hugo, seo, skills
+- Date: 2026-10-05
+
+### Change Domain in GA4: Multi Stream Tracking Guide
+- URL: https://f9xr.org/p/change-domain-ga4-multiple-data-streams-guide/
+- Description: Step-by-step guide to change domain in Google Analytics 4, add multiple data streams, set up cross-domain tracking, and verify data for developers.
+- Categories: Tutorials
+- Tags: ga4, google-analytics, custom-domain, developer-tools
+- Date: 2026-10-04
+
+### Scrapling: Adaptive Web Scraping Setup and Use
+- URL: https://f9xr.org/p/scrapling-web-scraping-setup-guide/
+- Description: Learn what D4Vinci Scrapling is, how to install it, and how to scrape static, dynamic, and anti-bot protected sites with Python.
+- Categories: Tutorials
+- Tags: automation, developer-setup, mcp, ai-tools
+- Date: 2026-10-02
+
+### Claude Code trade-skills: Setup and Use Guide
+- URL: https://f9xr.org/p/himself65-trade-skills-setup-guide/
+- Description: trade-skills is an open-source Claude Code skill for US options trading, with 37 pitfalls, case studies and hard rules. Install it and wire up market data.
+- Categories: Tutorials
+- Tags: ai-coding-agents, ai-tools, skills, developer-setup
+- Date: 2026-09-30
+
+### jCode: Install and Use the RAM-Efficient Coding Agent
+- URL: https://f9xr.org/p/what-is-jcode-install-use-guide/
+- Description: jcode is a Rust-built, open-source coding agent harness for running many AI agents at once. Install it on macOS, Linux or Windows and start a swarm.
+- Categories: Tutorials
+- Tags: ai-coding-agents, ai-tools, developer-setup, performance
+- Date: 2026-09-30
+
+### Arena Skill: 100 Claude Agents Fight for Best Answer
+- URL: https://f9xr.org/p/what-is-arena-skill-install-use-ai-agents/
+- Description: What is The Arena skill for Claude Code? Learn how to install and use this free multi-agent tournament skill so 100 sub-agents compete until one solution wins.
+- Categories: Tutorials
+- Tags: ai-coding-agents, ai-tools, prompt-engineering, developer-tools
+- Date: 2026-09-29
+
+### Advanced Movie Seat Booking in Pure HTML & JS
+- URL: https://f9xr.org/p/advanced-movie-seat-booking-html-js/
+- Description: Build an advanced movie seat booking system in pure HTML and JavaScript. Seat tiers, live pricing, localStorage persistence, responsive layout.
+- Categories: Tutorials
+- Tags: html, javascript, web-design, css
+- Date: 2026-09-27
+
+### getdesign.md: What DESIGN.md Does for AI Agents
+- URL: https://f9xr.org/p/what-is-getdesign-md-ai-agents-design-system/
+- Description: getdesign.md gives your AI coding agent a real DESIGN.md to build from. What the format is, how the CLI works, and how to wire it into Cursor or Claude Code.
+- Categories: Tutorials
+- Tags: ai-coding-agents, ai-tools, web-design, vibe-coding
+- Date: 2026-09-27
+
+### Add Three.js 3D Models to Your Landing Page
+- URL: https://f9xr.org/p/setup-threejs-models-landing-page/
+- Description: Step-by-step guide for embedding optimized Three.js models on landing pages. Covers GLTF, performance, and production tips.
+- Categories: Tutorials
+- Tags: three-js, webgl, javascript, performance
+- Date: 2026-09-26
+
+### Setup TypeSafe AI Jev in Your App Fast
+- URL: https://f9xr.org/p/how-to-setup-typesafe-ai-jev/
+- Description: Step-by-step guide to integrate TypeSafe AI's Jev System One model into your app with Python, JS SDKs, API keys, and real code examples for developers.
+- Categories: Tutorials
+- Tags: ai-tools, developer-setup, typesafe-ai, jev
+- Date: 2026-09-22
+
+### How to Create Cloudflare Subdomain for GitHub Pages
+- URL: https://f9xr.org/p/how-to-create-cloudflare-subdomain-github-pages/
+- Description: Step-by-step guide for developers: create a subdomain in Cloudflare DNS and connect it to GitHub Pages with CNAME, HTTPS, and zero-downtime tips.
+- Categories: Tutorials
+- Tags: cloudflare, github-pages, custom-domain, hugo
+- Date: 2026-09-21
+
+### Install n8n Locally on PC: Docker & npm Guide
+- URL: https://f9xr.org/p/how-to-install-n8n-locally-on-pc/
+- Description: Learn how to install n8n locally on Windows, Mac, or Linux with Docker or npm. Step-by-step for developers, with tips, FAQs, and troubleshooting.
+- Categories: Tutorials
+- Tags: n8n, self-hosted-n8n, workflow-automation, local-development
+- Date: 2026-09-20
+
+### Vibe Coder vs Vibe Engineer: Ship Real Code with AI
+- URL: https://f9xr.org/p/vibe-coder-vs-vibe-engineer/
+- Description: Vibe coding is fun until production breaks. Learn why developers should become vibe engineers, blending AI speed with real engineering discipline.
+- Categories: Tutorials
+- Tags: vibe-coding, vibe-engineering, ai-coding-agents, prompt-engineering
+- Date: 2026-09-20
+
+### Point a Cloudflare Domain to GitHub Pages in 15 Min
+- URL: https://f9xr.org/p/github-pages-custom-domain-cloudflare/
+- Description: Connect your Cloudflare domain to GitHub Pages the right way: A records, CNAME flattening, SSL settings, and the redirect loop fix developers keep hitting.
+- Categories: Tutorials
+- Tags: github-pages, cloudflare, custom-domain, github-actions
+- Date: 2026-09-16
+
+### Skelementor Guide: Build Elementor Sites Faster
+- URL: https://f9xr.org/p/how-to-use-skelementor/
+- Description: Learn how to use Skelementor's component library to build Elementor websites faster. Setup, workflow, tips, and FAQs for developers.
+- Categories: Tutorials
+- Tags: skelementor, elementor, wordpress, web-design
+- Date: 2026-09-15
+
+### Grok Bot Setup Guide for Devs 2026
+- URL: https://f9xr.org/p/how-to-setup-grokbot/
+- Description: Step-by-step Grok Bot setup for developers. Install the desktop app, create focused AI agents, connect plugins, and start automating real work in minutes.
+- Categories: Tutorials
+- Tags: grok-bot, xai, ai-agents, automation
+- Date: 2026-09-14
+
+### OpenCode TUI Setup: Full Terminal Guide for Devs
+- URL: https://f9xr.org/p/how-to-setup-opencode-tui/
+- Description: Learn how to install, configure, and master the OpenCode TUI. Step-by-step setup, keybinds, commands, and tips for terminal-based AI coding.
+- Categories: Tutorials
+- Tags: opencode, terminal-user-interface, ai-coding-agent, developer-tools
+- Date: 2026-09-14
+
+### How to Add MCP Servers to OpenCode
+- URL: https://f9xr.org/p/opencode-mcp-servers/
+- Description: Add local and remote MCP servers to OpenCode - extend your agent with Sentry, Context7, Grep, and custom tools via the Model Context Protocol.
+- Categories: Tutorials
+- Tags: opencode, ai-tools, developer-setup, mcp
+- Date: 2026-09-06
+
+### AI Coding Agents Explained: How They Work
+- URL: https://f9xr.org/p/ai-coding-agents-explained/
+- Description: AI coding agents explained: how they plan, use tools, and learn from your codebase - with real examples from OpenCode.
+- Categories: Tutorials
+- Tags: opencode, ai-tools, introduction
+- Date: 2026-09-05
+
+### Hugo on GitHub Pages: Complete Setup Guide
+- URL: https://f9xr.org/p/hugo-github-pages-setup/
+- Description: Deploy a Hugo site to GitHub Pages with GitHub Actions in minutes. Step-by-step setup, build caching, and a ready-to-use workflow.
+- Categories: Tutorials
+- Tags: hugo, github-actions, developer-setup
+- Date: 2026-09-05
+
+### OpenCode vs Cursor vs Continue: Which AI Coding Agent?
+- URL: https://f9xr.org/p/opencode-vs-cursor/
+- Description: OpenCode vs Cursor vs Continue compared: pricing, models, open source, and privacy - so you can pick the right AI coding agent.
+- Categories: Tutorials
+- Tags: opencode, ai-tools, vscode
+- Date: 2026-09-05
+
+### The Hugo SEO Checklist (From a Real Site Audit)
+- URL: https://f9xr.org/p/hugo-seo-guide/
+- Description: A working Hugo SEO checklist: metadata, JSON-LD, sitemaps, and Core Web Vitals - every item verified on a live Hugo site.
+- Categories: Tutorials
+- Tags: seo, hugo, f9xr
+- Date: 2026-09-05
+
+### How to Add New Skills to Your OpenCode
+- URL: https://f9xr.org/p/opencode-skills-guide/
+- Description: Create, install, and configure OpenCode agent skills: writing SKILL.md files, managing permissions, and finding community skill repos.
+- Categories: Tutorials
+- Tags: opencode, ai-tools, developer-setup, skills
+- Date: 2026-09-04
+
 ### How to Add OpenCode to Your VS Code
 - URL: https://f9xr.org/p/opencode-vscode-setup/
 - Description: Step-by-step guide to install and configure OpenCode AI coding agent in VS Code, Cursor, and other VS Code forks for agentic AI-assisted development.
 - Categories: Tutorials
 - Tags: opencode, vscode, ai-tools, developer-setup
-- Date: 2026-09-04
-
-### How to Add New Skills to Your OpenCode
-- URL: https://f9xr.org/p/opencode-skills-guide/
-- Description: Learn how to create, install, and configure custom agent skills in OpenCode — from writing SKILL.md files to managing permissions and discovering community skill repos.
-- Categories: Tutorials
-- Tags: opencode, ai-tools, developer-setup, skills
 - Date: 2026-09-04
 
 ### Welcome to Dev9b
@@ -41,12 +203,33 @@ Dev9b is a free, open-source online community where software developers share kn
 - Tags: introduction, welcome, f9xr
 - Date: 2026-09-01
 
-### Skelementor Guide: Build Elementor Sites Faster
-- URL: https://f9xr.org/p/how-to-use-skelementor/
-- Description: Learn how to use Skelementor's component library to build Elementor websites faster. Setup, workflow, tips, and FAQs for developers.
+### Image Gallery in Dev9b Articles
+- URL: https://f9xr.org/p/image-gallery-in-dev9b-articles/
+- Description: Create interactive image galleries in your Dev9b articles using Markdown. A quick guide with examples.
 - Categories: Tutorials
-- Tags: skelementor, elementor, wordpress, web-design, page-builder
-- Date: 2026-09-15
+- Tags: images, gallery, writing, dev9b
+- Date: 2024-01-28
+
+### Useful Shortcodes for Dev9b Articles
+- URL: https://f9xr.org/p/useful-shortcodes-for-dev9b-articles/
+- Description: Embed videos, quotes, and other media in your Dev9b articles using Hugo shortcodes. A practical guide with examples.
+- Categories: Tutorials
+- Tags: shortcodes, writing, tutorial, dev9b
+- Date: 2024-01-25
+
+### Math Typesetting on Dev9b
+- URL: https://f9xr.org/p/math-typesetting-on-dev9b/
+- Description: Learn how to write mathematical equations in your Dev9b articles using KaTeX. Supports inline and block math.
+- Categories: Tutorials
+- Tags: math, latex, writing, dev9b
+- Date: 2024-01-20
+
+### Markdown Syntax Guide for Dev9b
+- URL: https://f9xr.org/p/markdown-syntax-guide-for-dev9b/
+- Description: Learn the Markdown syntax used on Dev9b. A comprehensive guide to formatting your articles with headings, code blocks, tables, and more.
+- Categories: Tutorials
+- Tags: markdown, tutorial, writing, dev9b
+- Date: 2024-01-15
 
 ## Pages
 
@@ -62,7 +245,7 @@ Dev9b is a free, open-source online community where software developers share kn
 
 ### Editorial Policy
 - URL: https://f9xr.org/editorial-policy/
-- Description: Editorial standards and review process for articles published on Dev9b.
+- Description: How Dev9b creates, reviews, and verifies content. Our standards for accuracy, expertise, and trustworthiness (E-E-A-T).
 - Date: 2024-01-01
 
 ### The F9XR Team
@@ -73,11 +256,16 @@ Dev9b is a free, open-source online community where software developers share kn
 ### Dev9b Links
 - URL: https://f9xr.org/links/
 - Description: Useful developer resources and tools recommended by the Dev9b community.
+
+### HTML Sitemap
+- URL: https://f9xr.org/sitemap/
+- Description: A plain HTML sitemap listing every page, tutorial, category, and tag on Dev9b so readers and crawlers can reach any URL directly.
 - Date: 2024-01-01
 
 ### Archives
 - URL: https://f9xr.org/archives/
-- Description: Chronological listing of all articles published on Dev9b.
+- Description: Browse all articles on Dev9b. Archive of developer tutorials, guides, and coding resources.
+- Date: 2024-01-01
 
 ### Search
 - URL: https://f9xr.org/search/
@@ -86,13 +274,11 @@ Dev9b is a free, open-source online community where software developers share kn
 ## Social
 
 - GitHub: https://github.com/f9xr
+- GitHub repository: https://github.com/f9xr/dev9b
 - LinkedIn: https://linkedin.com/company/f9xrteam
 - Pinterest: https://pinterest.com/f9xr
-- Facebook: https://facebook.com/profile.php?id=61586225441401
 - YouTube: https://youtube.com/@QuarterlyLIV
 - Instagram: https://instagram.com/f9xrteam
-- Tumblr: https://www.tumblr.com/f9xr
-- Threads: https://www.threads.com/@f9xrteam
 
 ## Contact
 

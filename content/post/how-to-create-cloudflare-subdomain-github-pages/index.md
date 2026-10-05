@@ -36,7 +36,7 @@ faq:
 ---
 Most developers start with the free `username.github.io` URL. It works fine for testing, but once you want a clean branded address like `docs.yourdomain.com` or `blog.yourdomain.com`, you need a proper **Cloudflare subdomain**. Cloudflare makes this straightforward because its DNS is fast, free, and gives you full control over records and proxy settings.
 
-This guide walks through the exact process of creating a subdomain in Cloudflare and pointing it at a GitHub Pages site. No fluff — just the steps that actually work in 2026, plus the gotchas that trip people up, especially around the orange cloud proxy and HTTPS certificates.
+This guide walks through the exact process of creating a subdomain in Cloudflare and pointing it at a GitHub Pages site. No fluff - just the steps that actually work in 2026, plus the gotchas that trip people up, especially around the orange cloud proxy and HTTPS certificates.
 
 <!--more-->
 
@@ -163,7 +163,7 @@ When the dig output looks correct and GitHub shows the domain as verified:
 
 1. Go back to GitHub Pages settings.
 2. Check **Enforce HTTPS**.
-3. Wait for the green lock to appear (usually 5–30 minutes after verification).
+3. Wait for the green lock to appear (usually 5-30 minutes after verification).
 
 Once HTTPS is active, you can optionally turn the Cloudflare proxy (orange cloud) back on if you want Cloudflare's CDN, WAF, or analytics. Many developers leave it DNS-only for pure GitHub Pages sites because GitHub already serves content from a global CDN and has no bandwidth limits. See [GitHub's HTTPS documentation](https://docs.github.com/en/pages/getting-started-with-github-pages/securing-your-github-pages-site-with-https) for the official guidance on enforcing HTTPS.
 
@@ -193,7 +193,7 @@ Clear your local DNS cache (`ipconfig /flushdns` on Windows, `sudo dscacheutil -
 ## Key Takeaways
 
 - Create a single CNAME record in Cloudflare that points your chosen subdomain to `username.github.io`.
-- Add the same full subdomain in the GitHub Pages custom domain field — the order of these two steps stays the same as the apex setup.
+- Add the same full subdomain in the GitHub Pages custom domain field - the order of these two steps stays the same as the apex setup.
 - Start with DNS-only (grey cloud) until GitHub verifies the domain and issues HTTPS.
 - Enforce HTTPS in GitHub once the checkbox is available.
 - Avoid wildcard records and never point the CNAME to a repo-specific path.
@@ -226,6 +226,6 @@ When you add the custom domain through the GitHub Pages settings UI, GitHub crea
 
 ## Conclusion
 
-A Cloudflare subdomain turns a generic `username.github.io` URL into a clean, branded endpoint in about fifteen minutes once DNS propagates. Keep the record DNS-only through certificate issuance, enforce HTTPS, and only then decide whether the orange cloud earns its place. For docs, blogs, and status pages, one CNAME per repo — never a wildcard — stays the cleanest pattern.
+A Cloudflare subdomain turns a generic `username.github.io` URL into a clean, branded endpoint in about fifteen minutes once DNS propagates. Keep the record DNS-only through certificate issuance, enforce HTTPS, and only then decide whether the orange cloud earns its place. For docs, blogs, and status pages, one CNAME per repo - never a wildcard - stays the cleanest pattern.
 
 This is the same setup that runs Dev9b: static sites published to GitHub Pages and routed through a Cloudflare-managed domain. Every article on this site passes the F9XR review board against the standards in our [editorial policy](/editorial-policy/). Spot a DNS edge case we missed? Use the **Suggest changes** button in the toolbar above to open an edit on GitHub, or read the [contributor guide](/contribute/) to write a follow-up yourself. This draft was written with AI assistance and verified against the Cloudflare and GitHub documentation linked throughout.

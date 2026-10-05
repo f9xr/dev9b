@@ -1,0 +1,40 @@
+{{- /*
+    Lucide icon partial.
+
+    Usage:
+      {{ partial "helper/lucide" "chevron-down" }}
+      {{ partial "helper/lucide" (dict "name" "star" "size" 16 "class" "is-small") }}
+
+    Icons live in assets/icons/lucide/<name>.svg (vendored from lucide-static,
+    ISC licensed). They are stroke-based and inherit `currentColor`, so they
+    follow the theme light/dark palette automatically.
+*/ -}}
+{{- $name := "" -}}
+{{- $size := "24" -}}
+{{- $class := "" -}}
+{{- if reflect.IsMap . -}}
+    {{- with .name }}{{ $name = . }}{{ end -}}
+    {{- with .size }}{{ $size = printf "%v" . }}{{ end -}}
+    {{- with .class }}{{ $class = . }}{{ end -}}
+{{- else -}}
+    {{- $name = printf "%v" . -}}
+{{- end -}}
+
+{{- if not $name -}}
+    {{- errorf "helper/lucide: icon name is required" -}}
+{{- end -}}
+
+{{- $icon := resources.Get (printf "icons/lucide/%s.svg" $name) -}}
+{{- if not $icon -}}
+    {{- errorf "helper/lucide: icon '%s' not found under assets/icons/lucide" $name -}}
+{{- end -}}
+
+{{- /* Normalise width/height so callers can size icons consistently. */ -}}
+{{- $svg := $icon.Content -}}
+{{- $svg = replace $svg `width="24"` (printf `width="%s"` $size) -}}
+{{- $svg = replace $svg `height="24"` (printf `height="%s"` $size) -}}
+{{- with $class -}}
+    {{- $svg = replace $svg `class="lucide ` (printf `class="lucide %s ` .) -}}
+{{- end -}}
+
+{{- $svg | safeHTML -}}

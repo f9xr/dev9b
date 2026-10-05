@@ -41,7 +41,7 @@ faq:
 
 If you build software for a living, you already know the difference between a chatbot that talks and an agent that actually ships work. Grok Bot sits firmly in the second category. It is xAI's agent platform that gives every bot its own persistent cloud computer, browser sessions, terminal, and filesystem. You talk to it like a teammate, and it can open apps, run commands, draft PRs, triage inboxes, or chain specialists while you sleep.
 
-If you are new to the whole category, our guide on [AI Coding Agents Explained](/p/ai-coding-agents-explained/) explains why agents behave differently from plain chatbots — and where they still need supervision.
+If you are new to the whole category, our guide on [AI Coding Agents Explained](/p/ai-coding-agents-explained/) explains why agents behave differently from plain chatbots - and where they still need supervision.
 
 <!--more-->
 
@@ -243,11 +243,11 @@ If you are weighing Cursor versus other agents before committing to the ecosyste
 
 A strong first task has five parts:
 
-1. Outcome – what finished work looks like
-2. Sources – which files, repos, or sites matter
-3. Constraints – what it must never do
-4. Deliverable – exact format
-5. Review point – when to stop and ask you
+1. Outcome - what finished work looks like
+2. Sources - which files, repos, or sites matter
+3. Constraints - what it must never do
+4. Deliverable - exact format
+5. Review point - when to stop and ask you
 
 Example for a developer bot:
 

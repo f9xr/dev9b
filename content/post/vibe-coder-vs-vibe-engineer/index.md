@@ -162,7 +162,7 @@ Vibe Engineering
 
 ## Why This Shift Matters Right Now
 
-AI coding agents have gotten remarkably capable — if the internals still feel like a black box, our explainer on [how AI coding agents work](/p/ai-coding-agents-explained/) walks through the plan-act-check loop and the parts that decide capability and safety. Tools like Claude Code, Cursor, GitHub Copilot, and terminal-based agents such as OpenCode can scaffold entire features, refactor modules, and even write test suites in minutes. That capability is exactly why the vibe coder approach is becoming riskier, not safer.
+AI coding agents have gotten remarkably capable - if the internals still feel like a black box, our explainer on [how AI coding agents work](/p/ai-coding-agents-explained/) walks through the plan-act-check loop and the parts that decide capability and safety. Tools like Claude Code, Cursor, GitHub Copilot, and terminal-based agents such as OpenCode can scaffold entire features, refactor modules, and even write test suites in minutes. That capability is exactly why the vibe coder approach is becoming riskier, not safer.
 
 A few reasons this matters more today than it did a year ago:
 
@@ -178,11 +178,11 @@ In our own work at F9XR, the teams that get the most out of OpenCode and similar
 
 ## How to Become a Vibe Engineer: Practical Habits
 
-Switching from vibe coding to vibe engineering isn't about slowing down to a crawl. It's about adding a handful of disciplined habits around the AI-assisted workflow you already have — the same habits engineers have sworn by since [The Pragmatic Programmer](https://en.wikipedia.org/wiki/The_Pragmatic_Programmer), updated for an AI world.
+Switching from vibe coding to vibe engineering isn't about slowing down to a crawl. It's about adding a handful of disciplined habits around the AI-assisted workflow you already have - the same habits engineers have sworn by since [The Pragmatic Programmer](https://en.wikipedia.org/wiki/The_Pragmatic_Programmer), updated for an AI world.
 
 ### 1. Write Better Prompts, Not Just Faster Ones
 
-A vague prompt gets you a vague answer. Instead of "build me a login system," give the AI real constraints: the framework, the database, the auth method, rate limiting requirements, and how errors should be handled. Treat prompting like writing a technical spec — for the techniques, [Anthropic's prompt engineering guide](https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview) is a practical reference.
+A vague prompt gets you a vague answer. Instead of "build me a login system," give the AI real constraints: the framework, the database, the auth method, rate limiting requirements, and how errors should be handled. Treat prompting like writing a technical spec - for the techniques, [Anthropic's prompt engineering guide](https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview) is a practical reference.
 
 Good prompt engineering habits:
 
@@ -193,7 +193,7 @@ Good prompt engineering habits:
 
 ### 2. Always Read Before You Merge
 
-This sounds obvious, but it's the single most skipped step in vibe coding. Before accepting AI-generated code, read it the same way you'd review a pull request from a colleague — [Google's engineering practices documentation](https://google.github.io/eng-practices/) is a solid review standard to borrow from. Ask yourself:
+This sounds obvious, but it's the single most skipped step in vibe coding. Before accepting AI-generated code, read it the same way you'd review a pull request from a colleague - [Google's engineering practices documentation](https://google.github.io/eng-practices/) is a solid review standard to borrow from. Ask yourself:
 
 * Do I understand what every function does?
 * Are there hidden dependencies or side effects?
