@@ -1,12 +1,13 @@
 # Dev9b Articles
 # https://f9xr.org/
 # All indexable article URLs on Dev9b.
-# Generated from the Hugo build on 2026-10-05. Do not edit by hand.
+# Generated from the Hugo build on 2026-10-06. Do not edit by hand.
 
 # Home
 https://f9xr.org/
 
 # Articles
+https://f9xr.org/p/how-to-de-ai-slop-website-design/
 https://f9xr.org/p/affonso-affiliate-software-saas-guide/
 https://f9xr.org/p/diataxis-documentation-framework-guide/
 https://f9xr.org/p/change-domain-ga4-multiple-data-streams-guide/

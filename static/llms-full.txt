@@ -21,6 +21,13 @@ Dev9b is a free, open-source online community where software developers share kn
 
 ## Articles
 
+### De-AI Slop Your Website Design: A Dev's Guide
+- URL: https://f9xr.org/p/how-to-de-ai-slop-website-design/
+- Description: Spot and fix AI slop in your website design. A practical, developer-focused guide to typography, color, layout, and imagery that looks human.
+- Categories: Tutorials
+- Tags: web-design, vibe-coding, developer-tools, performance
+- Date: 2026-10-06
+
 ### Affonso Review: SaaS Affiliate Program Setup
 - URL: https://f9xr.org/p/affonso-affiliate-software-saas-guide/
 - Description: See how Affonso helps SaaS teams launch affiliate programs fast, with Stripe billing sync, automated payouts, and built-in fraud protection.

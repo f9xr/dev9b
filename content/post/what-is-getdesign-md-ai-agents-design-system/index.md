@@ -267,7 +267,7 @@ Yes. The reference CLI from the format spec runs `npx @google/design.md lint DES
 
 ## Conclusion
 
-`DESIGN.md` turns a repeated instruction into a durable artifact that lives next to your code. It is the cheapest fix for the most recognizable failure mode of agent-built UI, and the format is young enough that the tooling is still catching up.
+`DESIGN.md` turns a repeated instruction into a durable artifact that lives next to your code. It is the cheapest fix for the most recognizable failure mode of agent-built UI, and the format is young enough that the tooling is still catching up. For the visual side of that same failure mode — the purple gradients and gray icon grids agents keep shipping — see our guide to [de-AI slopping your website design](/p/how-to-de-ai-slop-website-design/).
 
 Practicing this is a workflow change more than a tooling change, which is the same distinction we make in [Vibe Coder vs Vibe Engineer](/p/vibe-coder-vs-vibe-engineer/): the agent is not the bottleneck, the context you give it is. For teams like F9XR, the practical version is to keep one reviewed file, lint it in CI, and export tokens to the framework instead of retyping hex values by hand.
 

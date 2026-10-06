@@ -21,6 +21,7 @@ Dev9b is a free, open-source online community where software developers share kn
 
 ## Articles
 
+- De-AI Slop Your Website Design: A Dev's Guide: https://f9xr.org/p/how-to-de-ai-slop-website-design/
 - Affonso Review: SaaS Affiliate Program Setup: https://f9xr.org/p/affonso-affiliate-software-saas-guide/
 - Diátaxis Framework: Fix Your Docs With 4 Types: https://f9xr.org/p/diataxis-documentation-framework-guide/
 - Change Domain in GA4: Multi Stream Tracking Guide: https://f9xr.org/p/change-domain-ga4-multiple-data-streams-guide/
