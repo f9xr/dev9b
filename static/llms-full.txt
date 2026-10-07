@@ -21,6 +21,13 @@ Dev9b is a free, open-source online community where software developers share kn
 
 ## Articles
 
+### Install F9XR CodeBase Auditor SKILL Fast
+- URL: https://f9xr.org/p/how-to-install-update-f9xr-codebase-auditor-skill/
+- Description: Learn how to install and update F9XR's SEO CodeBase Auditor SKILL in minutes. Drop one file, run one prompt, get 24-pillar SEO fixes for your codebase.
+- Categories: Tutorials
+- Tags: seo, skills, developer-setup, ai-tools
+- Date: 2026-10-07
+
 ### De-AI Slop Your Website Design: A Dev's Guide
 - URL: https://f9xr.org/p/how-to-de-ai-slop-website-design/
 - Description: Spot and fix AI slop in your website design. A practical, developer-focused guide to typography, color, layout, and imagery that looks human.

@@ -163,6 +163,8 @@ git clone https://github.com/user/opencode-skills.git /tmp/skills
 cp -r /tmp/skills/skills/tdd .opencode/skills/tdd
 ```
 
+For a worked example of the full install-and-update cycle, the [F9XR CodeBase Auditor SKILL installation walkthrough](/p/how-to-install-update-f9xr-codebase-auditor-skill/) shows what a single-file skill looks like in practice: drop `SKILL.md` into a project root, run one audit prompt, then refresh with `git pull`.
+
 ### Using the install-skill-repo Skill
 
 Some skill repos include an `install-skill-repo` skill that automates the process. Once loaded, it handles downloading and placing files in the correct location.
