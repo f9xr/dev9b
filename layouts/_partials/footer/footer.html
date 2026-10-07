@@ -3,8 +3,6 @@
 
     Adds:
       - "Build by F9XR Team" credit linked to f9xr.org
-      - the F9XR Team network links (data/f9xr_links.toml)
-      - a link to the HTML sitemap page
       - a single-line build credit row (F9XR, GitHub source, Hugo + theme)
 
     The theme renders <footer class="site-footer"> at the end of each layout's
@@ -12,50 +10,8 @@
     bottom of the viewport and lets page content scroll up over it.
 */ -}}
 {{- $ThemeVersion := "4.0.3" -}}
-{{- $f9xr := hugo.Data.f9xr_links.links -}}
 <footer class="site-footer">
     <div class="site-footer-inner">
-        <section class="copyright">
-            &copy;
-            {{ if and (.Site.Params.footer.since) (ne .Site.Params.footer.since (int (now.Format "2006"))) }}
-                {{ .Site.Params.footer.since }} -
-            {{ end }}
-            {{ now.Format "2006" }} {{ default .Site.Title .Site.Copyright }}
-        </section>
-
-        {{- with $f9xr }}
-        <nav class="site-footer-f9xr" aria-label="F9XR Team">
-            <h2 class="site-footer-heading">
-                {{ partial "helper/lucide" (dict "name" "users" "size" 16) }}
-                <span>F9XR Team</span>
-            </h2>
-            <ul>
-                {{ range . }}
-                <li>
-                    <a href="{{ .url }}" target="_blank" rel="noopener">
-                        {{ partial "helper/lucide" (dict "name" "external-link" "size" 13) }}
-                        <span>{{ .name }}</span>
-                    </a>
-                </li>
-                {{ end }}
-            </ul>
-        </nav>
-        {{- end }}
-
-        <nav class="site-footer-sitemap-links" aria-label="Site">
-            <h2 class="site-footer-heading">
-                {{ partial "helper/lucide" (dict "name" "compass" "size" 16) }}
-                <span>Explore Dev9b</span>
-            </h2>
-            <ul>
-                <li><a href="{{ "sitemap/" | relURL }}" data-preview-card>{{ partial "helper/lucide" (dict "name" "network" "size" 13) }}<span>HTML Sitemap</span></a></li>
-                <li><a href="{{ "archives/" | relURL }}" data-preview-card>{{ partial "helper/lucide" (dict "name" "clock" "size" 13) }}<span>Archives</span></a></li>
-                <li><a href="{{ "categories/tutorials/" | relURL }}" data-preview-card>{{ partial "helper/lucide" (dict "name" "layers" "size" 13) }}<span>Categories</span></a></li>
-                <li><a href="{{ "tags/" | relURL }}" data-preview-card>{{ partial "helper/lucide" (dict "name" "hash" "size" 13) }}<span>Tags</span></a></li>
-                <li><a href="{{ "index.xml" | relURL }}">{{ partial "helper/lucide" (dict "name" "rss" "size" 13) }}<span>RSS feed</span></a></li>
-            </ul>
-        </nav>
-
         <section class="powerby">
             {{- $F9XRSite := `https://f9xr.org/` -}}
             {{- $Repo := `https://github.com/f9xr/dev9b` -}}

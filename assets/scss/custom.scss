@@ -440,66 +440,6 @@ footer.site-footer {
         }
     }
 
-    .site-footer-heading {
-        display: flex;
-        align-items: center;
-        gap: 0.4rem;
-        margin: 0 0 var(--spacing-sm);
-        font-size: 1.1rem;
-        font-weight: 600;
-        letter-spacing: 0.04em;
-        text-transform: uppercase;
-        color: var(--card-text-color-secondary);
-
-        svg {
-            opacity: 0.8;
-        }
-    }
-
-    ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 0.35rem;
-    }
-
-    .site-footer-f9xr a,
-    .site-footer-sitemap-links a {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.4rem;
-        color: var(--body-text-color);
-        text-decoration: none;
-        transition: color 0.15s ease;
-
-        svg {
-            opacity: 0.55;
-            transition: opacity 0.15s ease;
-        }
-
-        &:hover {
-            color: var(--accent-color);
-
-            svg {
-                opacity: 1;
-            }
-        }
-
-        &:focus-visible {
-            outline: 2px solid var(--accent-color);
-            outline-offset: 2px;
-            border-radius: 3px;
-        }
-    }
-
-    .copyright {
-        color: var(--accent-color);
-        font-weight: bold;
-        margin-bottom: 0;
-    }
-
     .powerby {
         grid-column: 1 / -1;
         color: var(--body-text-color);
