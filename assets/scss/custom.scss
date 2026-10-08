@@ -472,52 +472,19 @@ footer.site-footer {
 }
 
 /* ==========================================================================
-   Footer reveal effect
-   The footer stays pinned to the bottom of the viewport while page content
-   scrolls up over it, so it is gradually uncovered as the reader approaches
-   the end of the page.
-
-   Implementation notes:
-   - The theme renders <footer> as the last child of <main class="main">,
-     which is a flex column, so position: sticky works against the normal
-     scroll position with no extra spacer element.
-   - .main sits above the pinned footer (z-index), which is what produces the
-     "content slides up to uncover it" effect.
+   Footer
+   The footer stays in the normal document flow (no sticky pinning), so it
+   scrolls with the page and always sits below the article content.
    ========================================================================== */
-.main {
-    position: relative;
-    z-index: 1;
-}
-
 .main > .site-footer {
-    position: sticky;
-    bottom: 0;
-    z-index: 0;
-    margin-top: auto;
-    background: var(--body-background);
     border-top: 1px solid var(--card-separator-color);
 
-    /* Turn the theme's 50px rule into a full-width divider so the footer
-       reads as a surface sliding in from below. */
+    /* Turn the theme's 50px rule into a full-width divider above the footer
+       surface. */
     &:before {
         width: 100%;
         max-width: 100%;
         background: var(--card-separator-color);
-    }
-
-    /* Never let the pinned footer overlap the last line of article text
-       while it is still being revealed. */
-    .site-footer-inner {
-        position: relative;
-        z-index: 1;
-    }
-}
-
-/* On small screens the ad banner is fixed to the bottom of the viewport, so a
-   pinned footer would sit underneath it. Fall back to an in-flow footer there. */
-@media (max-width: 767px) {
-    .main > .site-footer {
-        position: static;
     }
 }
 

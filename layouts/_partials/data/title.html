@@ -9,7 +9,9 @@
     {{ $title = $title | append (printf "Page %d" $paginator.PageNumber) }}
 {{- end -}}
 
-{{- if and .IsNode (ne .Kind "home") -}}
+{{- if eq .Kind "404" -}}
+    {{ $title = $title | append (printf "Page not found - %s" $siteTitle) }}
+{{- else if and .IsNode (ne .Kind "home") -}}
     {{ $title = $title | append (printf "%s - %s" $pageTitle $siteTitle) }}
 {{- else -}}
     {{ $title = $title | append (default $siteTitle $pageTitle) }}

@@ -12,8 +12,8 @@
 {{- /* Structured data */ -}}
 {{- partial "seo/jsonld" . -}}
 
-{{- /* Crawler directives (per-page robots param can override) */ -}}
-<meta name="robots" content="{{ .Params.robots | default "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" }}">
+{{- /* Crawler directives (per-page robots param can override; the 404 page is always noindex) */ -}}
+<meta name="robots" content="{{ if eq .Kind "404" }}noindex, follow{{ else }}{{ .Params.robots | default "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" }}{{ end }}">
 
 {{- /* Author (E-E-A-T) */ -}}
 {{- with .Site.Params.meta.author }}

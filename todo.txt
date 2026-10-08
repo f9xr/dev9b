@@ -1,0 +1,48 @@
+Dev9b - Remaining SEO / content tasks
+=====================================
+(Source: seo_audit_report.md 2026-10-09; all items below Pillar/Fix-matrix)
+
+PRIORITY
+--------
+1. Medium - Tag bloat: 56 tag taxonomies for 34 posts (54 are single-post).
+   -> cap 3-5 tags per post; emit robots noindex,follow for single-post terms.
+   Files: content/post/* front matter, layouts/_partials/head/custom.html
+
+2. Medium - Thin posts (below 2k-word competitor threshold):
+   - opencode-vs-cursor (761w)   -> add comparison table
+   - hugo-github-pages-setup (844w)
+   - hugo-seo-guide (846w)       -> worked examples/diffs
+   - ai-coding-agents-explained (810w) -> "How it works in practice" section
+
+3. Medium - E-E-A-T author inconsistency:
+   content/post/github-pages-custom-domain-cloudflare/index.md has author:dev9b
+   -> set author: F9XR Team (or add authorUrl/authorGitHub + sameAs)
+
+LOW / OPTIONAL
+--------------
+4. Low - Noindex deep pagination: /post/page/N, /tags/page/N,
+   /categories/*/page/N (headers based on .Paginator.HasPrev)
+
+5. Low - Automate IndexNow urlList: generate from sitemap.xml at deploy time
+   (deploy.yml currently hand-maintained; missing URLs last audit)
+
+6. Low - Internal linking: add related-posts / in-content links across the
+   OpenCode cluster (skills <-> vscode <-> mcp <-> tui <-> vs-cursor)
+
+7. Low - 2 H1s per page (sidebar brand + page title). Accepted; optional demote.
+
+8. Low - Disqus on every article -> lazy/opt-in loader (third-party weight)
+
+9. Low - Compress source covers >300KB (opencode-mcp-servers/cover.png 609KB,
+   opencode-skills-guide/cover.webp 460KB)
+
+DONE 2026-10-09
+---------------
+- 404 page: title/description/canonical->home/noindex  (layouts/_partials/*)
+- 0 duplicate titles + 0 duplicate meta descriptions (pagination "(Page N of M)")
+- /categories/ and /tags/ index descriptions
+- Removed orphan example-category + colliding categories/dev9b
+- Footer scrollable (sticky reveal removed in assets/scss/custom.scss)
+- llms.txt + articles-urls.txt: all 33 article URLs
+- deploy.yml IndexNow urlList: 34 URLs (home + 33 posts), valid JSON
+- seo_audit_report.md + .csv regenerated (2026-10-09)

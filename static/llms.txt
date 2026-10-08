@@ -21,6 +21,7 @@ Dev9b is a free, open-source online community where software developers share kn
 
 ## Articles
 
+- Build Your Own Facebook Marketing AI Agent: https://f9xr.org/p/build-facebook-marketing-ai-agent/
 - Install F9XR CodeBase Auditor SKILL Fast: https://f9xr.org/p/how-to-install-update-f9xr-codebase-auditor-skill/
 - De-AI Slop Your Website Design: A Dev's Guide: https://f9xr.org/p/how-to-de-ai-slop-website-design/
 - Affonso Review: SaaS Affiliate Program Setup: https://f9xr.org/p/affonso-affiliate-software-saas-guide/

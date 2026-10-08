@@ -1,6 +1,8 @@
 {{- $description := .Site.Params.sidebar.subtitle -}}
 
-{{- if .Description -}}
+{{- if eq .Kind "404" -}}
+    {{- $description = "Page not found on Dev9b. Use search or browse the categories and tags to find the article you were looking for." -}}
+{{- else if .Description -}}
     {{- $description = .Description -}}
 {{- else if eq .Kind "term" -}}
     {{- $description = (printf "Dev9b articles tagged %s - open-source developer blog with tutorials, skills, and coding guides by F9XR Team." .Data.Term) -}}
@@ -8,6 +10,11 @@
     {{- $description = (printf "%s - %s" .Title .Site.Title) -}}
 {{- else if .IsPage -}}
     {{- $description = .Summary -}}
+{{- end -}}
+
+{{- $paginator := partial "helper/paginator.html" . -}}
+{{- if and $paginator $paginator.HasPrev -}}
+    {{- $description = printf "%s (Page %d of %d)" $description $paginator.PageNumber $paginator.TotalPages -}}
 {{- end -}}
 
 {{ return (replaceRE "\n" " " $description | plainify) }}

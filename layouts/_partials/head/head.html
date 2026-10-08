@@ -1,0 +1,43 @@
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+
+{{- /* Not cached: paginated sub-pages (e.g. /post/page/2/) are the same Hugo
+       Page as page 1, so partialCached keyed on .RelPermalink would reuse the
+       page-1 description. Render instead so pagination can adjust it. */ -}}
+{{- $description := partial "data/description" . -}}
+<meta name='description' {{ printf "content=%q" $description | safeHTMLAttr }}>
+{{ with .Params.Keywords }}<meta name="keywords" content="{{ delimit . ", " }}">{{ end }}
+
+{{- $title := partial "data/title" . -}}
+<title>{{ $title }}</title>
+
+{{- if .Params.canonicalUrl -}}
+<link rel="canonical" href="{{ .Params.canonicalUrl }}">
+{{- else if eq .Kind "404" -}}
+<!-- The 404 page has no value of its own, so point the canonical at the home page -->
+<link rel="canonical" href="{{ .Site.BaseURL }}">
+{{- else -}}
+<link rel="canonical" href="{{ .Permalink }}">
+{{- end -}}
+
+{{- partial "head/custom-font.html" . -}}
+{{- partial "head/style.html" . -}}
+{{- partial "head/script.html" . -}}
+{{- partial "head/opengraph/include.html" . -}}
+
+{{- range .AlternativeOutputFormats -}}
+    <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
+{{- end -}}
+
+{{- $favicon := partial "helper/image" (dict "Image" .Site.Params.favicon "Resources" resources "Context" .) -}}
+{{ with $favicon }}
+    <link rel="shortcut icon" href="{{ .Permalink }}" />
+{{ end }}
+
+{{- if .Site.Params.cookies.enabled -}}
+    {{- partial "cookies/analytics.html" . -}}
+{{- else -}}
+    {{- template "_internal/google_analytics.html" . -}}
+{{- end -}}
+
+{{- partial "head/custom.html" . -}}

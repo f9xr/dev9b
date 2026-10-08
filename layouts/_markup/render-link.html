@@ -1,0 +1,19 @@
+{{- /*
+    Link render hook override.
+
+    The theme's version hardcodes target/rel and discards any attributes set in
+    the Markdown attribute block, so [text](url){rel="sponsored"} was being
+    dropped. This version keeps the theme's defaults but lets the author win:
+
+      - explicit {rel="..."} / {target="..."} are used as written
+      - external links otherwise get target="_blank" rel="noopener"
+      - titles come from the title attribute, or a "title:" key in the block
+
+    Affiliate links in posts rely on this to emit rel="sponsored".
+*/ -}}
+{{- $external := strings.HasPrefix .Destination "http" -}}
+{{- $target := .Attributes.target -}}
+{{- if and (not $target) $external }}{{ $target = "_blank" }}{{ end -}}
+{{- $rel := .Attributes.rel -}}
+{{- if and (not $rel) $external }}{{ $rel = "noopener" }}{{ end -}}
+<a class="link" href="{{ .Destination | safeURL }}"{{ with .Title }} title="{{ . }}"{{ else }}{{ with .Attributes.title }} title="{{ . }}"{{ end }}{{ end }}{{ with $target }} target="{{ . }}"{{ end }}{{ with $rel }} rel="{{ . }}"{{ end }}>{{ .Text | safeHTML }}</a>

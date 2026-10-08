@@ -1,14 +1,9 @@
-﻿#,Pillar,Detected Issue,Severity,Target File(s),Effort,Est. Traffic Impact,Est. Revenue Impact,Time to Impact,Business Value
-1,AI / LLM Readiness,llms.txt and articles-urls.txt ship only 4 of 14 posts and reference a deleted /links/ page,High,static/llms.txt + static/articles-urls.txt,S (<4hr),AI engines/Discover see partial corpus; 10 posts unreferenced,Low,Immediate,Traffic
-2,CI/CD,IndexNow/sitemap ping in deploy.yml uses obsolete /post/ paths (real permalinks are /p/) and never adds new posts,High,.github/workflows/deploy.yml,S (<4hr),New posts are never pushed to search engines on publish,Low,Immediate,Traffic
-3,On-Page (tags),Tag bloat: 57 indexable tag taxonomies for 14 posts; near-duplicate/over-keyworded tags (n8n=11, vibe=10),High,content/post/*/index.md (+ optional tag noindex),M (1-3d),Diluted crawl budget and internal-link density,Low,1-4 weeks,Traffic
-4,On-Page (internal links),Money posts have 0 outbound internal links; OpenCode hub cluster is a dead-end despite strong inbound,Medium,content/post/opencode-skills-guide + opencode-vscode-setup + others,S (<4hr),Anchor text flow stops; related suggestions absent,Low,1-4 weeks,Traffic
-5,Trust / E-E-A-T,Skelementor post: 16+ affiliate via=f9xr links without disclosure + cover/og:image hotlinked to skelementor.com,Medium,content/post/how-to-use-skelementor/index.md,S (<4hr),Trust/E-E-A-T risk; external og:image dependency,Low,Immediate,Brand / Trust
-6,Content depth,4 thin posts (761-846 words) below the 2.4k+ word competitor threshold,Medium,opencode-vs-cursor / hugo-github-pages-setup / hugo-seo-guide / ai-coding-agents-explained,M (1-3d),SERP CTR and featured-snippet eligibility,Low,1-4 weeks,Traffic
-7,Schema / E-E-A-T,author: dev9b on Cloudflare post renders Person w/o URL while other posts use the brand Organization,Medium,content/post/github-pages-custom-domain-cloudflare/index.md,S (<4hr),Consistent authorship signal,Low,Immediate,Traffic
-8,On-Page (hub),No homepage/hub block promoting the OpenCode cluster,Medium,layouts/ or content,S (<4hr),Cluster authority consolidation,Low,1-4 weeks,Traffic
-9,On-Page,2 H1s per page (brand + post title) - acceptable, cleanup optional,Low,layouts/_partials/sidebar/left.html,S (<4hr),N/A,Low,Immediate,Brand
-10,Performance,Skelementor cover image hotlinked off-site; 4 cover images >300KB original files,Low,content/post/how-to-use-skelementor + cover files,S (<4hr),CWV LCP marginal; repo size,Low,1-4 weeks,Traffic
-11,On-Page (tags),n8n post has 11 near-duplicate tags; vibe post has 10 - dedupe to ~4 each,Low,content/post/how-to-install-n8n-locally-on-pc + vibe-coder-vs-vibe-engineer,S (<4hr),Cleaner taxonomy,Low,Immediate,Traffic
-12,On-Page,hello-world is 293 words and 16-char title - acceptable for an intro post; optional noindex,Low,content/post/hello-world,S (<4hr),N/A,Low,Immediate,Traffic
-13,Performance,Disqus loads on every article page (third-party JS/GDPR),Low,config/_default/params.toml,S (<4hr),Minor LCP/INP reduction,Low,Immediate,Risk
+﻿#,Pillar,Issue,Severity,File,Effort,Traffic Impact,Fix Type
+1,Technical/Taxonomy,"56 tag taxonomies for 34 posts; 54 single-post tag pages index,follow",Medium,layouts/_partials/head/custom.html + content/post tags,S,"+2-5% crawl efficiency",content
+2,Semantic/Content,"4-6 thin posts (opencode-vs-cursor 761w; hugo-* 844/846w; ai-coding-agents-explained 810w)",Medium,content/post bundles,M,"+5-10% organic on target queries",content
+3,E-E-A-T,"Cloudflare post author:dev9b renders JSON-LD Person without URL",Medium,content/post/github-pages-custom-domain-cloudflare/index.md,S,"E-E-A-T consistency",schema
+4,On-Page,"2 H1s per page (sidebar brand + page title) on 112 pages; markdown-syntax demo has 3",Low,theme site-brand widget,M,"~0 (accepted)",structural
+5,Technical,"Deep pagination tags/page/N, post/page/N, categories/tutorials/page/N index,follow",Low,robots policy on paginated taxonomy/section,S,"crawler focus",config
+6,CI/CD,"IndexNow urlList hand-maintained (was missing 6 URLs this audit)",Low,.github/workflows/deploy.yml,M,"prevent missed pings",config
+7,Internal Linking,"No related-posts widget on article pages",Low,layouts/_partials/article partial,S,"internal link equity",linking
+8,Third-Party,Disqus loads on every article page,Low,footer/script config,S,"-third-party weight",performance

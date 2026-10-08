@@ -5,8 +5,6 @@ slug: hello-world
 date: 2026-09-01T00:00:00+05:30
 image: cover.jpg
 author: F9XR Team
-categories:
-    - Dev9b
 tags:
     - introduction
     - welcome

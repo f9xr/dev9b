@@ -3,6 +3,6 @@ resources
 .hugo_build.lock
 .DS_Store
 assets/jsconfig.json
-todo.txt
 all-urls.txt
 todo-posts
+tmp

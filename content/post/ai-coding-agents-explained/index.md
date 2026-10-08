@@ -120,6 +120,8 @@ The final piece reads the outcomes. Did the command succeed? Does the test pass?
 
 In practice a session looks like: you ask OpenCode to add a feature across two files. It lists the files it wants to read, reads them, writes a sketch, runs the build, notices a broken import it introduced, fixes it, replaces a hardcoded value with a config lookup, and hands you a diff. Every step was visible, every command was approved, and the agent corrected its own mistake without being asked.
 
+The same plan-act-check loop runs outside the editor too. Point it at a live ad account and you get an agent that observes spend, decides what to change, and acts through an API, as [building your own Facebook marketing AI agent](/p/build-facebook-marketing-ai-agent/) walks through.
+
 ## Why Context Is the Real Constraint
 
 The myth is that agents fail because the model is weak. In practice the bottleneck is context. An LLM reasons over whatever fits in its context window, so an agent's quality tracks how well it feeds the model the right information at the right time. Three techniques separate good agents from average ones:

@@ -6,8 +6,8 @@
       - a single-line build credit row (F9XR, GitHub source, Hugo + theme)
 
     The theme renders <footer class="site-footer"> at the end of each layout's
-    main block, so it sits inside .main. The reveal effect pins it to the
-    bottom of the viewport and lets page content scroll up over it.
+    main block, so it sits inside .main in the normal document flow and scrolls
+    with the page.
 */ -}}
 {{- $ThemeVersion := "4.0.3" -}}
 <footer class="site-footer">
@@ -32,5 +32,5 @@
     </div>
 </footer>
 
-{{- /* No spacer needed: the footer keeps its own height in the normal flow, so
-       content above it can always scroll clear while it is pinned. */ -}}
+{{- /* The footer is a normal, in-flow element: it keeps its own height and
+       follows the article content, so no spacer or pinning styles are needed. */ -}}
