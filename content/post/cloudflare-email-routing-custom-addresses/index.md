@@ -194,7 +194,7 @@ If nothing arrives, double-check that the destination is verified, the rule is A
 - Routing only solves the inbound half. To reply as your custom address for free, follow our [Gmail Send-As with Cloudflare guide](/p/gmail-send-as-cloudflare-email-routing/).
 - Use Workers when you need to reject known spam senders, auto-reply, or store the message in R2 or a database before forwarding.
 - Document every custom address in a simple spreadsheet or Notion page. Six months from now you will forget why `newsletter-2024@` exists.
-- For high volume or transactional outbound mail, look at Cloudflare's Email Sending feature, which is separate from routing. Routing only handles inbound.
+- For high volume or transactional outbound mail from an app, our [programmatic transactional SMTP setup guide for Node.js](/p/programmatic-transactional-smtp-nodejs-setup/) walks through provider choice, Nodemailer, and SPF/DKIM/DMARC. Cloudflare's Email Sending feature is separate from routing, which only handles inbound.
 - DNS propagation is usually fast, but if you just switched nameservers, give it a few hours before declaring failure.
 - To automate follow-ups on routed mail, pair a Worker with a workflow tool. Our [local n8n setup guide](/p/how-to-install-n8n-locally-on-pc/) shows how to run that automation on your own machine.
 - If you later change the primary domain, update your analytics tracking at the same time. The [GA4 multi-stream domain guide](/p/change-domain-ga4-multiple-data-streams-guide/) walks through the stream settings so reporting does not silently split.

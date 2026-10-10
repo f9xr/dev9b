@@ -23,6 +23,7 @@ Dev9b is a free, open-source online community where software developers share kn
 
 - Gmail Send-As Trick with Cloudflare Email: https://f9xr.org/p/gmail-send-as-cloudflare-email-routing/
 - Setup Cloudflare Custom Email Routing Fast: https://f9xr.org/p/cloudflare-email-routing-custom-addresses/
+- Programmatic Transactional SMTP for Node.js Apps: https://f9xr.org/p/programmatic-transactional-smtp-nodejs-setup/
 - Build Your Own Facebook Marketing AI Agent: https://f9xr.org/p/build-facebook-marketing-ai-agent/
 - Install F9XR CodeBase Auditor SKILL Fast: https://f9xr.org/p/how-to-install-update-f9xr-codebase-auditor-skill/
 - De-AI Slop Your Website Design: A Dev's Guide: https://f9xr.org/p/how-to-de-ai-slop-website-design/
