@@ -57,6 +57,15 @@ If you are new to the site, these are the guides our readers come back to most:
 - [How to Add Skills to OpenCode](/p/opencode-skills-guide/) - encode team conventions your agent will follow
 - [Hugo on GitHub Pages](/p/hugo-github-pages-setup/) - the exact pipeline that runs this site
 
+## Writing and Formatting Guides
+
+Everything you need to format an article on Dev9b:
+
+- [Markdown Syntax Guide for Dev9b](/p/markdown-syntax-guide-for-dev9b/) - the complete formatting reference
+- [Image Gallery in Dev9b Articles](/p/image-gallery-in-dev9b-articles/) - interactive PhotoSwipe galleries
+- [Math Typesetting on Dev9b](/p/math-typesetting-on-dev9b/) - KaTeX equations, inline and block
+- [Useful Shortcodes for Dev9b Articles](/p/useful-shortcodes-for-dev9b-articles/) - videos, quotes, and embeds
+
 ## Our Editorial Standards
 
 Trust is important to us. Read our [Editorial Policy](/editorial-policy/) to understand how every article is reviewed by the F9XR Review Board before publishing - checking accuracy, originality, and proper sources.

@@ -181,6 +181,7 @@ If your team already writes its own agent instructions, the [Contributor Guide](
 - For large monorepos, limit scope by telling the agent which directories to focus on: `@SKILL.md Audit only the /blog and /docs folders.`
 - Pair the skill with your existing CI. A simple GitHub Action can copy the latest `SKILL.md` and leave a note for the human reviewer.
 - Already maintaining a Hugo site? Combine the audit with our [Hugo SEO checklist](/p/hugo-seo-guide/) so the findings map onto fixes you can apply the same day.
+- Auditing the code is only half the job. Turn on the repository settings side too with [gh-secure](/p/what-is-gh-secure-setup-guide/), which enables secret scanning, Dependabot and CodeQL in about two minutes.
 
 ## Frequently Asked Questions
 

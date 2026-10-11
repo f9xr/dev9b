@@ -92,7 +92,7 @@ A few items we added on top of the minimums:
 - **Schema-validate every `ld+json` block.** Run each block through a validator once after setup, then spot-check a sample each quarter. Broken JSON-LD is worse than none - search engines treat malformed reviews and FAQs as spam.
 - **Check article and breadcrumb blocks separately.** They come from different partials and fail independently.
 - **No H2s before the H1.** Some themes print aliases or breadcrumbs above the article header. Ensure the first true H1 is the post title.
-- **Alt-text discipline.** Every body image gets a descriptive alt; decorative SVGs get `alt=""`. We verified 100% coverage on this site.
+- **Alt-text discipline.** Every body image gets a descriptive alt; decorative SVGs get `alt=""`. We verified 100% coverage on this site, and the [image gallery guide](/p/image-gallery-in-dev9b-articles/) shows how galleries carry that alt text into the lightbox.
 - **Pin the OG image dimensions.** Missing `width`/`height` on `og:image` makes scrapers crop or resize on their own.
 
 ## The Post-Launch Loop
