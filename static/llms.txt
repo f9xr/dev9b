@@ -21,6 +21,7 @@ Dev9b is a free, open-source online community where software developers share kn
 
 ## Articles
 
+- System Prompts Explained: Write Ones That Work: https://f9xr.org/p/what-is-system-prompt-how-to-write-effective/
 - Gmail Send-As Trick with Cloudflare Email: https://f9xr.org/p/gmail-send-as-cloudflare-email-routing/
 - Setup Cloudflare Custom Email Routing Fast: https://f9xr.org/p/cloudflare-email-routing-custom-addresses/
 - Programmatic Transactional SMTP for Node.js Apps: https://f9xr.org/p/programmatic-transactional-smtp-nodejs-setup/

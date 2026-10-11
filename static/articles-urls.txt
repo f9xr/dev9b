@@ -7,6 +7,7 @@
 https://f9xr.org/
 
 # Articles
+https://f9xr.org/p/what-is-system-prompt-how-to-write-effective/
 https://f9xr.org/p/gmail-send-as-cloudflare-email-routing/
 https://f9xr.org/p/cloudflare-email-routing-custom-addresses/
 https://f9xr.org/p/programmatic-transactional-smtp-nodejs-setup/

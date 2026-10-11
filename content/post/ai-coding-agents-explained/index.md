@@ -29,7 +29,7 @@ faq:
 ---
 Every few months someone packages the same idea under a new name - autocomplete became pair-programmers, became agents. But an AI coding agent is a genuinely different thing from the chat window you are used to: it does not just answer, it does.
 
-Understanding how these agents are built changes how you use them, how you prompt them, and how much you can safely trust them. This guide breaks down the anatomy of an agent - no marketing, no hype.
+Understanding how these agents are built changes how you use them, how you write the [system prompts that steer them](/p/what-is-system-prompt-how-to-write-effective/), and how much you can safely trust them. This guide breaks down the anatomy of an agent - no marketing, no hype.
 
 <!--more-->
 
