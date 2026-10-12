@@ -1,7 +1,7 @@
 # Dev9b Articles
 # https://f9xr.org/
 # All indexable article URLs on Dev9b.
-# Generated from the Hugo build on 2026-10-06. Do not edit by hand.
+# Generated from the Hugo build on 2026-10-12. Do not edit by hand.
 
 # Home
 https://f9xr.org/
@@ -45,6 +45,7 @@ https://f9xr.org/p/image-gallery-in-dev9b-articles/
 https://f9xr.org/p/useful-shortcodes-for-dev9b-articles/
 https://f9xr.org/p/math-typesetting-on-dev9b/
 https://f9xr.org/p/markdown-syntax-guide-for-dev9b/
+https://f9xr.org/p/how-to-setup-meta-muse-connectors/
 
 # Pages
 https://f9xr.org/about/

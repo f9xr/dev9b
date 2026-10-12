@@ -131,6 +131,8 @@ Useful tools:
 
 Use structured output (Pydantic or JSON schema) so the model cannot invent random parameters. Both [Anthropic tool use](https://docs.anthropic.com/en/docs/build-with-claude/tool-use) and [OpenAI function calling](https://platform.openai.com/docs/guides/function-calling) enforce schemas, so pick whichever matches your model client.
 
+This tool surface is exactly what a hosted agent exposes as connectors. If you would rather borrow Meta's plumbing than build your own, the guide on [how to setup Meta Muse connectors](/p/how-to-setup-meta-muse-connectors/) shows how Muse wires the same read and act scopes into Gmail, Slack, Shopify and custom MCP endpoints.
+
 ### 3. Prompt Engineering for Marketing Decisions
 
 The system prompt should force the model to reason in stages:

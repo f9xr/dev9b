@@ -59,6 +59,7 @@ Dev9b is a free, open-source online community where software developers share kn
 - Useful Shortcodes for Dev9b Articles: https://f9xr.org/p/useful-shortcodes-for-dev9b-articles/
 - Math Typesetting on Dev9b: https://f9xr.org/p/math-typesetting-on-dev9b/
 - Markdown Syntax Guide for Dev9b: https://f9xr.org/p/markdown-syntax-guide-for-dev9b/
+- Setup Meta Muse Connectors Fast in 2026: https://f9xr.org/p/how-to-setup-meta-muse-connectors/
 
 ## Pages
 
