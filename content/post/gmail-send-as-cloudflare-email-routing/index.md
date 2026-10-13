@@ -144,6 +144,10 @@ Two-Step Verification must be turned on or the App Passwords page will not appea
 7. Uncheck **Treat as an alias** if you want replies to use the custom address cleanly.
 8. Click **Next Step**.
 
+![Gmail Accounts and Import settings with the Send mail as section open and a custom domain address being added](gmail-send-mail-as-settings.jpg)
+
+*The "Send mail as" screen in Gmail's Accounts and Import tab, where the custom address is added.*
+
 > [!TIP]
 > Leave "Treat as an alias" unchecked when the custom address is your real public identity. Aliases are for cases where the address is disposable and you want Gmail to route replies to your primary account instead.
 
