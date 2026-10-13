@@ -1,0 +1,86 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "F9XR's Dev9b",
+    "identifier": "did:web:f9xr.org"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:f9xr.org:index:llms",
+      "displayName": "Dev9b llms.txt",
+      "type": "text/plain",
+      "url": "https://f9xr.org/llms.txt",
+      "representativeQueries": [
+        "list all Dev9b articles",
+        "where is the Dev9b contributor guide",
+        "what is Dev9b about"
+      ]
+    },
+    {
+      "identifier": "urn:air:f9xr.org:index:llms-full",
+      "displayName": "Dev9b llms-full.txt",
+      "type": "text/plain",
+      "url": "https://f9xr.org/llms-full.txt",
+      "representativeQueries": [
+        "every Dev9b article with description and tags",
+        "articles about WebAssembly on Dev9b",
+        "developer tutorials by F9XR Team"
+      ]
+    },
+    {
+      "identifier": "urn:air:f9xr.org:feed:json",
+      "displayName": "Dev9b JSON Feed",
+      "type": "application/feed+json",
+      "url": "https://f9xr.org/feed.json",
+      "representativeQueries": [
+        "latest Dev9b articles as JSON",
+        "newest developer tutorials feed",
+        "subscribe to Dev9b updates"
+      ]
+    },
+    {
+      "identifier": "urn:air:f9xr.org:feed:rss",
+      "displayName": "Dev9b RSS Feed",
+      "type": "application/rss+xml",
+      "url": "https://f9xr.org/index.xml",
+      "representativeQueries": [
+        "Dev9b RSS feed url",
+        "developer blog RSS",
+        "recent F9XR articles"
+      ]
+    },
+    {
+      "identifier": "urn:air:f9xr.org:sitemap:sitemap",
+      "displayName": "Dev9b XML Sitemap",
+      "type": "application/xml",
+      "url": "https://f9xr.org/sitemap.xml",
+      "representativeQueries": [
+        "all indexable Dev9b urls",
+        "Dev9b sitemap",
+        "pages published by F9XR"
+      ]
+    },
+    {
+      "identifier": "urn:air:f9xr.org:skills:index",
+      "displayName": "Dev9b Agent Skills Index",
+      "type": "application/json",
+      "url": "https://f9xr.org/.well-known/agent-skills/index.json",
+      "representativeQueries": [
+        "skills published by Dev9b",
+        "how to publish a Dev9b article as an agent",
+        "agent skill for creating a mind map"
+      ]
+    },
+    {
+      "identifier": "urn:air:f9xr.org:search:search",
+      "displayName": "Dev9b Site Search",
+      "type": "text/html",
+      "url": "https://f9xr.org/search/",
+      "representativeQueries": [
+        "search Dev9b articles",
+        "find a tutorial on Dev9b",
+        "look up OpenCode guides"
+      ]
+    }
+  ]
+}

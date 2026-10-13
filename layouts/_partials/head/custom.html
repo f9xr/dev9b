@@ -12,6 +12,9 @@
 {{- /* Structured data */ -}}
 {{- partial "seo/jsonld" . -}}
 
+{{- /* Agent / AI discovery link relations + WebMCP */ -}}
+{{- partial "head/agent.html" . -}}
+
 {{- /* Crawler directives (per-page robots param can override; the 404 page is always noindex) */ -}}
 <meta name="robots" content="{{ if eq .Kind "404" }}noindex, follow{{ else }}{{ .Params.robots | default "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" }}{{ end }}">
 

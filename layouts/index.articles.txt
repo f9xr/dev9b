@@ -1,0 +1,31 @@
+{{- $posts := where site.RegularPages "Type" "in" site.Params.mainSections -}}
+{{- $posts = $posts.ByDate.Reverse -}}
+{{- $base := site.BaseURL -}}
+# Dev9b Articles
+# {{ $base }}
+# All indexable article URLs on Dev9b.
+# Generated automatically by Hugo from content/ at build time. Do not edit by hand.
+
+# Home
+{{ $base }}
+
+# Articles
+{{- range $posts }}
+{{ .Permalink }}
+{{- end }}
+
+# Pages
+{{ printf "%sabout/" $base }}
+{{ printf "%scontribute/" $base }}
+{{ printf "%seditorial-policy/" $base }}
+{{ printf "%steam/" $base }}
+{{ printf "%slinks/" $base }}
+{{ printf "%ssitemap/" $base }}
+{{ printf "%sarchives/" $base }}
+{{ printf "%ssearch/" $base }}
+
+# Feeds
+{{ printf "%sindex.xml" $base }}
+{{ printf "%sfeed.xml" $base }}
+{{ printf "%satom.xml" $base }}
+{{ printf "%sfeed.json" $base }}

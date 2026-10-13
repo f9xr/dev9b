@@ -1,4 +1,4 @@
-{{- /* Structured data (JSON-LD) for Dev9b.
+{{- /* Structured data (JSON-LD) for Dev9b, emitted as a single @graph.
      NOTE: Every jsonify expression is piped through safeJS. Hugo's jsonify returns a plain
      string; inside a <script> block the html/template JS context would otherwise escape
      quotes, producing invalid JSON-LD. */ -}}
@@ -16,9 +16,10 @@
     "https://youtube.com/@QuarterlyLIV"
     "https://instagram.com/f9xrteam" -}}
 
+{{- $graph := slice -}}
+
 {{/* Organization: authoritativeness & trust (E-E-A-T). Output on every page. */}}
 {{- $organization := dict
-    "@context" "https://schema.org"
     "@type" "Organization"
     "@id" (printf "%s#organization" $orgURL)
     "name" "F9XR Team"
@@ -37,20 +38,17 @@
         "areaServed" "Worldwide"
         "availableLanguage" (slice "English"))
 -}}
-<script type="application/ld+json">
-{{- $organization | jsonify | safeJS -}}
-</script>
+{{- $graph = $graph | append $organization -}}
 
 {{- if .IsHome }}
 {{/* WebSite + SearchAction on the homepage only. */}}
 {{- $searchURL := (printf "%ssearch/?keyword={search_term_string}" $siteURL) -}}
 {{- $website := dict
-    "@context" "https://schema.org"
     "@type" "WebSite"
     "@id" (printf "%s#website" $siteURL)
     "name" $siteName
     "url" $siteURL
-    "description" (.Site.Params.description | default $siteName)
+    "description" (.Site.Params.description | default .Site.Params.sidebar.subtitle | default $siteName)
     "publisher" (dict "@id" (printf "%s#organization" $orgURL))
     "inLanguage" $locale
     "potentialAction" (dict
@@ -58,23 +56,13 @@
         "target" (dict "@type" "EntryPoint" "urlTemplate" $searchURL)
         "query-input" (dict "@type" "PropertyValueSpecification" "valueRequired" true "valueName" "search_term_string"))
 -}}
-<script type="application/ld+json">
-{{- $website | jsonify | safeJS -}}
-</script>
-{{- end -}}
-
-{{- if not .IsHome }}
+{{- $graph = $graph | append $website -}}
+{{- else }}
 {{/* BreadcrumbList for every non-home page & post. */}}
 {{- $crumbs := slice (dict "@type" "ListItem" "position" 1 "name" "Home" "item" $siteURL) -}}
 {{- $crumbs = $crumbs | append (dict "@type" "ListItem" "position" 2 "name" .Title "item" .Permalink) -}}
-{{- $breadcrumb := dict
-    "@context" "https://schema.org"
-    "@type" "BreadcrumbList"
-    "itemListElement" $crumbs
--}}
-<script type="application/ld+json">
-{{- $breadcrumb | jsonify | safeJS -}}
-</script>
+{{- $breadcrumb := dict "@type" "BreadcrumbList" "itemListElement" $crumbs -}}
+{{- $graph = $graph | append $breadcrumb -}}
 {{- end -}}
 
 {{- if and .IsPage (eq .Type "post") }}
@@ -82,14 +70,8 @@
 {{- $authorName := .Params.author | default "F9XR Team" -}}
 {{- $author := dict -}}
 {{- if eq $authorName "F9XR Team" -}}
-    {{- $author = dict
-        "@type" "Organization"
-        "name" "F9XR Team"
-        "url" $orgURL
-        "sameAs" $sameAs
-    -}}
+    {{- $author = dict "@type" "Organization" "@id" (printf "%s#organization" $orgURL) "name" "F9XR Team" "url" $orgURL "sameAs" $sameAs -}}
 {{- else -}}
-    {{- /* Individual author: enrich with front-matter links when provided (authorUrl / authorGitHub). */ -}}
     {{- $author = dict "@type" "Person" "name" $authorName -}}
     {{- with .Params.authorUrl }}{{ $author = merge $author (dict "url" .) }}{{ end -}}
     {{- with .Params.authorGitHub }}
@@ -97,24 +79,44 @@
     {{- end -}}
 {{- end -}}
 
-{{- $articleImage := $logoURL -}}
-{{- with .Params.image -}}
-    {{- $articleImage = (printf "%s%s" $.Permalink .) -}}
+{{- $imageURL := $logoURL -}}
+{{- if .Params.image }}{{ $imageURL = printf "%s%s" .Permalink .Params.image }}{{ end -}}
+{{- $articleImage := dict
+    "@type" "ImageObject"
+    "@id" (printf "%s#primaryimage" .Permalink)
+    "url" $imageURL
+    "caption" .Title -}}
+{{- $imageResource := partial "helper/image" (dict "Image" .Params.image "Resources" .Resources "Context" .) -}}
+{{- with $imageResource -}}
+    {{- with .Width }}{{ $articleImage = merge $articleImage (dict "width" .) }}{{ end -}}
+    {{- with .Height }}{{ $articleImage = merge $articleImage (dict "height" .) }}{{ end -}}
 {{- end -}}
+
+{{- $webpage := dict
+    "@type" "WebPage"
+    "@id" .Permalink
+    "url" .Permalink
+    "name" .Title
+    "inLanguage" $locale
+    "isPartOf" (dict "@id" (printf "%s#website" $siteURL))
+    "primaryImageOfPage" (dict "@id" (printf "%s#primaryimage" .Permalink))
+-}}
+{{- $graph = $graph | append $webpage -}}
 
 {{- $keywords := .Params.keywords | default slice -}}
 {{- $categories := .Params.categories | default slice -}}
 {{- $articleDict := dict
-    "@context" "https://schema.org"
     "@type" (.Params.schemaType | default "TechArticle")
+    "@id" (printf "%s#article" .Permalink)
     "headline" .Title
     "description" (partial "data/description" .)
-    "image" $articleImage
+    "image" (dict "@id" (printf "%s#primaryimage" .Permalink))
     "datePublished" (.Date.Format "2006-01-02T15:04:05-07:00")
     "dateModified" (.Lastmod.Format "2006-01-02T15:04:05-07:00")
     "author" $author
     "publisher" (dict "@id" (printf "%s#organization" $orgURL))
-    "mainEntityOfPage" (dict "@type" "WebPage" "@id" .Permalink)
+    "mainEntityOfPage" (dict "@id" .Permalink)
+    "isPartOf" (dict "@id" (printf "%s#website" $siteURL))
     "inLanguage" $locale
     "wordCount" .WordCount
     "timeRequired" (printf "PT%dM" .ReadingTime)
@@ -126,20 +128,17 @@
     )
 -}}
 {{- if gt (len $keywords) 0 }}
-    {{- $articleDict = merge $articleDict (dict "keywords" $keywords) -}}
-{{- end -}}
+    {{- $articleDict = merge $articleDict (dict "keywords" $keywords) }}
+{{- end }}
 {{- if gt (len $categories) 0 }}
-    {{- $articleDict = merge $articleDict (dict "articleSection" $categories) -}}
-{{- end -}}
-<script type="application/ld+json">
-{{- $articleDict | jsonify | safeJS -}}
-</script>
-{{- end -}}
+    {{- $articleDict = merge $articleDict (dict "articleSection" $categories) }}
+{{- end }}
+{{- $imageNode := $articleImage -}}
+{{- $graph = $graph | append $imageNode -}}
+{{- $graph = $graph | append $articleDict -}}
 
-{{- if and .IsPage (eq .Type "post") }}
 {{- $faq := (.Params.faq | default slice) }}
 {{- if gt (len $faq) 0 }}
-{{- /* FAQPage for posts with front-matter `faq` (list of question/answer pairs mirroring on-page text). */ -}}
 {{- $faqList := slice -}}
 {{- range $faq -}}
     {{- $faqList = $faqList | append (dict
@@ -148,13 +147,16 @@
         "acceptedAnswer" (dict "@type" "Answer" "text" .answer)
     ) -}}
 {{- end -}}
-{{- $faq := dict
-    "@context" "https://schema.org"
+{{- $faqNode := dict
     "@type" "FAQPage"
+    "@id" (printf "%s#faq" .Permalink)
     "mainEntity" $faqList
 -}}
+{{- $graph = $graph | append $faqNode -}}
+{{- end -}}
+{{- end -}}
+
+{{- $payload := dict "@context" "https://schema.org" "@graph" $graph -}}
 <script type="application/ld+json">
-{{- $faq | jsonify | safeJS -}}
+{{- $payload | jsonify | safeJS -}}
 </script>
-{{- end -}}
-{{- end -}}

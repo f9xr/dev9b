@@ -1,0 +1,48 @@
+{{- /* Agent / AI discovery.
+     These are HTML <link> relations (in-document). True HTTP `Link:` response
+     headers (RFC 8288) cannot be set from GitHub Pages; place the equivalent
+     headers at the edge (Cloudflare Transform Rule / Worker). */ -}}
+<link rel="ai-catalog" href="/.well-known/ai-catalog.json" type="application/json" title="ARD capability catalog">
+<link rel="service-doc" href="/llms.txt" type="text/plain" title="llms.txt">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt">
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="llms-full.txt">
+<link rel="alternate" type="application/feed+json" href="/feed.json" title="Dev9b JSON Feed">
+<link rel="describedby" href="/.well-known/agent-skills/index.json" type="application/json" title="Agent skills index">
+<link rel="describedby" href="/sitemap.xml" type="application/xml" title="XML sitemap">
+
+{{- /* WebMCP: expose the site search as a tool to supporting browsers.
+     No-op where the API is absent. */ -}}
+<script>
+(function () {
+    function registerTools() {
+        var mc = (document && document.modelContext) || (navigator && navigator.modelContext);
+        if (!mc || typeof mc.registerTool !== 'function') return;
+        try {
+            mc.registerTool({
+                name: 'search-dev9b',
+                description: 'Search Dev9b, the F9XR open-source developer blog, for tutorials, guides, and coding articles.',
+                inputSchema: {
+                    type: 'object',
+                    properties: {
+                        query: { type: 'string', description: 'The search query, for example "opencode mcp servers".' }
+                    },
+                    required: ['query']
+                },
+                execute: function (input) {
+                    var q = (input && input.query) ? input.query : '';
+                    var url = '/search/?keyword=' + encodeURIComponent(q);
+                    return Promise.resolve({
+                        content: [{ type: 'text', text: 'Open ' + url + ' to see Dev9b search results.' }],
+                        action: { type: 'navigate', url: url }
+                    });
+                }
+            });
+        } catch (e) { /* WebMCP is experimental; ignore failures. */ }
+    }
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', registerTools);
+    } else {
+        registerTools();
+    }
+})();
+</script>

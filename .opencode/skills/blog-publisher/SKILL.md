@@ -309,11 +309,10 @@ powershell -NoProfile -ExecutionPolicy Bypass -File ".opencode/skills/blog-publi
 
 The gate checks: title/description length, tag count (≤4) + duplicate-slug re-use, local compressed cover, generic anchors, H1/heading hierarchy (skips code fences), word count, internal `/p/` link count, image alt text + local images, and affiliate-link disclosure. Exit line `RESULT: FAIL` means fix the FAIL items first.
 
-**Deploy-file sync — publishing is not done yet until these match:**
-- Add the post to `static/llms.txt` (one line: `https://f9xr.org/p/<slug>/` with a short description) and to `static/articles-urls.txt` (the `.URL` line format).
-- Add it to the `urlList` in `.github/workflows/deploy.yml` (the IndexNow block) — the site's IndexNow pings that exact list.
+**Machine-readable outputs are generated — do not hand-edit:**
+- `llms.txt`, `llms-full.txt`, `articles-urls.txt`, `feed.json`, `robots.txt`, and per-post `index.md` are produced by Hugo from a single build. There is **nothing to manually add** to `static/llms.txt`, `static/articles-urls.txt`, or the `deploy.yml` IndexNow `urlList` anymore — the workflow reads `public/articles-urls.txt` (see Tier 1/4 of the machine-readable setup).
 - Confirm an existing post now links inbound to the new post (edit the closest related post if needed).
-- After all edits: `hugo --gc --minify --cleanDestinationDir`, then verify the built output has **no broken `/p/` links** and **all JSON-LD blocks parse** (see the consistency-audit script used previously). Leave the site build green.
+- After all edits: `hugo --gc --minify --cleanDestinationDir`, then run `powershell -NoProfile -ExecutionPolicy Bypass -File scripts/verify-machine-readable.ps1` and confirm **no broken `/p/` links** and **all JSON-LD parses**. Leave the site build green.
 
 ### 5. Verify Final File
 
@@ -323,7 +322,7 @@ Confirm the file is at `content/post/<slug>/index.md` with:
 - Title and description within SEO limits.
 - Body reads naturally, educational, no AI-isms.
 - `draft: false` when ready to publish.
-- Publish gate passes (`publish-gate.ps1`) and deploy files (`llms.txt`, `articles-urls.txt`, `deploy.yml` IndexNow `urlList`) list the post.
+- Publish gate passes (`publish-gate.ps1`) and `scripts/verify-machine-readable.ps1` passes (generated `llms.txt`, `articles-urls.txt`, `feed.json`, robots, and per-post `index.md` are produced by the build — no manual list edits).
 
 ### 6. Build & Preview (recommended)
 

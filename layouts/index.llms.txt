@@ -1,0 +1,62 @@
+{{- $posts := where site.RegularPages "Type" "in" site.Params.mainSections -}}
+{{- $posts = $posts.ByDate.Reverse -}}
+{{- $base := site.BaseURL -}}
+# Dev9b
+
+> Dev9b is an open-source blog article publishing platform by F9XR Team. We share latest articles, tutorials, coding videos, and developer guides for the open developer community.
+
+Dev9b is a free, open-source online community where software developers share knowledge, write technical articles, and help each other grow. Made by developers, for developers.
+
+## Site
+
+- Website: {{ $base }}
+- GitHub: https://github.com/f9xr/dev9b
+- HTML Sitemap: {{ printf "%ssitemap/" $base }}
+- Machine-readable: {{ printf "%sllms.txt" $base }}
+- License: MIT (source), CC BY-NC-SA 4.0 (content)
+- Feeds: RSS ({{ printf "%sindex.xml" $base }}), RSS ({{ printf "%sfeed.xml" $base }}), Atom ({{ printf "%satom.xml" $base }}), JSON ({{ printf "%sfeed.json" $base }})
+
+## About
+
+- About Dev9b: {{ printf "%sabout/" $base }}
+- Contributor Guide: {{ printf "%scontribute/" $base }}
+- Editorial Policy: {{ printf "%seditorial-policy/" $base }}
+- The F9XR Team: {{ printf "%steam/" $base }}
+
+## Articles
+{{ range $posts }}
+- {{ .Title }}: {{ .Permalink }}
+{{- end }}
+
+## Pages
+
+- About Dev9b: {{ printf "%sabout/" $base }}
+- Contributor Guide: {{ printf "%scontribute/" $base }}
+- Editorial Policy: {{ printf "%seditorial-policy/" $base }}
+- The F9XR Team: {{ printf "%steam/" $base }}
+- Dev9b Links: {{ printf "%slinks/" $base }}
+- HTML Sitemap: {{ printf "%ssitemap/" $base }}
+- Archives: {{ printf "%sarchives/" $base }}
+- Search: {{ printf "%ssearch/" $base }}
+
+## Agent Discovery
+
+- ARD capability catalog: {{ printf "%s.well-known/ai-catalog.json" $base }}
+- Agent skills index: {{ printf "%s.well-known/agent-skills/index.json" $base }}
+- Security contact: {{ printf "%s.well-known/security.txt" $base }}
+- Markdown for agents: append `index.md` to any post URL (Accept: text/markdown)
+
+## Social
+
+- GitHub: https://github.com/f9xr
+- GitHub repository: https://github.com/f9xr/dev9b
+- LinkedIn: https://linkedin.com/company/f9xrteam
+- Pinterest: https://pinterest.com/f9xr
+- YouTube: https://youtube.com/@QuarterlyLIV
+- Instagram: https://instagram.com/f9xrteam
+
+## Contact
+
+- Email: hello@f9xr.org
+- F9XR Team: https://github.com/f9xr
+- Issues: https://github.com/f9xr/dev9b/issues

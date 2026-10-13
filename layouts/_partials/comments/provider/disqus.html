@@ -1,0 +1,99 @@
+{{/*
+    Lazy / opt-in Disqus loader (project override).
+
+    Disqus is a heavy third-party embed. Instead of loading it on every article
+    view, we render a lightweight placeholder and only inject the Disqus script
+    after the reader explicitly opts in (or after they opted in earlier in the
+    same browsing session). This keeps the page free of third-party scripts,
+    cookies and network requests until then.
+*/}}
+{{- $shortname := site.Config.Services.Disqus.Shortname | default "dev9b" -}}
+{{- $identifier := .Params.disqus_identifier | default .File.UniqueID -}}
+{{- $pageTitle := .Params.disqus_title | default .Title -}}
+{{- $pageUrl := .Params.disqus_url | default .Permalink -}}
+<div class="disqus-container">
+    <div id="disqus-optin" class="disqus-optin">
+        <p class="disqus-optin__text">
+            Comments are powered by Disqus, a third-party service. They stay
+            unloaded until you choose to load them, so no external scripts or
+            cookies run until then.
+        </p>
+        <button type="button" id="disqus-optin-btn" class="disqus-optin__btn">Load comments</button>
+    </div>
+    <div id="disqus_thread" hidden></div>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow noopener">comments powered by Disqus.</a></noscript>
+</div>
+
+<script>
+    (function () {
+        var shortname = {{ $shortname | jsonify | safeJS }};
+        var pageId = {{ $identifier | jsonify | safeJS }};
+        var pageTitle = {{ $pageTitle | jsonify | safeJS }};
+        var pageUrl = {{ $pageUrl | jsonify | safeJS }};
+
+        var optin = document.getElementById('disqus-optin');
+        var thread = document.getElementById('disqus_thread');
+        var btn = document.getElementById('disqus-optin-btn');
+        if (!optin || !thread || !btn) return;
+
+        var loaded = false;
+
+        function load() {
+            if (loaded) return;
+            loaded = true;
+
+            optin.style.display = 'none';
+            thread.hidden = false;
+
+            try { sessionStorage.setItem('disqus-opt-in', '1'); } catch (e) {}
+
+            window.disqus_config = function () {
+                this.page.url = pageUrl;
+                this.page.identifier = pageId;
+                this.page.title = pageTitle;
+            };
+
+            var d = document;
+            var s = d.createElement('script');
+            s.src = 'https://' + shortname + '.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            s.async = true;
+            (d.head || d.body).appendChild(s);
+        }
+
+        btn.addEventListener('click', load);
+
+        window.addEventListener('onColorSchemeChange', function () {
+            if (loaded && typeof DISQUS === 'object') {
+                DISQUS.reset({ reload: true });
+            }
+        });
+
+        var remembered = false;
+        try { remembered = sessionStorage.getItem('disqus-opt-in') === '1'; } catch (e) {}
+        if (remembered) { load(); }
+    })();
+</script>
+
+<style>
+    .disqus-optin {
+        padding: var(--card-padding);
+        text-align: center;
+    }
+    .disqus-optin__text {
+        margin: 0 0 1rem;
+        color: var(--card-text-color-secondary);
+    }
+    .disqus-optin__btn {
+        cursor: pointer;
+        border: 0;
+        border-radius: 6px;
+        padding: 0.6rem 1.2rem;
+        font: inherit;
+        background-color: var(--accent-color);
+        color: var(--accent-color-text);
+    }
+    .disqus-optin__btn:hover {
+        background-color: var(--accent-color-darker);
+    }
+</style>

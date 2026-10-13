@@ -1,0 +1,31 @@
+{{- $posts := where site.RegularPages "Type" "in" site.Params.mainSections -}}
+{{- $posts = $posts.ByDate.Reverse -}}
+{{- $limit := site.Config.Services.RSS.Limit -}}
+{{- if ge $limit 1 }}{{ $posts = $posts | first $limit }}{{ end -}}
+{{- $items := slice -}}
+{{- range $posts -}}
+    {{- $item := dict
+        "id" .Permalink
+        "url" .Permalink
+        "title" .Title
+        "summary" (partial "data/description" .)
+        "content_html" .Content
+        "date_published" (.PublishDate.Format "2006-01-02T15:04:05-07:00")
+        "date_modified" (.Lastmod.Format "2006-01-02T15:04:05-07:00")
+    -}}
+    {{- with .Params.author }}{{ $item = merge $item (dict "authors" (slice (dict "name" .))) }}{{ end -}}
+    {{- with .Params.tags }}{{ $item = merge $item (dict "tags" .) }}{{ end -}}
+    {{- with .Params.image }}{{ $item = merge $item (dict "image" (printf "%s%s" $.Permalink .)) }}{{ end -}}
+    {{- $items = $items | append $item -}}
+{{- end -}}
+{{- $feed := dict
+    "version" "https://jsonfeed.org/version/1.1"
+    "title" site.Title
+    "home_page_url" site.BaseURL
+    "feed_url" (printf "%sfeed.json" site.BaseURL)
+    "description" (site.Params.description | default site.Params.sidebar.subtitle)
+    "language" site.Language.Locale
+    "authors" (slice (dict "name" "F9XR Team" "url" "https://github.com/f9xr"))
+    "items" $items
+-}}
+{{ $feed | jsonify (dict "indent" "  ") }}

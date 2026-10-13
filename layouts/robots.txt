@@ -1,0 +1,75 @@
+{{- $base := site.BaseURL -}}
+# robots.txt for Dev9b
+# {{ $base }}
+
+User-agent: *
+Allow: /
+
+# Disallow build artifacts
+Disallow: /resources/
+Disallow: /public/
+
+# --- AI / agent crawlers (explicit allow) ---
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: Diffbot
+Allow: /
+
+# Sitemap
+Sitemap: {{ $base }}sitemap.xml
+
+# Agent / AI discovery
+Agentmap: {{ $base }}.well-known/ai-catalog.json
+# llms.txt: {{ $base }}llms.txt
+# llms-full.txt: {{ $base }}llms-full.txt
+# Agent skills: {{ $base }}.well-known/agent-skills/index.json
+# Markdown for agents: append index.md to any post URL

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "blog-publisher",
+      "type": "skill-md",
+      "description": "Publish a blog post to the F9XR Dev9b Hugo site on GitHub Pages. Generates Hugo front-matter, Markdown body, SEO metadata, the F9XR branding, and runs the publish-gate quality check before shipping.",
+      "url": "https://f9xr.org/.well-known/agent-skills/blog-publisher/SKILL.md",
+      "digest": "sha256:f9a3db1b68a3339454e0f81f423b95e9d35e948e9b55d61ba11d38f8807766b2"
+    },
+    {
+      "name": "mindmap",
+      "type": "skill-md",
+      "description": "Turn content such as a blog post, draft, plan, or topic into a structured mind map. Outputs a Mermaid mindmap diagram plus a Markdown tree fallback, and can embed either into a Hugo post on Dev9b.",
+      "url": "https://f9xr.org/.well-known/agent-skills/mindmap/SKILL.md",
+      "digest": "sha256:281ef797e1445c2ddb079244978db79b5df4221a601024c0e1d5a0bfb8243572"
+    }
+  ]
+}

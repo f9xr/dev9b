@@ -14,30 +14,16 @@ PRIORITY
 
 5. Low - Automate IndexNow urlList: generate from sitemap.xml at deploy time
    (deploy.yml currently hand-maintained)
+   [DONE] urlList now derived from public/articles-urls.txt (Hugo-generated) in deploy.yml.
 
 8. Low - Disqus on every article -> lazy/opt-in loader (third-party weight)
+   [DONE] layouts/_partials/comments/provider/disqus.html override: click-to-load
+   (opt-in), remembers choice for the session; embed.js injected only on demand.
 
 9. Low - Compress source covers >300KB (opencode-mcp-servers/cover.png 609KB,
    opencode-skills-guide/cover.webp 460KB)
+   [DONE] Unused source covers removed (mcp-servers/cover.png, skills-guide/cover.webp,
+   how-to-use-skelementor/cover.png); the served cover.jpg was already compressed.
+   Note: inline images customize-after.jpg (463KB) / customize-before.jpg (310KB)
+   are still >300KB if you want them optimized too.
 
-DONE 2026-10-12
----------------
-- Thin posts expanded above the 1k publish-gate minimum:
-  opencode-vs-cursor (comparison tables), hugo-github-pages-setup,
-  hugo-seo-guide, ai-coding-agents-explained (real-session walkthrough)
-- E-E-A-T author inconsistency fixed: github-pages-custom-domain-cloudflare
-  -> author: F9XR Team
-- Internal linking: OpenCode cluster cross-links added
-  (skills <-> vscode <-> mcp <-> tui <-> vs-cursor)
-- 2 H1s per page: accepted, no action (optional demote only)
-
-DONE 2026-10-09
----------------
-- 404 page: title/description/canonical->home/noindex  (layouts/_partials/*)
-- 0 duplicate titles + 0 duplicate meta descriptions (pagination "(Page N of M)")
-- /categories/ and /tags/ index descriptions
-- Removed orphan example-category + colliding categories/dev9b
-- Footer scrollable (sticky reveal removed in assets/scss/custom.scss)
-- llms.txt + articles-urls.txt: all 33 article URLs
-- deploy.yml IndexNow urlList: 34 URLs (home + 33 posts), valid JSON
-- seo_audit_report.md + .csv regenerated (2026-10-09)

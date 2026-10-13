@@ -84,6 +84,62 @@ jobs:
             --cleanDestinationDir \
             --baseURL "${{ steps.pages.outputs.base_url }}/" \
             --cacheDir "${{ runner.temp }}/hugo_cache"
+      - name: Verify machine-readable outputs
+        run: |
+          set -euo pipefail
+          fail=0
+          for f in llms.txt llms-full.txt articles-urls.txt feed.json robots.txt sitemap.xml \
+                   .well-known/ai-catalog.json .well-known/agent-skills/index.json .well-known/security.txt; do
+            if [[ -f "public/$f" ]]; then
+              echo "OK   public/$f"
+            else
+              echo "MISS public/$f"; fail=1
+            fi
+          done
+          # Every post must ship a raw markdown alternate.
+          missing_md=$(find public/p -mindepth 2 -maxdepth 2 -name index.html -printf '%h\n' | while read -r d; do [[ -f "$d/index.md" ]] || echo "$d"; done | wc -l)
+          echo "posts missing index.md: $missing_md"
+          [[ "$missing_md" -eq 0 ]] || fail=1
+          # Validate JSON files.
+          for j in public/feed.json public/.well-known/ai-catalog.json public/.well-known/agent-skills/index.json; do
+            python3 -c "import json,sys; json.load(open(sys.argv[1]))" "$j" && echo "JSON OK $j" || fail=1
+          done
+          exit $fail
+      - name: Notify search engines and IndexNow
+        run: |
+          set -euo pipefail
+          BASE="${{ steps.pages.outputs.base_url }}"
+          python3 - "$BASE" <<'PY'
+          import json, sys, urllib.request
+          base = sys.argv[1].rstrip('/')
+          urls = []
+          with open('public/articles-urls.txt', encoding='utf-8') as fh:
+              for line in fh:
+                  line = line.strip()
+                  if line and not line.startswith('#'):
+                      urls.append(line)
+          payload = {
+              "host": "f9xr.org",
+              "key": "3FFE8AD1224F6498C1B5162A3A4A4907",
+              "keyLocation": "https://f9xr.org/3FFE8AD1224F6498C1B5162A3A4A4907.txt",
+              "urlList": urls,
+          }
+          req = urllib.request.Request(
+              "https://api.indexnow.org/indexnow",
+              data=json.dumps(payload).encode(),
+              headers={"Content-Type": "application/json; charset=utf-8"},
+          )
+          try:
+              with urllib.request.urlopen(req, timeout=30) as r:
+                  print("IndexNow:", r.status, "urls:", len(urls))
+          except Exception as e:
+              print("IndexNow warning:", e)
+          try:
+              with urllib.request.urlopen(f"https://www.google.com/ping?sitemap={base}/sitemap.xml", timeout=30) as r:
+                  print("Google sitemap ping:", r.status)
+          except Exception as e:
+              print("Google ping warning:", e)
+          PY
       - name: Cache save
         id: cache-save
         uses: actions/cache/save@v5
@@ -104,11 +160,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
-      - name: Notify search engines
-        run: |
-          curl -s -o /dev/null -w "Google sitemap ping: %{http_code}\n" \
-            "https://www.google.com/ping?sitemap=${{ steps.deployment.outputs.page_url }}sitemap.xml"
-          curl -s -o /dev/null -w "IndexNow: %{http_code}\n" -X POST \
-            -H "Content-Type: application/json; charset=utf-8" \
-            -d '{"host":"f9xr.org","key":"3FFE8AD1224F6498C1B5162A3A4A4907","keyLocation":"https://f9xr.org/3FFE8AD1224F6498C1B5162A3A4A4907.txt","urlList":["https://f9xr.org/","https://f9xr.org/p/what-is-gh-secure-setup-guide/","https://f9xr.org/p/gmail-send-as-cloudflare-email-routing/","https://f9xr.org/p/cloudflare-email-routing-custom-addresses/","https://f9xr.org/p/programmatic-transactional-smtp-nodejs-setup/","https://f9xr.org/p/build-facebook-marketing-ai-agent/","https://f9xr.org/p/how-to-install-update-f9xr-codebase-auditor-skill/","https://f9xr.org/p/how-to-de-ai-slop-website-design/","https://f9xr.org/p/change-domain-ga4-multiple-data-streams-guide/","https://f9xr.org/p/scrapling-web-scraping-setup-guide/","https://f9xr.org/p/himself65-trade-skills-setup-guide/","https://f9xr.org/p/what-is-jcode-install-use-guide/","https://f9xr.org/p/what-is-arena-skill-install-use-ai-agents/","https://f9xr.org/p/advanced-movie-seat-booking-html-js/","https://f9xr.org/p/what-is-getdesign-md-ai-agents-design-system/","https://f9xr.org/p/setup-threejs-models-landing-page/","https://f9xr.org/p/affonso-affiliate-software-saas-guide/","https://f9xr.org/p/diataxis-documentation-framework-guide/","https://f9xr.org/p/image-gallery-in-dev9b-articles/","https://f9xr.org/p/markdown-syntax-guide-for-dev9b/","https://f9xr.org/p/math-typesetting-on-dev9b/","https://f9xr.org/p/useful-shortcodes-for-dev9b-articles/","https://f9xr.org/p/how-to-setup-typesafe-ai-jev/","https://f9xr.org/p/how-to-install-n8n-locally-on-pc/","https://f9xr.org/p/vibe-coder-vs-vibe-engineer/","https://f9xr.org/p/github-pages-custom-domain-cloudflare/","https://f9xr.org/p/how-to-create-cloudflare-subdomain-github-pages/","https://f9xr.org/p/how-to-use-skelementor/","https://f9xr.org/p/how-to-setup-grokbot/","https://f9xr.org/p/how-to-setup-opencode-tui/","https://f9xr.org/p/opencode-mcp-servers/","https://f9xr.org/p/ai-coding-agents-explained/","https://f9xr.org/p/hugo-github-pages-setup/","https://f9xr.org/p/opencode-vs-cursor/","https://f9xr.org/p/hugo-seo-guide/","https://f9xr.org/p/opencode-skills-guide/","https://f9xr.org/p/opencode-vscode-setup/","https://f9xr.org/p/hello-world/","https://f9xr.org/p/what-is-system-prompt-how-to-write-effective/","https://f9xr.org/p/how-to-setup-meta-muse-connectors/"]}' \
-            "https://api.indexnow.org/indexnow"
