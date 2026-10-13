@@ -271,6 +271,8 @@ Yes. The reference CLI from the format spec runs `npx @google/design.md lint DES
 
 Practicing this is a workflow change more than a tooling change, which is the same distinction we make in [Vibe Coder vs Vibe Engineer](/p/vibe-coder-vs-vibe-engineer/): the agent is not the bottleneck, the context you give it is. For teams like F9XR, the practical version is to keep one reviewed file, lint it in CI, and export tokens to the framework instead of retyping hex values by hand.
 
+If you want to see a template catalog that ships a `DESIGN.md` with every entry, our guide to [Neuform AI by Meng To](/p/neuform-ai-meng-to-guide/) walks through that workflow, from prompt to downloadable design system.
+
 If you want to see how agent context files behave in a real project setup first, [OpenCode MCP servers](/p/opencode-mcp-servers/) covers the other half of the same problem, where tools rather than tokens are what an agent is missing.
 
 Ready to contribute? The [Contributor Guide](/contribute/) explains how to submit an article to Dev9b, and everything we publish is reviewed against the standards in our [Editorial Policy](/editorial-policy/).
