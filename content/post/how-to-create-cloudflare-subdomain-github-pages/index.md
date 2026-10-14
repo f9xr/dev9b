@@ -229,4 +229,6 @@ When you add the custom domain through the GitHub Pages settings UI, GitHub crea
 
 A Cloudflare subdomain turns a generic `username.github.io` URL into a clean, branded endpoint in about fifteen minutes once DNS propagates. Keep the record DNS-only through certificate issuance, enforce HTTPS, and only then decide whether the orange cloud earns its place. For docs, blogs, and status pages, one CNAME per repo - never a wildcard - stays the cleanest pattern.
 
+If you do not own a domain yet, you can skip Cloudflare entirely for a side project and claim a name from one of the [free subdomain providers for developers](/p/free-subdomains-for-developers-list/), services like is-a.dev and JS.ORG that hand out a clean hostname you point at GitHub Pages.
+
 This is the same setup that runs Dev9b: static sites published to GitHub Pages and routed through a Cloudflare-managed domain. Every article on this site passes the F9XR review board against the standards in our [editorial policy](/editorial-policy/). Spot a DNS edge case we missed? Use the **Suggest changes** button in the toolbar above to open an edit on GitHub, or read the [contributor guide](/contribute/) to write a follow-up yourself. This draft was written with AI assistance and verified against the Cloudflare and GitHub documentation linked throughout.

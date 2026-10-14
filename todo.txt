@@ -27,3 +27,7 @@ PRIORITY
    Note: inline images customize-after.jpg (463KB) / customize-before.jpg (310KB)
    are still >300KB if you want them optimized too.
 
+
+
+https://hexo.io/
+https://icp.gov.moe/aboutus.php

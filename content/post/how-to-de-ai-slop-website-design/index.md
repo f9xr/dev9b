@@ -158,6 +158,8 @@ The three-or-four-card feature grid with a centered gray icon circle is everywhe
 
 Component-library users have an extra trap here. If you're shipping Skelementor or Elementor blocks straight from the kit, readers of our [Skelementor guide](/p/how-to-use-skelementor/) already know the drill: override the defaults before the first client sees the page, or you're renting someone else's visual identity.
 
+If the icons themselves are a big part of the sameness, our roundup of the [top Font Awesome alternatives in 2025](/p/font-awesome-alternatives-2025/) covers libraries that make it easy to move off the default gray-circle look without breaking your build.
+
 ### Step 5: Audit Every Default Component You Shipped
 
 Go through your component library — shadcn, Radix-based systems, whatever you're on — and check which ones are still running on factory settings. For each one, ask:

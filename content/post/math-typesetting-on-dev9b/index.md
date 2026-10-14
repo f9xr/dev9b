@@ -185,7 +185,7 @@ Yes. Put the LaTeX source inside a fenced code block so readers can copy it, and
 
 ## Conclusion
 
-Math on a static site is a solved problem when you keep two rules in mind: opt in per post, and let inline math stay inline while display math gets its own centered line. Everything else is ordinary LaTeX that KaTeX turns into clean, selectable, searchable notation.
+Math on a static site is a solved problem when you keep two rules in mind: opt in per post, and let inline math stay inline while display math gets its own centered line. Everything else is ordinary LaTeX that KaTeX turns into clean, selectable, searchable notation. And if you use LaTeX beyond the browser, the same skills carry straight into an [ATS-friendly LaTeX resume](/p/ats-friendly-latex-resume-guide/) that survives applicant-tracking parsers.
 
 If your equations live alongside code, tables, and diagrams, the [useful shortcodes for Dev9b articles](/p/useful-shortcodes-for-dev9b-articles/) round out the toolbox, and the [image gallery guide](/p/image-gallery-in-dev9b-articles/) shows how to add figures that complement the math.
 
