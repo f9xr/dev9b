@@ -97,7 +97,7 @@ There is also a [Chrome extension from the TypeUI community](https://github.com/
 
 ## Watch It in Action
 
-{{< youtube id="DsjEI6-5kgI" >}}
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/W1gWIQp9k1Y?si=UgMFm9KraagmQWUv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## The Neuform Workflow at a Glance
 

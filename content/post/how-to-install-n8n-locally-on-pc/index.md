@@ -327,7 +327,7 @@ Install n8n Locally
 - If you plan heavier use, move to Docker Compose with PostgreSQL instead of the default SQLite.
 - Monitor RAM. Complex workflows with many parallel executions or large binary data can push memory usage.
 
-If you are also setting up AI-assisted development tooling alongside your automations, our [How to Set Up OpenCode TUI](/p/how-to-setup-opencode-tui/) guide and the [OpenCode MCP Servers](/p/opencode-mcp-servers/) walkthrough cover the terminal workflows and MCP integrations that pair well with a local automation stack.
+If you are also setting up AI-assisted development tooling alongside your automations, our [How to Set Up OpenCode TUI](/p/how-to-setup-opencode-tui/) guide and the [OpenCode MCP Servers](/p/opencode-mcp-servers/) walkthrough cover the terminal workflows and MCP integrations that pair well with a local automation stack. For the small chores around that stack, such as clearing temp folders, launching services, or renaming exports, a plain [batch file or shell script](/p/write-run-batch-files-windows-mac/) is often all you need.
 
 ## Watch: Installing n8n with Docker Desktop
 

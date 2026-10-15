@@ -107,6 +107,8 @@ This is where most write-ups get it wrong, so it is worth being precise. `DESIGN
 
 Google's [Stitch documentation](https://stitch.withgoogle.com/docs/design-md/overview) describes the same idea from the product side, and Stitch can export a `DESIGN.md` for you from a canvas.
 
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/W1gWIQp9k1Y?si=UgMFm9KraagmQWUv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 What that means in practice: the format is young, it is currently marked `alpha`, and the schema will change. But there is a spec, a versioned token schema, and a linter, which is a very different situation from "no formal spec and no committee."
 
 ## What getdesign.md Adds
