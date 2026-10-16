@@ -213,7 +213,7 @@ Track:
 - Creative win rate
 - Time from decision to execution
 
-Ship these metrics to your existing monitoring stack.
+Ship these metrics to your existing monitoring stack. If you want a smaller project that exercises the same observe, decide, log pattern end to end, our guide to [building an AI Python crypto trading bot with the CoinGecko API](/p/setup-ai-python-crypto-trading-bot-coingecko-api/) walks through the full loop in paper-trading mode.
 
 ## Frequently Asked Questions
 
