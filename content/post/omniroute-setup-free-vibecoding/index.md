@@ -51,6 +51,8 @@ Because everything runs on your machine, your API keys and request logs stay loc
 
 Think of it as a smart switchboard for AI models. Your coding tools talk to one address. OmniRoute decides which upstream model answers, translates formats when needed, and keeps the conversation going.
 
+![OmniRoute hero diagram showing 375 providers and 150+ free tiers behind one local endpoint, with auto-fallback and stacked token compression](readme-hero.svg)
+
 ### Key Features That Matter for Developers
 
 | Feature | Why It Helps |
@@ -89,7 +91,9 @@ omniroute
 
 The dashboard opens at `http://localhost:20128`. The API lives at `http://localhost:20128/v1`.
 
-On first run you will see a simple setup flow. Change the default password under Configuration → Security if you plan to leave it running, especially on a shared machine.
+On first run you will see a simple setup flow. Change the default password under Configuration → Security if you plan to leave it running, especially on a shared machine. This is what the main dashboard looks like once it is up:
+
+![Screenshot of the OmniRoute dashboard main screen showing the provider catalog, gateway status, and usage panels](MainOmniRoute.png)
 
 ### 3. Connect Providers
 
@@ -159,7 +163,9 @@ Add at least three free or free-tier providers. A solid starter set:
 2. OpenCode Free or Pollinations (broad model access, often keyless)
 3. LongCat or Cloudflare AI (extra volume)
 
-OmniRoute's auto routing will score them on latency, remaining quota, success rate, and other factors.
+OmniRoute's auto routing will score them on latency, remaining quota, success rate, and other factors. If you want to know what free actually adds up to, the project publishes a pool-deduplicated budget breakdown of its catalog, counting each shared free pool once instead of double-counting providers that draw from the same upstream:
+
+![OmniRoute free-tier budget chart showing roughly 1.62 billion free tokens per month from deduplicated provider pools, with signup credits and uncapped providers tracked separately](free-tier-budget.svg)
 
 ### Step 3: Configure Your Coding Agent
 
@@ -237,4 +243,4 @@ By connecting multiple free providers and letting OmniRoute's auto-routing and f
 
 OmniRoute turns the usual quota anxiety into background noise. Install it, connect a few free providers, point your favorite coding agent at the local endpoint, and keep shipping. The flow stays unbroken, the cost stays zero if you want it that way, and you stay in control of your keys and data.
 
-Every article on Dev9b is published under the standards in our [Editorial Policy](/editorial-policy/). If you have a developer workflow worth sharing, the [Contributor Guide](/contribute/) explains how to get it in front of the community. This article was drafted and edited with AI assistance, then reviewed by the F9XR Team; the cover image comes from the OmniRoute project, and all version-specific details were checked against the project documentation linked above.
+Every article on Dev9b is published under the standards in our [Editorial Policy](/editorial-policy/). If you have a developer workflow worth sharing, the [Contributor Guide](/contribute/) explains how to get it in front of the community. This article was drafted and edited with AI assistance, then reviewed by the F9XR Team. The cover image, dashboard screenshot, and diagrams come from the OmniRoute project documentation, and all version-specific details were checked against the project documentation linked above.
