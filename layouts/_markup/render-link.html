@@ -10,10 +10,20 @@
       - titles come from the title attribute, or a "title:" key in the block
 
     Affiliate links in posts rely on this to emit rel="sponsored".
+
+    Root-relative destinations ("/p/...", "/editorial-policy/...") run through
+    relURL so they pick up the baseURL subpath. Hugo's relURL does not prepend
+    the base path when the input starts with "/", so the leading slash is
+    trimmed first; locally (baseURL https://f9xr.org/) the output is unchanged,
+    and under the /dev9b/ Pages deployment every link gets the correct prefix.
 */ -}}
 {{- $external := strings.HasPrefix .Destination "http" -}}
+{{- $dest := .Destination -}}
+{{- if and (not $external) (hasPrefix $dest "/") (not (hasPrefix $dest "//")) -}}
+    {{- $dest = $dest | strings.TrimPrefix "/" | relURL -}}
+{{- end -}}
 {{- $target := .Attributes.target -}}
 {{- if and (not $target) $external }}{{ $target = "_blank" }}{{ end -}}
 {{- $rel := .Attributes.rel -}}
 {{- if and (not $rel) $external }}{{ $rel = "noopener" }}{{ end -}}
-<a class="link" href="{{ .Destination | safeURL }}"{{ with .Title }} title="{{ . }}"{{ else }}{{ with .Attributes.title }} title="{{ . }}"{{ end }}{{ end }}{{ with $target }} target="{{ . }}"{{ end }}{{ with $rel }} rel="{{ . }}"{{ end }}>{{ .Text | safeHTML }}</a>
+<a class="link" href="{{ $dest | safeURL }}"{{ with .Title }} title="{{ . }}"{{ else }}{{ with .Attributes.title }} title="{{ . }}"{{ end }}{{ end }}{{ with $target }} target="{{ . }}"{{ end }}{{ with $rel }} rel="{{ . }}"{{ end }}>{{ .Text | safeHTML }}</a>
