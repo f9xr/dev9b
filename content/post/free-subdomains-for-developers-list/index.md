@@ -1,6 +1,6 @@
 ---
-title: "Free Subdomains for Devs: 10 Providers Worth Claiming"
-description: "Compare 10 free subdomain and domain services for developers, including is-a.dev, JS.ORG, DNSHE and .pp.ua. See how to claim one and what to avoid."
+title: "Free Subdomains for Devs: 14 Providers Worth Claiming"
+description: "Compare 14 free subdomain services for developers, including is-a.dev, JS.ORG, DNSHE, Zone.ID and .pp.ua. See how to claim one and what to avoid."
 slug: free-subdomains-for-developers-list
 date: 2026-10-15
 image: cover.jpg
@@ -10,6 +10,8 @@ keywords:
     - free domain
     - is-a.dev
     - JS.ORG
+    - zone.id
+    - localcert
     - GitHub Pages
     - DNS
 categories:
@@ -25,13 +27,13 @@ faq:
     - question: "What is a free subdomain?"
       answer: "A free subdomain is a name under a domain owned by someone else, such as yourname.is-a.dev. The provider hosts the DNS, and you point the name to your own website or server using a record like CNAME or A."
     - question: "Which free subdomain service is best for developers?"
-      answer: "For most developers, is-a.dev and JS.ORG are the best known options. JS.ORG suits JavaScript projects on GitHub Pages, while is-a.dev is aimed at developer portfolios and projects. For API based DNS management, DNSHE is a strong choice."
+      answer: "For most developers, is-a.dev and JS.ORG are the best known options. JS.ORG suits JavaScript projects on GitHub Pages, while is-a.dev is aimed at developer portfolios and projects. For API based DNS management, DNSHE is a strong choice, and LocalCert is the pick when you need trusted HTTPS for hosts on a private network."
     - question: "Are free subdomains safe to use?"
       answer: "They are safe for demos, portfolios and open source projects, but they carry risks. You do not own the root domain, the provider can suspend or end the program, and some free suffixes have a spam reputation. Avoid them for business critical sites or email."
     - question: "Can I use a free subdomain with GitHub Pages?"
       answer: "Yes. Most providers support GitHub Pages. Point your subdomain to yourusername.github.io with a CNAME record, then add the custom domain in your repository settings and enable HTTPS."
     - question: "How long does a free subdomain last?"
-      answer: "It depends on the provider. DNSHE and isroot.in use one year terms with reminders, and .pp.ua has a one year delegation that you can renew for free. Pull request registries usually keep your name as long as the site stays active and follows the rules."
+      answer: "It depends on the provider. DNSHE, isroot.in and Stackryze use one year terms with reminders, and .pp.ua has a one year delegation that you can renew for free. Pull request registries usually keep your name as long as the site stays active and follows the rules."
     - question: "Can I get a free domain with my own nameservers?"
       answer: "Yes, with some providers. DigitalPlat lets you connect external nameservers, DNSHE supports changing NS, and .pp.ua supports your own nameservers and glue records. isroot.in does not support custom nameservers yet."
 ---
@@ -40,9 +42,9 @@ Every developer has been there. You finish a side project on a Friday night, pus
 
 This is exactly why free subdomain programs exist. Volunteers and small teams buy a domain, split it into subdomains, and hand them out to anyone with a project to host. You get a clean URL like `yourname.is-a.dev` at no cost, and you point it at your own hosting with a DNS record.
 
-I went through ten of the best known options, checked each official page, and compared how they work, what they give you, and where they can bite you. Whether you are building a portfolio, an open source library, or a weekend API, one of these will likely fit.
+I went through fourteen of the best known options, checked each official page, and compared how they work, what they give you, and where they can bite you. Whether you are building a portfolio, an open source library, a weekend API, or a homelab that needs trusted HTTPS, one of these will likely fit.
 
-> **Quick answer:** The most popular free subdomain providers for developers are is-a.dev, JS.ORG, is-a-good.dev, Open Domains, thedev.id, js.cool, DigitalPlat, DNSHE, isroot.in and the free .pp.ua zone. Most let you claim a name through a GitHub pull request or a web dashboard, then point it to your host with a CNAME or A record.
+> **Quick answer:** The most popular free subdomain providers for developers are is-a.dev, JS.ORG, is-a-good.dev, Open Domains, thedev.id, js.cool, DigitalPlat, DNSHE, isroot.in and the free .pp.ua zone, plus Stackryze, OpenHost, Zone.ID and LocalCert. Most let you claim a name through a GitHub pull request or a web dashboard, then point it to your host with a CNAME or A record.
 
 <!--more-->
 
@@ -53,9 +55,9 @@ A free subdomain is a name under someone else's domain. The provider owns `examp
 There are two common models:
 
 1. **Pull request registries.** You fork a GitHub repository, add a small file or JSON entry describing your subdomain and DNS target, and open a pull request. A maintainer or an automated check reviews it. JS.ORG, is-a.dev, is-a-good.dev, Open Domains and thedev.id work this way.
-2. **Dashboard services.** You sign up on a website, search for a name, and manage DNS records in a control panel, sometimes through an API. DigitalPlat, DNSHE and isroot.in follow this model.
+2. **Dashboard services.** You sign up on a website, search for a name, and manage DNS records in a control panel, sometimes through an API. DigitalPlat, DNSHE, isroot.in, Stackryze, OpenHost and Zone.ID follow this model.
 
-The third case, `.pp.ua`, is a little different. It is a real second level zone where you register a full domain name for free through the NIC.UA registrar.
+Two services break the pattern. `.pp.ua` is a real second level zone where you register a full domain name for free through the NIC.UA registrar. LocalCert hands out `.localcert.net` names for a different purpose: getting publicly trusted certificates for hosts on a private network, not for publishing a website to the public internet.
 
 ## Quick Comparison Table
 
@@ -71,8 +73,12 @@ The third case, `.pp.ua`, is a little different. It is a real second level zone 
 | DNSHE | `foo.de5.net`, `foo.cc.cd` | Web dashboard and API | API driven and CI/CD workflows |
 | isroot.in | `foo.isroot.in` | Web dashboard | Students and indie hackers |
 | .pp.ua | `foo.pp.ua` | NIC.UA with phone activation | A full domain with your own nameservers |
+| Stackryze | `foo.indevs.in`, `foo.sryze.cc` | GitHub login and dashboard | Free names with bring-your-own DNS |
+| OpenHost | `foo.pride.moe`, `foo.prvcy.page` | Web dashboard | Privacy and community focused names |
+| Zone.ID | `foo.zone.id`, `foo.nett.to` | Web dashboard | Short names for general projects |
+| LocalCert | `foo.localcert.net` | Web dashboard | Trusted HTTPS for private networks |
 
-## The 10 Free Subdomain Providers, Reviewed
+## The 14 Free Subdomain Providers, Reviewed
 
 ### 1. JS.ORG
 
@@ -154,9 +160,41 @@ You need a valid phone number to activate the domain, either through an SMS code
 
 **Watch out for:** public contact details, phone activation, and yearly renewals. The restoration fee after the grace period is steep, so do not let it lapse.
 
+### 11. Stackryze Domains
+
+[Stackryze Domains](https://domain.stackryze.com/) gives free subdomains under a handful of namespaces, including `indevs.in`, `sryze.cc`, `ryzedns.org`, `nx.kg` and `ryzn.pro`. You sign in with GitHub, pick a name, and register instantly. Each registration lasts one year and can be renewed for free from 60 days before expiry, and accounts get five domains by default.
+
+The interesting part is DNS control. You can keep the default Stackryze nameservers or point the domain at Cloudflare, Route 53, DigitalOcean or another provider, so it behaves more like a small registrar than a fixed CNAME service. The project is open source and maintained by a small team in India.
+
+**Watch out for:** names cannot be renamed after registration, and the provider's docs are still marked beta. If you pick the wrong name, you have to delete the domain and register a new one.
+
+### 12. OpenHost Registry
+
+[OpenHost Registry](https://registry.openhost.uk/) has offered free names since 2023. Its available suffixes are `.pride.moe`, `.prvcy.page`, `.16-b.it`, `.32-b.it` and `.64-b.it`. The `.pride.moe` space is intended for personal sites, projects and organizations that support the LGBTQIA+ community, while the other namespaces focus on privacy and community projects.
+
+You register through the website. The registry says its names work as full domains, with A and CNAME records and NS records when the registry approves them, and WHOIS privacy is enabled by default.
+
+**Watch out for:** some namespaces have a clear purpose, so claim a name that fits. Custom nameservers are subject to approval rather than automatic.
+
+### 13. Zone.ID
+
+[Zone.ID](https://www.zone.id/) offers free `.zone.id` and `.nett.to` subdomains through a dashboard at `my.zone.id`. It is run by PT. Geksa, an Indonesian company, and the site says more than 37,000 free domains have been created. It markets its names as short, indexable by Google, and eligible for Google AdSense, which is unusual for a free namespace.
+
+Availability checks and sign-in happen on the homepage, and records are managed from the panel.
+
+**Watch out for:** much of the audience and documentation is Indonesian, and the usual free-name reputation rules still apply. Keep the site legitimate and active.
+
+### 14. LocalCert
+
+[LocalCert](https://localcert.net/) is not a website namespace. It provides free `.localcert.net` subdomains so you can get certificates from public CAs like Let's Encrypt for machines on a private network. Instead of running your own certificate authority, you create a subdomain in the dashboard and publish the ACME DNS challenge TXT record LocalCert gives you. The CA can see that record even though the host itself is only reachable on your LAN, so the certificate validates.
+
+That makes it useful for homelabs, internal dashboards and test devices that need a browser-trusted certificate without a public IP. Our [LocalCert API setup guide](/p/free-localcert-subdomain-api-setup-guide/) walks through the create call and the Certbot hook end to end.
+
+**Watch out for:** these names are for internal services, not public websites. The dashboard allows one new subdomain per 24 hours, and you need to keep the generated password safe because it is what lets you manage the subdomain and its records.
+
 ## The Free Subdomain Landscape at a Glance
 
-The map below groups the ten options by the way you actually claim them.
+The map below groups the fourteen options by the way you actually claim them.
 
 ```mermaid
 mindmap
@@ -172,8 +210,13 @@ mindmap
         DNSHE
         isroot.in
         js.cool
-    Real Free Zone
+        Stackryze
+        OpenHost
+        Zone.ID
+    Real Free Zones
         .pp.ua via NIC.UA
+    Private Networks
+        LocalCert
 ```
 
 ## How to Choose the Right One
@@ -183,9 +226,12 @@ mindmap
 | A JavaScript project URL | JS.ORG |
 | A clean developer portfolio name | is-a.dev, thedev.id |
 | Lots of DNS record types | DNSHE, Open Domains |
-| API or CI/CD automation | DNSHE |
-| Your own nameservers | DigitalPlat, .pp.ua |
-| The fastest signup without Git | isroot.in, DNSHE, DigitalPlat |
+| API or CI/CD automation | DNSHE, Stackryze |
+| Your own nameservers | DigitalPlat, .pp.ua, Stackryze |
+| A privacy or community namespace | OpenHost |
+| A short name for a general project | Zone.ID |
+| Trusted HTTPS on a private network | LocalCert |
+| The fastest signup without Git | isroot.in, DNSHE, DigitalPlat, Stackryze, Zone.ID |
 
 ## How to Claim a Free Subdomain: A Practical Walkthrough
 
@@ -222,6 +268,7 @@ Free comes with trade-offs. Keep these in mind before you print the URL on a bus
 - **You do not own the root domain.** The provider can change rules, suspend your subdomain, or shut the program down. Open Domains states in its terms that it can modify or end the program at any time.
 - **Expiry and renewals.** Several services use one year terms. Set a calendar reminder.
 - **Reputation varies.** Some free suffixes get abused by spammers, which can affect email deliverability and how browsers or filters treat the domain.
+- **Some namespaces have a purpose.** OpenHost's `.pride.moe` is meant for LGBTQIA+ community sites, and LocalCert names are for private networks. Claim a name that fits the program instead of treating every suffix as generic.
 - **Public Suffix List status matters.** Domains listed there get isolated cookies and better browser security. Domains that are not listed can have limits, like isroot.in's missing custom nameserver support.
 - **Email is risky.** Do not rely on a free subdomain for important email. If you want custom addresses, a paid domain with something like [Cloudflare Email Routing](/p/cloudflare-email-routing-custom-addresses/) is safer.
 - **SEO and trust.** A free subdomain can rank, but visitors and search engines often trust a domain you own more. For a serious product or brand, plan to move to your own domain, and set up redirects when you do. Our [Hugo SEO guide](/p/hugo-seo-guide/) covers the basics of doing that cleanly.
@@ -243,7 +290,7 @@ A free subdomain is a name under a domain owned by someone else, such as `yourna
 
 ### Which free subdomain service is best for developers?
 
-For most developers, is-a.dev and JS.ORG are the best known options. JS.ORG suits JavaScript projects on GitHub Pages, while is-a.dev is aimed at developer portfolios and projects. For API based DNS management, DNSHE is a strong choice.
+For most developers, is-a.dev and JS.ORG are the best known options. JS.ORG suits JavaScript projects on GitHub Pages, while is-a.dev is aimed at developer portfolios and projects. For API based DNS management, DNSHE is a strong choice, and LocalCert is the pick when you need trusted HTTPS for hosts on a private network.
 
 ### Are free subdomains safe to use?
 
@@ -255,7 +302,7 @@ Yes. Most providers support GitHub Pages. Point your subdomain to `yourusername.
 
 ### How long does a free subdomain last?
 
-It depends on the provider. DNSHE and isroot.in use one year terms with reminders, and `.pp.ua` has a one year delegation that you can renew for free. Pull request registries usually keep your name as long as the site stays active and follows the rules.
+It depends on the provider. DNSHE, isroot.in and Stackryze use one year terms with reminders, and `.pp.ua` has a one year delegation that you can renew for free. Pull request registries usually keep your name as long as the site stays active and follows the rules.
 
 ### Can I get a free domain with my own nameservers?
 
@@ -264,11 +311,10 @@ Yes, with some providers. DigitalPlat lets you connect external nameservers, DNS
 ## Key Takeaways
 
 - Free subdomain services let you get a clean URL for a personal site, portfolio or open source project without paying for a domain.
-- Most use either a GitHub pull request workflow (JS.ORG, is-a.dev, is-a-good.dev, Open Domains, thedev.id) or a dashboard (DigitalPlat, DNSHE, isroot.in).
-- `.pp.ua` is the exception: a real free domain zone through NIC.UA that supports your own nameservers, with phone activation and public contact details.
-- Check the rules before you apply. JS.ORG wants a clear JavaScript connection, and several providers remove empty sites.
-- You do not own the root domain, so plan for renewals, policy changes and possible suspension.
-- Use free subdomains for side projects and demos. Move serious products to a domain you own.
+- Most use either a GitHub pull request workflow (JS.ORG, is-a.dev, is-a-good.dev, Open Domains, thedev.id) or a dashboard (DigitalPlat, DNSHE, isroot.in, js.cool, Stackryze, OpenHost, Zone.ID).
+- `.pp.ua` is a real free zone through NIC.UA that supports your own nameservers, and LocalCert is the specialist for trusted HTTPS on hosts that live only on your private network.
+- Check the rules before you apply, since some namespaces have a purpose, and remember you do not own the root domain, so plan for renewals, policy changes and possible suspension.
+- Use free subdomains for side projects and demos, and move serious products to a domain you own.
 
 ## Conclusion
 
@@ -278,6 +324,6 @@ If you want to write your own developer guide for the community, read the [Contr
 
 ---
 
-*Last checked against each provider's official pages on October 14, 2026. Policies, suffixes and availability change often, so confirm details before you register.*
+*Last checked against each provider's official pages on October 19, 2026. Policies, suffixes and availability change often, so confirm details before you register.*
 
 *This guide was drafted with the assistance of an AI coding assistant, then reviewed by the F9XR Review Board before publishing.*
