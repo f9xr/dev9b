@@ -39,7 +39,7 @@ A well designed marketing AI agent can research audiences, generate creative var
 
 <!--more-->
 
-We will cover architecture, the Facebook Marketing API, LLM orchestration, safety rails, and production ready patterns you can ship. If you are new to how agents decide and act, [AI coding agents explained](/p/ai-coding-agents-explained/) covers the observe, decide, act loop this design is built on.
+We will cover architecture, the Facebook Marketing API, LLM orchestration, safety rails, and production ready patterns you can ship. If you are new to how agents decide and act, [AI coding agents explained](/p/ai-coding-agents-explained/) covers the observe, decide, act loop this design is built on. If you would rather start with an agent your users can talk to, our guide to [building a free AI voice agent on Fish.audio](/p/how-to-create-free-ai-voice-agent-fish-audio/) runs from signup to a live widget embed.
 
 ## Why Build Your Own Marketing AI Agent Instead of Buying One
 

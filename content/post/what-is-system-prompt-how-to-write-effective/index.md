@@ -81,7 +81,7 @@ Rule of thumb: if a sentence should stay true for every message in the session, 
 
 ## Why System Prompts Matter for Developers
 
-When you build coding agents, support bots, data classifiers, or internal tools, the system prompt is your control plane. A vague "You are a helpful assistant" forces the model to guess your standards on every turn. A tight system prompt removes that guesswork.
+When you build coding agents, support bots, data classifiers, or internal tools, the system prompt is your control plane. A vague "You are a helpful assistant" forces the model to guess your standards on every turn. A tight system prompt removes that guesswork. The same holds for spoken agents: our walkthrough of a [free AI voice agent on Fish.audio](/p/how-to-create-free-ai-voice-agent-fish-audio/) gets its entire personality from one short prompt.
 
 Good system prompts:
 
