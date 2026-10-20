@@ -232,6 +232,9 @@ mindmap
 | A short name for a general project | Zone.ID |
 | Trusted HTTPS on a private network | LocalCert |
 | The fastest signup without Git | isroot.in, DNSHE, DigitalPlat, Stackryze, Zone.ID |
+| A name that follows your changing home IP | noip.at DynDNS |
+
+That last row deserves a note: static subdomains point at fixed records, so they are a poor fit for home labs and self-hosted boxes behind a dynamic public IP. For that job you want Dynamic DNS instead — our [noip.at DynDNS setup guide](/p/noipat-dyndns-what-is-it-setup-guide/) covers a free, no-tracking option with a tokenized update URL.
 
 ## How to Claim a Free Subdomain: A Practical Walkthrough
 
