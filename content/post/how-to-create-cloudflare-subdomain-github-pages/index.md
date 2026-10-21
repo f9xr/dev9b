@@ -176,6 +176,7 @@ Once HTTPS is active, you can optionally turn the Cloudflare proxy (orange cloud
 - **Proxy decision**: Keep the record grey while GitHub issues the certificate. Switch to orange only after Enforce HTTPS is checked and working.
 - **Verify the finish line**: Once the subdomain is live, run the crawl described in our [Hugo SEO checklist](/p/hugo-seo-guide/) to confirm canonicals, sitemap, and feeds all point at the new host. It catches the exact class of broken-link bugs that follow a domain change.
 - **Put the zone to work**: A domain on Cloudflare can also host free custom mailboxes. Our [Cloudflare Email Routing guide](/p/cloudflare-email-routing-custom-addresses/) shows how to forward `support@` and `hello@` to an inbox you already check, on the same zone you just configured.
+- **Not running GitHub Pages?**: The same grey-cloud-first rule applies to every hosted platform on Cloudflare. For a blog on Blogger, Google asks for two CNAMEs plus four A records instead of one, and our [Blogger custom domain guide](/p/blogger-custom-domain-cloudflare-setup/) lists them exactly.
 
 ## Troubleshooting Common Cloudflare Subdomain Issues
 

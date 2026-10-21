@@ -341,7 +341,7 @@ baseURL = "https://example.com/"
 | Setup complexity | Moderate | Trivial |
 | Best for | A portfolio or company site that is the primary property | Docs, blogs, changelogs, status pages alongside a main site |
 
-If you run several GitHub Pages projects, the cleanest pattern is one subdomain per project: `docs.example.com`, `blog.example.com`, `api.example.com`. Each is a single CNAME, each is independently removable, and none of them can break the others. For the step-by-step walkthrough of adding a subdomain record in Cloudflare and wiring it into GitHub Pages, see our [Cloudflare subdomain setup guide](/p/how-to-create-cloudflare-subdomain-github-pages/).
+If you run several GitHub Pages projects, the cleanest pattern is one subdomain per project: `docs.example.com`, `blog.example.com`, `api.example.com`. Each is a single CNAME, each is independently removable, and none of them can break the others. For the step-by-step walkthrough of adding a subdomain record in Cloudflare and wiring it into GitHub Pages, see our [Cloudflare subdomain setup guide](/p/how-to-create-cloudflare-subdomain-github-pages/). If your blog lives on Blogger rather than GitHub Pages, the record set is different but the discipline is identical, and the [Blogger custom domain guide](/p/blogger-custom-domain-cloudflare-setup/) covers the two CNAMEs and four Google A records Google asks for.
 
 ## Actionable Tips From People Who Have Done This a Few Times
 

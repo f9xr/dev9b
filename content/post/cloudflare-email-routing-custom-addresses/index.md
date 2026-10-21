@@ -41,7 +41,7 @@ Cloudflare Email Routing lets you create unlimited custom addresses on your doma
 
 <!--more-->
 
-We set this up across several client domains on the F9XR team and hit the same two gotchas every time: a destination address sitting in "Pending" because nobody clicked the verification link, and leftover Google Workspace MX records quietly blocking Cloudflare's servers. Both are covered below. If you are still getting the DNS layer in place, our [Cloudflare subdomain guide for GitHub Pages](/p/how-to-create-cloudflare-subdomain-github-pages/) and the [apex domain walkthrough](/p/github-pages-custom-domain-cloudflare/) show how records, proxy status, and SSL fit together before you touch mail.
+We set this up across several client domains on the F9XR team and hit the same two gotchas every time: a destination address sitting in "Pending" because nobody clicked the verification link, and leftover Google Workspace MX records quietly blocking Cloudflare's servers. Both are covered below. If you are still getting the DNS layer in place, our [Cloudflare subdomain guide for GitHub Pages](/p/how-to-create-cloudflare-subdomain-github-pages/) and the [apex domain walkthrough](/p/github-pages-custom-domain-cloudflare/) show how records, proxy status, and SSL fit together before you touch mail. Running the blog itself on Blogger? The [Blogger custom domain setup](/p/blogger-custom-domain-cloudflare-setup/) covers the Google-specific records that go on the same zone.
 
 ```mermaid
 mindmap
