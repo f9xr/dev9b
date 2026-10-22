@@ -275,7 +275,7 @@ Practicing this is a workflow change more than a tooling change, which is the sa
 
 If you want to see a template catalog that ships a `DESIGN.md` with every entry, our guide to [Neuform AI by Meng To](/p/neuform-ai-meng-to-guide/) walks through that workflow, from prompt to downloadable design system.
 
-If you want to see how agent context files behave in a real project setup first, [OpenCode MCP servers](/p/opencode-mcp-servers/) covers the other half of the same problem, where tools rather than tokens are what an agent is missing.
+If you want to see how agent context files behave in a real project setup first, [OpenCode MCP servers](/p/opencode-mcp-servers/) covers the other half of the same problem, where tools rather than tokens are what an agent is missing. And if you want real shipped UI to study before writing that `DESIGN.md`, [connecting Mobbin to your AI agent](/p/connect-mobbin-ai-agent-mcp/) puts 600,000+ production screens within reach.
 
 Ready to contribute? The [Contributor Guide](/contribute/) explains how to submit an article to Dev9b, and everything we publish is reviewed against the standards in our [Editorial Policy](/editorial-policy/).
 
