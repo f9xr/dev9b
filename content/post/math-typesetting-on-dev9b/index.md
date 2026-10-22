@@ -2,7 +2,7 @@
 title: "Math Typesetting on Dev9b"
 description: "Write KaTeX equations in Dev9b articles. Enable math per post, use inline and block syntax correctly, and avoid the pitfalls that break rendering."
 slug: math-typesetting-on-dev9b
-date: 2024-01-20
+date: 2026-01-20
 image: cover.jpg
 author: F9XR Team
 keywords:

@@ -2,7 +2,7 @@
 title: "Image Gallery in Dev9b Articles"
 description: "Build interactive PhotoSwipe image galleries in Dev9b articles. Cover the Markdown syntax, bundle rules, alt text, and the performance tips."
 slug: image-gallery-in-dev9b-articles
-date: 2024-01-28
+date: 2026-01-28
 image: cover.jpg
 author: F9XR Team
 keywords:

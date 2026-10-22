@@ -2,7 +2,7 @@
 title: "Useful Shortcodes for Dev9b Articles"
 description: "Embed videos, quotes, and GitLab snippets in Dev9b articles with Hugo shortcodes. Practical examples, correct syntax, and when to avoid them."
 slug: useful-shortcodes-for-dev9b-articles
-date: 2024-01-25
+date: 2026-01-25
 image: cover.jpg
 author: F9XR Team
 keywords:

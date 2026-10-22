@@ -2,7 +2,7 @@
 title: "Markdown Syntax Guide for Dev9b"
 description: "The complete Markdown reference for Dev9b articles: headings, links, lists, tables, code blocks, callouts, and the exact syntax the platform renders."
 slug: markdown-syntax-guide-for-dev9b
-date: 2024-01-15
+date: 2026-01-15
 image: cover.jpg
 author: F9XR Team
 keywords:
