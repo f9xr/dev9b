@@ -52,18 +52,6 @@ None of that is a bug. It is the predictable result of two proxies both trying t
 
 This guide walks through the whole path: buying or transferring the domain, wiring up DNS records in Cloudflare, telling GitHub Pages about your domain, forcing HTTPS, and then turning the orange cloud back on safely once the certificate exists. Every command is copy-paste ready, and the troubleshooting table at the end covers the five failures that account for roughly 90 percent of the support threads on this topic.
 
-## Key Takeaways
-
-| Point | What it means for you |
-|---|---|
-| **Order matters** | Add the domain in GitHub Pages **first**, then create DNS records in Cloudflare. Reversing this opens a subdomain takeover window. |
-| **Apex needs four A records** | `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`. Add the four AAAA records too if you want IPv6. |
-| **Start with DNS only** | Set the grey cloud (DNS only) until GitHub issues the Let's Encrypt certificate. Proxying too early blocks the ACME challenge. |
-| **Never use Flexible SSL** | Flexible mode causes the infinite redirect loop. Use **Full (strict)**. |
-| **CNAME file is source of truth** | GitHub writes a `CNAME` file into your repo. If your build wipes it, the domain unsets itself on every deploy. |
-| **Propagation is not instant** | DNS can take up to 24 hours, though Cloudflare usually settles in minutes. Certificate issuance takes up to an hour after DNS resolves. |
-| **Project sites work too** | A repository like `github.com/you/dev9b` can live at a subdomain or root domain, not just at `/dev9b`. |
-
 ## What You Need Before You Start
 
 Nothing exotic, but skipping any of these will cost you time later.
@@ -396,7 +384,19 @@ Short term, expect a dip while search engines recrawl. GitHub automatically 301 
 
 GitHub Pages accepts only one custom domain per repository. To serve additional domains, register them in Cloudflare and use a Redirect Rule to 301 them to your canonical hostname.
 
-## Wrapping Up
+## Key Takeaways
+
+| Point | What it means for you |
+|---|---|
+| **Order matters** | Add the domain in GitHub Pages **first**, then create DNS records in Cloudflare. Reversing this opens a subdomain takeover window. |
+| **Apex needs four A records** | `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`. Add the four AAAA records too if you want IPv6. |
+| **Start with DNS only** | Set the grey cloud (DNS only) until GitHub issues the Let's Encrypt certificate. Proxying too early blocks the ACME challenge. |
+| **Never use Flexible SSL** | Flexible mode causes the infinite redirect loop. Use **Full (strict)**. |
+| **CNAME file is source of truth** | GitHub writes a `CNAME` file into your repo. If your build wipes it, the domain unsets itself on every deploy. |
+| **Propagation is not instant** | DNS can take up to 24 hours, though Cloudflare usually settles in minutes. Certificate issuance takes up to an hour after DNS resolves. |
+| **Project sites work too** | A repository like `github.com/you/dev9b` can live at a subdomain or root domain, not just at `/dev9b`. |
+
+## Conclusion
 
 The whole process comes down to five things done in the right order: claim the domain in GitHub Pages before touching DNS, create the correct record type for apex versus subdomain, keep the proxy off until the certificate exists, set SSL to Full (strict) before turning the proxy on, and stop your build from eating the `CNAME` file.
 

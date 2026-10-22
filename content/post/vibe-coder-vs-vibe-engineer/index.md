@@ -235,15 +235,6 @@ The good news is that the same tools associated with vibe coding can absolutely 
 
 The pattern across all of these: use AI to increase throughput, but keep human judgment in the loop at every meaningful decision point.
 
-## Key Takeaways
-
-* Vibe coding means accepting AI-generated code without deeply understanding it. It's fine for throwaway scripts, risky for production systems.
-* Vibe engineering means using AI just as aggressively, but with intentional prompting, code review, testing, and architectural ownership layered on top.
-* The difference isn't about the tools you use, it's about your process and how much accountability you take for the output.
-* Security, testing, and documentation are the three habits most commonly skipped in vibe coding and most valuable to add back in.
-* Developers who can explain their AI-assisted decisions will stand out more in code reviews, interviews, and team environments than those who can't.
-* Becoming a vibe engineer doesn't slow you down. It just makes your speed sustainable.
-
 ## Frequently Asked Questions
 
 ### What does "vibe coding" mean?
@@ -269,6 +260,19 @@ Not significantly. Most vibe engineering habits, like better prompting and quick
 ### Can AI coding tools be trusted for production code?
 
 AI coding tools can absolutely be used in production when paired with human review, automated testing, and clear architectural boundaries. The tools themselves aren't the risk; using them without oversight is.
+
+## Key Takeaways
+
+* Vibe coding means accepting AI-generated code without deeply understanding it. It's fine for throwaway scripts, risky for production systems.
+* Vibe engineering means using AI just as aggressively, but with intentional prompting, code review, testing, and architectural ownership layered on top.
+* The difference isn't about the tools you use, it's about your process and how much accountability you take for the output.
+* Security, testing, and documentation are the three habits most commonly skipped in vibe coding and most valuable to add back in.
+* Developers who can explain their AI-assisted decisions will stand out more in code reviews, interviews, and team environments than those who can't.
+* Becoming a vibe engineer doesn't slow you down. It just makes your speed sustainable.
+
+## Conclusion
+
+AI won't replace engineers. But engineers who learn to direct and verify AI will replace those who don't. Shift from accepting output to owning it, and you'll keep the speed of vibe coding with the reliability of real engineering.
 
 ## About This Post
 

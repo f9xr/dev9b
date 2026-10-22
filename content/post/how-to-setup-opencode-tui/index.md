@@ -292,16 +292,6 @@ In our own workflow at F9XR, the Git-first habit is the one we'd press hardest. 
 
 **Model responses feel slow or context feels off.** Try `/compact` to summarize the session, or start a fresh one with `/new` if the conversation has drifted far from the current task.
 
-## Key Takeaways
-
-* OpenCode's TUI is a full-screen, interactive terminal interface for AI-assisted coding, distinct from its one-shot CLI mode.
-* Install it with the official curl script, or through npm, bun, pnpm, yarn, Homebrew, or the AUR, depending on your platform.
-* Connect a provider with `/connect` inside the TUI, or `opencode auth login` from the command line; credentials are stored locally.
-* Learn the core commands: `/models`, `/new`, `/sessions`, `/undo`, `/redo`, `/compact`, and `/init` cover most daily workflows.
-* Reference files with `@`, run shell commands with `!`, and toggle between Plan and Build mode with `Tab` for safer edits.
-* Customize behavior through `tui.json`, including themes, keybinds, scroll settings, and attention notifications.
-* Undo, redo, and a smooth workflow all depend on your project being a proper Git repository, so initialize Git before you start.
-
 ## Frequently Asked Questions
 
 ### What is the OpenCode TUI?
@@ -332,6 +322,18 @@ Undo and redo are backed by Git internally, so your project folder must be an in
 
 Yes. Create a `tui.json` file to set your theme, leader key, scroll behavior, diff style, cursor style, and notification settings. Use `OPENCODE_TUI_CONFIG` if you want to point OpenCode at a custom config file path.
 
----
+## Key Takeaways
+
+* OpenCode's TUI is a full-screen, interactive terminal interface for AI-assisted coding, distinct from its one-shot CLI mode.
+* Install it with the official curl script, or through npm, bun, pnpm, yarn, Homebrew, or the AUR, depending on your platform.
+* Connect a provider with `/connect` inside the TUI, or `opencode auth login` from the command line; credentials are stored locally.
+* Learn the core commands: `/models`, `/new`, `/sessions`, `/undo`, `/redo`, `/compact`, and `/init` cover most daily workflows.
+* Reference files with `@`, run shell commands with `!`, and toggle between Plan and Build mode with `Tab` for safer edits.
+* Customize behavior through `tui.json`, including themes, keybinds, scroll settings, and attention notifications.
+* Undo, redo, and a smooth workflow all depend on your project being a proper Git repository, so initialize Git before you start.
+
+## Conclusion
+
+The OpenCode TUI brings a full coding agent into the terminal without leaving the workflows you already rely on. With Git safety, provider flexibility, and a few key commands, it's easy to make it part of your daily toolkit.
 
 *This guide was researched and drafted with the assistance of an AI coding assistant, then reviewed by the F9XR Review Board before publishing. Have feedback or want to contribute your own article? See our [Contributor Guide](/contribute/) and [Editorial Policy](/editorial-policy/).*

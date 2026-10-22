@@ -47,8 +47,6 @@ https://astro-pure.js.org/
 https://astro.build/themes/1/?search=&price%5B%5D=free
 https://lapse.startfrom.co/
 
-Ping IndexNow API 
-
 
 https://github.com/leonxlnx/taste-skill
 https://impeccable.style/
