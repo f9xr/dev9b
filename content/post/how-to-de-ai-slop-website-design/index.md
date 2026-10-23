@@ -255,7 +255,7 @@ These tools don't evaluate visual design directly, but pages with strong, specif
 
 De-AI sloping a website design isn't a redesign from scratch. It's a short, deliberate pass that turns generated output into something only your product could own. Lock the tokens, break the font default, replace the blob hero, and audit the components you never opened after scaffolding.
 
-If you want the full picture, treat this as the visual half of a larger cleanup — our companion thinking on shipping AI-assisted work without looking automated lives in [Vibe Coder vs Vibe Engineer](/p/vibe-coder-vs-vibe-engineer/), and the design-system side lives in the [getdesign.md guide](/p/what-is-getdesign-md-ai-agents-design-system/).
+If you want the full picture, treat this as the visual half of a larger cleanup — our companion thinking on shipping AI-assisted work without looking automated lives in [Vibe Coder vs Vibe Engineer](/p/vibe-coder-vs-vibe-engineer/), and the design-system side lives in the [getdesign.md guide](/p/what-is-getdesign-md-ai-agents-design-system/). For better raw material before the cleanup pass, our [UI/UX design inspiration resources guide](/p/best-ui-ux-design-inspiration-resources/) covers where to look and how to use references without copying them.
 
 Teams like F9XR treat this the same way we treat copy: AI for the first draft, humans for the decisions that make it ours. Want to write about your own de-slop process? See the [Contributor Guide](/contribute/) and read the [Editorial Policy](/editorial-policy/) before you pitch.
 

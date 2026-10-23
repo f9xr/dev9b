@@ -243,6 +243,8 @@ The workflow is the contract between your content and the live site. A few habit
 - **Treat the workflow file as code.** Every edit to `deploy.yml` gets the same review as a content change. A broken environment override won't error loudly - it deploys a stale or wrong site and calls it success.
 - **Watch the "Pages build and deployment" run after each push.** It is ground truth. A green Actions run is only half the story; the Pages run carries the actual publish.
 
+Once the site is live, comments are the next decision. Our [Utterances setup guide](/p/what-is-utterances-setup-guide/) shows how to add GitHub-backed threads without a database or a third-party tracking script.
+
 Rolling back is a redeploy away: check out the last known-good commit, push, and GitHub Pages rewrites the live site on the next successful run. A bad deploy on this setup is never more than minutes old. Content publishing on this pipeline follows the same review standards we apply across the site via the [editorial policy](/editorial-policy/).
 
 ## Key Takeaways
