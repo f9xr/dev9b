@@ -4,5 +4,5 @@ resources
 .DS_Store
 assets/jsconfig.json
 all-urls.txt
-todo-posts
+todo.txt
 tmp
