@@ -37,7 +37,7 @@ faq:
 
 If you publish content frequently, waiting for crawlers to discover new pages can be slow. IndexNow gives you a way to proactively notify participating search engines when pages are created, updated, or removed. It's lightweight, easy to automate, and fits well into a static site workflow like Hugo.
 
-Before setting it up, it's worth reading our take on the protocol: [IndexNow in 2026: Does It Still Work? The Honest Answer](/p/indexnow-api-2026-does-it-still-work/). That covers adoption, realistic expectations, and where it fits in a modern SEO stack.
+Before setting it up, it's worth reading our take on the protocol: [IndexNow in 2026: Does It Still Work? The Honest Answer](https://f9xr.org/articles/2026/10/09/indexnow-api-2026-does-it-still-work.html). That covers adoption, realistic expectations, and where it fits in a modern SEO stack.
 
 This guide walks through generating a key, hosting it, verifying it, and pinging the IndexNow API from your terminal or CI.
 
@@ -182,7 +182,7 @@ Store the token as a GitHub Secret (`INDEXNOW_KEY`). Only submit when you actual
 - **It won't fix crawl budget alone.** IndexNow is a notification, not a ranking boost. Internal links, sitemaps, and good content still matter.
 - **Check real results.** Use Bing Webmaster Tools to see if pages get picked up over time.
 
-We also recommend checking [IndexNow in 2026: Does It Still Work? The Honest Answer](/p/indexnow-api-2026-does-it-still-work/) for context on adoption. For SEO foundations, see our [Hugo SEO Guide](/p/hugo-seo-guide/), and if you're hardening DNS, the [GitHub Pages custom domain with Cloudflare](/p/github-pages-custom-domain-cloudflare/) guide is worth a read.
+We also recommend checking [IndexNow in 2026: Does It Still Work? The Honest Answer](https://f9xr.org/articles/2026/10/09/indexnow-api-2026-does-it-still-work.html) for context on adoption. For SEO foundations, see our [Hugo SEO Guide](/p/hugo-seo-guide/), and if you're hardening DNS, the [GitHub Pages custom domain with Cloudflare](/p/github-pages-custom-domain-cloudflare/) guide is worth a read.
 
 ## Key Takeaways
 

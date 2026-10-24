@@ -523,3 +523,89 @@ footer.site-footer {
     color: var(--card-text-color-secondary);
     line-height: 1.55;
 }
+
+/* ==========================================================================
+   Collapsible FAQ
+   --------------------------------------------------------------------------
+   assets/ts/faq.ts converts each ### question under the FAQ heading into a
+   native <details> element. Styles below match the article card surfaces.
+   ========================================================================== */
+
+.faq-item {
+    margin: 0 0 0.75rem;
+    border: 1px solid var(--card-separator-color);
+    border-radius: var(--card-border-radius);
+    background: color-mix(in srgb, var(--card-background) 72%, transparent);
+    scroll-margin-top: 5rem;
+    overflow: hidden;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    &[open] {
+        background: color-mix(in srgb, var(--card-background) 88%, transparent);
+    }
+}
+
+.faq-question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.9rem 1.1rem;
+    color: var(--card-text-color-main);
+    font-weight: 600;
+    line-height: 1.45;
+    cursor: pointer;
+    list-style: none;
+    transition: background-color 0.18s ease, color 0.18s ease;
+
+    &::-webkit-details-marker {
+        display: none;
+    }
+
+    &::marker {
+        content: "";
+    }
+
+    &::after {
+        content: "";
+        flex: 0 0 auto;
+        width: 0.55rem;
+        height: 0.55rem;
+        border-right: 2px solid currentColor;
+        border-bottom: 2px solid currentColor;
+        opacity: 0.6;
+        transform: rotate(45deg);
+        transition: transform 0.18s ease, opacity 0.18s ease;
+    }
+
+    &:hover {
+        color: var(--accent-color);
+        background: color-mix(in srgb, var(--accent-color) 8%, transparent);
+    }
+
+    &:focus-visible {
+        outline: 2px solid var(--accent-color);
+        outline-offset: -2px;
+    }
+}
+
+.faq-item[open] .faq-question::after {
+    opacity: 0.9;
+    transform: rotate(225deg);
+}
+
+.faq-answer {
+    padding: 0 1.1rem 1.1rem;
+    color: var(--card-text-color-main);
+
+    > :first-child {
+        margin-top: 0;
+    }
+
+    > :last-child {
+        margin-bottom: 0;
+    }
+}

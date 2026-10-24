@@ -37,6 +37,15 @@
     {{ end }}
 </article>
 
+{{- if eq .Type "post" -}}
+{{- $faqOpts := dict "minify" hugo.IsProduction "format" "esm" "target" "es2018" -}}
+{{- $faqScript := resources.Get "ts/faq.ts" | js.Build $faqOpts -}}
+<script type="module">
+import { initFaqAccordion } from '{{ $faqScript.RelPermalink }}';
+initFaqAccordion();
+</script>
+{{- end -}}
+
 {{- if and (not .Params.disableReaderTool) (eq .Type "post") -}}
 <div class="read-progress" aria-hidden="true"><div class="read-progress-bar"></div></div>
 <button type="button" class="back-to-top" data-back-to-top hidden aria-label="Back to top" title="Back to top">
