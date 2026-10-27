@@ -234,6 +234,7 @@ Not ready to buy a domain? Several [free subdomain providers for developers](/p/
 - Add environment variables under the `withastro/action` step if your build needs them (public ones only in the YAML; private ones as repository secrets).
 - Test locally with `npm run build && npm run preview` before pushing. Preview respects the `base` setting when configured correctly.
 - For documentation sites, consider the official Starlight template. It already plays nicely with GitHub Pages.
+- If you would rather host on nonprofit infrastructure, the build steps here carry over to [hosting a static site on Codeberg Pages](/p/how-to-host-static-websites-codeberg-pages/); only the deploy step changes.
 
 ## FAQ
 
