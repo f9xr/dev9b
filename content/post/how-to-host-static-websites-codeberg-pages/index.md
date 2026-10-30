@@ -260,6 +260,8 @@ You no longer need a `.domains` file on git-pages. If you migrated from v2, remo
 
 This blog is built with Hugo and deployed from a Git repository through CI, so the shape of the Codeberg setup is familiar. We have not moved Dev9b to Codeberg Pages, but we have debugged the same class of problems on GitHub Pages, and the failure modes map one-to-one.
 
+The same pattern shows up on other small Git hosts. If you want a GitLab-style workflow instead of Forgejo, our [GitGud.io setup guide](/p/what-is-gitgud-io-setup-guide-for-developers/) walks through repos, CI, and Pages on that service.
+
 The build step is rarely the problem. Authorization is. On GitHub the usual culprit is a missing CNAME file or a proxy that terminates TLS twice. On Codeberg the equivalent traps are a branch filter that does not match, a TXT record on the wrong subdomain, and a first deploy that uses HTTPS before a certificate exists. All three produce a green pipeline and an empty or broken site, which is why the delivery log and the migration check tool matter more than the build output.
 
 The other lesson is to keep the deploy target in one place. If you hardcode `https://yourname.codeberg.page` in a webhook, in a workflow, and in a README, a domain change becomes a three-file hunt. Put the URL in a repository variable and reference it from the workflow.
