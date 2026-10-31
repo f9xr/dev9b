@@ -286,6 +286,8 @@ GitGud.io is a small, independently run service. That brings real advantages: di
 
 Treat it as a good home for personal and community projects. Keep a mirror for anything you can't afford to lose.
 
+If you would rather run the whole platform yourself, the guide to [self-hosting GitLab as a GitHub alternative](/p/self-host-gitlab-github-alternative/) walks through the Omnibus install, runners, and backups on your own server.
+
 ## Key Takeaways
 
 - GitGud.io is a free Git host built on GitLab and run independently by Sapphire since October 2014.
