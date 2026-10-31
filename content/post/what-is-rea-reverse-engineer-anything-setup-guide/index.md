@@ -123,10 +123,10 @@ The agent should list tools related to binary analysis, JavaScript application i
 
 ## Common Workflows
 
-1. **Feature recreation** – See a nice UI interaction in a closed-source app, reverse the relevant code paths, and re-implement it cleanly.
-2. **Security research** – Trace how a binary handles input or stores secrets, with full evidence trails.
-3. **Migration help** – Understand how an old .NET or Electron app is structured so you can rebuild it in a modern stack.
-4. **Learning** – Use REA as a tutor that walks you through real-world binaries instead of toy examples.
+1. **Feature recreation:** See a nice UI interaction in a closed-source app, reverse the relevant code paths, and re-implement it cleanly.
+2. **Security research:** Trace how a binary handles input or stores secrets, with full evidence trails.
+3. **Migration help:** Understand how an old .NET or Electron app is structured so you can rebuild it in a modern stack.
+4. **Learning:** Use REA as a tutor that walks you through real-world binaries instead of toy examples.
 
 ## Key Takeaways
 
@@ -139,4 +139,4 @@ px rea-agents@latest setup.
 
 ## Conclusion
 
-REA changes the speed at which a competent developer can understand closed-source software. Used carefully and legally, it's one of the most useful tools in the AI agent ecosystem this year. If you're looking to extend your agent setup further, check out our guides on [connecting MCP servers to OpenCode](/p/opencode-mcp-servers/) and [setting up an AI coding agent](/p/ai-coding-agents-explained/). For more educational content like this, see our [Contributor Guide](/contribute/) and [Editorial Policy](/editorial-policy/).
+REA changes the speed at which a competent developer can understand closed-source software. Used carefully and legally, it's one of the most useful tools in the AI agent ecosystem this year. For a closer look at what agents can do with the evidence, including the DX-Ball and Notion showcases and the legal limits, read our guide to [AI agents that reverse engineer apps with REA](/p/rea-reverse-engineer-anything-ai-agents-guide/). If you're looking to extend your agent setup further, check out our guides on [connecting MCP servers to OpenCode](/p/opencode-mcp-servers/) and [setting up an AI coding agent](/p/ai-coding-agents-explained/). For more educational content like this, see our [Contributor Guide](/contribute/) and [Editorial Policy](/editorial-policy/).
