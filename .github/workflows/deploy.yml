@@ -117,11 +117,13 @@ jobs:
               for line in fh:
                   line = line.strip()
                   if line and not line.startswith('#'):
+                      if line.startswith('http://'):
+                          line = 'https://' + line[len('http://'):]
                       urls.append(line)
           payload = {
               "host": "f9xr.org",
               "key": "3FFE8AD1224F6498C1B5162A3A4A4907",
-              "keyLocation": "https://f9xr.org/3FFE8AD1224F6498C1B5162A3A4A4907.txt",
+              "keyLocation": "https://f9xr.org/dev9b/3FFE8AD1224F6498C1B5162A3A4A4907.txt",
               "urlList": urls,
           }
           req = urllib.request.Request(
