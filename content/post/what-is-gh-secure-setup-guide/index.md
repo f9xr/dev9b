@@ -79,6 +79,8 @@ All five are free for public repositories on GitHub.com. Private repositories ar
 > [!NOTE] What gh-secure does not do
 > It does not rewrite history, and it does not remove secrets that are already committed. It only prevents new ones from being pushed once secret scanning with push protection is on.
 
+That gap is where real damage happens. A key that reaches a public repo can be found, tested and resold within hours, which is the supply side of the [AI token black market](/p/ai-token-black-market-how-it-works/).
+
 ## Prerequisites
 
 Before installing, confirm three things:
