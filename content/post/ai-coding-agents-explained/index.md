@@ -158,6 +158,8 @@ A sixth question shows up the moment you stop working alone: how much memory doe
 
 This site has a recommended path for every part of the stack: the [OpenCode TUI setup](/p/how-to-setup-opencode-tui/), the [VS Code setup](/p/opencode-vscode-setup/), and the [skills guide](/p/opencode-skills-guide/) for encoding your conventions. And when a single answer is not good enough, you can stop rephrasing the prompt and put sub-agents in a bracket against each other instead - [the Arena skill tournament for Claude Code](/p/what-is-arena-skill-install-use-ai-agents/) covers that.
 
+Agents are moving into market work too. The [MiroFish repo walkthrough](/p/mirofish-repo-setup-test-saas-launch/) shows how a swarm of simulated buyers can pressure test a launch before real traffic arrives.
+
 ## Key Takeaways
 
 - An agent is a plan-act-check loop, not a chat box.
