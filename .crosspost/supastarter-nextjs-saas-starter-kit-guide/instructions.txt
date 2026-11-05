@@ -9,7 +9,7 @@ Commit and push this article, .crosspost/supastarter-nextjs-saas-starter-kit-gui
 before publishing anywhere. dev.to and Medium fetch images by URL.
 
 DEV.TO
-  Published by this tool. Status: not published yet
+  Published by this tool. Status: live https://dev.to/f9xrteam/supastarter-explained-build-your-nextjs-saas-faster-4n0m
   File: .crosspost/supastarter-nextjs-saas-starter-kit-guide/devto.md (source stays published: false).
 
 MEDIUM

@@ -12,5 +12,6 @@ What's inside:
 
 Read the full guide:
 Dev9b: https://f9xr.org/dev9b/p/supastarter-nextjs-saas-starter-kit-guide/
+dev.to: https://dev.to/f9xrteam/supastarter-explained-build-your-nextjs-saas-faster-4n0m
 
 #DevOps #OpenSource #AI

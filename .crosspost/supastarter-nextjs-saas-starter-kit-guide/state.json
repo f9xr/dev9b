@@ -2,7 +2,7 @@
   "slug": "supastarter-nextjs-saas-starter-kit-guide",
   "title": "Supastarter Explained: Build Your Next.js SaaS Faster",
   "site_url": "https://f9xr.org/dev9b/p/supastarter-nextjs-saas-starter-kit-guide/",
-  "generated_at": "2026-11-05T13:35:49+00:00",
+  "generated_at": "2026-11-05T13:36:33+00:00",
   "linkedin_cover": ".crosspost/supastarter-nextjs-saas-starter-kit-guide/linkedin-cover.jpg",
   "cover_url": "https://raw.githubusercontent.com/f9xr/dev9b/master/content/post/supastarter-nextjs-saas-starter-kit-guide/cover.jpg",
   "artifacts": {
@@ -12,5 +12,12 @@
     "medium.html": ".crosspost/supastarter-nextjs-saas-starter-kit-guide/medium.html",
     "linkedin.txt": ".crosspost/supastarter-nextjs-saas-starter-kit-guide/linkedin.txt",
     "linkedin-cover.jpg": ".crosspost/supastarter-nextjs-saas-starter-kit-guide/linkedin-cover.jpg"
+  },
+  "devto": {
+    "id": 4982292,
+    "url": "https://dev.to/f9xrteam/supastarter-explained-build-your-nextjs-saas-faster-4n0m",
+    "published": true,
+    "org": "f9xrteam",
+    "updated_at": "2026-11-05T13:36:33+00:00"
   }
 }
