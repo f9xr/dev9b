@@ -26,4 +26,7 @@
 {{- if and (not $target) $external }}{{ $target = "_blank" }}{{ end -}}
 {{- $rel := .Attributes.rel -}}
 {{- if and (not $rel) $external }}{{ $rel = "noopener" }}{{ end -}}
+{{- if and $external (findRE `(?i)[?&](atp|via|ref|aff|affiliate|partner|subid|clickid)=` .Destination 1) -}}
+    {{- $rel = "sponsored nofollow noopener" -}}
+{{- end -}}
 <a class="link" href="{{ $dest | safeURL }}"{{ with .Title }} title="{{ . }}"{{ else }}{{ with .Attributes.title }} title="{{ . }}"{{ end }}{{ end }}{{ with $target }} target="{{ . }}"{{ end }}{{ with $rel }} rel="{{ . }}"{{ end }}>{{ .Text | safeHTML }}</a>

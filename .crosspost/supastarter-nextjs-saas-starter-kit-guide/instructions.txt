@@ -1,0 +1,37 @@
+Cross-post kit for supastarter-nextjs-saas-starter-kit-guide
+=============================================================
+
+Source: content/post/supastarter-nextjs-saas-starter-kit-guide/index.md
+Site:   https://f9xr.org/dev9b/p/supastarter-nextjs-saas-starter-kit-guide/
+Cover:  https://raw.githubusercontent.com/f9xr/dev9b/master/content/post/supastarter-nextjs-saas-starter-kit-guide/cover.jpg
+
+Commit and push this article, .crosspost/supastarter-nextjs-saas-starter-kit-guide/ and static/crosspost/supastarter-nextjs-saas-starter-kit-guide/
+before publishing anywhere. dev.to and Medium fetch images by URL.
+
+DEV.TO
+  Published by this tool. Status: not published yet
+  File: .crosspost/supastarter-nextjs-saas-starter-kit-guide/devto.md (source stays published: false).
+
+MEDIUM
+  1. Open https://medium.com/new-story
+  2. Type the title from the source front matter (Medium never fills it).
+  3. Open .crosspost/supastarter-nextjs-saas-starter-kit-guide/medium.html in a browser, select all, copy,
+     and paste into the Medium body. Tables are PNG images hosted on
+     raw.githubusercontent.com, and Medium re-hosts them.
+  4. Add topics and publish.
+
+AWS BUILDER CENTER
+  1. builder.aws.com -> + -> Article.
+  2. Title: .crosspost/supastarter-nextjs-saas-starter-kit-guide/builder-title.txt
+  3. Description: .crosspost/supastarter-nextjs-saas-starter-kit-guide/builder-description.txt
+  4. Paste the body from .crosspost/supastarter-nextjs-saas-starter-kit-guide/builder.html (tables render natively).
+  5. Tags (max 5): .crosspost/supastarter-nextjs-saas-starter-kit-guide/builder-tags.txt
+  6. Upload the cover: content/post/supastarter-nextjs-saas-starter-kit-guide/cover.jpg
+     (recommended 1200x675).
+
+LINKEDIN
+  1. Open .crosspost/supastarter-nextjs-saas-starter-kit-guide/linkedin.txt and paste into the composer.
+  2. Attach .crosspost/supastarter-nextjs-saas-starter-kit-guide/linkedin-cover.jpg (1200x627).
+  3. Post. Re-run `build` after the dev.to URL is known to add the dev.to link.
+
+Re-run: python scripts/crosspost/crosspost.py build supastarter-nextjs-saas-starter-kit-guide
