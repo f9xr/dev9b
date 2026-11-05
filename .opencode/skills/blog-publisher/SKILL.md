@@ -347,6 +347,22 @@ Publishing happens automatically via GitHub Actions when committed to `main`. If
 - Do NOT commit or push unless the user explicitly asks.
 - Never commit secrets or API keys.
 
+### 8. Cross-post Everywhere (optional, but expected)
+
+After the publish gate passes, generate the syndication artifacts:
+
+```powershell
+python scripts/crosspost/crosspost.py build <slug>
+```
+
+This writes `.crosspost/<slug>/` (dev.to markdown, Medium HTML, Builder Center HTML, LinkedIn text and cover) and `static/crosspost/<slug>/` (table images for Medium). To publish the dev.to copy live under the configured organization:
+
+```powershell
+python scripts/crosspost/crosspost.py publish <slug>
+```
+
+That needs `$DEV_TO_API_KEY` or `~/.devto.key`, and the cover plus `static/crosspost/<slug>/` must already be pushed. Medium, Builder Center and LinkedIn still need a signed-in browser: follow `.crosspost/<slug>/instructions.txt`. See the **crosspost** skill for the full flow.
+
 ---
 
 ## Article File Naming (page bundle)

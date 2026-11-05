@@ -292,4 +292,6 @@ Store keys in environment variables or a secrets manager, scan repos before you 
 
 The economics are simple. Stolen compute is free for the seller and expensive for the victim, and a relay makes it easy to resell. Your defense is boring work: short-lived scoped keys, secret scanning, spending limits and a habit of watching usage.
 
+For a design that removes provider keys from your app entirely, our guide to [building a SaaS app with Puter.js](/p/puter-js-build-saas-app-guide/) walks through a keyless, user-pays setup.
+
 If you want to write up what you find, our [contributor guide](/contribute/) explains how to submit. Every post here, including this one, is checked against the standards in our [editorial policy](/editorial-policy/).

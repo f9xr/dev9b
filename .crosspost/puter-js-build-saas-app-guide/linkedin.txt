@@ -1,0 +1,16 @@
+Puter.js Explained: Build a SaaS App With No Backend
+
+What is Puter.js? Learn how its user-pays model, auth, storage, KV and AI work, and follow a step-by-step guide to build and deploy your SaaS app.
+
+What's inside:
+
+- Puter.js is a serverless JavaScript SDK that gives frontend apps auth, storage, a KV database, AI, hosting and workers.
+- The user-pays model bills each user's usage to their own Puter account, so your infrastructure cost does not grow with users.
+- It is keyless, which removes the risk of leaking provider API keys from your app.
+- It is a strong fit for AI tools, MVPs and personal apps, and a weaker fit for apps needing relational data or classic per-seat billing.
+- Shared data across users needs a Serverless Worker, because each user's storage is isolated.
+
+Read the full guide:
+Dev9b: https://f9xr.org/p/puter-js-build-saas-app-guide/
+
+#DevOps #OpenSource #AI
