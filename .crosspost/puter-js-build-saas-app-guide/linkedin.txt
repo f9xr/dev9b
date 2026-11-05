@@ -12,6 +12,6 @@ What's inside:
 
 Read the full guide:
 Dev9b: https://f9xr.org/dev9b/p/puter-js-build-saas-app-guide/
-dev.to: https://dev.to/f9xr/puterjs-explained-build-a-saas-app-with-no-backend-12ln
+dev.to: https://dev.to/f9xrteam/puterjs-explained-build-a-saas-app-with-no-backend-12ln
 
 #DevOps #OpenSource #AI

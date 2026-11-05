@@ -9,7 +9,7 @@ Commit and push this article, .crosspost/puter-js-build-saas-app-guide/ and stat
 before publishing anywhere. dev.to and Medium fetch images by URL.
 
 DEV.TO
-  Published by this tool. Status: live https://dev.to/f9xr/puterjs-explained-build-a-saas-app-with-no-backend-12ln
+  Published by this tool. Status: live https://dev.to/f9xrteam/puterjs-explained-build-a-saas-app-with-no-backend-12ln
   File: .crosspost/puter-js-build-saas-app-guide/devto.md (source stays published: false).
 
 MEDIUM
