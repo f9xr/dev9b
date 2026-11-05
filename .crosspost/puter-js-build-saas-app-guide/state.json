@@ -2,16 +2,13 @@
   "slug": "puter-js-build-saas-app-guide",
   "title": "Puter.js Explained: Build a SaaS App With No Backend",
   "site_url": "https://f9xr.org/dev9b/p/puter-js-build-saas-app-guide/",
-  "generated_at": "2026-11-05T13:25:23+00:00",
-  "linkedin_cover": ".crosspost/puter-js-build-saas-app-guide/linkedin-cover.jpg",
+  "generated_at": "2026-11-05T14:14:29+00:00",
   "cover_url": "https://raw.githubusercontent.com/f9xr/dev9b/master/content/post/puter-js-build-saas-app-guide/cover.jpg",
   "artifacts": {
     "devto.md": ".crosspost/puter-js-build-saas-app-guide/devto.md",
     "builder.md": ".crosspost/puter-js-build-saas-app-guide/builder.md",
     "builder.html": ".crosspost/puter-js-build-saas-app-guide/builder.html",
-    "medium.html": ".crosspost/puter-js-build-saas-app-guide/medium.html",
-    "linkedin.txt": ".crosspost/puter-js-build-saas-app-guide/linkedin.txt",
-    "linkedin-cover.jpg": ".crosspost/puter-js-build-saas-app-guide/linkedin-cover.jpg"
+    "medium.html": ".crosspost/puter-js-build-saas-app-guide/medium.html"
   },
   "devto": {
     "id": 4982183,

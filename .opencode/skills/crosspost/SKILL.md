@@ -1,16 +1,16 @@
 ---
 name: crosspost
 description: >
-  Publish a Dev9b Hugo article to dev.to, Medium, AWS Builder Center and
-  LinkedIn. Use after a post passes publish-gate.ps1, or when asked to
+  Publish a Dev9b Hugo article to dev.to, Medium and AWS Builder Center.
+  Use after a post passes publish-gate.ps1, or when asked to
   "cross-post", "syndicate", "publish everywhere", "post to dev.to",
-  "make a Medium version", "Builder Center version" or "LinkedIn post".
+  "make a Medium version" or "Builder Center version".
   One source file: content/post/<slug>/index.md.
 ---
 
 # Cross-post a Dev9b article
 
-One Hugo page bundle becomes four artifacts, because each destination disagrees
+One Hugo page bundle becomes three artifacts, because each destination disagrees
 about tables, code blocks, cover images and markup.
 
 | Destination | How it is delivered | What the tool writes |
@@ -18,7 +18,6 @@ about tables, code blocks, cover images and markup.
 | dev.to | REST API, draft first, live on publish | `.crosspost/<slug>/devto.md`, then publishes it |
 | Medium | No API, paste HTML | `.crosspost/<slug>/medium.html` (tables become PNGs) |
 | AWS Builder Center | No API, paste HTML, upload cover | `.crosspost/<slug>/builder.html`, title, description, tags |
-| LinkedIn | Composer only, no API draft | `.crosspost/<slug>/linkedin.txt` + `linkedin-cover.jpg` |
 
 ## Commands
 
@@ -31,9 +30,8 @@ python scripts/crosspost/crosspost.py publish <slug> --draft
 python scripts/crosspost/crosspost.py latest              # newest post, all in
 ```
 
-`publish` builds, checks that the cover URL is reachable, creates or updates the
-dev.to article under the organization in `.crosspost.json`, then rebuilds the
-LinkedIn post with the live URL.
+`publish` builds, checks that the cover URL is reachable, and creates or updates
+the dev.to article under the organization in `.crosspost.json`.
 
 ## Prerequisites
 
@@ -50,9 +48,6 @@ LinkedIn post with the live URL.
    `.crosspost/<slug>/medium.html` in a browser, copy all, paste, add topics.
 2. **Builder Center:** new Article, paste title, description and
    `builder.html`, pick tags, upload `cover.jpg`.
-3. **LinkedIn:** paste `linkedin.txt` into the composer, attach
-   `linkedin-cover.jpg`, post.
-4. Re-run `build` after the dev.to URL exists so the LinkedIn post carries it.
 
 ## Rules
 

@@ -369,6 +369,8 @@ The core Puter platform is open source under the AGPL-3.0 license and is develop
 
 Puter.js is a useful answer to a specific problem: you want to ship an AI-powered app without becoming a cloud billing department. The user-pays model and keyless design remove two of the biggest costs and risks for a small team. It will not fit every product, especially one that needs relational data, full control over accounts or classic per-seat subscriptions.
 
+If you would rather buy a Next.js SaaS starter kit with organizations and subscription billing already wired, our guide to [supastarter](https://f9xr.org/dev9b/p/supastarter-nextjs-saas-starter-kit-guide/) covers that route.
+
 If you want to try it, start with the QuickNotes AI example, deploy it to a `puter.site` subdomain, and watch how the user-pays flow behaves with real people. Read the [Contributor Guide](https://f9xr.org/dev9b/contribute/) and [Editorial Policy](https://f9xr.org/dev9b/editorial-policy/) if you want to share your own build with the Dev9b community.
 
 ## Sources

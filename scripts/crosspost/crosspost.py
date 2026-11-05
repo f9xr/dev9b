@@ -1,5 +1,5 @@
 ﻿#!/usr/bin/env python3
-"""Syndicate a Dev9b Hugo article to dev.to, Medium, AWS Builder Center and LinkedIn.
+"""Syndicate a Dev9b Hugo article to dev.to, Medium and AWS Builder Center.
 
 One source file: content/post/<slug>/index.md (Hugo page bundle, YAML front matter).
 Everything below is derived from it, because the destinations disagree:
@@ -7,7 +7,6 @@ Everything below is derived from it, because the destinations disagree:
   dev.to          full REST API, renders tables/code/emoji natively.
   Medium          no API; needs HTML with tables rendered as images. Paste it.
   AWS Builder     no API; needs markdown/HTML without front matter or emoji.
-  LinkedIn        no drafts through the API; needs plain text plus a cover image.
 
 Usage (from the repository root):
 
@@ -17,7 +16,7 @@ Usage (from the repository root):
     python scripts/crosspost/crosspost.py latest
 
 `build` writes artifacts only. `publish` creates/updates the dev.to copy (live by
-default, drafts with --draft) and then regenerates the LinkedIn post with its URL.
+default, drafts with --draft).
 
 Artifacts live in .crosspost/<slug>/ (committed, outside Hugo content).
 Table images live in static/crosspost/<slug>/ because Medium fetches them by URL.
@@ -53,7 +52,7 @@ except ImportError:  # pragma: no cover
     sys.exit("Missing PyYAML. Install it with: python -m pip install PyYAML Pillow")
 
 try:
-    from PIL import Image, ImageDraw, ImageFont, ImageOps
+    from PIL import Image, ImageDraw, ImageFont
 except ImportError:  # pragma: no cover
     Image = None
 
@@ -90,7 +89,6 @@ def load_config() -> dict:
         "devto_org": "aws-builders",
         "devto_publish": True,
         "author": "F9XR Team",
-        "brand_hashtags": ["DevOps", "OpenSource", "AI"],
     }
     path = ROOT / ".crosspost.json"
     if path.exists():
@@ -406,34 +404,6 @@ def builder_tags(meta: dict, limit: int = 5) -> list[str]:
     if isinstance(raw, str):
         raw = [p.strip() for p in raw.split(",")]
     return [str(t).strip() for t in raw if str(t).strip()][:limit]
-
-
-def markdown_to_text(value: str) -> str:
-    text = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", value)
-    text = re.sub(r"!\[[^\]]*\]\([^)]+\)", "", text)
-    text = re.sub(r"[*_`~#>]", "", text)
-    return re.sub(r"\s+", " ", text).strip()
-
-
-def key_takeaways(body: str, limit: int = 5) -> list[str]:
-    lines = body.splitlines()
-    capture = False
-    bullets: list[str] = []
-    for line in lines:
-        if re.match(r"^#{1,6}\s+key takeaways\b", line, flags=re.I):
-            capture = True
-            continue
-        if capture and re.match(r"^#{1,6}\s+", line):
-            break
-        if capture and re.match(r"^\s*[-*]\s+", line):
-            item = markdown_to_text(re.sub(r"^\s*[-*]\s+", "", line))
-            if item:
-                if len(item) > 240:
-                    item = item[:237].rsplit(" ", 1)[0] + "..."
-                bullets.append(item)
-        if len(bullets) >= limit:
-            break
-    return bullets
 
 
 # ---------------------------------------------------------------------------
@@ -823,68 +793,6 @@ def build_builder_html(page_html: str, meta: dict, config: dict, slug: str) -> s
 
 
 # ---------------------------------------------------------------------------
-# LinkedIn
-# ---------------------------------------------------------------------------
-
-
-def linkedin_hashtags(meta: dict, config: dict) -> str:
-    raw = config.get("brand_hashtags") or []
-    if not raw:
-        raw = [str(t) for t in (meta.get("tags") or [])][:3]
-    tags = []
-    for item in raw:
-        word = re.sub(r"[^A-Za-z0-9]", "", str(item))
-        if word:
-            tags.append("#" + word)
-    return " ".join(tags[:4])
-
-
-def build_linkedin(
-    meta: dict, body: str, config: dict, slug: str, state: dict
-) -> str:
-    title = markdown_to_text(str(meta.get("title") or ""))
-    description = markdown_to_text(str(meta.get("description") or ""))
-    bullets = key_takeaways(body)
-    site = site_url(config, f"/p/{slug}/")
-    devto = (state.get("devto") or {}).get("url") if state else None
-
-    lines = [title, "", description]
-    if bullets:
-        lines += ["", "What's inside:", ""]
-        lines += [f"- {b}" for b in bullets]
-    lines += ["", "Read the full guide:", f"Dev9b: {site}"]
-    if devto:
-        lines.append(f"dev.to: {devto}")
-    hashtags = linkedin_hashtags(meta, config)
-    if hashtags:
-        lines += ["", hashtags]
-
-    text = "\n".join(lines)
-    if len(text) > 3000:
-        text = text[:2950].rsplit("\n", 1)[0] + "\n\n" + hashtags
-    return text.strip() + "\n"
-
-
-def make_linkedin_cover(meta: dict, slug: str, config: dict) -> Path | None:
-    if Image is None:
-        return None
-    src = post_dir(slug) / str(meta.get("image") or "cover.jpg")
-    if not src.exists():
-        return None
-    out = artifacts_dir(slug) / "linkedin-cover.jpg"
-    out.parent.mkdir(parents=True, exist_ok=True)
-    image = Image.open(src).convert("RGB")
-    fitted = ImageOps.contain(image, (1200, 627), Image.LANCZOS)
-    canvas = Image.new("RGB", (1200, 627), (14, 18, 28))
-    canvas.paste(
-        fitted,
-        ((1200 - fitted.width) // 2, (627 - fitted.height) // 2),
-    )
-    canvas.save(out, format="JPEG", quality=86, optimize=True, progressive=True)
-    return out
-
-
-# ---------------------------------------------------------------------------
 # State and build orchestration
 # ---------------------------------------------------------------------------
 
@@ -955,11 +863,6 @@ def build(slug: str, config: dict, quiet: bool = False) -> dict:
     builder_html = build_builder_html(page_html, meta, config, slug)
     (out / "builder.html").write_text(builder_html, encoding="utf-8")
 
-    linkedin = build_linkedin(meta, body, config, slug, state)
-    (out / "linkedin.txt").write_text(linkedin, encoding="utf-8")
-    cover = make_linkedin_cover(meta, slug, config)
-    state["linkedin_cover"] = rel_posix(cover) if cover else None
-
     state["cover_url"] = raw_url(config, cover_repo_path(meta, slug))
     state["artifacts"] = {
         name: rel_posix(out / name)
@@ -968,8 +871,6 @@ def build(slug: str, config: dict, quiet: bool = False) -> dict:
             "builder.md",
             "builder.html",
             "medium.html",
-            "linkedin.txt",
-            "linkedin-cover.jpg",
         )
         if (out / name).exists()
     }
@@ -1022,11 +923,6 @@ def write_instructions(slug: str, meta: dict, state: dict, config: dict) -> None
         f"  5. Tags (max 5): {rel_posix(out / 'builder-tags.txt')}",
         f"  6. Upload the cover: content/post/{slug}/{meta.get('image') or 'cover.jpg'}",
         "     (recommended 1200x675).",
-        "",
-        "LINKEDIN",
-        f"  1. Open {rel_posix(out / 'linkedin.txt')} and paste into the composer.",
-        f"  2. Attach {rel_posix(out / 'linkedin-cover.jpg')} (1200x627).",
-        "  3. Post. Re-run `build` after the dev.to URL is known to add the dev.to link.",
         "",
         "Re-run: python scripts/crosspost/crosspost.py build " + slug,
     ]
@@ -1257,14 +1153,11 @@ def main(argv: list[str] | None = None) -> int:
         meta, _ = parse_post(post_dir(slug) / "index.md")
         live = not args.draft
         state = publish_devto(slug, meta, CONFIG, live)
-        # The LinkedIn post carries the dev.to URL, so rebuild it after publishing.
-        build(slug, CONFIG, quiet=True)
         devto = state.get("devto") or {}
         print(f"{'published' if devto.get('published') else 'draft'} {slug}")
         print(f"  dev.to  {devto.get('url')}")
         print(f"  medium  {rel_posix(artifacts_dir(slug) / 'medium.html')}")
         print(f"  builder {rel_posix(artifacts_dir(slug) / 'builder.html')}")
-        print(f"  linkedin {rel_posix(artifacts_dir(slug) / 'linkedin.txt')}")
         return 0
 
     return 1

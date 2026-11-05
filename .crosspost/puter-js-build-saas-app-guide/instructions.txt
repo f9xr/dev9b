@@ -29,9 +29,4 @@ AWS BUILDER CENTER
   6. Upload the cover: content/post/puter-js-build-saas-app-guide/cover.jpg
      (recommended 1200x675).
 
-LINKEDIN
-  1. Open .crosspost/puter-js-build-saas-app-guide/linkedin.txt and paste into the composer.
-  2. Attach .crosspost/puter-js-build-saas-app-guide/linkedin-cover.jpg (1200x627).
-  3. Post. Re-run `build` after the dev.to URL is known to add the dev.to link.
-
 Re-run: python scripts/crosspost/crosspost.py build puter-js-build-saas-app-guide

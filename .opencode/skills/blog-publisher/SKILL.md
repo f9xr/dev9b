@@ -355,13 +355,13 @@ After the publish gate passes, generate the syndication artifacts:
 python scripts/crosspost/crosspost.py build <slug>
 ```
 
-This writes `.crosspost/<slug>/` (dev.to markdown, Medium HTML, Builder Center HTML, LinkedIn text and cover) and `static/crosspost/<slug>/` (table images for Medium). To publish the dev.to copy live under the configured organization:
+This writes `.crosspost/<slug>/` (dev.to markdown, Medium HTML, Builder Center HTML) and `static/crosspost/<slug>/` (table images for Medium). To publish the dev.to copy live under the configured organization:
 
 ```powershell
 python scripts/crosspost/crosspost.py publish <slug>
 ```
 
-That needs `$DEV_TO_API_KEY` or `~/.devto.key`, and the cover plus `static/crosspost/<slug>/` must already be pushed. Medium, Builder Center and LinkedIn still need a signed-in browser: follow `.crosspost/<slug>/instructions.txt`. See the **crosspost** skill for the full flow.
+That needs `$DEV_TO_API_KEY` or `~/.devto.key`, and the cover plus `static/crosspost/<slug>/` must already be pushed. Medium and Builder Center still need a signed-in browser: follow `.crosspost/<slug>/instructions.txt`. See the **crosspost** skill for the full flow.
 
 ---
 
