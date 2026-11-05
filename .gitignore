@@ -8,3 +8,7 @@ todo.txt
 tmp
 __pycache__/
 *.pyc
+.env
+.env.*
+!.env.example
+.devto.key
