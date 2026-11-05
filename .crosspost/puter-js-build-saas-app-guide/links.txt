@@ -1,1 +1,1 @@
-site = https://f9xr.org/p/puter-js-build-saas-app-guide/
+site = https://f9xr.org/dev9b/p/puter-js-build-saas-app-guide/

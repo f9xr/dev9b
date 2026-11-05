@@ -2,7 +2,7 @@ Cross-post kit for puter-js-build-saas-app-guide
 =================================================
 
 Source: content/post/puter-js-build-saas-app-guide/index.md
-Site:   https://f9xr.org/p/puter-js-build-saas-app-guide/
+Site:   https://f9xr.org/dev9b/p/puter-js-build-saas-app-guide/
 Cover:  https://raw.githubusercontent.com/f9xr/dev9b/master/content/post/puter-js-build-saas-app-guide/cover.jpg
 
 Commit and push this article, .crosspost/puter-js-build-saas-app-guide/ and static/crosspost/puter-js-build-saas-app-guide/

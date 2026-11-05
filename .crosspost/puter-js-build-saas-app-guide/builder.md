@@ -55,7 +55,7 @@ According to the official docs, you also pay for your own usage when you use you
 | Scaling cost | Grows with users | Does not grow for you |
 | Abuse protection | Rate limits, CAPTCHAs, quotas | Mostly handled by per-user limits |
 
-There is a security angle worth noting. If you have read about the [AI token black market](https://f9xr.org/p/ai-token-black-market-how-it-works/), where stolen provider keys get resold, a keyless design removes one of the biggest causes of that problem for your project. There is simply no provider key in your frontend to steal.
+There is a security angle worth noting. If you have read about the [AI token black market](https://f9xr.org/dev9b/p/ai-token-black-market-how-it-works/), where stolen provider keys get resold, a keyless design removes one of the biggest causes of that problem for your project. There is simply no provider key in your frontend to steal.
 
 ## When Puter.js Is a Good Fit
 
@@ -63,7 +63,7 @@ Puter.js shines for projects where infrastructure cost and setup time are the ma
 
 - **AI-powered tools and wrappers.** Chat assistants, summarizers, image generators and writing tools where inference cost would otherwise eat your margin.
 - **MVPs and weekend projects.** You can go from idea to a hosted app in an afternoon.
-- **Vibe-coded apps.** Puter publishes an `llms.txt` file with its full API so coding agents can read it, and offers a hosted MCP server. See our take on [vibe coder vs vibe engineer](https://f9xr.org/p/vibe-coder-vs-vibe-engineer/) for the trade-offs of building this way.
+- **Vibe-coded apps.** Puter publishes an `llms.txt` file with its full API so coding agents can read it, and offers a hosted MCP server. See our take on [vibe coder vs vibe engineer](https://f9xr.org/dev9b/p/vibe-coder-vs-vibe-engineer/) for the trade-offs of building this way.
 - **Utility apps for individuals.** Notes, trackers, file tools and editors where each person's data is private anyway.
 
 ## When Puter.js Is Not the Right Choice
@@ -262,7 +262,7 @@ puter worker deploy ./api.js my-api
 
 The CLI is in beta, so behavior may change between releases. For CI, set the `PUTER_AUTH_TOKEN` environment variable and the CLI skips interactive login.
 
-If you want a branded URL, you can also host the front end elsewhere. Our guides on [hosting static sites with Codeberg Pages](https://f9xr.org/p/how-to-host-static-websites-codeberg-pages/), [GitHub Pages with a Cloudflare custom domain](https://f9xr.org/p/github-pages-custom-domain-cloudflare/) and [free subdomains for developers](https://f9xr.org/p/free-subdomains-for-developers-list/) cover those options. Puter.js still works from any website, since it identifies your app by origin.
+If you want a branded URL, you can also host the front end elsewhere. Our guides on [hosting static sites with Codeberg Pages](https://f9xr.org/dev9b/p/how-to-host-static-websites-codeberg-pages/), [GitHub Pages with a Cloudflare custom domain](https://f9xr.org/dev9b/p/github-pages-custom-domain-cloudflare/) and [free subdomains for developers](https://f9xr.org/dev9b/p/free-subdomains-for-developers-list/) cover those options. Puter.js still works from any website, since it identifies your app by origin.
 
 ## Using AI Coding Agents With Puter.js
 
@@ -274,7 +274,7 @@ Puter leans into agent-driven development. Two things are useful here:
 claude mcp add --transport http --scope user puter https://mcp.puter.com/
 ```
 
-Then authenticate with Puter and ask your agent in plain language, for example "Publish the dist folder as a website." If you are new to this setup, read our explainers on [AI coding agents](https://f9xr.org/p/ai-coding-agents-explained/) and [OpenCode MCP servers](https://f9xr.org/p/opencode-mcp-servers/).
+Then authenticate with Puter and ask your agent in plain language, for example "Publish the dist folder as a website." If you are new to this setup, read our explainers on [AI coding agents](https://f9xr.org/dev9b/p/ai-coding-agents-explained/) and [OpenCode MCP servers](https://f9xr.org/dev9b/p/opencode-mcp-servers/).
 
 ## Puter.js vs Supabase and Firebase
 
@@ -360,7 +360,7 @@ The core Puter platform is open source under the AGPL-3.0 license and is develop
 
 Puter.js is a useful answer to a specific problem: you want to ship an AI-powered app without becoming a cloud billing department. The user-pays model and keyless design remove two of the biggest costs and risks for a small team. It will not fit every product, especially one that needs relational data, full control over accounts or classic per-seat subscriptions.
 
-If you want to try it, start with the QuickNotes AI example, deploy it to a `puter.site` subdomain, and watch how the user-pays flow behaves with real people. Read the [Contributor Guide](https://f9xr.org/contribute/) and [Editorial Policy](https://f9xr.org/editorial-policy/) if you want to share your own build with the Dev9b community.
+If you want to try it, start with the QuickNotes AI example, deploy it to a `puter.site` subdomain, and watch how the user-pays flow behaves with real people. Read the [Contributor Guide](https://f9xr.org/dev9b/contribute/) and [Editorial Policy](https://f9xr.org/dev9b/editorial-policy/) if you want to share your own build with the Dev9b community.
 
 ## Sources
 

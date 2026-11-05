@@ -11,6 +11,6 @@ What's inside:
 - Shared data across users needs a Serverless Worker, because each user's storage is isolated.
 
 Read the full guide:
-Dev9b: https://f9xr.org/p/puter-js-build-saas-app-guide/
+Dev9b: https://f9xr.org/dev9b/p/puter-js-build-saas-app-guide/
 
 #DevOps #OpenSource #AI
