@@ -9,7 +9,7 @@ Commit and push this article, .crosspost/discord-leaves-electron-rust-rewrite-sh
 before publishing anywhere. dev.to and Medium fetch images by URL.
 
 DEV.TO
-  Published by this tool. Status: not published yet
+  Published by this tool. Status: live https://dev.to/f9xrteam/discord-drops-electron-for-rust-should-you-follow-473b
   File: .crosspost/discord-leaves-electron-rust-rewrite-should-you/devto.md (source stays published: false).
 
 MEDIUM

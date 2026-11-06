@@ -2,12 +2,19 @@
   "slug": "discord-leaves-electron-rust-rewrite-should-you",
   "title": "Discord Drops Electron for Rust: Should You Follow?",
   "site_url": "https://f9xr.org/dev9b/p/discord-leaves-electron-rust-rewrite-should-you/",
-  "generated_at": "2026-11-06T16:25:43+00:00",
+  "generated_at": "2026-11-06T16:32:48+00:00",
   "cover_url": "https://raw.githubusercontent.com/f9xr/dev9b/master/content/post/discord-leaves-electron-rust-rewrite-should-you/cover.jpg",
   "artifacts": {
     "devto.md": ".crosspost/discord-leaves-electron-rust-rewrite-should-you/devto.md",
     "builder.md": ".crosspost/discord-leaves-electron-rust-rewrite-should-you/builder.md",
     "builder.html": ".crosspost/discord-leaves-electron-rust-rewrite-should-you/builder.html",
     "medium.html": ".crosspost/discord-leaves-electron-rust-rewrite-should-you/medium.html"
+  },
+  "devto": {
+    "id": 4989547,
+    "url": "https://dev.to/f9xrteam/discord-drops-electron-for-rust-should-you-follow-473b",
+    "published": true,
+    "org": "f9xrteam",
+    "updated_at": "2026-11-06T16:32:52+00:00"
   }
 }

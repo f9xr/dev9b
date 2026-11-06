@@ -1,1 +1,2 @@
 site = https://f9xr.org/dev9b/p/discord-leaves-electron-rust-rewrite-should-you/
+devto = https://dev.to/f9xrteam/discord-drops-electron-for-rust-should-you-follow-473b
