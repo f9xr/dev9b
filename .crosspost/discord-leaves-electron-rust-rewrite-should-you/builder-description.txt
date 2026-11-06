@@ -1,0 +1,1 @@
+Discord is replacing Electron with a Rust and GPUI rebuild. See why it matters, what the 290MB RAM claim means, and whether your app should switch.

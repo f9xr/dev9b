@@ -1,0 +1,32 @@
+Cross-post kit for discord-leaves-electron-rust-rewrite-should-you
+===================================================================
+
+Source: content/post/discord-leaves-electron-rust-rewrite-should-you/index.md
+Site:   https://f9xr.org/dev9b/p/discord-leaves-electron-rust-rewrite-should-you/
+Cover:  https://raw.githubusercontent.com/f9xr/dev9b/master/content/post/discord-leaves-electron-rust-rewrite-should-you/cover.jpg
+
+Commit and push this article, .crosspost/discord-leaves-electron-rust-rewrite-should-you/ and static/crosspost/discord-leaves-electron-rust-rewrite-should-you/
+before publishing anywhere. dev.to and Medium fetch images by URL.
+
+DEV.TO
+  Published by this tool. Status: not published yet
+  File: .crosspost/discord-leaves-electron-rust-rewrite-should-you/devto.md (source stays published: false).
+
+MEDIUM
+  1. Open https://medium.com/new-story
+  2. Type the title from the source front matter (Medium never fills it).
+  3. Open .crosspost/discord-leaves-electron-rust-rewrite-should-you/medium.html in a browser, select all, copy,
+     and paste into the Medium body. Tables are PNG images hosted on
+     raw.githubusercontent.com, and Medium re-hosts them.
+  4. Add topics and publish.
+
+AWS BUILDER CENTER
+  1. builder.aws.com -> + -> Article.
+  2. Title: .crosspost/discord-leaves-electron-rust-rewrite-should-you/builder-title.txt
+  3. Description: .crosspost/discord-leaves-electron-rust-rewrite-should-you/builder-description.txt
+  4. Paste the body from .crosspost/discord-leaves-electron-rust-rewrite-should-you/builder.html (tables render natively).
+  5. Tags (max 5): .crosspost/discord-leaves-electron-rust-rewrite-should-you/builder-tags.txt
+  6. Upload the cover: content/post/discord-leaves-electron-rust-rewrite-should-you/cover.jpg
+     (recommended 1200x675).
+
+Re-run: python scripts/crosspost/crosspost.py build discord-leaves-electron-rust-rewrite-should-you

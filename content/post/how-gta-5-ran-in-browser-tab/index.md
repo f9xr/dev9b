@@ -171,6 +171,6 @@ Yes. Any title that ships with a WebAssembly plus WebGPU target, or that is desi
 
 The October 2026 browser experiment did not invent new primitives. It simply pushed existing web platform features harder than most production titles have dared. For developers the takeaway is practical: the browser is now a viable target for engines that once required a native desktop runtime.
 
-The hard parts remain the same as any large software project: memory discipline, asset strategy, and respecting the platform's security model. Get those right and the rest becomes engineering rather than magic. If you want to write up your own browser-port experiments, read the [Contributor Guide](/contribute/) and our [Editorial Policy](/editorial-policy/) first, then send us what you built.
+The hard parts remain the same as any large software project: memory discipline, asset strategy, and respecting the platform's security model. Get those right and the rest becomes engineering rather than magic. For a desktop-side example of the same trade-off, our analysis of [Discord replacing Electron with Rust](/p/discord-leaves-electron-rust-rewrite-should-you/) covers when a rewrite pays off and when it does not. If you want to write up your own browser-port experiments, read the [Contributor Guide](/contribute/) and our [Editorial Policy](/editorial-policy/) first, then send us what you built.
 
 *This article was drafted with AI assistance and reviewed by the F9XR Team before publication. Always verify version-specific API details against current browser documentation.*
