@@ -7,7 +7,7 @@ cover_image: https://raw.githubusercontent.com/f9xr/dev9b/master/content/post/di
 canonical_url: https://f9xr.org/dev9b/p/discord-leaves-electron-rust-rewrite-should-you/
 ---
 
-If you have ever alt-tabbed out of a game and watched Discord sit on a gigabyte of RAM, you already understand why this news landed so loudly. On November 4, 2026, Discord co-founder and CTO Stanislav Vishnevskiy confirmed on X that the company is rebuilding its desktop client in Rust. Electron is going away. React Native is going away too, at least on mobile.
+If you have ever alt-tabbed out of a game and watched [Discord](https://discord.com/) sit on a gigabyte of RAM, you already understand why this news landed so loudly. On November 4, 2026, Discord co-founder and CTO Stanislav Vishnevskiy confirmed on X that the company is rebuilding its desktop client in Rust. Electron is going away. React Native is going away too, at least on mobile.
 
 For users, that is a story about a lighter chat app. For developers, it is a bigger signal. One of the most visible Electron apps in the world is walking away from the framework that made web-tech desktop apps normal. That raises a fair question for the rest of us: should you do the same?
 
@@ -31,6 +31,8 @@ The core facts are short. The details behind them matter more.
 | Early metric | About 290.2 MB of RAM on Windows 11 in a screenshot |
 | Timing | Discord hopes to start user testing soon. No release date has been given |
 
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">We&#39;ve been early adopters of Rust since 2018 and a lot of our infra, voice tech, and even some of the current client is already Rust, the holy grail was getting the whole client there. That means Electron goes away, and so does React Native, mobile keeps native UI but shares app code with desktop via Rust. We hope to get it into testing with users soon&#8482;. (And it&#39;s not Tauri, it&#39;s GPUI, so good guess everyone.) Alright, back to staring at the WoW Forever login screen.</p>&mdash; Stanislav (@svishnevskiy) <a href="https://x.com/svishnevskiy/status/2118081920194203799?ref_src=twsrc%5Etfw">November 4, 2026</a></blockquote>
+
 Rust is not new at Discord. The company has used it since 2018 in infrastructure, voice technology and parts of the current client. What changed is the scope. The goal now is to bring the entire client into Rust.
 
 Vishnevskiy described the shared core as the main prize. Mobile keeps its native interface, while state, networking and business logic move into one Rust codebase that both platforms can use. He also said the new client looks and works like the current one, which is a useful promise to hold the team to when a beta ships.
@@ -51,9 +53,12 @@ There is also the history behind the 4 GB figure. A Discord employee said in Dec
 
 The fair reading: the early result is promising, and the full story is not in yet.
 
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">The new Discord client using less RAM is just part of the story. Clicking around feels instant, I can&#39;t go back. Check out the boot time. https://t.co/x7ayyWBVQJ</p>&mdash; Stanislav (@svishnevskiy) <a href="https://x.com/svishnevskiy/status/2118398632236073156?ref_src=twsrc%5Etfw">November 5, 2026</a></blockquote>
+<script async src="https://platform.x.com/widgets.js" charset="utf-8"></script>
+
 ## Why Electron Became Discord's Bottleneck
 
-Electron lets you build a desktop app with HTML, CSS and JavaScript. It does that by bundling two large pieces with every app: the Chromium browser engine and a Node.js runtime. You get one codebase for Windows, macOS and Linux, plus the web ecosystem. You also get a browser's worth of memory overhead for every app.
+[Electron](https://f9xr.org/dev9b/p/discord-leaves-electron-rust-rewrite-should-you/<https:/en.wikipedia.org/wiki/Electron_(software_framework)>) lets you build a desktop app with HTML, CSS and JavaScript. It does that by bundling two large pieces with every app: the Chromium browser engine and a Node.js runtime. You get one codebase for Windows, macOS and Linux, plus the web ecosystem. You also get a browser's worth of memory overhead for every app.
 
 For a chat app that stays open all day, runs voice, video, screen sharing, overlays and thousands of messages, that overhead adds up. Discord's desktop client has been criticized for memory use for years. The criticism got louder as RAM prices rose and vendors brought back 8 GB Windows 11 configurations, which makes heavy background apps harder to defend.
 
@@ -103,7 +108,7 @@ Electron has been the default answer for cross-platform desktop apps for about a
 
 ### 2. Rust keeps moving up the stack
 
-Rust began as a systems language for servers, tooling and infrastructure. Using it for the full client, UI included, is a statement about how far the ecosystem has come. Readers building with agents and terminal tools will recognize the pattern. If you want to see how lighter tools compare with heavier ones, read our comparison of [OpenCode vs Cursor](https://f9xr.org/dev9b/p/opencode-vs-cursor/), and our guide to the [OpenCode terminal UI](https://f9xr.org/dev9b/p/how-to-setup-opencode-tui/). For the wider category, our explainer on [AI coding agents](https://f9xr.org/dev9b/p/ai-coding-agents-explained/) covers what these tools actually do.
+[Rust](https://rust-lang.org/) began as a systems language for servers, tooling and infrastructure. Using it for the full client, UI included, is a statement about how far the ecosystem has come. Readers building with agents and terminal tools will recognize the pattern. If you want to see how lighter tools compare with heavier ones, read our comparison of [OpenCode vs Cursor](https://f9xr.org/dev9b/p/opencode-vs-cursor/), and our guide to the [OpenCode terminal UI](https://f9xr.org/dev9b/p/how-to-setup-opencode-tui/). For the wider category, our explainer on [AI coding agents](https://f9xr.org/dev9b/p/ai-coding-agents-explained/) covers what these tools actually do.
 
 ### 3. Shared code across desktop and mobile is the prize
 

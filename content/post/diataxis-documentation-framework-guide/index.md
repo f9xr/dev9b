@@ -42,7 +42,7 @@ In this guide you will learn what Diátaxis is, how its four types work, how to 
 
 ## What Is the Diátaxis Documentation Framework?
 
-**Diátaxis** (pronounced roughly "dee-uh-TAK-sis") is a framework for organizing technical documentation, created by Daniele Procida. The name comes from Ancient Greek and means "across arrangement."
+[**Diátaxis**](https://diataxis.fr/) (pronounced roughly "dee-uh-TAK-sis") is a framework for organizing technical documentation, created by [Daniele Procida](https://diataxis.fr/). The name comes from Ancient Greek and means "across arrangement."
 
 The core idea is simple. Readers arrive at documentation with one of four distinct needs, and each need deserves its own type of content. Instead of mixing everything into one long page, you separate the content into four forms:
 
@@ -51,7 +51,7 @@ The core idea is simple. Readers arrive at documentation with one of four distin
 3. Reference
 4. Explanation
 
-Canonical, the company behind Ubuntu, publicly adopted Diátaxis as the foundation of its documentation work and described it as a map and compass for quality. Other well-known projects such as Django and Cloudflare are commonly cited as users of the approach, which shows it scales from open source libraries to large product suites.
+[Canonical](https://canonical.com/), the company behind [Ubuntu](https://ubuntu.com/), publicly adopted Diátaxis as the foundation of its documentation work and described it as a map and compass for quality. Other well-known projects such as [Django](https://www.djangoproject.com/) and [Cloudflare](https://developers.cloudflare.com/) are commonly cited as users of the approach, which shows it scales from open source libraries to large product suites.
 
 > **Quick definition:** The Diátaxis framework is a documentation structure that divides technical content into four types (tutorials, how-to guides, reference, and explanation) so each page serves one clear reader need.
 
@@ -174,7 +174,7 @@ If a tutorial contains a long architectural digression, move that part into an e
 
 ### Step 4: Create a Simple Folder Structure
 
-Here is a minimal layout that works well for Markdown-based docs sites, including Hugo, MkDocs, Docusaurus, and Astro Starlight:
+Here is a minimal layout that works well for Markdown-based docs sites, including [Hugo](https://gohugo.io/), [MkDocs](https://www.mkdocs.org/), [Docusaurus](https://docusaurus.io/), and [Astro Starlight](https://starlight.astro.build/):
 
 ```text
 docs/
