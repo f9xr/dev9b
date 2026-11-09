@@ -1,2 +1,0 @@
-site = https://f9xr.org/dev9b/p/puter-js-build-saas-app-guide/
-devto = https://dev.to/f9xrteam/puterjs-explained-build-a-saas-app-with-no-backend-12ln

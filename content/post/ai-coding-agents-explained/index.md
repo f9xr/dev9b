@@ -156,6 +156,8 @@ Before you standardize on any agent, run the same five-question test:
 
 A sixth question shows up the moment you stop working alone: how much memory does an extra session cost? Most terminal agents run one process per session, so running four in parallel means paying that cost four times, and that is usually what forces teams back to one agent at a time. [jCode, a Rust-built coding agent harness](/p/what-is-jcode-install-use-guide/), publishes per-session memory figures in the ~10 MB range by sharing a single daemon, which is worth measuring on your own machine before you standardise on anything.
 
+Cost is the other test. If you want to try an agent before paying for one, [running Cline on OpenRouter free models](/p/use-cline-free-openrouter-models/) gets you a working setup for nothing beyond the rate limits.
+
 This site has a recommended path for every part of the stack: the [OpenCode TUI setup](/p/how-to-setup-opencode-tui/), the [VS Code setup](/p/opencode-vscode-setup/), and the [skills guide](/p/opencode-skills-guide/) for encoding your conventions. And when a single answer is not good enough, you can stop rephrasing the prompt and put sub-agents in a bracket against each other instead - [the Arena skill tournament for Claude Code](/p/what-is-arena-skill-install-use-ai-agents/) covers that.
 
 Agents are moving into market work too. The [MiroFish repo walkthrough](/p/mirofish-repo-setup-test-saas-launch/) shows how a swarm of simulated buyers can pressure test a launch before real traffic arrives.

@@ -1,4 +1,0 @@
-discord
-electron
-rust
-performance
