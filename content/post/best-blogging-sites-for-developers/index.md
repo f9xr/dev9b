@@ -45,7 +45,7 @@ So we sorted through them. This guide covers 23 **blogging sites for developers*
 
 **For most developers, the best starting point is Hashnode or DEV.** Both are free, both handle Markdown and code blocks well, and both put your writing in front of a built-in audience of programmers. Hashnode adds a custom domain and a GitHub backup. DEV has the bigger community.
 
-**If you want full ownership and long-term SEO value, use a static site generator like [Hugo](https://gohugo.io) or [Astro](https://astro.build) on [GitHub Pages](https://pages.github.com)**, then cross-post to DEV or Hashnode with a canonical URL pointing back to your own site.
+**If you want full ownership and long-term SEO value, use a static site generator like [Hugo](https://gohugo.io) or [Astro](https://astro.build) on [GitHub Pages](https://pages.github.com)**, then cross-post to DEV or Hashnode with a canonical URL pointing back to your own site. If DEV is part of that plan, our [Dev.to API key guide](/p/how-to-get-devto-api-key-post-articles-api/) shows the exact request that publishes a post from a script.
 
 ## How We Chose These 23 Platforms
 
