@@ -139,7 +139,7 @@ Context handling is inconsistent. A 1M-token window on paper does not mean the m
 
 Free models still earn a place for learning how an agent behaves, testing a workflow, or handling small edits. For a refactor that touches twenty files, a cheap paid model on the same key will save you more time than it costs.
 
-If you want a fully local option instead, [OmniRoute sets up a free gateway for local and remote models](/p/omniroute-setup-free-vibecoding/), and it pairs well with the same workflow.
+If you want a fully local option instead, [OmniRoute sets up a free gateway for local and remote models](/p/omniroute-setup-free-vibecoding/), and it pairs well with the same workflow. For a hosted alternative that includes the models, [Freebuff offers a free ad-supported coding agent](/p/what-is-freebuff-free-ai-coding-agent/) with hour-based limits instead of request caps.
 
 ## Common Problems and Fixes
 
