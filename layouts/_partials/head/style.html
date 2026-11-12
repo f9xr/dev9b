@@ -1,0 +1,7 @@
+{{- /* Optimized main CSS: defer non-critical stylesheet using media=print onload.
+    Critical above-the-fold styles should be inlined here if needed.
+    The onload trick lets the browser download CSS without blocking rendering. */ -}}
+{{ $sass := resources.Get "scss/style.scss" }}
+{{ $style := $sass | toCSS | minify | resources.Fingerprint "sha256" }}
+<link rel="stylesheet" href="{{ $style.RelPermalink }}" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="{{ $style.RelPermalink }}"></noscript>

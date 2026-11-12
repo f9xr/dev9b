@@ -20,7 +20,7 @@ tags:
     - tutorial
     - writing
 draft: false
-math: false
+math: true
 faq:
     - question: "Are LaTeX resumes ATS-friendly?"
       answer: "Yes, when they use a single-column layout, standard headings, and plain text. Multi-column or table-heavy designs often fail. The compiled PDF must contain selectable text."

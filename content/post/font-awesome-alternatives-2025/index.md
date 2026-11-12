@@ -47,7 +47,7 @@ This guide walks through the leading icon libraries of the year, from the giant 
 
 "Icon libraries have become central to the modern web experience," explains Sasha Rodriguez, UX Director at DesignForward. "What we're seeing in 2025 is a move toward more customizable, lightweight options that integrate seamlessly with today's development frameworks."
 
-This shift comes as designers increasingly prioritize loading speeds and unique brand expressions. Teams are moving away from the ubiquitous look that once dominated the web, and the same instinct that drives us to [de-AI-slop our website design](/p/how-to-de-ai-slop-website-design/) applies directly to icons: the default set is competent, but it is also everywhere.
+This shift comes as designers increasingly prioritize loading speeds and unique brand expressions. Teams are moving away from the ubiquitous look that once dominated the web, and the same instinct that drives us to [de-AI-slop our website design](/p/how-to-de-ai-slop-website-design/) applies directly to icons: the default set is competent, but it is also everywhere. If you are weighing the two biggest names head to head, our [Lucide vs Font Awesome comparison](/p/lucide-vs-font-awesome/) covers licensing, bundle size and React support in detail.
 
 ## Leading Contenders in the Icon Space
 

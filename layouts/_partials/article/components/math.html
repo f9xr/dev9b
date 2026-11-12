@@ -1,0 +1,37 @@
+{{- /* Math/KaTeX: load only when math: true is set in front matter.
+    Avoids loading ~100 KB of unused JS/CSS on posts without math.
+    All scripts are deferred; CSS uses print/onload to avoid render-blocking. */ -}}
+{{- $explicitMath := .Params.math | default false -}}
+
+{{- if not $explicitMath -}}{{- return -}}{{- end -}}
+
+{{- $ktList := index hugo.Data.external "KaTeX" | default slice -}}
+{{- $ktSrc := "https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" -}}
+{{- range $ktList -}}
+    {{- if eq .type "script" -}}
+        {{- $ktSrc = .src -}}
+    {{- end -}}
+{{- end -}}
+<script src="{{ $ktSrc }}" defer></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"></noscript>
+<script defer>
+    window.addEventListener("DOMContentLoaded", () => {
+        const elementsToRender = [".main-article", ".widget--toc"];
+
+        elementsToRender.forEach(selector => {
+            const element = document.querySelector(selector);
+            if (element) {
+                renderMathInElement(element, {
+                    delimiters: [
+                        { left: "$$", right: "$$", display: true },
+                        { left: "$", right: "$", display: false },
+                        { left: "\\(", right: "\\)", display: false },
+                        { left: "\\[", right: "\\]", display: true }
+                    ],
+                    ignoredClasses: ["gist"]
+                });
+            }
+        });
+    });
+</script>
