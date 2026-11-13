@@ -40,6 +40,10 @@ Hashnode now ships an official MCP server that closes that gap. Add one URL, log
 
 One important requirement up front: the target publication must be on Hashnode Pro. Free publications cannot accept write operations through the API or MCP.
 
+![Hashnode official website homepage showing the blog writing and publishing platform](hashnode-official-website-homepage.png "Hashnode official website and publishing platform")
+
+*The Hashnode homepage in November 2026, where publications and agent access are managed.*
+
 This guide walks through the exact setup, the tools your agent gains, safe publishing patterns, and how the MCP server fits alongside the GraphQL agent skill and the Hashnode CLI. 
 
 <!--more-->

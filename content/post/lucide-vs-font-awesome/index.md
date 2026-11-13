@@ -63,7 +63,11 @@ Many projects end up using Lucide for interface icons and a separate brand icon 
 
 ## What Is Lucide?
 
-Lucide is an open source icon library made of SVG icons drawn on a 24 by 24 grid with a consistent 2 pixel stroke. It started in 2020 as a community fork of Feather Icons, which had only 286 icons and slowed down in development. Lucide kept the same clean look, stayed backward compatible with Feather, and grew to more than 1,500 icons. You can browse the full set on the [Lucide official site](https://lucide.dev).
+Lucide is an open source icon library made of SVG icons drawn on a 24 by 24 grid with a consistent 2 pixel stroke. It started in 2020 as a community fork of Feather Icons, which had only 286 icons and slowed down in development. Lucide kept the same clean look, stayed backward compatible with Feather, and grew to more than 2,000 icons. You can browse the full set on the [Lucide official site](https://lucide.dev).
+
+![Lucide official website homepage showing consistent outline icons and a search across 2,051 icons](lucide-official-website-homepage.png "Lucide official website and icon search")
+
+*The Lucide homepage in November 2026, with its icon search and version 1.71.0.*
 
 Key facts:
 
@@ -76,6 +80,10 @@ Key facts:
 ## What Is Font Awesome?
 
 Font Awesome is one of the oldest and best known icon toolkits on the web. It was created for Bootstrap era projects, later grew into a company backed product, and is now on **version 7**, which launched in July 2025. Version 7.2 followed in February 2026 with new Free icons such as moon phases and zodiac signs, plus new Pro icons and a new hand drawn Pro+ pack called Graphite. The [Font Awesome official site](https://fontawesome.com) has the current catalog and release notes.
+
+![Font Awesome official website homepage showing solid, regular and brand icon samples plus Free and Pro plans](font-awesome-official-website-homepage.png "Font Awesome official website and icon catalog")
+
+*The Font Awesome homepage in November 2026, including the Pro plan banner starting at $4 per month.*
 
 Key facts:
 
@@ -365,7 +373,7 @@ Lucide is the more common choice, because its SVG icons inherit `currentColor` a
 
 ## Key Takeaways
 
-- **Lucide** is a free, ISC licensed, outline only SVG library with more than 1,500 icons, forked from Feather in 2020.
+- **Lucide** is a free, ISC licensed, outline only SVG library with more than 2,000 icons, forked from Feather in 2020.
 - **Font Awesome** is now on version 7, with a Free tier under CC BY 4.0, SIL OFL 1.1 and MIT, and paid Pro plans for more icons and styles.
 - Lucide wins on **consistency, per icon imports and licensing simplicity**.
 - Font Awesome wins on **catalog breadth, brand logos and multiple styles**.

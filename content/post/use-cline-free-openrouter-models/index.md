@@ -45,7 +45,7 @@ You can run it for nothing by pointing Cline at OpenRouter and choosing a model 
 
 Cline is an autonomous coding agent that runs as a VS Code extension. You describe a task in plain language. It explores the repo, proposes a plan, then edits files and runs commands after you approve each step. It is model-agnostic: Anthropic, OpenAI, Google, local Ollama, or an aggregator like OpenRouter.
 
-OpenRouter gives you one API key for hundreds of models. You pick the model from a dropdown inside Cline. Models with a `:free` suffix cost $0 per token, so the only ceiling is the request rate. That is the whole trick.
+OpenRouter gives you one API key for hundreds of models. You pick the model from a dropdown inside Cline. Models with a `:free` suffix cost $0 per token, so the only ceiling is the request rate. That is the whole trick. If you want to see how the paid options compare before you commit, our roundup of the [best coding models on OpenRouter](/p/best-coding-models-openrouter/) covers prices, context sizes and free picks.
 
 The official [Cline OpenRouter provider docs](https://docs.cline.bot/provider-config/openrouter) confirm the provider is supported natively. No proxy and no config file surgery.
 

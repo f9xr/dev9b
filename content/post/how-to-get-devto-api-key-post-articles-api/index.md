@@ -46,6 +46,10 @@ This guide covers the full process: where to find your **Dev.to API key**, how a
 
 The Dev.to API is the public REST interface of DEV Community, which is built on the Forem platform. The current stable version is API v1, and it lives at `https://dev.to/api`. The official reference is the [Forem API v1 documentation](https://developers.forem.com/api).
 
+![Dev.to homepage showing the DEV Community article feed, search and account navigation](devto-official-website-homepage.png "Dev.to official website and community feed")
+
+*The Dev.to homepage in November 2026, where the API key settings live behind your account menu.*
+
 A few things worth knowing up front:
 
 - **Reads are mostly public.** You can list articles, look up tags or fetch a user profile without any key.

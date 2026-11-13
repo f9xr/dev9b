@@ -53,6 +53,10 @@ Freebuff is a coding agent from Freebuff, Inc., the team behind the open-source 
 
 The product is free because advertisers pay for inference. Ads appear inside the app and are labeled "Sponsored." Some agent suggestions are sponsored too, but they name the sponsor and only run if you click Accept. The [Freebuff trust page](https://freebuff.com/trust) explains the model without burying it in a terms document.
 
+![Freebuff official website homepage showing the free coding agent download and a desktop session editing a SaaS project](freebuff-official-website-homepage.png "Freebuff official website and desktop agent")
+
+*The Freebuff homepage in November 2026, including the Windows download and a sample agent session.*
+
 One agent framework ships across five surfaces:
 
 | Surface | What it does |
