@@ -44,7 +44,7 @@ This is AI slop design: the visual equivalent of generic AI-written copy. It hap
 
 ## What AI Slop Design Actually Is
 
-AI slop design is a visual style that emerged from how generative UI tools produce output. These tools are trained on huge volumes of existing sites and components, so when you give them a short prompt, they reach for the statistically safest, most common pattern. The result looks polished on its own but instantly recognizable the moment you've seen a handful of other AI-generated pages.
+AI slop design is a visual style that emerged from how generative UI tools produce output. These tools are trained on huge volumes of existing sites and components, so when you give them a short prompt, they reach for the statistically safest, most common pattern. The result looks polished on its own but instantly recognizable the moment you've seen a handful of other AI-generated pages. If you want the color half of that story, we traced [which colors AI uses most and least](/p/most-least-used-colors-by-ai/) and why indigo became the default.
 
 It's not that AI tools produce bad design. The individual choices — spacing, contrast, component structure — are often technically sound. The problem is sameness. A dozen different products end up with visually interchangeable homepages because the underlying model keeps converging on the same safe defaults.
 

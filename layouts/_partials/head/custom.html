@@ -40,7 +40,7 @@
 {{- else -}}
 {{- with $image.Width }}<meta property="og:image:width" content="{{ . }}">{{- end }}
 {{- with $image.Height }}<meta property="og:image:height" content="{{ . }}">{{- end }}
-<meta property="og:image:alt" content="{{ .Title }}">
+<meta property="og:image:alt" content="{{ .Params.imageAlt | default .Title }}">
 {{- end }}
 
 {{- /* Theme color (browser UI) */ -}}
