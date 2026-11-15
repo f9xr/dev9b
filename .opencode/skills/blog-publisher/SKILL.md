@@ -338,30 +338,62 @@ Or a production build:
 hugo --gc --minify
 ```
 
-Confirm there are no build errors and the new post appears at `https://f9xr.org/p/<slug>/`.
+Confirm there are no build errors and the new post renders at the deployed permalink (`/p/<slug>/` under the configured base URL).
 
-### 7. Publish Preparation
+### 7. Publish: commit, push, wait for deploy (required)
 
-Publishing happens automatically via GitHub Actions when committed to `main`. If the user is in this repo directly, the post is published once committed/pushed. If working from a fork, direct contributors to open a Pull Request for F9XR Review Board review.
+When the user asked to **publish** (not draft or plan), the order is fixed:
 
-- Do NOT commit or push unless the user explicitly asks.
+> **push → wait for deploy → dev.to → IndexNow**
+
+1. Both quality gates must pass first (`publish-gate.ps1`, then `verify-machine-readable.ps1`).
+2. Stage only the files this post needs: the page bundle, any category `_index.md`, the inbound-link edit, and the generated crosspost artifacts. Never stage raw source images, `public/`, secrets, or API keys.
+3. Commit and push. A push to `main`/`master` triggers the **Build and deploy** workflow.
+4. Wait for that workflow to finish, then confirm the article URL returns HTTP 200. Do this before crossposting: dev.to and Medium fetch the cover and table images by URL, so syndicating an undeployed post ships broken images.
+
+```powershell
+git add content/post/<slug> content/categories/<category> .crosspost/<slug> static/crosspost/<slug>
+git commit -m "Add <short description>"
+git push
+```
+
+Verify the deploy with the GitHub API (no `gh` required):
+
+```powershell
+(Invoke-RestMethod "https://api.github.com/repos/f9xr/dev9b/actions/runs?per_page=1").workflow_runs[0] |
+    Select-Object name, status, conclusion, head_sha
+```
+
+Confirm the post URL is live before continuing.
+
+- Do NOT commit or push unless the user explicitly asked to publish.
 - Never commit secrets or API keys.
 
-### 8. Cross-post Everywhere (optional, but expected)
+### 8. Publish to dev.to (required after push)
 
-After the publish gate passes, generate the syndication artifacts:
+Run this only after the push is deployed:
 
 ```powershell
 python scripts/crosspost/crosspost.py build <slug>
-```
-
-This writes `.crosspost/<slug>/` (dev.to markdown, Medium HTML, Builder Center HTML) and `static/crosspost/<slug>/` (table images for Medium). To publish the dev.to copy live under the configured organization:
-
-```powershell
 python scripts/crosspost/crosspost.py publish <slug>
 ```
 
-That needs `$DEV_TO_API_KEY` or `~/.devto.key`, and the cover plus `static/crosspost/<slug>/` must already be pushed. Medium and Builder Center still need a signed-in browser: follow `.crosspost/<slug>/instructions.txt`. See the **crosspost** skill for the full flow.
+`publish` builds if needed, checks the cover URL, and creates or updates the dev.to article under the organization in `.crosspost.json` (`f9xrteam`). It needs `$DEV_TO_API_KEY` or `~/.devto.key` (never commit either). Record the returned dev.to URL. If the key is missing, stop and tell the user instead of skipping silently.
+
+### 9. Ping IndexNow (required, after dev.to)
+
+The deploy workflow pings all article URLs, but the post-syndication ping is a separate required step. Run it **after** the dev.to copy is live:
+
+```powershell
+python scripts/ping-indexnow.py <slug>
+```
+
+This submits `<site_url>/p/<slug>/` with the site's IndexNow key and key location (read from `.crosspost.json`). Use `--dry-run` to inspect the payload, and `--all` to resubmit every built post. A `200` or `202` is success; anything else is a failure to fix, not a warning to ignore.
+
+### 10. Medium and AWS Builder Center (manual, optional)
+
+Medium and Builder Center still need a signed-in browser: follow `.crosspost/<slug>/instructions.txt`. See the **crosspost** skill for the full flow.
+
 
 ---
 

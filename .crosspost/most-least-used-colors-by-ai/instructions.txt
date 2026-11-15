@@ -9,7 +9,7 @@ Commit and push this article, .crosspost/most-least-used-colors-by-ai/ and stati
 before publishing anywhere. dev.to and Medium fetch images by URL.
 
 DEV.TO
-  Published by this tool. Status: not published yet
+  Published by this tool. Status: live https://dev.to/f9xrteam/ai-loves-purple-most-and-least-used-ai-colors-4g22
   File: .crosspost/most-least-used-colors-by-ai/devto.md (source stays published: false).
 
 MEDIUM

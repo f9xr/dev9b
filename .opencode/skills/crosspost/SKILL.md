@@ -44,10 +44,19 @@ the dev.to article under the organization in `.crosspost.json`.
 
 ## After the command
 
-1. **Medium:** open https://medium.com/new-story, type the title, open
+1. **IndexNow:** immediately after the dev.to publish succeeds, submit the
+   canonical article URL:
+
+   ```bash
+   python scripts/ping-indexnow.py <slug>
+   ```
+
+   This is required after every dev.to publish, even though the deploy workflow
+   already pings all article URLs. `200`/`202` means accepted.
+2. **Medium:** open https://medium.com/new-story, type the title, open
    `.crosspost/<slug>/medium.html` in a browser, copy all, paste, add topics.
-2. **Builder Center:** new Article, paste title, description and
-   `builder.html`, pick tags, upload `cover.jpg`.
+3. **Builder Center:** new Article, paste title, description and
+   `builder.html`, pick tags, upload the cover image.
 
 ## Rules
 
