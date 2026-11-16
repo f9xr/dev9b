@@ -1,0 +1,2 @@
+site = https://f9xr.org/dev9b/p/free-is-an-ai-subdomain-for-ai-saas-cli-guide/
+devto = https://dev.to/f9xrteam/get-a-free-is-anai-domain-for-your-ai-saas-2026-lc8

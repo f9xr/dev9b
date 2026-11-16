@@ -1,0 +1,32 @@
+Cross-post kit for hurricane-electric-free-dns-setup-guide
+===========================================================
+
+Source: content/post/hurricane-electric-free-dns-setup-guide/index.md
+Site:   https://f9xr.org/dev9b/p/hurricane-electric-free-dns-setup-guide/
+Cover:  https://raw.githubusercontent.com/f9xr/dev9b/master/content/post/hurricane-electric-free-dns-setup-guide/cover.jpg
+
+Commit and push this article, .crosspost/hurricane-electric-free-dns-setup-guide/ and static/crosspost/hurricane-electric-free-dns-setup-guide/
+before publishing anywhere. dev.to and Medium fetch images by URL.
+
+DEV.TO
+  Published by this tool. Status: live https://dev.to/f9xrteam/hurricane-electric-free-dns-setup-guide-for-devs-5h1f
+  File: .crosspost/hurricane-electric-free-dns-setup-guide/devto.md (source stays published: false).
+
+MEDIUM
+  1. Open https://medium.com/new-story
+  2. Type the title from the source front matter (Medium never fills it).
+  3. Open .crosspost/hurricane-electric-free-dns-setup-guide/medium.html in a browser, select all, copy,
+     and paste into the Medium body. Tables are PNG images hosted on
+     raw.githubusercontent.com, and Medium re-hosts them.
+  4. Add topics and publish.
+
+AWS BUILDER CENTER
+  1. builder.aws.com -> + -> Article.
+  2. Title: .crosspost/hurricane-electric-free-dns-setup-guide/builder-title.txt
+  3. Description: .crosspost/hurricane-electric-free-dns-setup-guide/builder-description.txt
+  4. Paste the body from .crosspost/hurricane-electric-free-dns-setup-guide/builder.html (tables render natively).
+  5. Tags (max 5): .crosspost/hurricane-electric-free-dns-setup-guide/builder-tags.txt
+  6. Upload the cover: content/post/hurricane-electric-free-dns-setup-guide/cover.jpg
+     (recommended 1200x675).
+
+Re-run: python scripts/crosspost/crosspost.py build hurricane-electric-free-dns-setup-guide

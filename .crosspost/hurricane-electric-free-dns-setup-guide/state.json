@@ -1,0 +1,20 @@
+{
+  "slug": "hurricane-electric-free-dns-setup-guide",
+  "title": "Hurricane Electric Free DNS: Setup Guide for Devs",
+  "site_url": "https://f9xr.org/dev9b/p/hurricane-electric-free-dns-setup-guide/",
+  "generated_at": "2026-11-16T17:14:56+00:00",
+  "cover_url": "https://raw.githubusercontent.com/f9xr/dev9b/master/content/post/hurricane-electric-free-dns-setup-guide/cover.jpg",
+  "artifacts": {
+    "devto.md": ".crosspost/hurricane-electric-free-dns-setup-guide/devto.md",
+    "builder.md": ".crosspost/hurricane-electric-free-dns-setup-guide/builder.md",
+    "builder.html": ".crosspost/hurricane-electric-free-dns-setup-guide/builder.html",
+    "medium.html": ".crosspost/hurricane-electric-free-dns-setup-guide/medium.html"
+  },
+  "devto": {
+    "id": 5049584,
+    "url": "https://dev.to/f9xrteam/hurricane-electric-free-dns-setup-guide-for-devs-5h1f",
+    "published": true,
+    "org": "f9xrteam",
+    "updated_at": "2026-11-16T17:15:00+00:00"
+  }
+}
