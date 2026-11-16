@@ -76,7 +76,7 @@ flowchart LR
 
 Codeberg wins when nonprofit ownership, European hosting, and open-source infrastructure matter to you. GitHub Pages still has the largest tutorial surface and the smoothest Actions integration. Cloudflare Pages is the performance pick when you need edge caching in many regions.
 
-If you are comparing static hosts more broadly, our guide to the [best blogging sites for developers](/p/best-blogging-sites-for-developers/) covers the tradeoffs between managed platforms and self-hosted generators.
+If you are comparing static hosts more broadly, our guide to the [best blogging sites for developers](/p/best-blogging-sites-for-developers/) covers the tradeoffs between managed platforms and self-hosted generators. When you point a custom hostname at your Pages site, our [Hurricane Electric Free DNS setup guide](/p/hurricane-electric-free-dns-setup-guide/) covers the authoritative DNS side.
 
 ## Prerequisites
 

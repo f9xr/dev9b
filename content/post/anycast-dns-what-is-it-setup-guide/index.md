@@ -123,6 +123,8 @@ This is the fastest and lowest-risk way, and it is the right default for most pr
 
 Popular choices include Cloudflare DNS, whose free tier already runs on a large Anycast network, Amazon Route 53, and IBM NS1 Connect. Many teams first encounter Cloudflare while connecting a site to GitHub Pages, as covered in this [Cloudflare subdomain setup for GitHub Pages](/p/how-to-create-cloudflare-subdomain-github-pages/) and the [custom domain workflow for GitHub Pages](/p/github-pages-custom-domain-cloudflare/).
 
+If you want a free authoritative host with native IPv6 and reverse zones, [Hurricane Electric Free DNS](/p/hurricane-electric-free-dns-setup-guide/) is worth knowing. It is not an Anycast network on the scale of the providers above, and it does not offer DNSSEC, but the price is hard to argue with.
+
 Typical steps:
 
 1. Create an account with the provider and add your domain, or create a new zone.

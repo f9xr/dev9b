@@ -94,6 +94,8 @@ The process is simple. Set up your GitHub Page, add a `CNAME` file to your repo 
 
 It describes itself as a free service for developers that will stay that way, supported by donations.
 
+A newer service with a similar name, [is-an.ai](https://is-an.ai), targets AI projects specifically and now ships a CLI plus Claude Code and OpenClaw plugins. We walked through the whole flow in [how to get a free is-an.ai subdomain](/p/free-is-an-ai-subdomain-for-ai-saas-cli-guide/).
+
 **Watch out for:** popular short names are often taken or reserved, so have two or three backup names ready.
 
 ### 3. is-a-good.dev
