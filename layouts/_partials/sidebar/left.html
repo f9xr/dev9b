@@ -11,7 +11,7 @@
         </span>
     </button>
 
-    <header>
+    <header class="dev9b-card">
         {{ with .Site.Params.sidebar.avatar }}
             {{- $avatar := partial "helper/image" (dict "Image" . "Resources" resources "Context" $) -}}
             <figure class="site-avatar">

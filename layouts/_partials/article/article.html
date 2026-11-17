@@ -1,10 +1,12 @@
-<article class="{{ if .Params.image }}has-image {{ end }}main-article">
+<article class="{{ if .Params.image }}has-image {{ end }}main-article dev9b-card-lg">
     {{ partial "article/components/header" (dict "Page" . "IsList" false) }}
+
+    {{ partial "seo/breadcrumb" . }}
 
     {{ partial "article/components/reader-toolbar" . }}
 
     {{ if .Scratch.Get "TOCEnabled" }}
-    <aside class="article-toc">
+    <aside class="article-toc dev9b-card">
         <details>
             <summary>
                 <div class="article-toc-title">
@@ -31,6 +33,8 @@
     {{ end }}
 
     {{ partial "article/components/footer" . }}
+
+    {{ partial "seo/related-posts" . }}
 
     {{ if .Params.math }}
         {{ partial "article/components/math.html" . }}

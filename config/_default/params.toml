@@ -18,7 +18,7 @@ SortBy              = "default"
 
 [sidebar]
     emoji    = "🚀"
-    subtitle = "An open-source developer blog by F9XR Team. Share knowledge, write articles, grow together."
+    subtitle = "Share knowledge, write articles, grow together."
     avatar   = "img/f9x-logo.webp"
 
 [article]

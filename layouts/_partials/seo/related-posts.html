@@ -1,0 +1,57 @@
+{{- /* Related posts section for internal linking and SEO.
+    Matches by tags first, then falls back to same section.
+    Outputs 3 related posts in a card grid. */ -}}
+{{- $currentPage := . -}}
+{{- $tagNames := slice -}}
+{{- range $currentPage.GetTerms "tags" -}}
+    {{- $tagNames = $tagNames | append .Title -}}
+{{- end -}}
+{{- $pool := complement (slice $currentPage) (where site.RegularPages "Section" "post") -}}
+{{- $related := slice -}}
+
+{{- if gt (len $tagNames) 0 -}}
+    {{- range $pool -}}
+        {{- $postTags := .Params.tags | default slice -}}
+        {{- if gt (len (intersect $postTags $tagNames)) 0 -}}
+            {{- $related = $related | append . -}}
+        {{- end -}}
+    {{- end -}}
+{{- end -}}
+
+{{- if eq (len $related) 0 -}}
+    {{- $related = $pool -}}
+{{- end -}}
+
+{{- $related = $related | shuffle | first 3 -}}
+
+{{- if gt (len $related) 0 -}}
+<section class="dev9b-related-posts" style="margin-top: var(--dev9b-spacing-section); padding-top: var(--dev9b-spacing-xl); border-top: 1px solid var(--dev9b-hairline);">
+    <p class="dev9b-eyebrow" style="margin-bottom: var(--dev9b-spacing-md);">Related Articles</p>
+    <div style="display: grid; grid-template-columns: 1fr; gap: var(--dev9b-spacing-lg);">
+        {{- range $related -}}
+        <article class="dev9b-card" style="display: flex; flex-direction: column; height: 100%;">
+            {{- $image := partial "helper/image" (dict "Image" .Params.image "Resources" .Resources "Context" .) -}}
+            {{- if $image -}}
+            <div class="article-image" style="margin-bottom: var(--dev9b-spacing-md); min-height: 150px;">
+                <a href="{{ .RelPermalink }}" style="display: block; height: 100%;">
+                    <img src="{{ $image.Permalink }}" alt="{{ .Title }}" loading="lazy" style="width: 100%; height: 150px; object-fit: cover; border-radius: var(--dev9b-rounded-sm);">
+                </a>
+            </div>
+            {{- end -}}
+            <div style="flex: 1; display: flex; flex-direction: column;">
+                {{- with .Params.categories -}}
+                {{- $categoryName := index . 0 -}}
+                {{- with site.GetPage (printf "/categories/%s" (urlize $categoryName)) -}}
+                <a href="{{ .RelPermalink }}" style="display: inline-block; margin-bottom: var(--dev9b-spacing-xs); font-size: var(--dev9b-body-sm); background: color-mix(in srgb, var(--dev9b-ink) 8%); color: var(--dev9b-ink); padding: 2px 8px; border-radius: var(--dev9b-rounded-sm); text-decoration: none; font-weight: 500;">{{ $categoryName | title }}</a>
+                {{- end -}}
+                {{- end -}}
+                <h3 style="font-size: var(--dev9b-heading-md); line-height: 1.4; letter-spacing: -0.4px; margin: 0 0 var(--dev9b-spacing-sm) 0; color: var(--dev9b-ink);">
+                    <a href="{{ .RelPermalink }}" style="color: var(--dev9b-ink); text-decoration: none;">{{ .Title }}</a>
+                </h3>
+                <p style="font-size: var(--dev9b-body-sm); color: var(--dev9b-body); margin: 0; line-height: 1.6;">{{ .Summary | plainify | truncate 120 }}</p>
+            </div>
+        </article>
+        {{- end -}}
+    </div>
+</section>
+{{- end -}}

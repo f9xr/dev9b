@@ -1,0 +1,1 @@
+Install Astro Theme Pure & Deploy to GitHub Pages

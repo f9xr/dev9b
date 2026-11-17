@@ -5,6 +5,7 @@ title   = "F9XR's Dev9b"
 enableRobotsTXT = true
 description = "F9XR's Dev9b is an open-source blog article publishing platform by F9XR Team. We share latest articles, tutorials, coding videos, and developer guides for the open developer community."
 enableGitInfo = true
+defaultContentLanguageInSubdir = false
 
 # Theme i18n support
 # See all available values at https://github.com/CaiJimmy/hugo-theme-stack/tree/master/i18n

@@ -15,13 +15,50 @@
 {{- /* Agent / AI discovery link relations + WebMCP */ -}}
 {{- partial "head/agent.html" . -}}
 
+{{- /* DNS prefetch for external domains used on the page */ -}}
+<link rel="dns-prefetch" href="https://www.googletagmanager.com/">
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net/">
+<link rel="dns-prefetch" href="https://fonts.googleapis.com/">
+<link rel="dns-prefetch" href="https://fonts.gstatic.com/">
+
 {{- /* Crawler directives (per-page robots param can override; the 404 page is always noindex) */ -}}
-<meta name="robots" content="{{ if eq .Kind "404" }}noindex, follow{{ else }}{{ .Params.robots | default "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" }}{{ end }}">
+{{- $robotsContent := "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" -}}
+{{- if eq .Kind "404" -}}
+    {{- $robotsContent = "noindex, follow" -}}
+{{- else if and (eq .Kind "term") (.Paginator.HasPrev) -}}
+    {{- /* Noindex deep pagination pages, keep page 1 indexable */}}
+    {{- $robotsContent = "noindex, follow" -}}
+{{- end -}}
+<meta name="robots" content="{{ $robotsContent }}">
+
+{{- /* Pagination: prev/next links for paginated archives */ -}}
+{{- $paginator := partial "helper/paginator.html" . -}}
+{{- if $paginator -}}
+    {{- if $paginator.HasPrev -}}
+<link rel="prev" href="{{ $paginator.Prev.URL | absURL }}">
+    {{- end -}}
+    {{- if $paginator.HasNext -}}
+<link rel="next" href="{{ $paginator.Next.URL | absURL }}">
+    {{- end -}}
+{{- end -}}
+
+{{- /* Author link for E-E-A-T */ -}}
+{{- $authorName := .Params.author | default "F9XR Team" -}}
+{{- if eq $authorName "F9XR Team" -}}
+<link rel="author" href="https://f9xr.org/">
+{{- else -}}
+{{- with .Params.authorUrl }}<link rel="author" href="{{ . }}">{{ end -}}
+{{- end -}}
 
 {{- /* Author (E-E-A-T) */ -}}
 {{- with .Site.Params.meta.author }}
 <meta name="author" content="{{ . }}">
 {{- end }}
+
+{{- /* article:author for posts */ -}}
+{{- if and .IsPage (eq .Type "post") -}}
+<meta property="article:author" content="{{ .Params.author | default "F9XR Team" }}">
+{{- end -}}
 
 {{- /* Open Graph locale (theme emits site_name, title, description, url, image) */ -}}
 <meta property="og:locale" content="{{ .Site.Params.meta.oglocale | default "en_US" }}">

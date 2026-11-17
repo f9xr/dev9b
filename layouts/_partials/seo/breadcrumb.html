@@ -1,0 +1,23 @@
+{{- /* Visible breadcrumb navigation for SEO and UX.
+    Shows hierarchical path from Home to current page.
+    Only rendered on non-home pages. */ -}}
+{{- if not .IsHome -}}
+<nav class="dev9b-breadcrumb" aria-label="Breadcrumb" style="margin-bottom: var(--dev9b-spacing-sm);">
+    <ol class="dev9b-breadcrumb-list" style="display: flex; flex-wrap: wrap; gap: var(--dev9b-spacing-xs); list-style: none; padding: 0; margin: 0; font-size: var(--dev9b-body-sm); color: var(--dev9b-mute);">
+        <li style="display: flex; align-items: center; gap: var(--dev9b-spacing-xxs);">
+            <a href="{{ .Site.Home.RelPermalink }}" style="color: var(--dev9b-link); text-decoration: none; font-weight: 500;">Home</a>
+            {{ partial "helper/icon" "chevron-right" }}
+        </li>
+        {{- $currentSection := .Section -}}
+        {{- if and (not (eq $currentSection "")) (not (eq $currentSection "post")) -}}
+        <li style="display: flex; align-items: center; gap: var(--dev9b-spacing-xxs);">
+            <a href="{{ printf "%s%s/" .Site.BaseURL $currentSection }}" style="color: var(--dev9b-link); text-decoration: none; font-weight: 500;">{{ $currentSection | title }}</a>
+            {{ partial "helper/icon" "chevron-right" }}
+        </li>
+        {{- end -}}
+        <li style="display: flex; align-items: center; gap: var(--dev9b-spacing-xxs);">
+            <span style="color: var(--dev9b-ink); font-weight: 600;">{{ .Title }}</span>
+        </li>
+    </ol>
+</nav>
+{{- end -}}

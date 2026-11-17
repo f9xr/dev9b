@@ -1,2 +1,0 @@
-site = https://f9xr.org/dev9b/p/hurricane-electric-free-dns-setup-guide/
-devto = https://dev.to/f9xrteam/hurricane-electric-free-dns-setup-guide-for-devs-5h1f

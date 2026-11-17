@@ -1,6 +1,23 @@
 {{ define "main" }}
     {{- $paginator := partial "helper/paginator.html" . -}}
 
+    <section class="dev9b-hero">
+        <div class="dev9b-hero-mesh">
+            <div class="dev9b-hero-mesh-stop" style="top: -100px; left: -100px; background: radial-gradient(circle, #50e3c2 0%, transparent 70%);"></div>
+            <div class="dev9b-hero-mesh-stop" style="top: -50px; right: -50px; background: radial-gradient(circle, #0070f3 0%, transparent 70%);"></div>
+            <div class="dev9b-hero-mesh-stop" style="bottom: -100px; left: 200px; background: radial-gradient(circle, #7928ca 0%, transparent 70%);"></div>
+            <div class="dev9b-hero-mesh-stop" style="bottom: -50px; right: 100px; background: radial-gradient(circle, #ff0080 0%, transparent 70%);"></div>
+            <div class="dev9b-hero-mesh-stop" style="top: 200px; right: -200px; background: radial-gradient(circle, #eb367f 0%, transparent 70%);"></div>
+        </div>
+        <div class="dev9b-hero-content">
+            <p class="dev9b-eyebrow">Dev9b · Open-Source Developer Blog</p>
+            <h1 class="dev9b-display-xl">{{ .Site.Title }}</h1>
+            <p class="dev9b-body-lg">{{ .Site.Params.sidebar.subtitle }}</p>
+            <a href="{{ .Site.Home.RelPermalink }}contribute/" class="dev9b-btn-primary">Contribute an Article</a>
+            <a href="{{ .Site.Home.RelPermalink }}archives/" class="dev9b-btn-secondary">Browse Archives</a>
+        </div>
+    </section>
+
     <section class="article-list">
         {{ range $index, $element := $paginator.Pages }}
             {{ partial "article-list/default" . }}
