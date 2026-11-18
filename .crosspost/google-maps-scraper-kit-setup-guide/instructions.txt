@@ -9,7 +9,7 @@ Commit and push this article, .crosspost/google-maps-scraper-kit-setup-guide/ an
 before publishing anywhere. dev.to and Medium fetch images by URL.
 
 DEV.TO
-  Published by this tool. Status: not published yet
+  Published by this tool. Status: live https://dev.to/f9xrteam/google-maps-scraper-kit-free-python-lead-scraper-guide-3bbo
   File: .crosspost/google-maps-scraper-kit-setup-guide/devto.md (source stays published: false).
 
 MEDIUM
