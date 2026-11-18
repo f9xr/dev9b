@@ -1,0 +1,1 @@
+Google Maps Scraper Kit is a free Python tool that exports leads with emails and socials to CSV. Learn setup, --grid, key flags and legal tips.

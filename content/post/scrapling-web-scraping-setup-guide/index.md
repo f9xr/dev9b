@@ -383,6 +383,7 @@ The honest weak spot is adaptive relocation. It is a similarity search, not a pr
 - **You need guaranteed long-term reliability on one hard target.** This is a fast-moving project with a single primary maintainer. Pin a version you have tested.
 - **You are collecting personal data at scale.** Anti-bot capability is not a licence. The project ships with a disclaimer limiting itself to educational and research use, and both the law and each site's terms still apply.
 - **You already run Scrapy and it works.** Scrapling does have a drop-in bridge: decorate a Scrapy callback with `scrapling_response` and you get Scrapling's parser over responses you are already fetching. Rewriting the project is rarely worth it.
+- **The target is local business leads.** A general scraping library still leaves you to build the Maps scrolling, the contact-page crawl and the CSV schema. A purpose-built tool such as [Google Maps Scraper Kit](/p/google-maps-scraper-kit-setup-guide/) covers that chain in one command.
 
 ## FAQ
 

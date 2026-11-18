@@ -1,0 +1,13 @@
+{
+  "slug": "google-maps-scraper-kit-setup-guide",
+  "title": "Google Maps Scraper Kit: Free Python Lead Scraper Guide",
+  "site_url": "https://f9xr.org/dev9b/p/google-maps-scraper-kit-setup-guide/",
+  "generated_at": "2026-11-18T17:50:28+00:00",
+  "cover_url": "https://raw.githubusercontent.com/f9xr/dev9b/master/content/post/google-maps-scraper-kit-setup-guide/cover.jpg",
+  "artifacts": {
+    "devto.md": ".crosspost/google-maps-scraper-kit-setup-guide/devto.md",
+    "builder.md": ".crosspost/google-maps-scraper-kit-setup-guide/builder.md",
+    "builder.html": ".crosspost/google-maps-scraper-kit-setup-guide/builder.html",
+    "medium.html": ".crosspost/google-maps-scraper-kit-setup-guide/medium.html"
+  }
+}
