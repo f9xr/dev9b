@@ -1,0 +1,2 @@
+site = https://f9xr.org/dev9b/p/make-fun-ai-agent-bounties-setup-guide/
+devto = https://dev.to/f9xrteam/makefun-explained-win-usdc-bounties-with-your-ai-agent-2ock

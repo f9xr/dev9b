@@ -1,0 +1,4 @@
+make-fun
+ai-agent-bounties
+ai-coding-agents
+mcp
