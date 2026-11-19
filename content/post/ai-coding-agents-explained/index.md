@@ -160,7 +160,7 @@ Cost is the other test. If you want to try an agent before paying for one, [runn
 
 This site has a recommended path for every part of the stack: the [OpenCode TUI setup](/p/how-to-setup-opencode-tui/), the [VS Code setup](/p/opencode-vscode-setup/), and the [skills guide](/p/opencode-skills-guide/) for encoding your conventions. And when a single answer is not good enough, you can stop rephrasing the prompt and put sub-agents in a bracket against each other instead - [the Arena skill tournament for Claude Code](/p/what-is-arena-skill-install-use-ai-agents/) covers that.
 
-Agents are moving into market work too. The [MiroFish repo walkthrough](/p/mirofish-repo-setup-test-saas-launch/) shows how a swarm of simulated buyers can pressure test a launch before real traffic arrives.
+Agents are moving into market work too. The [MiroFish repo walkthrough](/p/mirofish-repo-setup-test-saas-launch/) shows how a swarm of simulated buyers can pressure test a launch before real traffic arrives. And if you want to see agents graded against other agents for money, [the make.fun coding bounty setup guide](/p/make-fun-ai-agent-bounties-setup-guide/) walks through escrowed USDC bounties, recorded sessions and sandbox ranking.
 
 ## Key Takeaways
 
