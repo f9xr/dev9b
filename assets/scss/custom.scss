@@ -1,8 +1,9 @@
-﻿/* ==========================================================================
+/* ==========================================================================*
    Dev9b custom styles — Geist design system
    ========================================================================== */
 
 :root {
+  /* ═══ Colors ═══ */
   --dev9b-canvas: #fafafa;
   --dev9b-canvas-elevated: #ffffff;
   --dev9b-hairline: #ebebeb;
@@ -19,8 +20,10 @@
   --dev9b-error: #ee0000;
   --dev9b-error-deep: #c50000;
   --dev9b-warning: #f5a623;
-  --dev9b-font-sans: "Geist", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --dev9b-font-mono: "Geist Mono", "JetBrains Mono", "IBM Plex Mono", Menlo, Monaco, Consolas, monospace;
+
+  /* ═══ Typography ═══ */
+  --dev9b-font-sans: 'Geist', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --dev9b-font-mono: 'Geist Mono', 'JetBrains Mono', 'IBM Plex Mono', Menlo, Monaco, Consolas, monospace;
   --dev9b-display-xl: 48px;
   --dev9b-heading-lg: 32px;
   --dev9b-heading-md: 20px;
@@ -31,6 +34,8 @@
   --dev9b-button-lg: 16px;
   --dev9b-button-md: 14px;
   --dev9b-code: 14px;
+
+  /* ═══ Spacing (4px base) ═══ */
   --dev9b-spacing-xs: 8px;
   --dev9b-spacing-sm: 12px;
   --dev9b-spacing-md: 16px;
@@ -40,16 +45,18 @@
   --dev9b-spacing-3xl: 64px;
   --dev9b-spacing-4xl: 96px;
   --dev9b-spacing-section: 128px;
+
+  /* ═══ Shapes ═══ */
   --dev9b-rounded-sm: 6px;
   --dev9b-rounded-md: 12px;
   --dev9b-rounded-lg: 16px;
   --dev9b-rounded-pill-category: 64px;
   --dev9b-rounded-pill: 100px;
   --dev9b-rounded-full: 9999px;
+
+  /* ═══ Override Theme Variables ═══ */
   --body-background: var(--dev9b-canvas);
   --accent-color: var(--dev9b-ink);
-  --accent-color-darker: var(--dev9b-link-deep);
-  --accent-color-text: #ffffff;
   --body-text-color: var(--dev9b-body);
   --base-font-family: var(--dev9b-font-sans);
   --code-font-family: var(--dev9b-font-mono);
@@ -62,17 +69,21 @@
   --card-padding: var(--dev9b-spacing-lg);
 }
 
-:root[data-scheme=dark] {
-  --body-background: #171717;
-  --card-background: #171717;
+[data-scheme=dark] {
+  --body-background: #0d0d0d;
+  --card-background: #1e1e1e;
   --card-text-color-main: #fafafa;
   --card-text-color-secondary: #a1a1a1;
+  --card-text-color-tertiary: #636363;
   --card-separator-color: #2a2a2a;
+  --dev9b-canvas: #0d0d0d;
+  --dev9b-canvas-elevated: #1e1e1e;
+  --dev9b-hairline: #2a2a2a;
 }
 
 body {
-  background: var(--dev9b-canvas);
-  color: var(--dev9b-ink);
+  background: var(--body-background);
+  color: var(--card-text-color-main);
   font-family: var(--dev9b-font-sans);
   font-weight: 400;
 }
@@ -115,7 +126,7 @@ body {
   font-size: var(--dev9b-body-lg);
   font-weight: 400;
   line-height: 24px;
-  color: var(--dev9b-body);
+  color: var(--card-text-color-main);
   margin: 0 0 var(--dev9b-spacing-lg) 0;
 }
 
@@ -123,12 +134,13 @@ body {
   font-size: var(--dev9b-body-md);
   font-weight: 400;
   line-height: 20px;
-  color: var(--dev9b-body);
+  color: var(--card-text-color-secondary);
 }
-/* ── Geist Hero Band ── */
+
+/* ── Hero Band ── */
 .dev9b-hero {
   position: relative;
-  background: var(--dev9b-canvas);
+  background: var(--body-background);
   padding: var(--dev9b-spacing-section) var(--dev9b-spacing-lg);
   overflow: hidden;
 }
@@ -163,18 +175,18 @@ body {
   font-weight: 600;
   line-height: 48px;
   letter-spacing: -2.4px;
-  color: var(--dev9b-ink);
+  color: var(--card-text-color-main);
   margin: 0 0 var(--dev9b-spacing-lg) 0;
 }
 
 .dev9b-hero-content p {
   font-size: var(--dev9b-body-lg);
   line-height: 24px;
-  color: var(--dev9b-body);
+  color: var(--card-text-color-main);
   margin: 0 0 var(--dev9b-spacing-xl) 0;
 }
 
-/* ── Geist Buttons ── */
+/* ── Buttons ── */
 .dev9b-btn {
   display: inline-flex;
   align-items: center;
@@ -187,8 +199,8 @@ body {
 }
 
 .dev9b-btn-primary {
-  background: var(--dev9b-ink);
-  color: #ffffff;
+  background: var(--card-text-color-main);
+  color: var(--dev9b-ink);
   font-size: var(--dev9b-button-lg);
   font-weight: 500;
   line-height: 20px;
@@ -198,11 +210,12 @@ body {
 
 .dev9b-btn-primary:hover {
   background: var(--dev9b-link-deep);
+  color: #ffffff;
 }
 
 .dev9b-btn-secondary {
-  background: var(--dev9b-canvas-elevated);
-  color: var(--dev9b-ink);
+  background: var(--card-background);
+  color: var(--card-text-color-main);
   border: 1px solid var(--dev9b-hairline);
   font-size: var(--dev9b-button-lg);
   font-weight: 500;
@@ -212,13 +225,13 @@ body {
 }
 
 .dev9b-btn-secondary:hover {
-  border-color: var(--dev9b-ink);
-  background: #f2f2f2;
+  border-color: var(--card-text-color-main);
+  background: color-mix(in srgb, var(--dev9b-ink) 5%, transparent);
 }
 
 .dev9b-btn-sm {
-  background: var(--dev9b-ink);
-  color: #ffffff;
+  background: var(--card-text-color-main);
+  color: var(--dev9b-ink);
   font-size: var(--dev9b-button-md);
   font-weight: 500;
   line-height: 20px;
@@ -231,8 +244,8 @@ body {
 }
 
 .dev9b-btn-ghost-sm {
-  background: var(--dev9b-canvas-elevated);
-  color: var(--dev9b-ink);
+  background: var(--card-background);
+  color: var(--card-text-color-main);
   border: 1px solid var(--dev9b-hairline);
   font-size: var(--dev9b-button-md);
   font-weight: 500;
@@ -242,13 +255,13 @@ body {
 }
 
 .dev9b-btn-ghost-sm:hover {
-  border-color: var(--dev9b-ink);
-  background: #f2f2f2;
+  border-color: var(--card-text-color-main);
+  background: color-mix(in srgb, var(--dev9b-ink) 5%, transparent);
 }
 
 .dev9b-btn-category {
-  background: var(--dev9b-canvas-elevated);
-  color: var(--dev9b-ink);
+  background: var(--card-background);
+  color: var(--card-text-color-main);
   border: 1px solid var(--dev9b-hairline);
   font-size: var(--dev9b-button-md);
   font-weight: 500;
@@ -258,20 +271,20 @@ body {
 }
 
 .dev9b-btn-category:hover {
-  border-color: var(--dev9b-ink);
+  border-color: var(--card-text-color-main);
 }
 
-/* ── Geist Cards ── */
 .dev9b-card {
-  background: var(--dev9b-canvas-elevated);
+  background: var(--card-background);
   border: 1px solid var(--dev9b-hairline);
   border-radius: var(--dev9b-rounded-md);
   padding: var(--dev9b-spacing-lg);
+  color: var(--card-text-color-main);
   transition: border-color 0.18s ease, transform 0.18s ease;
 }
 
 .dev9b-card:hover {
-  border-color: var(--dev9b-mute);
+  border-color: var(--card-text-color-secondary);
 }
 
 .dev9b-card-lg {
@@ -279,9 +292,9 @@ body {
   padding: var(--dev9b-spacing-xl);
 }
 
-/* ── Geist CTA Band ── */
+/* ── CTA Band ── */
 .dev9b-cta-band {
-  background: var(--dev9b-canvas);
+  background: var(--body-background);
   padding: var(--dev9b-spacing-4xl) var(--dev9b-spacing-lg);
   text-align: center;
 }
@@ -291,36 +304,83 @@ body {
   font-weight: 600;
   line-height: 48px;
   letter-spacing: -2.4px;
-  color: var(--dev9b-ink);
+  color: var(--card-text-color-main);
   margin: 0 0 var(--dev9b-spacing-xl) 0;
 }
 
-/* ── Geist Footer ── */
+/* ── Footer ── */
 .dev9b-footer {
-  background: var(--dev9b-canvas);
+  background: var(--body-background);
   border-top: 1px solid var(--dev9b-hairline);
   padding: var(--dev9b-spacing-3xl) var(--dev9b-spacing-lg);
-  color: var(--dev9b-body);
-  font-size: var(--dev9b-body-md);
+  color: var(--card-text-color-secondary);
+  font-size: var(--dev9b-body-sm);
 }
 
 .dev9b-footer a {
-  color: var(--dev9b-ink);
+  color: var(--card-text-color-main);
   text-decoration: none;
 }
 
 .dev9b-footer a:hover {
   text-decoration: underline;
 }
-/* ── Article reading tools (restyled for Geist) ── */
+
+/* ── Article content ── */
 .article-content {
-  --reader-font-scale: 1;
-  font-size: calc(var(--article-font-size) * var(--reader-font-scale));
-  transition: font-size 0.15s ease;
-  color: var(--dev9b-body);
+  color: var(--card-text-color-main);
   line-height: 1.85;
 }
 
+.article-content h1,
+.article-content h2,
+.article-content h3,
+.article-content h4 {
+  font-family: var(--dev9b-font-sans);
+  font-weight: 600;
+  color: var(--card-text-color-main);
+  line-height: 1.4;
+  margin-top: var(--dev9b-spacing-xl);
+  margin-bottom: var(--dev9b-spacing-md);
+}
+
+.article-content h1 {
+  font-size: var(--dev9b-heading-lg);
+  letter-spacing: -1.28px;
+}
+
+.article-content h2 {
+  font-size: var(--dev9b-heading-md);
+  letter-spacing: -0.4px;
+}
+
+.article-content h3 {
+  font-size: var(--dev9b-body-lg);
+  letter-spacing: -0.28px;
+}
+
+.article-content p {
+  margin: 0 0 var(--dev9b-spacing-lg) 0;
+  color: var(--card-text-color-secondary);
+  line-height: 1.85;
+}
+
+.article-content a {
+  color: var(--dev9b-link);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--dev9b-link) 40%);
+}
+
+.article-content code {
+  font-family: var(--dev9b-font-mono);
+  font-size: var(--dev9b-code);
+  background: color-mix(in srgb, var(--dev9b-ink) 8%);
+  padding: 2px 6px;
+  border-radius: var(--dev9b-rounded-sm);
+  color: var(--card-text-color-main);
+}
+
+/* ── Reader Toolbar ── */
 .reader-toolbar {
   display: flex;
   flex-wrap: wrap;
@@ -329,9 +389,9 @@ body {
   padding: 0.6rem var(--dev9b-spacing-lg);
   margin: 0 0 var(--dev9b-spacing-lg) 0;
   border-block-end: 1px solid var(--dev9b-hairline);
-  color: var(--dev9b-mute);
+  color: var(--card-text-color-secondary);
   font-size: var(--dev9b-body-sm);
-  background: var(--dev9b-canvas-elevated);
+  background: var(--card-background);
   border-radius: var(--dev9b-rounded-md);
   border: 1px solid var(--dev9b-hairline);
 }
@@ -365,7 +425,7 @@ body {
   border: 1px solid transparent;
   border-radius: var(--dev9b-rounded-pill);
   background: transparent;
-  color: var(--dev9b-mute);
+  color: var(--card-text-color-secondary);
   font-family: var(--dev9b-font-sans);
   font-size: inherit;
   line-height: 1;
@@ -383,8 +443,8 @@ body {
 }
 
 .reader-toolbar .reader-toolbar-btn:hover {
-  background: var(--dev9b-canvas);
-  color: var(--dev9b-ink);
+  background: var(--card-background);
+  color: var(--card-text-color-main);
   border-color: var(--dev9b-hairline);
 }
 
@@ -393,44 +453,23 @@ body {
 }
 
 .reader-toolbar .reader-toolbar-btn:focus-visible {
-  outline: 2px solid var(--dev9b-ink);
+  outline: 2px solid var(--card-text-color-main);
   outline-offset: 2px;
 }
 
 .reader-toolbar .reader-toolbar-btn.is-active {
-  color: var(--dev9b-accent-color);
-  border-color: color-mix(in srgb, var(--dev9b-accent-color) 40%, transparent);
-  background: color-mix(in srgb, var(--dev9b-accent-color) 10%, transparent);
+  color: var(--dev9b-link);
+  border-color: color-mix(in srgb, var(--dev9b-link) 40%, transparent);
+  background: color-mix(in srgb, var(--dev9b-link) 10%, transparent);
 }
 
 .reader-toolbar .reader-toolbar-group {
   padding: 0.15rem;
   border-radius: var(--dev9b-rounded-pill);
-  background: color-mix(in srgb, var(--dev9b-canvas) 55%, transparent);
+  background: color-mix(in srgb, var(--card-background) 55%, transparent);
 }
 
-@media (max-width: 767px) {
-  .reader-toolbar {
-    gap: 0.35rem 0.5rem;
-    padding: 0.6rem var(--dev9b-spacing-md);
-  }
-
-  .reader-toolbar .reader-toolbar-group {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .reader-toolbar .reader-toolbar-group + .reader-toolbar-group {
-    margin-inline-start: 0;
-  }
-
-  .reader-toolbar .reader-toolbar-btn[data-share-copy] span,
-  .reader-toolbar .reader-toolbar-group[aria-label="Article actions"] span {
-    display: none;
-  }
-}
-
-/* ── Reading progress bar ── */
+/* ── Progress Bar ── */
 .read-progress {
   position: fixed;
   top: 0;
@@ -445,7 +484,7 @@ body {
 
 .read-progress-bar {
   height: 100%;
-  background: var(--dev9b-ink);
+  background: var(--card-text-color-main);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.15s ease;
@@ -460,8 +499,8 @@ body {
   height: 40px;
   border-radius: var(--dev9b-rounded-full);
   border: 1px solid var(--dev9b-hairline);
-  background: var(--dev9b-canvas-elevated);
-  color: var(--dev9b-ink);
+  background: var(--card-background);
+  color: var(--card-text-color-main);
   cursor: pointer;
   opacity: 0;
   visibility: hidden;
@@ -475,16 +514,17 @@ body {
 }
 
 .back-to-top:hover {
-  background: var(--dev9b-ink);
-  color: #ffffff;
-  border-color: var(--dev9b-ink);
+  background: var(--card-text-color-main);
+  color: var(--dev9b-ink);
+  border-color: var(--card-text-color-main);
 }
-/* ── Collapsible FAQ ── */
+
+/* ── FAQ ── */
 .faq-item {
   margin: 0 0 var(--dev9b-spacing-sm) 0;
   border: 1px solid var(--dev9b-hairline);
   border-radius: var(--dev9b-rounded-md);
-  background: var(--dev9b-canvas-elevated);
+  background: var(--card-background);
   overflow: hidden;
 }
 
@@ -493,7 +533,7 @@ body {
 }
 
 .faq-item[open] {
-  background: #f2f2f2;
+  background: color-mix(in srgb, var(--card-background) 88%, transparent);
 }
 
 .faq-question {
@@ -502,7 +542,7 @@ body {
   justify-content: space-between;
   gap: var(--dev9b-spacing-sm);
   padding: var(--dev9b-spacing-md) var(--dev9b-spacing-lg);
-  color: var(--dev9b-ink);
+  color: var(--card-text-color-main);
   font-weight: 600;
   font-size: var(--dev9b-body-md);
   line-height: 1.45;
@@ -516,11 +556,13 @@ body {
 }
 
 .faq-question::marker {
-  content: "";
+  content: \
+\;
 }
 
 .faq-question::after {
-  content: "";
+  content: \
+\;
   width: 0.55rem;
   height: 0.55rem;
   border-right: 2px solid currentColor;
@@ -547,7 +589,7 @@ body {
 
 .faq-answer {
   padding: 0 var(--dev9b-spacing-lg) var(--dev9b-spacing-lg);
-  color: var(--dev9b-body);
+  color: var(--card-text-color-secondary);
 }
 
 .faq-answer > :first-child {
@@ -558,146 +600,3 @@ body {
   margin-bottom: 0;
 }
 
-/* ── Article components ── */
-.article-header {
-  margin-bottom: var(--dev9b-spacing-xl);
-}
-
-.article-image {
-  margin: 0 0 var(--dev9b-spacing-lg) 0;
-}
-
-.article-image img {
-  border-radius: var(--dev9b-rounded-md);
-  display: block;
-}
-
-.article-details {
-  margin-bottom: var(--dev9b-spacing-lg);
-}
-
-.article-title {
-  font-size: var(--dev9b-heading-lg);
-  font-weight: 600;
-  line-height: 40px;
-  letter-spacing: -1.28px;
-  color: var(--dev9b-ink);
-  margin: 0 0 var(--dev9b-spacing-sm) 0;
-}
-
-.article-subtitle {
-  font-size: var(--dev9b-body-lg);
-  line-height: 24px;
-  color: var(--dev9b-body);
-  margin: 0;
-}
-
-.article-meta {
-  display: flex;
-  align-items: center;
-  gap: var(--dev9b-spacing-sm);
-  color: var(--dev9b-mute);
-  font-size: var(--dev9b-body-sm);
-  margin-bottom: var(--dev9b-spacing-lg);
-}
-
-/* ── Article list cards ── */
-.article-list--tile article,
-.article-list--compact article {
-  display: flex;
-  gap: var(--dev9b-spacing-lg);
-  align-items: flex-start;
-  padding: var(--dev9b-spacing-lg);
-  border: 1px solid var(--dev9b-hairline);
-  border-radius: var(--dev9b-rounded-md);
-  background: var(--dev9b-canvas-elevated);
-  margin-bottom: var(--dev9b-spacing-md);
-  transition: border-color 0.18s ease, transform 0.18s ease;
-}
-
-.article-list--tile article:hover,
-.article-list--compact article:hover {
-  border-color: var(--dev9b-mute);
-}
-
-.article-list--tile .article-image,
-.article-list--compact .article-image {
-  flex-shrink: 0;
-}
-
-.article-list--tile .article-image img,
-.article-list--compact .article-image img {
-  border-radius: var(--dev9b-rounded-sm);
-  width: 250px;
-  height: 150px;
-  object-fit: cover;
-}
-
-.article-list--tile .article-details,
-.article-list--compact .article-details {
-  flex: 1;
-}
-
-.article-list--tile .article-title,
-.article-list--compact .article-title {
-  font-size: var(--dev9b-heading-md);
-  line-height: 28px;
-  letter-spacing: -0.4px;
-  margin: 0 0 var(--dev9b-spacing-xs) 0;
-}
-
-/* ── Article content headings ── */
-.article-content h1,
-.article-content h2,
-.article-content h3,
-.article-content h4 {
-  font-family: var(--dev9b-font-sans);
-  font-weight: 600;
-  color: var(--dev9b-ink);
-  line-height: 1.4;
-  margin-top: var(--dev9b-spacing-xl);
-  margin-bottom: var(--dev9b-spacing-md);
-}
-
-.article-content h1 {
-  font-size: var(--dev9b-heading-lg);
-  letter-spacing: -1.28px;
-}
-
-.article-content h2 {
-  font-size: var(--dev9b-heading-md);
-  letter-spacing: -0.4px;
-}
-
-.article-content h3 {
-  font-size: var(--dev9b-body-lg);
-  letter-spacing: -0.28px;
-}
-
-.article-content p {
-  margin: 0 0 var(--dev9b-spacing-lg) 0;
-  color: var(--dev9b-body);
-  line-height: 1.85;
-}
-
-.article-content a {
-  color: var(--dev9b-link);
-  text-decoration: underline;
-  text-decoration-color: color-mix(in srgb, var(--dev9b-link) 40%);
-}
-
-.article-content code {
-  font-family: var(--dev9b-font-mono);
-  font-size: var(--dev9b-code);
-  background: color-mix(in srgb, var(--dev9b-ink) 8%);
-  padding: 2px 6px;
-  border-radius: var(--dev9b-rounded-sm);
-  color: var(--dev9b-ink);
-}
-
-/* ── Sitemap list ── */
-.sitemap-list li {
-  border: 1px solid var(--dev9b-hairline);
-  border-radius: var(--dev9b-rounded-md);
-  background: var(--dev9b-canvas-elevated);
-}

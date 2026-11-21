@@ -1,1 +1,0 @@
-Install Astro Theme Pure and deploy to GitHub Pages with Actions: static output setup, base path caveats, SEO checks, and fixes after the first deploy.

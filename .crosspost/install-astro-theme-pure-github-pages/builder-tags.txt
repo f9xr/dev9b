@@ -1,4 +1,0 @@
-astro
-github-pages
-static-site
-github-actions
