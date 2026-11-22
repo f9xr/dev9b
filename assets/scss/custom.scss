@@ -556,13 +556,11 @@ body {
 }
 
 .faq-question::marker {
-  content: \
-\;
+  content: "";
 }
 
 .faq-question::after {
-  content: \
-\;
+  content: "";
   width: 0.55rem;
   height: 0.55rem;
   border-right: 2px solid currentColor;

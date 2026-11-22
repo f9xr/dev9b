@@ -760,7 +760,7 @@ This is where beginners get burned, so it gets its own list:
 - A check that your exchange balance matches what the bot thinks it holds
 - Log files you can search later
 
-If you want to schedule and monitor workflows without writing every piece yourself, a local automation tool can help, and our walkthrough on [installing n8n locally](/p/how-to-install-n8n-locally-on-pc/) is a good starting point.
+If you want to schedule and monitor workflows without writing every piece yourself, a local automation tool can help, and our walkthrough on [installing n8n locally](/p/how-to-install-n8n-locally-on-pc/) is a good starting point. If you would rather hand the monitoring to a resident agent, our guides to [setting up the n8n Nod agent on a Hostinger VPS](/p/how-to-set-n8n-nod-agent-on-hostinger-vps/) and [deploying Hermes Agent on a Hostinger VPS](/p/how-to-set-hermes-agent-on-hostinger-vps/) show how to keep a supervisor online 24/7 so it can alert you when the bot halts or drifts from its paper results.
 
 ## Common Mistakes That Quietly Ruin Trading Bots
 
