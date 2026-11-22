@@ -1,0 +1,2 @@
+site = https://f9xr.org/dev9b/p/how-to-set-n8n-nod-agent-on-hostinger-vps/
+devto = https://dev.to/f9xrteam/set-up-n8n-nod-agent-on-hostinger-vps-l2g

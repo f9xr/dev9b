@@ -1,0 +1,1 @@
+Step-by-step guide to self-host n8n Labs Nod personal AI agent on Hostinger VPS with Docker Compose. Keep it private, connect models, and run 24/7.
