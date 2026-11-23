@@ -1,4 +1,0 @@
-n8n
-ai-agents
-self-hosting
-automation

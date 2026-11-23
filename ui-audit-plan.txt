@@ -1,0 +1,240 @@
+F9XR Dev9b - UI Audit and Execution Plan
+Generated: 2026-11-22
+Scope: layouts/, assets/scss/, assets/ts/, config/, build pipeline (UI only; article content excluded)
+Site base: https://f9xr.org/dev9b/ (project pages under custom domain)
+
+EVIDENCE SNAPSHOT
+- Compiled CSS: --card-text-color-main:#171717 at offset 57160, --dev9b-ink:#171717 at 55816 -> primary button 1.00:1.
+- Contrast ratios: body-on-dark-card 1.97, ink-on-dark-card 1.08, mute-on-canvas 3.10, faint 2.48, link-on-dark 4.27, body-on-canvas 8.10.
+- custom.scss: 0 @media queries, 2 :focus-visible rules.
+- layouts/: 27 inline style= attributes.
+- Built post HTML: 2 h1 elements; JSON-LD keywords split on whitespace with commas attached.
+- main-menu is auto-populated from pages; not a bug.
+
+P0 - BLOCKING (visual / discovery / structured data)
+
+[ ] 1. Primary button text invisible in light mode
+    File: assets/scss/custom.scss:201-214, 232-244
+    Problem: background var(--card-text-color-main) = #171717 and color var(--dev9b-ink) = #171717.
+    Change: background: var(--dev9b-ink); color: var(--dev9b-canvas-elevated). Hover: filter/brightness, not --dev9b-link-deep.
+    Verify: computed contrast >= 4.5:1 in light and dark; screenshot both schemes.
+
+[ ] 2. Dark mode token remap incomplete
+    File: assets/scss/custom.scss:72-82
+    Problem: dark block does not remap --dev9b-ink/body/mute/faint/link/link-deep; 11 usages break (1.08, 1.97, 4.27).
+    Change: remap all tokens, e.g. ink:#fafafa, body:#c7c7c7, mute:#9a9a9a, faint:#6f6f6f, line:#2e2e2e, line-strong:#4a4a4a, link:#6aa8ff, link-deep:#8bbdff.
+    Verify: contrast census on post + home in dark mode; no ink-on-ink pairs.
+
+[ ] 3. Reader font-size controls are dead
+    File: assets/ts/reader-tools.ts:43 (sets --reader-font-scale); assets/scss/custom.scss (no consumer)
+    Change: add font-size: calc(1rem * var(--reader-font-scale, 1)) to .article-content text blocks (p, li, td), or scale .article-content with headings excluded.
+    Verify: A-, A, A+ change body text; value persists across reload; reset returns to 1.
+
+[ ] 4. Agent discovery links broken under /dev9b/
+    File: layouts/_partials/head/agent.html:5-11, 33
+    Problem: root-absolute /.well-known/ai-catalog.json, /llms.txt, /llms-full.txt, /feed.json, /sitemap.xml, /search/.
+    Change: wrap each in relURL, e.g. {{ "/llms.txt" | relURL }}; build search href as {{ "/search/" | relURL }}?keyword=.
+    Verify: 200 for /dev9b/llms.txt and /dev9b/.well-known/ai-catalog.json; built href starts with /dev9b/.
+
+[ ] 5. JSON-LD Organization logo 404
+    File: layouts/_partials/seo/jsonld.html:8
+    Problem: img/f9xr-logo.webp does not exist; actual asset is img/f9x-logo.webp.
+    Change: {{ "img/f9x-logo.webp" | absURL }}.
+    Verify: logo URL in JSON-LD returns 200; rich-results test shows no image error.
+
+[ ] 6. Structured-data keywords garbled
+    File: layouts/_partials/head/head.html:9; layouts/_partials/seo/jsonld.html:141, 165-166
+    Problem: comma-separated front matter string is cast via strings.Fields -> ["Abacus","AI","bot,",...].
+    Change: normalize: if not slice, split on "," then trim each; use normalized slice for meta and JSON-LD. Keep blog-publisher guidance (comma string) valid.
+    Verify: JSON-LD keywords is a clean array without trailing commas; meta keywords matches.
+
+P1 - ACCESSIBILITY
+
+[ ] 7. Article body contrast fails AA
+    File: assets/scss/custom.scss:362-366
+    Problem: .article-content p uses --card-text-color-secondary (#8f8f8f, 3.10:1).
+    Change: color: var(--dev9b-body) (#4d4d4d, 8.10:1); ensure dark remap.
+    Verify: contrast >= 4.5:1 for body text.
+
+[ ] 8. Eyebrow/footer/breadcrumb contrast fails
+    File: assets/scss/custom.scss:91, 312-325; layouts/_partials/seo/breadcrumb.html:6
+    Problem: --dev9b-mute #8f8f8f (3.10:1) and --dev9b-faint #a1a1a1 (2.48:1) for small text.
+    Change: use a darker mute (e.g. #6b6b6b, ~5.2:1) or reserve mute for large/decorative text; dark remap.
+    Verify: contrast >= 4.5:1 at 12-14px.
+
+[ ] 9. Duplicate H1 on every page
+    File: layouts/_partials/sidebar/left.html:33; layouts/_partials/article/components/details.html:21
+    Change: sidebar h1.site-name -> p/div with same class/styling; keep one h1 (article title).
+    Verify: exactly one h1 per post and per list page.
+
+[ ] 10. List page heading order
+    File: layouts/_default/list.html:3, 13, 14, 16
+    Problem: h3 -> h3 -> h1 -> h2.
+    Change: h1 section-term first, then h2 section-title/count (or p for counts).
+    Verify: heading outline has no skipped levels.
+
+[ ] 11. Related posts markup and determinism
+    File: layouts/_partials/seo/related-posts.html:25, 28-51
+    Problem: no section h2; shuffle is nondeterministic; single-column grid; tiny category chip; all inline styles.
+    Change: add h2 (visually hidden or eyebrow + h2); deterministic sort (date desc); grid repeat(auto-fit,minmax(240px,1fr)); move styles to SCSS; chip min-height 24px.
+    Verify: stable output across two builds; responsive 1/3 columns.
+
+[ ] 12. aria-label on divs without role
+    File: layouts/_partials/article/components/reader-toolbar.html:13, 30, 56
+    Change: add role="group" to each .reader-toolbar-group.
+    Verify: accessibility tree exposes group names.
+
+[ ] 13. Tap targets too small
+    File: assets/scss/custom.scss:201-271
+    Problem: buttons ~20px tall (padding 0 14px, line-height 20px).
+    Change: min-height 44px for primary/secondary; 36px for chips/category; inline-flex + align-items:center.
+    Verify: WCAG 2.2 target size >= 24x24 (prefer 44x44).
+
+[ ] 14. Missing focus-visible states
+    File: assets/scss/custom.scss (only reader toolbar/FAQ currently)
+    Change: add :focus-visible outline to .dev9b-btn-*, menu links, back-to-top, social links.
+    Verify: keyboard tab shows a visible ring on all interactive elements.
+
+[ ] 15. No reduced-motion handling
+    File: assets/scss/custom.scss
+    Change: add @media (prefers-reduced-motion: reduce) disabling transitions/animations and smooth scroll.
+    Verify: emulate reduce; no movement.
+
+[ ] 16. Description rendered as heading
+    File: layouts/_partials/article/components/details.html:33
+    Change: h3.article-subtitle -> p.article-subtitle (keep class/styles).
+    Verify: heading outline unchanged otherwise.
+
+[ ] 17. Icon-only social links lack accessible names; generic avatar alt
+    File: layouts/_partials/sidebar/left.html:24, 42-52
+    Change: add aria-label="{{ .Name }}" to social anchors; avatar alt = site title (or "" if decorative).
+    Verify: links announce names; no duplicate alt text.
+
+[ ] 18. Breadcrumb cleanup
+    File: layouts/_partials/seo/breadcrumb.html:7, 13, 18 (undefined --dev9b-spacing-xxs), :8 (hardcoded Home), inline styles, chevrons
+    Change: define the token or use --dev9b-spacing-xs; use i18n for Home; move styles to SCSS; add aria-hidden="true" to chevron SVGs.
+    Verify: gap renders; screen reader skips icons.
+
+[ ] 19. CSS FOUC risk
+    File: layouts/_partials/head/style.html:6
+    Problem: stylesheet loaded with media=print onload -> unstyled first paint.
+    Change: evaluate preload + normal stylesheet, or inline a small critical block; keep noscript fallback.
+    Verify: LCP/CLS unchanged or better; no flash of unstyled content on throttled 3G.
+
+[ ] 20. Open Graph whitespace
+    File: layouts/_partials/head/opengraph/provider/base.html:8, 36
+    Change: emit og:type on one line; remove stray spaces in the date format string.
+    Verify: built meta has no leading/trailing whitespace.
+
+P2 - RESPONSIVE / POLISH
+
+[ ] 21. Add responsive breakpoints
+    File: assets/scss/custom.scss (0 media queries)
+    Change: @media (max-width:768px) and (max-width:480px): hero padding 128px -> 64/48px; display 48px -> 32/28px; card padding 32px -> 24px; related grid.
+    Verify: no horizontal overflow at 390px; tap targets intact.
+
+[ ] 22. Remove inline styles
+    File: layouts/_partials/seo/related-posts.html, seo/breadcrumb.html, featured-on.html, home.html hero (27 total)
+    Change: move to named SCSS classes.
+    Verify: no style= attributes remain in UI partials (except dynamic colors).
+
+[ ] 23. Dead featured-on partial
+    File: layouts/_partials/featured-on.html (never included)
+    Change: wire into layouts/home.html with width/height + loading=lazy, or delete.
+    Verify: if wired, badges render without CLS; if deleted, no references.
+
+[ ] 24. Empty ad container
+    File: layouts/_partials/article/article.html:29
+    Change: remove empty .article-inline-ads div.
+    Verify: no empty block in built HTML.
+
+[ ] 25. Non-portable jsconfig
+    File: assets/jsconfig.json
+    Problem: absolute AppData\Local\hugo_cache path.
+    Change: use a relative/glob path or remove the file.
+    Verify: editor resolves theme imports on a clean checkout.
+
+[ ] 26. theme-color mismatch
+    File: layouts/_partials/head/custom.html:84-85
+    Change: light #fafafa (canvas) and dark #0d0d0d (canvas) to match body.
+    Verify: mobile browser chrome matches page background.
+
+[ ] 27. Nondeterministic related posts
+    File: layouts/_partials/seo/related-posts.html:25
+    Change: replace shuffle with deterministic ordering (date desc, then title).
+    Verify: two consecutive builds produce identical HTML.
+
+[ ] 28. Hardcoded theme version
+    File: layouts/_partials/footer/footer.html:12
+    Change: derive from module/params or document the manual bump.
+    Verify: footer version matches go.mod.
+
+[ ] 29. Tight hero line-height
+    File: assets/scss/custom.scss:173-183
+    Change: line-height 1.05-1.1 instead of 48px on a 48px font.
+    Verify: no clipped ascenders/descenders at mobile sizes.
+
+P3 - OPTIONAL HARDENING
+
+[ ] 30. Add UI lint/typecheck
+    Change: package.json with stylelint, eslint, prettier, tsc --noEmit; add a CI job.
+    Verify: commands pass locally and in Actions.
+
+[ ] 31. Split SCSS
+    Change: _tokens.scss, _buttons.scss, _article.scss, _reader.scss, _footer.scss.
+    Verify: identical compiled output.
+
+[ ] 32. Document unsafe markdown and consolidate analytics
+    File: config/_default/markup.toml (unsafe=true); head/head.html vs head/custom.html GA
+    Change: document trusted-author requirement; ensure only one analytics path is active.
+    Verify: no double pageviews when GA is configured.
+
+VERIFICATION AFTER FIXES
+1. hugo --gc --minify --cleanDestinationDir
+2. hugo --gc --minify --cleanDestinationDir --baseURL "https://f9xr.org/dev9b/"
+3. scripts/verify-machine-readable.ps1
+4. Assert one h1 per post; agent links start with /dev9b/ and return 200; JSON-LD logo 200; keywords array clean.
+5. Contrast >= 4.5:1 for body/small text; tap targets >= 24x24; keyboard focus visible.
+6. Optional: awwwards_analyze_accessibility (desktop+mobile) on a post and home; awwwards_analyze_page_structure compare:mobile for overflow/tap targets.
+7. Optional: Lighthouse before/after for LCP, CLS, INP.
+
+NOTES
+- Local public/ was built with baseURL https://f9xr.org/ (no /dev9b). CI overrides with --baseURL "${{ steps.pages.outputs.base_url }}/", so canonical/OG are correct in production. The agent.html root-absolute paths are wrong regardless.
+- Do not change article content as part of this plan.
+
+AI / MARKDOWN ACCESSIBILITY (agent-readable articles)
+Decisions: llms-full.txt includes full text; simple <a> anchors convert to Markdown.
+
+Already existed:
+- Per-post/page Markdown at /p/<slug>/index.md via [outputFormats.markdown] and outputs.page = ["HTML","markdown"].
+- HTML advertises it via <link rel=alternate type=text/markdown>.
+- llms.txt, llms-full.txt, articles-urls.txt generated; deploy checks every post ships index.md.
+
+[x] New layouts/_partials/data/keywords.html: normalize comma string or slice, trim, dedupe.
+[x] New layouts/_partials/markdown/body.md: strip <!--more-->, convert simple <a> to Markdown, convert youtube/bilibili shortcodes, prefix internal / links (including /) with site.BaseURL.
+[x] layouts/_partials/markdown/single.md: use body partial; add keywords, image, faq, wordCount, readingTime, section, source_url; normalize links in front matter FAQ answers.
+[x] layouts/_partials/head/head.html: normalized keywords for meta.
+[x] layouts/_partials/seo/jsonld.html: normalized keywords (fixes space-split garbage).
+[x] layouts/index.llms.txt: Markdown URL per post, llms-full link, remove false Accept claim.
+[x] layouts/index.llmsfull.txt: full text per post via body partial.
+[x] layouts/_partials/head/agent.html: site.BaseURL for discovery links and WebMCP search (relURL kept root paths under /dev9b/).
+
+Notes:
+- llms-full.txt is ~1.36 MB because it now carries full text; per-post index.md is the lightweight path.
+- Escaped shortcode examples in useful-shortcodes-for-dev9b-articles stay literal by design.
+- The link rewriter also updates root-relative examples inside inline code/fenced code (e.g., markdown-syntax-guide). The HTML article is unaffected; use source_url for the exact source.
+- Verified: 0 remaining root-absolute links in generated post Markdown; 87/87 posts have index.md; machine-readable verifier passes.
+
+Verification:
+1. hugo --gc --minify --cleanDestinationDir --baseURL "https://f9xr.org/dev9b/"
+2. public/p/affonso-affiliate-software-saas-guide/index.md: 0 matches for ](/ , href="/ , {{< , <!--more-->
+3. Rewritten internal links (e.g. /dev9b/p/opencode-mcp-servers/) return 200.
+4. Front matter has keywords, image, faq, source_url.
+5. llms.txt has Markdown: links; llms-full.txt has "#### Full Text".
+6. Post HTML head links start with /dev9b/.
+7. scripts/verify-machine-readable.ps1 passes.
+
+Optional follow-ups:
+- Add an articles-markdown-urls.txt output format.
+- Add source_url to sitemap/feed metadata.
+- Add HTTP Link headers at the edge (GitHub Pages cannot set them).

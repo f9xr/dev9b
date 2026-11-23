@@ -138,7 +138,7 @@
 -}}
 {{- $graph = $graph | append $webpage -}}
 
-{{- $keywords := .Params.keywords | default slice -}}
+{{- $keywords := partial "data/keywords" . -}}
 {{- $categories := .Params.categories | default slice -}}
 {{- $articleDict := dict
     "@type" (slice "BlogPosting" "TechArticle")

@@ -13,6 +13,7 @@ Dev9b is a free, open-source online community where software developers share kn
 - GitHub: https://github.com/f9xr/dev9b
 - HTML Sitemap: {{ printf "%ssitemap/" $base }}
 - Machine-readable: {{ printf "%sllms.txt" $base }}
+- Full content: {{ printf "%sllms-full.txt" $base }}
 - License: MIT (source), CC BY-NC-SA 4.0 (content)
 - Feeds: RSS ({{ printf "%sindex.xml" $base }}), RSS ({{ printf "%sfeed.xml" $base }}), Atom ({{ printf "%satom.xml" $base }}), JSON ({{ printf "%sfeed.json" $base }})
 
@@ -25,7 +26,7 @@ Dev9b is a free, open-source online community where software developers share kn
 
 ## Articles
 {{ range $posts }}
-- {{ .Title }}: {{ .Permalink }}
+- {{ .Title }}: {{ .Permalink }} | Markdown: {{ printf "%sindex.md" .Permalink }}
 {{- end }}
 
 ## Pages
@@ -44,7 +45,7 @@ Dev9b is a free, open-source online community where software developers share kn
 - ARD capability catalog: {{ printf "%s.well-known/ai-catalog.json" $base }}
 - Agent skills index: {{ printf "%s.well-known/agent-skills/index.json" $base }}
 - Security contact: {{ printf "%s.well-known/security.txt" $base }}
-- Markdown for agents: append `index.md` to any post URL (Accept: text/markdown)
+- Markdown for agents: append `index.md` to any post URL
 
 ## Social
 

@@ -24,7 +24,7 @@ Dev9b is a free, open-source online community where software developers share kn
 
 ## Articles
 
-> Full index of every article with description, categories, tags, and date. Each article is also available as raw Markdown at its URL with `index.md` appended.
+> Full text of every article, with description, categories, tags, and date. Each article is also available as raw Markdown at its URL with `index.md` appended.
 
 {{ range $posts }}
 ### {{ .Title }}
@@ -38,6 +38,10 @@ Dev9b is a free, open-source online community where software developers share kn
 - Tags: {{ delimit . ", " }}
 {{- end }}
 - Date: {{ .Date.Format "2006-01-02" }}
+
+#### Full Text
+
+{{ partial "markdown/body.md" . }}
 {{ end }}
 ## Pages
 

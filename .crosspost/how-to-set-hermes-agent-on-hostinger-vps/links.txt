@@ -1,2 +1,0 @@
-site = https://f9xr.org/dev9b/p/how-to-set-hermes-agent-on-hostinger-vps/
-devto = https://dev.to/f9xrteam/deploy-hermes-agent-on-hostinger-vps-fast-4f4c

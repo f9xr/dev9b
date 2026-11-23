@@ -2,13 +2,13 @@
      These are HTML <link> relations (in-document). True HTTP `Link:` response
      headers (RFC 8288) cannot be set from GitHub Pages; place the equivalent
      headers at the edge (Cloudflare Transform Rule / Worker). */ -}}
-<link rel="ai-catalog" href="/.well-known/ai-catalog.json" type="application/json" title="ARD capability catalog">
-<link rel="service-doc" href="/llms.txt" type="text/plain" title="llms.txt">
-<link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt">
-<link rel="alternate" type="text/plain" href="/llms-full.txt" title="llms-full.txt">
-<link rel="alternate" type="application/feed+json" href="/feed.json" title="Dev9b JSON Feed">
-<link rel="describedby" href="/.well-known/agent-skills/index.json" type="application/json" title="Agent skills index">
-<link rel="describedby" href="/sitemap.xml" type="application/xml" title="XML sitemap">
+<link rel="ai-catalog" href="{{ printf "%s.well-known/ai-catalog.json" site.BaseURL }}" type="application/json" title="ARD capability catalog">
+<link rel="service-doc" href="{{ printf "%sllms.txt" site.BaseURL }}" type="text/plain" title="llms.txt">
+<link rel="alternate" type="text/plain" href="{{ printf "%sllms.txt" site.BaseURL }}" title="llms.txt">
+<link rel="alternate" type="text/plain" href="{{ printf "%sllms-full.txt" site.BaseURL }}" title="llms-full.txt">
+<link rel="alternate" type="application/feed+json" href="{{ printf "%sfeed.json" site.BaseURL }}" title="Dev9b JSON Feed">
+<link rel="describedby" href="{{ printf "%s.well-known/agent-skills/index.json" site.BaseURL }}" type="application/json" title="Agent skills index">
+<link rel="describedby" href="{{ printf "%ssitemap.xml" site.BaseURL }}" type="application/xml" title="XML sitemap">
 
 {{- /* WebMCP: expose the site search as a tool to supporting browsers.
      No-op where the API is absent. */ -}}
@@ -30,7 +30,7 @@
                 },
                 execute: function (input) {
                     var q = (input && input.query) ? input.query : '';
-                    var url = '/search/?keyword=' + encodeURIComponent(q);
+                    var url = '{{ printf "%ssearch/" site.BaseURL }}?keyword=' + encodeURIComponent(q);
                     return Promise.resolve({
                         content: [{ type: 'text', text: 'Open ' + url + ' to see Dev9b search results.' }],
                         action: { type: 'navigate', url: url }

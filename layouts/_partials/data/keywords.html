@@ -1,0 +1,15 @@
+{{- $kw := .Params.keywords | default slice -}}
+{{- if reflect.IsSlice $kw -}}
+    {{- $joined := delimit $kw " " -}}
+    {{- if in $joined "," -}}
+        {{- $kw = split $joined "," -}}
+    {{- end -}}
+{{- else -}}
+    {{- $kw = split $kw "," -}}
+{{- end -}}
+{{- $out := slice -}}
+{{- range $kw -}}
+    {{- $t := trim . " \t\n\r" -}}
+    {{- if $t -}}{{- $out = $out | append $t -}}{{- end -}}
+{{- end -}}
+{{- return ($out | uniq) -}}
