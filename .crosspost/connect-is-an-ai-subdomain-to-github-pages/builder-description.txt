@@ -1,0 +1,1 @@
+Connect your free is-an.ai subdomain to a GitHub Pages repo. Exact CNAME values, CLI commands, HTTPS setup and fixes for the errors you will actually hit.
