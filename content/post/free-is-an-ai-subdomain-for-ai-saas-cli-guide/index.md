@@ -211,6 +211,8 @@ For a typical AI SaaS prototype, this combination is hard to beat:
 
 If you need trusted HTTPS on a private network or a staging box that is not public yet, a certificate service such as [LocalCert](/p/free-localcert-subdomain-api-setup-guide/) solves a different problem and pairs well with this setup.
 
+If the front end lives on GitHub Pages instead, our [guide to connecting an is-an.ai subdomain to GitHub Pages](/p/connect-is-an-ai-subdomain-to-github-pages/) covers the custom domain setting, the exact CNAME target, and the base-path fix that stops assets from 404ing after the move.
+
 ## Be Honest About What a Free Subdomain Is
 
 This section builds trust, so let us be direct. A subdomain is not a domain you own. With `my-project.is-an.ai`, the service owns `is-an.ai` and lends you a slice of it. That is perfectly fine for a prototype, a demo, a hackathon entry, or an early beta. It is a weaker foundation for a business with paying customers.
