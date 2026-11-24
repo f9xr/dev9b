@@ -130,7 +130,7 @@ The myth is that agents fail because the model is weak. In practice the bottlene
 - **Search before read.** Codebase search finds the relevant symbols first, then the agent opens a handful of files rather than dozens.
 - **Summarization.** Long outputs are compressed before they feed back in, keeping useful signal inside a shrinking window.
 
-This is why the tool layer matters as much as the model: a search tool that understands your framework produces better decisions than a larger model with a blind toolset.
+This is why the tool layer matters as much as the model: a search tool that understands your framework produces better decisions than a larger model with a blind toolset. A code knowledge graph is another route to the same goal. [How to use Graphify](/p/how-to-use-graphify-code-knowledge-graph/) builds a queryable map of symbols and edges, so the agent can request the exact subgraph instead of searching blind.
 
 Context applies to design too. An agent that has never seen your colors or type scale will invent them every time, which is why agent-built pages all look alike. A `DESIGN.md` file at your project root is the visual equivalent of a good convention, and [what DESIGN.md does for AI agents](/p/what-is-getdesign-md-ai-agents-design-system/) covers the format and the tooling around it.
 

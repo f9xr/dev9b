@@ -407,3 +407,5 @@ Every article on this site goes through the F9XR review board against the standa
 DNS is only half a domain migration. The other half is analytics: once the new hostname serves traffic, your GA4 property still remembers the old one, and the numbers split in ways nobody notices until a report is wrong. [Change domain in GA4: multiple data streams and cross-domain tracking](/p/change-domain-ga4-multiple-data-streams-guide/) covers that side, including how to keep one Measurement ID across a marketing site and a checkout on separate root domains.
 
 If you want the same custom-domain result without a commercial host, [Codeberg Pages uses a similar DNS-plus-authorization model](/p/how-to-host-static-websites-codeberg-pages/) with a TXT record that ties the domain to your repository.
+
+If the site you are pointing at this domain is a React frontend rather than a Hugo build, [hosting a React SaaS on GitHub Pages](/p/host-react-saas-github-pages/) covers the Vite `base` path, the Actions workflow, and the routing fix that stops deep links from 404ing.

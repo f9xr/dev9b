@@ -1,0 +1,1 @@
+Learn how to use Graphify to turn any codebase into a queryable knowledge graph. Local AST parsing for Claude Code, Cursor, Codex. No vector store needed.

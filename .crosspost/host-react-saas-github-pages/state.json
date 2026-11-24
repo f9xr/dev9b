@@ -1,0 +1,13 @@
+{
+  "slug": "host-react-saas-github-pages",
+  "title": "Host Your React SaaS on GitHub Pages (Free, 2026 Guide)",
+  "site_url": "https://f9xr.org/dev9b/p/host-react-saas-github-pages/",
+  "generated_at": "2026-11-24T16:38:59+00:00",
+  "cover_url": "https://raw.githubusercontent.com/f9xr/dev9b/master/content/post/host-react-saas-github-pages/cover.jpg",
+  "artifacts": {
+    "devto.md": ".crosspost/host-react-saas-github-pages/devto.md",
+    "builder.md": ".crosspost/host-react-saas-github-pages/builder.md",
+    "builder.html": ".crosspost/host-react-saas-github-pages/builder.html",
+    "medium.html": ".crosspost/host-react-saas-github-pages/medium.html"
+  }
+}

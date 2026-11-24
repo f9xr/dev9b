@@ -1,0 +1,1 @@
+Learn how to host a React SaaS frontend on GitHub Pages with Vite, GitHub Actions, routing fixes, a custom domain, and HTTPS. Free and beginner friendly.

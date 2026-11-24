@@ -1,0 +1,13 @@
+{
+  "slug": "how-to-use-graphify-code-knowledge-graph",
+  "title": "How to Use Graphify: Code Knowledge Graph Guide",
+  "site_url": "https://f9xr.org/dev9b/p/how-to-use-graphify-code-knowledge-graph/",
+  "generated_at": "2026-11-24T16:39:00+00:00",
+  "cover_url": "https://raw.githubusercontent.com/f9xr/dev9b/master/content/post/how-to-use-graphify-code-knowledge-graph/cover.jpg",
+  "artifacts": {
+    "devto.md": ".crosspost/how-to-use-graphify-code-knowledge-graph/devto.md",
+    "builder.md": ".crosspost/how-to-use-graphify-code-knowledge-graph/builder.md",
+    "builder.html": ".crosspost/how-to-use-graphify-code-knowledge-graph/builder.html",
+    "medium.html": ".crosspost/how-to-use-graphify-code-knowledge-graph/medium.html"
+  }
+}
