@@ -9,7 +9,7 @@ Commit and push this article, .crosspost/host-react-saas-github-pages/ and stati
 before publishing anywhere. dev.to and Medium fetch images by URL.
 
 DEV.TO
-  Published by this tool. Status: not published yet
+  Published by this tool. Status: live https://dev.to/f9xrteam/host-your-react-saas-on-github-pages-free-2026-guide-1beo
   File: .crosspost/host-react-saas-github-pages/devto.md (source stays published: false).
 
 MEDIUM
