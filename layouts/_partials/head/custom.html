@@ -25,6 +25,9 @@
 {{- $robotsContent := "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" -}}
 {{- if eq .Kind "404" -}}
     {{- $robotsContent = "noindex, follow" -}}
+{{- else if eq .Layout "search" -}}
+    {{- /* Utility page: no unique content, keep out of the index */ -}}
+    {{- $robotsContent = "noindex, follow" -}}
 {{- else if and (eq .Kind "term") (.Paginator.HasPrev) -}}
     {{- /* Noindex deep pagination pages, keep page 1 indexable */}}
     {{- $robotsContent = "noindex, follow" -}}

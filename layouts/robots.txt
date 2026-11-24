@@ -68,7 +68,10 @@ Allow: /
 Sitemap: {{ $base }}sitemap.xml
 
 # Agent / AI discovery
-Agentmap: {{ $base }}.well-known/ai-catalog.json
+# (Agentmap is not a standard robots.txt directive; crawlers ignore it and it
+#  makes strict robots.txt validators fail. Discovery happens via the HTML
+#  <link rel="ai-catalog"> in head/agent.html instead.)
+# Agentmap: {{ $base }}.well-known/ai-catalog.json
 # llms.txt: {{ $base }}llms.txt
 # llms-full.txt: {{ $base }}llms-full.txt
 # Agent skills: {{ $base }}.well-known/agent-skills/index.json

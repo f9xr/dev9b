@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dev9b — SEO, GEO & AI Visibility Audit Dashboard</title>
+<style>
+:root{--red:#d93025;--orange:#e8710a;--yellow:#f9ab00;--grey:#80868b;--green:#188038;--bg:#fafafa;--card:#fff;--border:#e0e0e0;--text:#202124;--muted:#5f6368}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.5;font-size:14px}
+header{background:#fff;border-bottom:1px solid var(--border);padding:20px 32px;position:sticky;top:0;z-index:10}
+header h1{font-size:20px;font-weight:600}
+header p{color:var(--muted);font-size:12px;margin-top:2px}
+.wrap{max-width:1200px;margin:0 auto;padding:24px 32px 64px}
+.score-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:20px 0}
+.score-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center}
+.score-card .big{font-size:32px;font-weight:700}
+.score-card .lbl{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-top:4px}
+.g-green{color:var(--green)}.g-yellow{color:var(--yellow)}.g-orange{color:var(--orange)}.g-red{color:var(--red)}
+.bar{height:6px;background:#f1f3f4;border-radius:3px;margin-top:8px;overflow:hidden}
+.bar span{display:block;height:100%;border-radius:3px}
+.tabs{display:flex;gap:4px;flex-wrap:wrap;margin:24px 0 0;border-bottom:1px solid var(--border)}
+.tabs button{background:none;border:none;padding:10px 16px;font-size:13px;cursor:pointer;color:var(--muted);border-bottom:2px solid transparent;font-weight:500}
+.tabs button.active{color:#1a73e8;border-bottom-color:#1a73e8}
+.tabpane{display:none;padding:24px 0}
+.tabpane.active{display:block}
+.card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px;margin-bottom:16px}
+.card h3{font-size:15px;margin-bottom:10px}
+table{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px}
+th{text-align:left;padding:8px 10px;background:#f8f9fa;border-bottom:1px solid var(--border);font-weight:600;position:sticky;top:0}
+td{padding:8px 10px;border-bottom:1px solid #f1f3f4;vertical-align:top}
+tr:hover td{background:#f8f9fa}
+.badge{display:inline-block;padding:2px 10px;border-radius:12px;font-size:11px;font-weight:600;white-space:nowrap}
+.b-crit{background:#fce8e6;color:var(--red)}.b-high{background:#fef7e0;color:var(--orange)}.b-med{background:#fff8e1;color:#b06000}.b-low{background:#f1f3f4;color:var(--grey)}.b-ok{background:#e6f4ea;color:var(--green)}
+.sevchart{display:flex;gap:16px;flex-wrap:wrap;margin:12px 0}
+.sev-item{flex:1;min-width:120px;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center}
+.sev-item .n{font-size:26px;font-weight:700}
+.issue{border:1px solid var(--border);border-radius:8px;margin-bottom:10px;background:var(--card)}
+.issue summary{padding:12px 16px;cursor:pointer;font-weight:600;display:flex;align-items:center;gap:10px;list-style:none}
+.issue summary::after{content:'▾';margin-left:auto;color:var(--muted)}
+.issue[open] summary::after{content:'▴'}
+.issue .body{padding:0 16px 14px;font-size:13px;color:var(--muted)}
+.issue .body b{color:var(--text)}
+.issue .body p{margin:6px 0}
+code{background:#f1f3f4;padding:1px 5px;border-radius:4px;font-size:12px}
+.note{background:#e8f0fe;border-left:3px solid #1a73e8;padding:10px 14px;border-radius:0 6px 6px 0;font-size:13px;margin:10px 0}
+.matrix td:first-child{font-weight:500}
+.check li{margin:6px 0 6px 18px}
+.pill-ok{color:var(--green)}.pill-bad{color:var(--red)}.pill-warn{color:var(--orange)}
+@media(max-width:700px){.wrap{padding:16px}header{padding:16px}}
+</style>
+</head>
+<body>
+<header>
+<h1>F9XR Dev9b — SEO · GEO · AI Visibility Intelligence Dashboard</h1>
+<p>Audit date: 24 Nov 2026 · Target: https://f9xr.org/dev9b/ · Auditor toolchain: live crawl (Chrome DevTools + Lighthouse), source-repo inspection (Hugo), robots/sitemap/schema verification, search-engine presence probes · GSC/backlink/AI-platform data: not available</p>
+</header>
+<div class="wrap">
+
+<div class="tabs">
+<button class="active" data-tab="overview">Overview</button>
+<button data-tab="technical">Technical SEO</button>
+<button data-tab="onpage">On-Page</button>
+<button data-tab="content">Content</button>
+<button data-tab="offpage">Off-Page</button>
+<button data-tab="geo">GEO & AEO</button>
+<button data-tab="aivis">AI Visibility</button>
+<button data-tab="competitor">Competitors</button>
+<button data-tab="keywords">Keywords</button>
+<button data-tab="ux">UX & CRO</button>
+<button data-tab="roadmap">Roadmap</button>
+<button data-tab="registers">Registers</button>
+<button data-tab="limits">Limitations</button>
+<button data-tab="strategy">Strategy</button>
+</div>
+
+<!-- OVERVIEW -->
+<section id="overview" class="tabpane active">
+<div class="score-grid">
+<div class="score-card"><div class="big g-orange">54<span style="font-size:14px;color:var(--muted)">/100</span></div><div class="lbl">Overall Health*</div><div class="bar"><span style="width:54%;background:var(--orange)"></span></div></div>
+<div class="score-card"><div class="big g-orange">13<span style="font-size:14px;color:var(--muted)">/20</span></div><div class="lbl">Technical SEO</div><div class="bar"><span style="width:65%;background:var(--orange)"></span></div></div>
+<div class="score-card"><div class="big g-yellow">10<span style="font-size:14px;color:var(--muted)">/15</span></div><div class="lbl">On-Page SEO</div><div class="bar"><span style="width:67%;background:var(--yellow)"></span></div></div>
+<div class="score-card"><div class="big g-yellow">6<span style="font-size:14px;color:var(--muted)">/10</span></div><div class="lbl">Content & Semantic</div><div class="bar"><span style="width:60%;background:var(--yellow)"></span></div></div>
+<div class="score-card"><div class="big g-red">3<span style="font-size:14px;color:var(--muted)">/10</span></div><div class="lbl">Off-Page / Links</div><div class="bar"><span style="width:30%;background:var(--red)"></span></div></div>
+<div class="score-card"><div class="big g-yellow">10<span style="font-size:14px;color:var(--muted)">/15</span></div><div class="lbl">GEO & AEO</div><div class="bar"><span style="width:67%;background:var(--yellow)"></span></div></div>
+<div class="score-card"><div class="big g-red">2<span style="font-size:14px;color:var(--muted)">/10</span></div><div class="lbl">AI Visibility</div><div class="bar"><span style="width:20%;background:var(--red)"></span></div></div>
+<div class="score-card"><div class="big g-red">2<span style="font-size:14px;color:var(--muted)">/5</span></div><div class="lbl">Competitor Position</div><div class="bar"><span style="width:40%;background:var(--red)"></span></div></div>
+<div class="score-card"><div class="big g-yellow">5<span style="font-size:14px;color:var(--muted)">/10</span></div><div class="lbl">UX & CRO</div><div class="bar"><span style="width:50%;background:var(--yellow)"></span></div></div>
+<div class="score-card"><div class="big" style="color:var(--grey)">N/A</div><div class="lbl">Local SEO (redistributed)</div></div>
+</div>
+<p style="font-size:12px;color:var(--muted)">*Estimated assessment. Local SEO scored N/A (global blog); its 5 weight points were redistributed proportionally (÷95×100). Scores are evidence-based estimates, not measured rankings.</p>
+
+<div class="sevchart">
+<div class="sev-item"><div class="n g-red">3</div><div class="lbl">Critical</div></div>
+<div class="sev-item"><div class="n g-orange">6</div><div class="lbl">High</div></div>
+<div class="sev-item"><div class="n g-yellow">7</div><div class="lbl">Medium</div></div>
+<div class="sev-item"><div class="n" style="color:var(--grey)">4</div><div class="lbl">Low</div></div>
+<div class="sev-item"><div class="n g-green">9</div><div class="lbl">Opportunities</div></div>
+</div>
+
+<div class="card">
+<h3>What is working well (verified)</h3>
+<ul class="check">
+<li>✅ Unique titles, meta descriptions and self-referencing canonicals verified on every sampled page (home, posts, taxonomy pages)</li>
+<li>✅ Comprehensive JSON-LD: Organization, WebSite+SearchAction, BreadcrumbList, WebPage, ImageObject, BlogPosting/TechArticle with dates, license, keywords, speakable</li>
+<li>✅ Excellent agent surface: llms.txt, llms-full.txt, per-post <code>/index.md</code> Markdown endpoints, RSS/Atom/JSON feeds — verified live</li>
+<li>✅ 100% image alt coverage on sampled pages; hero images use <code>fetchpriority="high"</code>, correct lazy/eager split</li>
+<li>✅ Fast LCP (233–381 ms lab), TTFB ~3–11 ms, DOM lean (763 elements), strong Lighthouse Best Practices (100) and Accessibility (89)</li>
+<li>✅ Trust scaffolding: About, Team, Editorial Policy, Contributor Guide, CC BY-NC-SA license, "Suggest changes"/"Report article" GitHub links on every article</li>
+<li>✅ robots.txt explicitly allows AI answer crawlers (GPTBot, ClaudeBot, PerplexityBot, OAI-SearchBot etc.) — correct posture for GEO</li>
+<li>✅ Consistent publishing cadence (~88 posts in 2026, near-daily)</li>
+</ul>
+</div>
+</section>
+
+<!-- TECHNICAL -->
+<section id="technical" class="tabpane">
+<h3 style="margin-bottom:8px">Technical SEO — Findings (score 13/20)</h3>
+<div class="note">Scope: sampled ~12 live URLs (home, 3 articles, taxonomies, search, 404, sitemaps, robots, llms.txt) + full source repo inspection. Not a full crawl of all ~210 URLs. No GSC access — indexing status is inferred, not measured.</div>
+
+<div class="issue"><summary><span class="badge b-crit">Critical</span> CLS ≈ 1.0 on homepage and article pages</summary><div class="body">
+<p><b>Affected URL:</b> https://f9xr.org/dev9b/ and article templates (all pages)</p>
+<p><b>Evidence:</b> Chrome DevTools performance trace: CLS <b>1.00–1.01</b> (threshold: ≤0.1). Root causes identified by the profiler: unsized cover image (<code>cover.jpg</code> has width/height attributes but layout reserves space late), non-composited CSS animations <code>subsection-left-fade</code>/<code>subsection-right-fade</code> animating <code>--edge-fade-size</code> custom properties, and Geist font swap shift.</p>
+<p><b>Why it matters:</b> CLS is a Core Web Vital; ~1.0 fails the "Good" threshold by 10×. On a small site this is the single biggest measurable quality-signal deficit and directly affects rankings and user trust.</p>
+<p><b>Fix:</b> (1) Add explicit <code>width</code>/<code>height</code> + <code>aspect-ratio</code> to all card/cover images in the theme templates; (2) animate only compositor-friendly properties (opacity/transform) or use <code>@property</code>-registered custom properties; (3) add <code>font-display: optional</code> or size-adjust fallback metrics for Geist; (4) reserve space for the reader toolbar and TOC before hydration.</p>
+<p><b>Effort:</b> Low–Medium (theme CSS/templates) · <b>Priority:</b> 1</p>
+</div></div>
+
+<div class="issue"><summary><span class="badge b-crit">Critical</span> Sitemap URLs use http:// while canonicals use https://</summary><div class="body">
+<p><b>Affected URL:</b> https://f9xr.org/dev9b/sitemap.xml (all ~210 entries) and dev9b/robots.txt sitemap line</p>
+<p><b>Evidence:</b> Sitemap entries read <code>http://f9xr.org/dev9b/...</code> (verified). Live pages self-canonical to <code>https://</code> (verified via <code><link rel=canonical></code>). JSON-LD <code>og:url</code> and entity <code>@id</code>s also use http:// while the canonical tag uses https://.</p>
+<p><b>Why it matters:</b> Sitemap URLs disagreeing with canonical protocol sends conflicting signals, splits entity identity between http/https versions, and wastes crawl budget on the non-canonical scheme.</p>
+<p><b>Fix:</b> Set <code>baseurl = "https://f9xr.org/dev9b/"</code> in <code>config/_default/config.toml</code> and rebuild. This aligns sitemap, og:url, JSON-LD @ids, share links and RSS links to https in one change. The site's own Hugo SEO guide already recommends exactly this.</p>
+<p><b>Effort:</b> Trivial · <b>Priority:</b> 1</p>
+</div></div>
+
+<div class="issue"><summary><span class="badge b-crit">Critical</span> Root domain sitemap does not include Dev9b; dead sitemap references</summary><div class="body">
+<p><b>Affected URL:</b> https://f9xr.org/sitemap.xml · https://f9xr.org/robots.txt</p>
+<p><b>Evidence:</b> Root sitemap lists 54 URLs of the marketing site, zero containing <code>/dev9b/</code> (verified). Root robots.txt declares <code>Sitemap: sitemap-image.xml</code> and <code>sitemap-video.xml</code> — <code>sitemap-image.xml</code> returns 404 (verified). Root robots.txt contains <code>Agentmap:</code>, an unknown directive flagged by Lighthouse ("robots.txt is not valid — line 149").</p>
+<p><b>Why it matters:</b> Dev9b lives on a subdirectory of f9xr.org but is invisible to the root-domain sitemap/robots surface that most crawlers read first. Broken sitemap references waste discovery.</p>
+<p><b>Fix:</b> Add <code>Sitemap: https://f9xr.org/dev9b/sitemap.xml</code> to root robots.txt; remove or fix the sitemap-image/video references; move the <code>Agentmap:</code> line into a comment or the ai-catalog link relationship (it is not a standard robots.txt directive).</p>
+<p><b>Effort:</b> Trivial · <b>Priority:</b> 1</p>
+</div></div>
+
+<div class="issue"><summary><span class="badge b-high">High</span> Duplicate H1 on every page (site name + page title)</summary><div class="body">
+<p><b>Affected URL:</b> every page, e.g. /dev9b/p/hugo-seo-guide/</p>
+<p><b>Evidence:</b> Two H1s per page: <code><h1 class="site-name">F9XR's Dev9b</h1></code> and <code><h1 class="article-title"></code>. Lighthouse SEO score 83 flags "Heading elements are not in a sequentially-descending order".</p>
+<p><b>Why it matters:</b> Dilutes the topical H1 signal and is ironic given the site's own published SEO guide names H1 discipline as its #1 fix.</p>
+<p><b>Fix:</b> Change the header site-name to a <code><p></code> or <code><div></code> in the theme partial; fix heading-order skips elsewhere.</p>
+<p><b>Effort:</b> Trivial · <b>Priority:</b> 2</p>
+</div></div>
+
+<div class="issue"><summary><span class="badge b-high">High</span> Advertised agent endpoints return 404</summary><div class="body">
+<p><b>Affected URL:</b> /dev9b/.well-known/ai-catalog.json · /dev9b/.well-known/agent-skills/index.json</p>
+<p><b>Evidence:</b> Both URLs referenced in dev9b robots.txt (<code>Agentmap:</code>), HTML <code><link rel="ai-catalog"></code>, and llms.txt — both verified 404 live.</p>
+<p><b>Why it matters:</b> This site has invested in an agent-discovery surface; dead links undermine exactly the AI-crawler trust it is trying to build, and 404s from a robots.txt directive are crawled repeatedly.</p>
+<p><b>Fix:</b> Publish the ai-catalog.json and agent-skills index.json in <code>static/.well-known/</code>, or remove the references until they exist.</p>
+<p><b>Effort:</b> Low · <b>Priority:</b> 2</p>
+</div></div>
+
+<div class="issue"><summary><span class="badge b-med">Medium</span> Search page is indexable thin content</summary><div class="body">
+<p><b>Affected URL:</b> https://f9xr.org/dev9b/search/</p>
+<p><b>Evidence:</b> Page emits <code>robots: index, follow</code>, a canonical, and contains no content beyond an empty search box. It is also listed in HTML sitemap page.</p>
+<p><b>Why it matters:</b> Utility pages with no content are classic index bloat / low-value indexed pages.</p>
+<p><b>Fix:</b> Emit <code>robots: noindex, follow</code> on the search template and keep it out of the XML sitemap (it already is, but the HTML sitemap links it).</p>
+<p><b>Effort:</b> Trivial · <b>Priority:</b> 3</p>
+</div></div>
+
+<div class="issue"><summary><span class="badge b-med">Medium</span> http:// and https:// both serve 200 without redirect verification</summary><div class="body">
+<p><b>Affected URL:</b> http://f9xr.org/dev9b/ (redirects to https, observed in browser navigation) — but sitemap/feed/JSON-LD still emit http:// links (see Critical #2). Trailing-slash and /page/1/ aliases: pagination aliases disabled (verified in config, good).</p>
+<p><b>Fix:</b> Resolved by the baseurl fix above; then re-verify one 301 chain end-to-end.</p>
+<p><b>Effort:</b> Trivial · <b>Priority:</b> 3</p>
+</div></div>
+
+<div class="issue"><summary><span class="badge b-med">Medium</span> External font dependency (Google Fonts) causes shift + render chain</summary><div class="body">
+<p><b>Evidence:</b> Geist + Geist Mono loaded from fonts.gstatic.com; trace shows font-swap layout shifts and preconnect chain; site already self-hosts everything else on a static stack.</p>
+<p><b>Fix:</b> Self-host the two woff2 files with <code>font-display: optional</code> and preload — removes a third-party dependency and the shift cluster.</p>
+<p><b>Effort:</b> Low · <b>Priority:</b> 3</p>
+</div></div>
+
+<div class="issue"><summary><span class="badge b-low">Low</span> Disqus comment widget is click-to-load (good) but email-protection obfuscation hurts scrapers</summary><div class="body">
+<p><b>Evidence:</b> Cloudflare email obfuscation replaces contact emails with encoded spans on team/contribute pages; AI extractors see garbage where the contact email should be.</p>
+<p><b>Fix:</b> Show the plain email on the About/Team page (it is already plain in JSON-LD and llms.txt), keep obfuscation only where not needed for entity extraction.</p>
+<p><b>Effort:</b> Trivial · <b>Priority:</b> 4</p>
+</div></div>
+
+<div class="card"><h3>Verified clean</h3>
+<ul class="check">
+<li>robots.txt (dev9b): allows all crawlers, blocks only build artifacts — clean</li>
+<li>Canonicals: self-referencing, https, correct on all sampled pages</li>
+<li>404 handling: custom 404 page with site search — good (status code unverified from server headers)</li>
+<li>Pagination: <code>disableAliases = true</code> — no /page/1/ duplicates</li>
+<li>Mobile: responsive theme; no separate m. site</li>
+</ul></div>
+</section>
+
+<!-- ONPAGE -->
+<section id="onpage" class="tabpane">
+<h3 style="margin-bottom:8px">On-Page SEO — Findings (score 10/15)</h3>
+<div class="issue"><summary><span class="badge b-high">High</span> Placeholder taxonomy: "example-category" renders as "Tutorials" duplicate</summary><div class="body">
+<p><b>Affected URL:</b> https://f9xr.org/dev9b/categories/example-category/</p>
+<p><b>Evidence:</b> Page title <b>"Tutorials - F9XR's Dev9b"</b>, meta description identical to the real /categories/tutorials/ page, H1 "Tutorials", 0 posts — but listed in the XML sitemap and linked from taxonomy listings. The repo contains <code>content/categories/example-category/_index.md</code> (demo scaffold left in production).</p>
+<p><b>Why it matters:</b> Exact-duplicate title + description + empty page = duplicate-content and thin-content signal, directly contradicting the site's own published guidance.</p>
+<p><b>Fix:</b> Delete <code>content/categories/example-category/</code>, rebuild, and remove from sitemap automatically.</p>
+<p><b>Effort:</b> Trivial · <b>Priority:</b> 2</p>
+</div></div>
+
+<div class="issue"><summary><span class="badge b-high">High</span> FAQPage structured data not matched by visible FAQ content</summary><div class="body">
+<p><b>Affected URL:</b> e.g. https://f9xr.org/dev9b/p/hugo-seo-guide/</p>
+<p><b>Evidence:</b> Valid FAQPage JSON-LD present with 3 Q&As; DOM text search confirms none of the questions appear on the rendered page (verified via in-page query). The Hermes-agent post does show FAQ content — inconsistent enforcement.</p>
+<p><b>Why it matters:</b> FAQ markup without matching visible content violates structured-data guidelines (spam-policy risk) and is exactly the failure the site's own guide warns about ("keep FAQPage honest or leave it out").</p>
+<p><b>Fix:</b> Either render the FAQ section on posts that carry FAQ front matter, or gate FAQPage schema emission on the visible section existing.</p>
+<p><b>Effort:</b> Low · <b>Priority:</b> 2</p>
+</div></div>
+
+<div class="issue"><summary><span class="badge b-med">Medium</span> Author entity is an Organization everywhere; no Person/author byline schema</summary><div class="body">
+<p><b>Evidence:</b> All sampled articles set <code>author</code> to the F9XR Organization in JSON-LD; dev.to profile shows individual authors (F9XR, inakm) but on-site bylines show no named person; no <code>Person</code> schema, no author pages.</p>
+<p><b>Why it matters:</b> E-E-A-T for technical tutorials leans on named, verifiable authors. AI answer engines also prefer attributing claims to persons.</p>
+<p><b>Fix:</b> Add per-post <code>author</code> front matter (Person schema + visible byline linking to an author page with bio, GitHub, LinkedIn sameAs).</p>
+<p><b>Effort:</b> Medium · <b>Priority:</b> 3</p>
+</div></div>
+
+<div class="issue"><summary><span class="badge b-med">Medium</span> Tag-page bloat: 110 tag pages, many 1-post</summary><div class="body">
+<p><b>Evidence:</b> /dev9b/tags/ lists 110 pages across 11 pages of pagination; sitemap shows tags with 1–2 posts (ccxt, n8n, grok-bot, localcert…). Many tag _index.md have real titles (good), but 1-post tags add thin pages.</p>
+<p><b>Fix:</b> Consolidate near-duplicate tags (tutorial/tutorials, ai-coding-agent/ai-coding-agents, webdev/developer-tools) and prune single-use tags.</p>
+<p><b>Effort:</b> Low · <b>Priority:</b> 3</p>
+</div></div>
+
+<div class="issue"><summary><span class="badge b-low">Low</span> Contributor Guide has broken/duplicated heading structure</summary><div class="body">
+<p><b>Evidence:</b> TOC contains orphan "Step 2: Second Step", "Conclusion", "References" headings from an unclosed code fence in the template example (verified live). Minor quality signal on an E-E-A-T page.</p>
+<p><b>Fix:</b> Close the fenced code block in <code>content/page/contribute/index.md</code>.</p>
+<p><b>Effort:</b> Trivial · <b>Priority:</b> 4</p>
+</div></div>
+
+<div class="card"><h3>On-page strengths (verified)</h3>
+<ul class="check">
+<li>Titles ~50–60 chars, keyword-front-loaded, unique (sampled 6 pages)</li>
+<li>Meta descriptions unique, ~150 chars, value-proposition style</li>
+<li>H2/H3 hierarchy logical inside articles; TOC on every article</li>
+<li>Descriptive image alts (100% on sampled pages); meaningful filenames; WebP/JPEG pipeline with Hugo image processing</li>
+<li>Internal linking: related-articles + "related content" sections on every post</li>
+</ul></div>
+</section>
+
+<!-- CONTENT -->
+<section id="content" class="tabpane">
+<h3 style="margin-bottom:8px">Content & Semantic SEO (score 6/10)</h3>
+<div class="card">
+<h3>Observations</h3>
+<ul class="check">
+<li><b>Depth is genuinely good:</b> sampled posts run 10–31 minutes read with tested code, honest tradeoffs ("risk rules that keep you solvent"), and first-hand framing — strong experience signals.</li>
+<li><b>Topical focus is scattered:</b> 88 posts span DNS setup, crypto bots, resume writing, web design, AI agents, SMTP — breadth without clusters. Categories are only 5 and one is a placeholder.</li>
+<li><b>No pillar/cluster architecture:</b> e.g. 7 GitHub-Pages posts + 8 custom-domain posts + 4 DNS posts could form a "static site hosting" hub; none exists.</li>
+<li><b>Duplicate taxonomy labels:</b> tags "tutorial" vs "tutorials", "ai-coding-agent" vs "ai-coding-agents", "webdev" vs "developer-tools" split topical authority.</li>
+<li><b>Content freshness handling is strong</b> (enableGitInfo keeps dateModified honest; license + last-updated visible).</li>
+<li><b>Content gap vs dev.to:</b> no series, no community discussion layer on-site (Disqus is click-to-load), no glossary/AEO-style definition pages.</li>
+</ul>
+</div>
+</section>
+
+<!-- OFFPAGE -->
+<section id="offpage" class="tabpane">
+<h3 style="margin-bottom:8px">Off-Page SEO & Backlinks (score 3/10)</h3>
+<div class="note"><b>Data limitation:</b> No Ahrefs/Semrush/Majestic access. Findings below are from search-engine probes only; treat referring-domain counts as unknown, not zero.</div>
+<div class="issue"><summary><span class="badge b-high">High</span> Near-zero search-engine footprint for the brand/subdirectory</summary><div class="body">
+<p><b>Evidence:</b> DuckDuckGo <code>site:f9xr.org/dev9b</code> → "No results found" (verified live probe). Bing <code>"dev9b" F9XR</code> → 9 results, none about the blog; <code>site:f9xr.org dev9b</code> returned no relevant matches. The domain-wide footprint outside its own pages and dev.to is minimal.</p>
+<p><b>Why it matters:</b> With ~88 quality posts, near-zero discoverability in alternative engines suggests the sitemap is not submitted / IndexNow not fired / authority too low to surface. This caps everything else.</p>
+<p><b>Fix:</b> Verify Bing Webmaster Tools + GSC, submit sitemap, enable IndexNow (the site even published a guide on it — apply it to itself), and pursue the link plan below.</p>
+<p><b>Effort:</b> Low start · <b>Priority:</b> 2</p>
+</div></div>
+<div class="card"><h3>Confirmed assets & link plan (evidence-based)</h3>
+<table>
+<tr><th>Asset / channel</th><th>Evidence</th><th>Action</th></tr>
+<tr><td>dev.to organization (22 posts, 2 members)</td><td>dev.to/f9xrteam verified live</td><td>Set <code>canonical_url</code> on every cross-post to f9xr.org (prevents self-cannibalization); add f9xr.org links in article bodies</td></tr>
+<tr><td>GitHub ecosystem (f9xr org, 18 repos; dev9b repo public)</td><td>github.com/f9xr verified</td><td>Repo README → blog link; GitHub profile README; publish the agent-skills as a repo (links + AI discovery)</td></tr>
+<tr><td>Open-source skills (CodeBase Auditor, mindmap SKILL.md shipped with the site)</td><td>In repo</td><td>Submit to awesome-lists, skill directories, Hacker News "Show HN" — these earn editorial links</td></tr>
+<tr><td>Tutorial content quality (tested-code guides)</td><td>Sampled posts</td><td>Pitch 1–2 posts/week to dev.to, Medium, daily.dev, Hashnode cross-publication with canonicals</td></tr>
+<tr><td>Unlinked brand mentions</td><td>Not systematically probed</td><td>Quarterly brand-mention sweep for "Dev9b" / "F9XR Team"</td></tr>
+</table>
+</div>
+</section>
+
+<!-- GEO -->
+<section id="geo" class="tabpane">
+<h3 style="margin-bottom:8px">GEO & AEO — Generative/Answer Engine Readiness (score 10/15)</h3>
+<div class="card"><h3>Strengths (verified — unusually strong for a blog this size)</h3>
+<ul class="check">
+<li><b>Agent surface:</b> llms.txt + llms-full.txt + per-post raw Markdown (<code>/index.md</code>) + RSS/Atom/JSON Feed 1.1 — all verified live</li>
+<li><b>robots posture:</b> explicitly allows GPTBot, OAI-SearchBot, ClaudeBot, PerplexityBot, CCBot, Google-Extended, Applebot-Extended, YouBot, Meta-ExternalAgent</li>
+<li><b>Schema:</b> speakable specification, TechArticle+BlogPosting, BreadcrumbList, keywords, license, timeRequired, wordCount</li>
+<li><b>Answer-first structure:</b> descriptive subtitles under every title, Key Takeaways sections, tables, step-by-step structure</li>
+<li><b>Trust pages:</b> Editorial Policy, Team credentials, CC license, public source</li>
+</ul></div>
+<div class="issue"><summary><span class="badge b-high">High</span> Broken agent-discovery endpoints undermine the GEO investment</summary><div class="body">
+<p><b>Evidence:</b> ai-catalog.json and agent-skills/index.json referenced everywhere but 404 (verified). Root-domain robots.txt actively blocks many AI crawlers with a conflicting Cloudflare content-signals policy, while the dev9b robots.txt allows them — split-brain signals on one domain.</p>
+<p><b>Fix:</b> Publish the missing files; reconcile the root vs subdirectory AI-crawler policy (Dev9b wants AI input; the root currently signals ai-train=no).</p>
+<p><b>Effort:</b> Low · <b>Priority:</b> 2</p>
+</div></div>
+<div class="issue"><summary><span class="badge b-med">Medium</span> No question-led definition/glossary content; AEO coverage thin</summary><div class="body">
+<p><b>Evidence:</b> Titles are feature/tutorial-led ("Install X", "Set up Y"). Few "what is X" / "X vs Y" headings inside posts; FAQ sections inconsistently present; no comparison tables targeting snippet-style queries except in scattered posts (opencode-vs-cursor exists — a good pattern to expand).</p>
+<p><b>Fix:</b> Add a "What is …?" definition block + 3-question FAQ to every tutorial; create 10 comparison pages in the strongest clusters (e.g., Hugo vs Astro vs Gatsby, Cloudflare Pages vs GitHub Pages).</p>
+<p><b>Effort:</b> Medium · <b>Priority:</b> 3</p>
+</div></div>
+<div class="card"><h3>GEO restructuring example (per audit brief)</h3>
+<p><b>Existing weakness:</b> "Hurricane Electric Free DNS: Setup Guide for Devs" opens with a long intro before defining the service.</p>
+<p><b>Proposed block (target: /dev9b/p/hurricane-electric-free-dns-setup-guide/):</b></p>
+<p style="background:#f8f9fa;padding:10px;border-radius:6px;font-family:monospace;font-size:12px">## What is Hurricane Electric Free DNS?<br>Hurricane Electric Free DNS (dns.he.net) is a free, anycast, dual-stack (IPv4+IPv6) DNS hosting service with DDNS, reverse zones, and secondary DNS. It has no paid tier — every feature is free.<br>**Best for:** developers hosting personal or project domains who want reliable free DNS with API/DDNS support.</p>
+<p><b>Expected benefit:</b> extractable definition for AI Overviews/Perplexity; improves featured-snippet eligibility. No placement guarantee.</p>
+</div>
+</section>
+
+<!-- AI VISIBILITY -->
+<section id="aivis" class="tabpane">
+<h3 style="margin-bottom:8px">AI Visibility Audit (score 2/10 — mostly untested)</h3>
+<div class="note"><b>Honest disclosure:</b> Live ChatGPT / Perplexity / Gemini / Copilot answer testing was not possible in this audit environment (platform access unavailable). Nothing below is a claimed citation. Status = <b>NOT TESTED</b>.</div>
+<table>
+<tr><th>Platform</th><th>Brand mention</th><th>Website citation</th><th>Status</th></tr>
+<tr><td>ChatGPT Search</td><td>Not verified</td><td>Not tested</td><td><span class="badge b-low">Not tested</span></td></tr>
+<tr><td>Perplexity</td><td>Not verified</td><td>Not tested</td><td><span class="badge b-low">Not tested</span></td></tr>
+<tr><td>Gemini</td><td>Not verified</td><td>Not tested</td><td><span class="badge b-low">Not tested</span></td></tr>
+<tr><td>Google AI Overviews</td><td>Not verified</td><td>Not tested</td><td><span class="badge b-low">Not tested</span></td></tr>
+<tr><td>Microsoft Copilot</td><td>Not verified</td><td>Not tested</td><td><span class="badge b-low">Not tested</span></td></tr>
+</table>
+<div class="card"><h3>AI Visibility Research Plan (run monthly once tools available)</h3>
+<table>
+<tr><th>Prompt (representative)</th><th>Intent</th><th>Expected source page</th></tr>
+<tr><td>"best free subdomains for developers 2026"</td><td>Informational/comparison</td><td>/p/free-subdomains-for-developers-list/</td></tr>
+<tr><td>"how to connect custom domain to GitHub Pages with Cloudflare"</td><td>How-to</td><td>/p/github-pages-custom-domain-cloudflare/</td></tr>
+<tr><td>"best blogging sites for developers"</td><td>Commercial research</td><td>/p/best-blogging-sites-for-developers/</td></tr>
+<tr><td>"opencode vs cursor which AI coding agent"</td><td>Comparison</td><td>/p/opencode-vs-cursor/</td></tr>
+<tr><td>"how to self-host n8n on a VPS"</td><td>Problem-solving</td><td>/p/how-to-set-n8n-nod-agent-on-hostinger-vps/</td></tr>
+<tr><td>"what is Dev9b"</td><td>Brand</td><td>/dev9b/about/</td></tr>
+</table>
+<p style="margin-top:8px">Record per platform: mention (Y/N), cited URL, competitor cited instead, context. The brand currently has ~0 third-party corroboration (no Wikipedia, no community threads found), which is the main predictor of AI-answer absence.</p>
+</div>
+</section>
+
+<!-- COMPETITOR -->
+<section id="competitor" class="tabpane">
+<h3 style="margin-bottom:8px">Competitor Intelligence — dev.to (score 2/5)</h3>
+<table>
+<tr><th>Dimension</th><th>Dev9b</th><th>dev.to</th><th>Gap</th></tr>
+<tr><td>Content scale</td><td>88 posts, ~4 months old</td><td>Millions of posts, 4M+ member community</td><td class="g-red">Massive</td></tr>
+<tr><td>Domain authority signals</td><td>Minimal third-party footprint found</td><td>Established, heavily linked</td><td class="g-red">Massive</td></tr>
+<tr><td>Community (comments, reactions)</td><td>Disqus click-to-load; near-zero engagement observed</td><td>Native reactions, comments, follow graph</td><td class="g-red">Large</td></tr>
+<tr><td>Technical hygiene (per-post)</td><td class="g-green">Better: schema depth, llms.txt, Markdown endpoints, clean URLs</td><td>Standard</td><td class="g-green">Dev9b advantage</td></tr>
+<tr><td>Content per article</td><td class="g-green">Longer, code-tested, deeper</td><td>Variable</td><td class="g-green">Dev9b advantage</td></tr>
+</table>
+<div class="card"><h3>Realistic positioning</h3>
+<p>Do not compete on scale. Compete on <b>depth + freshness + AI-readiness</b>: dev.to pages are generic; Dev9b's tested, long-form guides with clean structured data can win long-tail queries and AI citations in narrow niches (static-site hosting, free dev subdomains, AI agent self-hosting). Realistic secondary competitors to watch: Hashnode, daily.dev, LogRocket Blog.</p>
+</div>
+</section>
+
+<!-- KEYWORDS -->
+<section id="keywords" class="tabpane">
+<h3 style="margin-bottom:8px">Keyword & Content Opportunities (qualitative — volumes unavailable, no keyword tool access)</h3>
+<table>
+<tr><th>#</th><th>Opportunity</th><th>Evidence</th><th>Target</th><th>Effort</th></tr>
+<tr><td>1</td><td>Comparison cluster: "X vs Y" for every tool the blog already covers</td><td>opencode-vs-cursor is the only comparison post among 88</td><td>new /p/*-vs-*/ pages</td><td>Med</td></tr>
+<tr><td>2</td><td>"Best free subdomains / free DNS" hub page consolidating 6 scattered posts</td><td>6 posts cover is-an.ai, localcert, no-ip, Hurricane Electric with no hub</td><td>/p/free-developer-domain-dns-resources/</td><td>Low</td></tr>
+<tr><td>3</td><td>Glossary/AEO pages: "What is IndexNow", "What is anycast DNS", "What is MCP"</td><td>Topics covered inside tutorials but no standalone definitions</td><td>/glossary/*</td><td>Low</td></tr>
+<tr><td>4</td><td>GitHub Pages cluster pillar + internal-link hub</td><td>7 GH-Pages posts, no pillar</td><td>/p/github-pages-complete-guide/</td><td>Med</td></tr>
+<tr><td>5</td><td>Refresh aging posts (Sept–Oct 2026 posts on fast-moving AI tools)</td><td>dateModified data; AI-tool facts decay in months</td><td>top 10 posts by age</td><td>Low</td></tr>
+<tr><td>6</td><td>Author pages + Person schema</td><td>No author entity (see on-page finding)</td><td>/authors/*</td><td>Med</td></tr>
+</table>
+</section>
+
+<!-- UX -->
+<section id="ux" class="tabpane">
+<h3 style="margin-bottom:8px">UX & Conversion (score 5/10)</h3>
+<div class="card"><h3>UX observations (no analytics access — these are observable, not measured conversion data)</h3>
+<ul class="check">
+<li><span class="pill-bad">✗</span> <b>Color contrast failure</b> — Lighthouse Accessibility 89 flags low-contrast text (likely muted grays on cards)</li>
+<li><span class="pill-bad">✗</span> <b>CLS ≈ 1.0</b> — content visibly jumps during load on every page (biggest experiential defect)</li>
+<li><span class="pill-warn">!</span> <b>No visible conversion path</b> — the blog's goals (contributors? newsletter? GitHub stars?) have no persistent CTA beyond the header "Contribute an Article" button; no newsletter capture found</li>
+<li><span class="pill-warn">!</span> <b>Form label accessibility</b> — Lighthouse flags form elements without labels (search/jump-to-page inputs)</li>
+<li><span class="pill-ok">✓</span> Reading experience strong: TOC, listen mode, font-size controls, dark mode, copy-link, GitHub edit/report links</li>
+<li><span class="pill-ok">✓</span> Contact accessibility: email, GitHub issues, 5 social profiles in header + footer</li>
+</ul>
+<p><b>Quick wins:</b> fix contrast tokens; add a one-line newsletter/GitHub-star CTA at article end; add <code>aria-label</code> to the search inputs.</p>
+</div>
+</section>
+
+<!-- ROADMAP -->
+<section id="roadmap" class="tabpane">
+<h3 style="margin-bottom:8px">30 / 60 / 90-Day Roadmap</h3>
+<table>
+<tr><th>Phase</th><th>Tasks</th><th>Owner</th><th>Success measure</th></tr>
+<tr><td><b>Days 1–7</b><br>Critical</td><td>R1: baseurl → https (fixes sitemap/og/JSON-LD protocol)<br>R2: delete example-category<br>R3: root robots.txt — add dev9b sitemap, fix/remove image+video sitemap refs, fix Agentmap line<br>R4: publish or unlink ai-catalog.json + agent-skills/index.json<br>R5: CLS fix pass 1 (image aspect-ratio + stop custom-property animations)</td><td>Development</td><td>Lighthouse robots.txt valid; sitemap https; CLS < 0.25 lab</td></tr>
+<tr><td><b>Days 8–15</b><br>Foundation</td><td>R6: single-H1 template fix<br>R7: search page noindex<br>R8: FAQ schema gated on visible FAQ<br>R9: GSC + Bing WMT verify, submit sitemap, enable IndexNow<br>R10: tag consolidation (tutorial/tutorials etc.)<br>R11: contributor-guide code-fence fix</td><td>Dev + SEO</td><td>Valid sitemap submitted; heading-order audit passes; no indexable utility pages</td></tr>
+<tr><td><b>Days 16–30</b><br>Content & Authority</td><td>R12: author pages + Person schema + visible bylines<br>R13: 2 pillar/hub pages (GitHub Pages, free DNS/subdomains)<br>R14: dev.to cross-posts with canonical_url<br>R15: GitHub README/profile links; submit skills to awesome-lists<br>R16: refresh top-10 aging posts</td><td>Content + Link building</td><td>First referring domains from communities; canonical syndication live</td></tr>
+<tr><td><b>Days 31–60</b><br>GEO / AEO</td><td>R17: definition blocks + 3-Q FAQ on all tutorials (visible content, schema matched)<br>R18: 10 comparison pages ("X vs Y")<br>R19: self-host fonts, contrast fixes, form labels<br>R20: monthly AI-visibility prompt testing per the research plan</td><td>Content + Dev</td><td>A11y ≥ 95; answer-block coverage on 80% of posts; baseline AI visibility report</td></tr>
+<tr><td><b>Days 61–90</b><br>Growth</td><td>R21: glossary section launch<br>R22: newsletter/CTA + measure<br>R23: quarterly schema + CWV re-audit; monitor GSC coverage & AI citations<br>R24: competitor content-gap review vs Hashnode/LogRocket</td><td>All</td><td>GSC impressions trend; CLS field data (CrUX) when available</td></tr>
+</table>
+</section>
+
+<!-- REGISTERS -->
+<section id="registers" class="tabpane">
+<h3 style="margin-bottom:8px">Final Error Register</h3>
+<table>
+<tr><th>ID</th><th>Category</th><th>Issue</th><th>Affected URL</th><th>Severity</th><th>Fix</th><th>Priority</th></tr>
+<tr><td>E1</td><td>CWV</td><td>CLS ≈ 1.0 (unsized images, non-composited animations, font swap)</td><td>Site-wide</td><td><span class="badge b-crit">Critical</span></td><td>Aspect-ratio + compositor-safe animations + font-display:optional</td><td>P1</td></tr>
+<tr><td>E2</td><td>Technical</td><td>Sitemap + og:url + JSON-LD use http:// vs https:// canonicals</td><td>/dev9b/sitemap.xml, all pages</td><td><span class="badge b-crit">Critical</span></td><td>baseurl → https</td><td>P1</td></tr>
+<tr><td>E3</td><td>Technical</td><td>Root sitemap excludes dev9b; dead sitemap-image/video refs; invalid Agentmap directive</td><td>f9xr.org/sitemap.xml, /robots.txt</td><td><span class="badge b-crit">Critical</span></td><td>Add sitemap line, remove dead refs</td><td>P1</td></tr>
+<tr><td>E4</td><td>On-page</td><td>Duplicate H1 on every page</td><td>Site-wide</td><td><span class="badge b-high">High</span></td><td>Site-name → non-heading element</td><td>P2</td></tr>
+<tr><td>E5</td><td>On-page</td><td>Placeholder "example-category" duplicates Tutorials page</td><td>/categories/example-category/</td><td><span class="badge b-high">High</span></td><td>Delete taxonomy content</td><td>P2</td></tr>
+<tr><td>E6</td><td>Structured data</td><td>FAQPage schema without visible FAQ content</td><td>e.g. /p/hugo-seo-guide/</td><td><span class="badge b-high">High</span></td><td>Render FAQ or gate schema</td><td>P2</td></tr>
+<tr><td>E7</td><td>GEO</td><td>Advertised agent endpoints 404 (ai-catalog, agent-skills)</td><td>/.well-known/*</td><td><span class="badge b-high">High</span></td><td>Publish files or remove refs</td><td>P2</td></tr>
+<tr><td>E8</td><td>Off-page</td><td>Zero discoverability in secondary engines (site: probes empty)</td><td>Whole subdirectory</td><td><span class="badge b-high">High</span></td><td>GSC/BWT submission + IndexNow + link plan</td><td>P2</td></tr>
+<tr><td>E9</td><td>Index bloat</td><td>Search page indexable thin content</td><td>/dev9b/search/</td><td><span class="badge b-med">Medium</span></td><td>noindex</td><td>P3</td></tr>
+<tr><td>E10</td><td>E-E-A-T</td><td>No Person author schema / bylines</td><td>All articles</td><td><span class="badge b-med">Medium</span></td><td>Author front matter + author pages</td><td>P3</td></tr>
+<tr><td>E11</td><td>Architecture</td><td>110 tag pages, duplicate tag labels, 1-post tags</td><td>/dev9b/tags/*</td><td><span class="badge b-med">Medium</span></td><td>Consolidate + prune</td><td>P3</td></tr>
+<tr><td>E12</td><td>Performance</td><td>Third-party fonts cause shift; GTM main-thread cost</td><td>Site-wide</td><td><span class="badge b-med">Medium</span></td><td>Self-host fonts; defer GTM</td><td>P3</td></tr>
+<tr><td>E13</td><td>UX/A11y</td><td>Color contrast + form labels fail (A11y 89)</td><td>Site-wide</td><td><span class="badge b-med">Medium</span></td><td>Token + aria-label fixes</td><td>P3</td></tr>
+<tr><td>E14</td><td>Content</td><td>Broken TOC headings in Contributor Guide</td><td>/dev9b/contribute/</td><td><span class="badge b-low">Low</span></td><td>Close code fence</td><td>P4</td></tr>
+<tr><td>E15</td><td>GEO</td><td>Email obfuscation hides contact entity from extractors</td><td>/about/, /team/</td><td><span class="badge b-low">Low</span></td><td>Plain email where needed</td><td>P4</td></tr>
+<tr><td>E16</td><td>Entity data</td><td>Organization schema addressCountry "NO" unexplained/unverified</td><td>All pages (JSON-LD)</td><td><span class="badge b-low">Low</span></td><td>Correct or remove</td><td>P4</td></tr>
+</table>
+</section>
+
+<!-- LIMITS -->
+<section id="limits" class="tabpane">
+<h3 style="margin-bottom:8px">Data Limitations & Untested Areas</h3>
+<ul class="check">
+<li><b>No Google Search Console / analytics access</b> — indexing status, impressions, CTR, queries: unknown, not claimed.</li>
+<li><b>No backlink database access</b> (Ahrefs/Semrush/Majestic) — referring domains, anchors, toxicity: unknown; off-page findings rely on search-engine probes only.</li>
+<li><b>AI platforms not tested live</b> — ChatGPT/Perplexity/Gemini/Copilot visibility: NOT TESTED; plan provided instead.</li>
+<li><b>Sample-based crawl:</b> ~12 URLs inspected live plus full source repository; the remaining ~200 sitemap URLs were not individually fetched.</li>
+<li><b>No CrUX field data</b> for the subdirectory — all CWV figures are lab data on an unthrottled connection; real-user values may differ (mobile likely worse given the CLS signature).</li>
+<li><b>HTTP status codes</b> (404 soft-404 checks, redirect chains) could not be read via raw headers in this environment; 404 behavior verified visually only.</li>
+<li><b>Keyword volumes/Difficulty:</b> unavailable — opportunities are qualitative.</li>
+</ul>
+</section>
+
+<!-- STRATEGY -->
+<section id="strategy" class="tabpane">
+<h3 style="margin-bottom:8px">Final Strategic Recommendations</h3>
+<div class="card"><h3>Five biggest problems</h3>
+<ol class="check" style="margin-left:18px">
+<li>CLS ≈ 1.0 site-wide (Core Web Vital failure, visible layout jump)</li>
+<li>Protocol split: http:// sitemap/og/schema vs https:// canonicals — conflicting identity signals</li>
+<li>Near-zero off-site footprint: not discoverable in secondary engines, no link profile, no GSC/Bing submission evidence</li>
+<li>Self-inflicted GEO damage: advertised AI endpoints 404, root/subdomain robots AI-policy conflict</li>
+<li>No author entities (E-E-A-T ceiling) + placeholder/duplicate taxonomy pages</li>
+</ol></div>
+<div class="card"><h3>Five biggest opportunities</h3>
+<ol class="check" style="margin-left:18px">
+<li>Comparison-content cluster ("X vs Y") — only 1 of 88 posts uses the format</li>
+<li>Hub/pillar consolidation of the DNS + subdomain + GitHub Pages posts (17 posts, no hubs)</li>
+<li>GEO edge: llms.txt, Markdown endpoints, permissive AI robots — few blogs this size have it; complete and publicize it</li>
+<li>dev.to + GitHub distribution with proper canonicals (existing audience channels, zero incremental cost)</li>
+<li>Author-entity build-out to unlock E-E-A-T and AI answer attribution</li>
+</ol></div>
+<div class="card"><h3>Direct answers</h3>
+<ul class="check">
+<li><b>Optimize first:</b> the five highest-traffic-potential tutorials (free-subdomains list, GitHub Pages + Cloudflare, n8n VPS guides) — fix E1/E2 then add answer blocks.</li>
+<li><b>Create:</b> 10 comparison pages, 2 pillar hubs, 8–10 glossary definitions, author pages.</li>
+<li><b>Dev team immediately:</b> baseurl https, example-category removal, root robots.txt corrections, CLS pass, single H1.</li>
+<li><b>Content team:</b> definition blocks + visible FAQs, comparison pages, refresh aging AI-tool posts.</li>
+<li><b>Link team:</b> dev.to canonical syndication, GitHub ecosystem links, skill/awesome-list submissions, Show HN.</li>
+<li><b>GEO/AI:</b> publish the 404 agent endpoints, reconcile root AI-crawler policy, add extractable definition blocks, track monthly prompt tests.</li>
+<li><b>Local SEO:</b> Not applicable — global open-source blog, no physical presence.</li>
+<li><b>Single highest-impact action:</b> <span class="badge b-crit">fix the baseurl → https</span> — one config line that repairs sitemap, Open Graph, JSON-LD entity IDs and share links everywhere, followed immediately by CLS remediation and search-engine submission.</li>
+</ul></div>
+</section>
+
+</div>
+<script>
+const tabs=document.querySelectorAll('.tabs button');
+tabs.forEach(b=>b.addEventListener('click',()=>{
+  tabs.forEach(x=>x.classList.remove('active'));b.classList.add('active');
+  document.querySelectorAll('.tabpane').forEach(p=>p.classList.remove('active'));
+  document.getElementById(b.dataset.tab).classList.add('active');
+}));
+</script>
+</body>
+</html>

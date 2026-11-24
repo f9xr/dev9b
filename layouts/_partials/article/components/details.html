@@ -30,9 +30,10 @@
         {{- end -}}
     
         {{ with $Page.Params.description }}
-        <h3 class="article-subtitle">
+        {{- /* Subtitle as <p>, not <h3>: keeps the H1 → H2 heading order legal. */ -}}
+        <p class="article-subtitle">
             {{ . }}
-        </h3>
+        </p>
         {{ end }}
     </div>
 

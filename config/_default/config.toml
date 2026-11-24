@@ -1,5 +1,7 @@
-# Change baseurl before deploy
-baseurl = "https://f9xr.org/"
+# Canonical production URL. Must include the /dev9b/ subdirectory.
+# GitHub Pages may override this at build time via --baseURL (deploy.yml);
+# keep this value in sync with the Pages site_url (must be https).
+baseurl = "https://f9xr.org/dev9b/"
 locale  = "en-us"
 title   = "F9XR's Dev9b"
 enableRobotsTXT = true
