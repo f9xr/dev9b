@@ -128,6 +128,8 @@ Inside a typical template you will find color tokens with the role each one play
 > [!TIP] Naming collisions to watch for
 > There are several unrelated things called "getdesign" or "designmd". `getdesign.md` is the VoltAgent-maintained catalog and the `getdesign` npm package. `getdesign.app` is a completely different project that scrapes a live URL and generates a `design.md` from it. `designmd.sh` and `designmd.ai` are separate registries. Check the package name, not the logo, before you install anything.
 
+One more neighbor worth knowing: **OpenDesignMD** is a free, MIT-licensed library of 1,186 `DESIGN.md` files at `opendesignmd.com`, unrelated to both the VoltAgent catalog and the Open Design workspace. If you want the library route instead of the CLI route, [how to use OpenDesignMD to improve website design](/p/how-to-use-opendesignmd-improve-website-design/) covers the full setup.
+
 ## Install a Template With the CLI
 
 The whole setup takes under five minutes the first time.
