@@ -1,1 +1,2 @@
 site = https://f9xr.org/dev9b/p/how-to-use-opendesignmd-improve-website-design/
+devto = https://dev.to/f9xrteam/opendesignmd-stop-shipping-generic-ai-website-designs-36bg

@@ -9,7 +9,7 @@ Commit and push this article, .crosspost/how-to-use-opendesignmd-improve-website
 before publishing anywhere. dev.to and Medium fetch images by URL.
 
 DEV.TO
-  Published by this tool. Status: not published yet
+  Published by this tool. Status: live https://dev.to/f9xrteam/opendesignmd-stop-shipping-generic-ai-website-designs-36bg
   File: .crosspost/how-to-use-opendesignmd-improve-website-design/devto.md (source stays published: false).
 
 MEDIUM
