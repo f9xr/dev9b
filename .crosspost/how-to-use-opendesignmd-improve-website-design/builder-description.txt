@@ -1,0 +1,1 @@
+How to use OpenDesignMD: copy a real DESIGN.md file, wire it into Claude Code, Cursor or Open Design, and fix generic AI website design.

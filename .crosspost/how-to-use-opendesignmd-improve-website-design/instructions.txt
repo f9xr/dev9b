@@ -1,0 +1,32 @@
+Cross-post kit for how-to-use-opendesignmd-improve-website-design
+==================================================================
+
+Source: content/post/how-to-use-opendesignmd-improve-website-design/index.md
+Site:   https://f9xr.org/dev9b/p/how-to-use-opendesignmd-improve-website-design/
+Cover:  https://raw.githubusercontent.com/f9xr/dev9b/master/content/post/how-to-use-opendesignmd-improve-website-design/cover.jpg
+
+Commit and push this article, .crosspost/how-to-use-opendesignmd-improve-website-design/ and static/crosspost/how-to-use-opendesignmd-improve-website-design/
+before publishing anywhere. dev.to and Medium fetch images by URL.
+
+DEV.TO
+  Published by this tool. Status: not published yet
+  File: .crosspost/how-to-use-opendesignmd-improve-website-design/devto.md (source stays published: false).
+
+MEDIUM
+  1. Open https://medium.com/new-story
+  2. Type the title from the source front matter (Medium never fills it).
+  3. Open .crosspost/how-to-use-opendesignmd-improve-website-design/medium.html in a browser, select all, copy,
+     and paste into the Medium body. Tables are PNG images hosted on
+     raw.githubusercontent.com, and Medium re-hosts them.
+  4. Add topics and publish.
+
+AWS BUILDER CENTER
+  1. builder.aws.com -> + -> Article.
+  2. Title: .crosspost/how-to-use-opendesignmd-improve-website-design/builder-title.txt
+  3. Description: .crosspost/how-to-use-opendesignmd-improve-website-design/builder-description.txt
+  4. Paste the body from .crosspost/how-to-use-opendesignmd-improve-website-design/builder.html (tables render natively).
+  5. Tags (max 5): .crosspost/how-to-use-opendesignmd-improve-website-design/builder-tags.txt
+  6. Upload the cover: content/post/how-to-use-opendesignmd-improve-website-design/cover.jpg
+     (recommended 1200x675).
+
+Re-run: python scripts/crosspost/crosspost.py build how-to-use-opendesignmd-improve-website-design
