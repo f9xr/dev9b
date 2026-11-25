@@ -1,4 +1,0 @@
-github-pages
-dns
-custom-domain
-developer-tools

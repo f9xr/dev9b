@@ -1,2 +1,0 @@
-site = https://f9xr.org/dev9b/p/host-react-saas-github-pages/
-devto = https://dev.to/f9xrteam/host-your-react-saas-on-github-pages-free-2026-guide-1beo

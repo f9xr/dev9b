@@ -1,4 +1,0 @@
-github-pages
-github-actions
-javascript
-saas-tools

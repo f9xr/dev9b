@@ -1,2 +1,0 @@
-site = https://f9xr.org/dev9b/p/how-to-use-graphify-code-knowledge-graph/
-devto = https://dev.to/f9xrteam/how-to-use-graphify-code-knowledge-graph-guide-33ib

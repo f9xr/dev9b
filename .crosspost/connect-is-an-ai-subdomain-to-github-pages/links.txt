@@ -1,2 +1,0 @@
-site = https://f9xr.org/dev9b/p/connect-is-an-ai-subdomain-to-github-pages/
-devto = https://dev.to/f9xrteam/point-your-is-anai-subdomain-to-a-github-repo-fast-1k20
