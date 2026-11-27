@@ -323,7 +323,7 @@ Yes, with some providers. DigitalPlat lets you connect external nameservers, DNS
 
 ## Conclusion
 
-A free subdomain is one of the cheapest ways to make a weekend project look finished, as long as you go in knowing the trade-offs. Pick a provider that matches how you want to manage DNS, claim two or three backup names, deploy your site before you apply, and remember that you are borrowing a name, not owning one. For anything you intend to grow, treat the free subdomain as a launchpad and plan the move to a domain you control.
+A free subdomain is one of the cheapest ways to make a weekend project look finished, as long as you go in knowing the trade-offs. Pick a provider that matches how you want to manage DNS, claim two or three backup names, deploy your site before you apply, and remember that you are borrowing a name, not owning one. For anything you intend to grow, treat the free subdomain as a launchpad and plan the move to a domain you control. If you are weighing a free name against a first paid domain for a business, our guide to [free domains for a small startup](/p/free-domains-for-small-startup/) covers the business side of the same trade-off.
 
 If you want to write your own developer guide for the community, read the [Contributor Guide](/contribute/) and the [Editorial Policy](/editorial-policy/) that governs everything we publish.
 
