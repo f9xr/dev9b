@@ -1,0 +1,2 @@
+site = https://f9xr.org/dev9b/p/free-domains-for-small-startup/
+devto = https://dev.to/f9xrteam/free-domains-for-your-small-startup-zero-budget-guide-1d22
