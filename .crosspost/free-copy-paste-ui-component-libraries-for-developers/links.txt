@@ -1,1 +1,2 @@
 site = https://f9xr.org/dev9b/p/free-copy-paste-ui-component-libraries-for-developers/
+devto = https://dev.to/f9xrteam/27-free-copy-paste-ui-libraries-for-developers-2026-2pmn

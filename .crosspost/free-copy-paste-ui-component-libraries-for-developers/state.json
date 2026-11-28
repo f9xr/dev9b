@@ -2,12 +2,19 @@
   "slug": "free-copy-paste-ui-component-libraries-for-developers",
   "title": "27 Free Copy-Paste UI Libraries for Developers (2026)",
   "site_url": "https://f9xr.org/dev9b/p/free-copy-paste-ui-component-libraries-for-developers/",
-  "generated_at": "2026-11-28T16:39:08+00:00",
+  "generated_at": "2026-11-28T16:43:02+00:00",
   "cover_url": "https://raw.githubusercontent.com/f9xr/dev9b/master/content/post/free-copy-paste-ui-component-libraries-for-developers/cover.jpg",
   "artifacts": {
     "devto.md": ".crosspost/free-copy-paste-ui-component-libraries-for-developers/devto.md",
     "builder.md": ".crosspost/free-copy-paste-ui-component-libraries-for-developers/builder.md",
     "builder.html": ".crosspost/free-copy-paste-ui-component-libraries-for-developers/builder.html",
     "medium.html": ".crosspost/free-copy-paste-ui-component-libraries-for-developers/medium.html"
+  },
+  "devto": {
+    "id": 5140185,
+    "url": "https://dev.to/f9xrteam/27-free-copy-paste-ui-libraries-for-developers-2026-2pmn",
+    "published": true,
+    "org": "f9xrteam",
+    "updated_at": "2026-11-28T16:43:06+00:00"
   }
 }

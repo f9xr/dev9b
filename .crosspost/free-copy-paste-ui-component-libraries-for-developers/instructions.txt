@@ -9,7 +9,7 @@ Commit and push this article, .crosspost/free-copy-paste-ui-component-libraries-
 before publishing anywhere. dev.to and Medium fetch images by URL.
 
 DEV.TO
-  Published by this tool. Status: not published yet
+  Published by this tool. Status: live https://dev.to/f9xrteam/27-free-copy-paste-ui-libraries-for-developers-2026-2pmn
   File: .crosspost/free-copy-paste-ui-component-libraries-for-developers/devto.md (source stays published: false).
 
 MEDIUM
