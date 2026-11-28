@@ -1,0 +1,4 @@
+react
+tailwind-css
+open-source
+web-design

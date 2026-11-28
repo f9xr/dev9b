@@ -91,7 +91,7 @@ The jury scores are more useful than the thumbnails. Design, usability, creativi
 
 [Supahero](https://supahero.io/) does one job: it collects hero sections. When the above-the-fold area is the blocker, a focused library saves hours. You can compare how different teams handle the headline, the call to action, the product image, and the supporting proof.
 
-Use it for landing pages and marketing sites. Do not use it as a complete page reference. The hero is the easiest section to make attractive and the hardest one to make honest.
+Use it for landing pages and marketing sites. Do not use it as a complete page reference. The hero is the easiest section to make attractive and the hardest one to make honest. If you want the full set of free copy-paste component libraries rather than hero sections alone, our guide to [27 free copy-paste UI libraries for developers](/p/free-copy-paste-ui-component-libraries-for-developers/) covers the rest.
 
 ### Recent.design
 

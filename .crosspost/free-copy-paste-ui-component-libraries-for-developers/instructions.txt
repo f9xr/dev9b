@@ -1,0 +1,32 @@
+Cross-post kit for free-copy-paste-ui-component-libraries-for-developers
+=========================================================================
+
+Source: content/post/free-copy-paste-ui-component-libraries-for-developers/index.md
+Site:   https://f9xr.org/dev9b/p/free-copy-paste-ui-component-libraries-for-developers/
+Cover:  https://raw.githubusercontent.com/f9xr/dev9b/master/content/post/free-copy-paste-ui-component-libraries-for-developers/cover.jpg
+
+Commit and push this article, .crosspost/free-copy-paste-ui-component-libraries-for-developers/ and static/crosspost/free-copy-paste-ui-component-libraries-for-developers/
+before publishing anywhere. dev.to and Medium fetch images by URL.
+
+DEV.TO
+  Published by this tool. Status: not published yet
+  File: .crosspost/free-copy-paste-ui-component-libraries-for-developers/devto.md (source stays published: false).
+
+MEDIUM
+  1. Open https://medium.com/new-story
+  2. Type the title from the source front matter (Medium never fills it).
+  3. Open .crosspost/free-copy-paste-ui-component-libraries-for-developers/medium.html in a browser, select all, copy,
+     and paste into the Medium body. Tables are PNG images hosted on
+     raw.githubusercontent.com, and Medium re-hosts them.
+  4. Add topics and publish.
+
+AWS BUILDER CENTER
+  1. builder.aws.com -> + -> Article.
+  2. Title: .crosspost/free-copy-paste-ui-component-libraries-for-developers/builder-title.txt
+  3. Description: .crosspost/free-copy-paste-ui-component-libraries-for-developers/builder-description.txt
+  4. Paste the body from .crosspost/free-copy-paste-ui-component-libraries-for-developers/builder.html (tables render natively).
+  5. Tags (max 5): .crosspost/free-copy-paste-ui-component-libraries-for-developers/builder-tags.txt
+  6. Upload the cover: content/post/free-copy-paste-ui-component-libraries-for-developers/cover.jpg
+     (recommended 1200x675).
+
+Re-run: python scripts/crosspost/crosspost.py build free-copy-paste-ui-component-libraries-for-developers
