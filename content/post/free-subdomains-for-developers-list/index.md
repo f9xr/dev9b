@@ -86,6 +86,9 @@ Two services break the pattern. `.pp.ua` is a real second level zone where you r
 
 The process is simple. Set up your GitHub Page, add a `CNAME` file to your repo with your chosen subdomain, then open a pull request on the JS.ORG repository. According to the project, a new URL should go live within 24 hours unless there is a naming conflict.
 
+![The JS.ORG homepage with its yellow logo, the https://your.js.org example and the four step signup guide](screenshot-js-org.jpg)
+*Screenshot: the JS.ORG homepage explains its four step GitHub Pages flow, captured November 27, 2026.*
+
 **Watch out for:** your page needs reasonable content with a clear connection to JavaScript. A blank page or an unrelated site is likely to be rejected.
 
 ### 2. is-a.dev
@@ -94,6 +97,9 @@ The process is simple. Set up your GitHub Page, add a `CNAME` file to your repo 
 
 It describes itself as a free service for developers that will stay that way, supported by donations.
 
+![The is-a.dev homepage with a pixel art .is-a.dev wordmark and a link to the register repository](screenshot-is-a-dev.jpg)
+*Screenshot: is-a.dev points registrations to its GitHub repository, captured November 27, 2026.*
+
 A newer service with a similar name, [is-an.ai](https://is-an.ai), targets AI projects specifically and now ships a CLI plus Claude Code and OpenClaw plugins. We walked through the whole flow in [how to get a free is-an.ai subdomain](/p/free-is-an-ai-subdomain-for-ai-saas-cli-guide/).
 
 **Watch out for:** popular short names are often taken or reserved, so have two or three backup names ready.
@@ -101,6 +107,9 @@ A newer service with a similar name, [is-an.ai](https://is-an.ai), targets AI pr
 ### 3. is-a-good.dev
 
 [is-a-good.dev](https://is-a-good.dev/) is a community run subdomain provider. Its site says the project has been running for over two years, and registration goes through a GitHub repository with a separate documentation site.
+
+![The is-a-good.dev homepage with a name checker and the Register your domain button](screenshot-is-a-good-dev.jpg)
+*Screenshot: is-a-good.dev shows its name checker and community sponsors, captured November 27, 2026.*
 
 **Watch out for:** it is run by volunteers and funded by sponsors and contributors, so read the policies and keep a backup plan if you depend on the URL.
 
@@ -124,6 +133,9 @@ The entry looks like this:
 }
 ```
 
+![The thedev.id landing page with the Claim a subdomain button and a short explainer](screenshot-thedev-id.jpg)
+*Screenshot: thedev.id lives inside upset.dev and takes claims by pull request, captured November 27, 2026.*
+
 It works with GitHub Pages, Netlify, Vercel and other static hosts that support custom domains.
 
 **Watch out for:** it is built for static sites pointing through a CNAME, so it is less flexible if you need complex DNS records.
@@ -132,17 +144,26 @@ It works with GitHub Pages, Netlify, Vercel and other static hosts that support 
 
 [js.cool](https://js.cool/en/) is run by Willin Wang and offers several suffixes, including `js.cool`, `v0.chat` and a Chinese language domain. The site shows a few hundred registered records and has both Chinese and English interfaces. Community directories describe it as a service for open source projects, with support for Vercel.
 
+![The js.cool Willin Domains homepage with the registered domain list and 24 hour top visits](screenshot-js-cool.jpg)
+*Screenshot: js.cool lists 351 registered names and its most visited subdomains, captured November 27, 2026.*
+
 **Watch out for:** the site gives limited public detail on the application steps, so check the project repository and the Apply / Manage area before you plan around it.
 
 ### 7. DigitalPlat Domains
 
 [DigitalPlat Domains](https://domain.digitalplat.org/) is operated by EdgeAlphix LLC and offers free public namespaces. The current options listed include `*.qzz.io`, `*.dpdns.org`, `*.us.kg`, `*.xx.kg` and `*.qd.je`. You register through a dashboard, then connect your own nameservers, so you can use any DNS provider or CDN.
 
+![The DigitalPlat Domains homepage listing qzz.io, dpdns.org, us.kg and xx.kg namespaces with bring your own DNS](screenshot-digitalplat.jpg)
+*Screenshot: DigitalPlat lists five public namespaces and supports external nameservers, captured November 27, 2026.*
+
 **Watch out for:** the platform says it combines automated signals with human review to catch abuse. Keep your site legitimate and active.
 
 ### 8. DNSHE
 
 [DNSHE](https://www.dnshe.com/) offers free domain registration with support for A, AAAA, CNAME, MX, TXT, NS, SRV and CAA records, DNSSEC support, and a REST API with webhooks. Suffixes shown on the site include `.de5.net`, `.us.ci`, `.cc.cd` and `.bot.cd`. That API makes it attractive if you want to manage DNS from scripts or a CI pipeline.
+
+![The DNSHE homepage with the free domain search box and a 100,000 user count](screenshot-dnshe.jpg)
+*Screenshot: DNSHE advertises free registration and DNS hosting with no credit card, captured November 27, 2026.*
 
 Registrations are valid for one year by default, with free renewal in the 180 days before expiry, according to its FAQ. The site says it needs no credit card and does not force ads onto your domain.
 
@@ -152,6 +173,9 @@ Registrations are valid for one year by default, with free renewal in the 180 da
 
 [isroot.in](https://isroot.in/) gives you `yourname.isroot.in`, with simple management for A, CNAME and MX records. It says changes apply quickly and the project is open source on GitHub. A subdomain is valid for one year, with a reminder email before renewal.
 
+![The isroot.in homepage with the yourname.isroot.in headline and availability checker](screenshot-isroot-in.jpg)
+*Screenshot: isroot.in targets students and indie hackers with a one field search, captured November 27, 2026.*
+
 **Watch out for:** custom nameservers are not supported yet, because the domain is not listed in the Public Suffix List. If you need your own NS records, pick a different provider.
 
 ### 10. .pp.ua via NIC.UA
@@ -159,6 +183,9 @@ Registrations are valid for one year by default, with free renewal in the 180 da
 The `.pp.ua` zone is different from the rest. According to [NIC.UA](https://nic.ua/en/domains/.pp.ua), it has offered free registration since 2008 and lets you use your own nameservers and glue records. Registration and renewal cost nothing.
 
 You need a valid phone number to activate the domain, either through an SMS code on pp.ua or a Telegram bot. You can register up to three domains in 30 days, the delegation period is one year, and the account owner's contact details are always public because privacy hiding is not available in this zone.
+
+![The NIC.UA .pp.ua domain page with the availability search and domain rules sidebar](screenshot-pp-ua.jpg)
+*Screenshot: NIC.UA handles free .pp.ua registrations and renewals, captured November 27, 2026.*
 
 **Watch out for:** public contact details, phone activation, and yearly renewals. The restoration fee after the grace period is steep, so do not let it lapse.
 
@@ -181,6 +208,9 @@ You register through the website. The registry says its names work as full domai
 ### 13. Zone.ID
 
 [Zone.ID](https://www.zone.id/) offers free `.zone.id` and `.nett.to` subdomains through a dashboard at `my.zone.id`. It is run by PT. Geksa, an Indonesian company, and the site says more than 37,000 free domains have been created. It markets its names as short, indexable by Google, and eligible for Google AdSense, which is unusual for a free namespace.
+
+![The Zone.ID homepage with the one time payment domain search and reasons to use the service](screenshot-zone-id.jpg)
+*Screenshot: Zone.ID sells short names on a blue and grey dashboard, captured November 27, 2026.*
 
 Availability checks and sign-in happen on the homepage, and records are managed from the panel.
 
